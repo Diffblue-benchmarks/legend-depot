@@ -1,0 +1,15 @@
+name: com.diffblue.cover.refactoring.Recipe
+recipeList:
+- org.openrewrite.maven.AddDependency: {groupId: org.junit.vintage, artifactId: junit-vintage-engine,
+    version: 5.9.3, onlyIfUsing: '*..*', scope: test}
+- org.openrewrite.maven.AddDependency: {groupId: org.mockito, artifactId: mockito-junit-jupiter,
+    version: 3.9.0, onlyIfUsing: '*..*', scope: test}
+- org.openrewrite.maven.AddDependency: {groupId: org.glassfish.jersey.test-framework,
+    artifactId: jersey-test-framework-core, version: 2.25.1, onlyIfUsing: '*..*',
+    scope: test}
+- org.openrewrite.maven.AddDependency: {groupId: org.glassfish.jersey.test-framework.providers,
+    artifactId: jersey-test-framework-provider-inmemory, version: 2.25.1, onlyIfUsing: '*..*',
+    scope: test}
+- org.openrewrite.maven.AddDependency: {groupId: com.diffblue.cover, artifactId: cover-annotations,
+    version: 1.5.0, onlyIfUsing: '*..*', scope: provided}
+type: specs.openrewrite.org/v1beta/recipe
