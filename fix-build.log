@@ -1,0 +1,1064 @@
+INFO  Diffblue Cover 2025.06.02-fd4f1ca-licensed
+INFO  
+INFO  Command: refactor
+INFO  Apply refactorings.
+INFO  
+INFO  Discovered modules:
+INFO  - org.finos.legend.depot:legend-depot-test-reports
+INFO  - org.finos.legend.depot:legend-depot-model
+INFO  - org.finos.legend.depot:legend-depot-pure-model-context
+INFO  - org.finos.legend.depot:legend-depot-store-mongo
+INFO  - org.finos.legend.depot:legend-depot-core-schedules-api
+INFO  - org.finos.legend.depot:legend-depot-core-schedules
+INFO  - org.finos.legend.depot:legend-depot-core-schedules-store-mongo
+INFO  - org.finos.legend.depot:legend-depot-metrics-query-api
+INFO  - org.finos.legend.depot:legend-depot-metrics-query-services
+INFO  - org.finos.legend.depot:legend-depot-metrics-query-store-mongo
+INFO  - org.finos.legend.depot:legend-depot-notifications-api
+INFO  - org.finos.legend.depot:legend-depot-notifications-services
+INFO  - org.finos.legend.depot:legend-depot-notifications-store-mongo
+INFO  - org.finos.legend.depot:legend-depot-notifications-queue-mongo
+INFO  - org.finos.legend.depot:legend-depot-core-data-api
+INFO  - org.finos.legend.depot:legend-depot-core-data-services
+INFO  - org.finos.legend.depot:legend-depot-core-data-store-mongo
+INFO  - org.finos.legend.depot:legend-depot-entities-api
+INFO  - org.finos.legend.depot:legend-depot-entities-services
+INFO  - org.finos.legend.depot:legend-depot-entities-store-mongo
+INFO  - org.finos.legend.depot:legend-depot-generations-api
+INFO  - org.finos.legend.depot:legend-depot-generations-services
+INFO  - org.finos.legend.depot:legend-depot-generations-store-mongo
+INFO  - org.finos.legend.depot:legend-depot-core-tracing
+INFO  - org.finos.legend.depot:legend-depot-core-authorisation
+INFO  - org.finos.legend.depot:legend-depot-artifacts-api
+INFO  - org.finos.legend.depot:legend-depot-artifacts-store-mongo
+INFO  - org.finos.legend.depot:legend-depot-artifacts-services
+INFO  - org.finos.legend.depot:legend-depot-artifacts-repository-api
+INFO  - org.finos.legend.depot:legend-depot-artifacts-repository-maven-impl
+INFO  - org.finos.legend.depot:legend-depot-servers-common
+INFO  - org.finos.legend.depot:legend-depot-server
+INFO  - org.finos.legend.depot:legend-depot-store-server
+INFO  - org.finos.legend.depot:legend-depot-core-store-api
+INFO  
+INFO  
+INFO   [1/34] Refactoring module: org.finos.legend.depot:legend-depot-test-reports
+INFO  ============================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+WARN  E129: No source files found
+      No source files were found, you may want to exclude this module from analysis
+      using the `--exclude-modules` argument to exclude this module.
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-test-reports\.diffblue\refactorings.yml
+WARN  Refactorings failed. Restoring changes.
+ERROR E042: Failed to write refactoring config file
+      The refactoring configuration file
+      'C:\Users\ybagge\benchmarks\legend-depot\legend-depot-test-reports\.diffblue\refactorings.yml'
+      could not be written.
+      Cause: C:\Users\ybagge\benchmarks\legend-depot\legend-depot-test-reports\src\main\java
+      Please enable write permissions on this file and its parent folder.
+INFO  
+INFO   [2/34] Refactoring module: org.finos.legend.depot:legend-depot-model
+INFO  =====================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-model\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+INFO  Modifications applied:
+INFO    legend-depot-model\pom.xml
+INFO  Refactorings completed
+INFO  
+INFO   [3/34] Refactoring module: org.finos.legend.depot:legend-depot-pure-model-context
+INFO  ==================================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-pure-model-context\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+WARN  Refactorings failed. Restoring changes.
+ERROR E012: Error when using build system
+      An error occurred when using the build system.
+      Read the output of your build system below to fix the problem.
+      Build command: C:\Users\ybagge\.sdkman\candidates\maven\current\bin\mvn.cmd -Dmaven.ext.class.path=C:\Program Files\Diffblue\cover-buildsystem-maven-spy-jar-with-dependencies.jar -Dcom.diffblue.cover.skipTests=true -DskipTestOptimizer --batch-mode --projects=org.finos.legend.depot:legend-depot-pure-model-context --global-settings=C:\Users\ybagge\.sdkman\candidates\maven\current\conf\settings.xml install -Dmaven.compiler.failOnWarning=false --also-make -DskipTests -DskipITs --threads=1C
+      Standard output:
+      [INFO] Scanning for projects...
+      [INFO] Inspecting build with total of 1 modules...
+      [INFO] Installing Nexus Staging features:
+      [INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+      [INFO]
+      [INFO] Using the MultiThreadedBuilder implementation with a thread count of 24
+      [INFO]
+      [INFO] -------< org.finos.legend.depot:legend-depot-pure-model-context >-------
+      [INFO] Building Legend Depot - Pure Model Context - Services 2.65.1-SNAPSHOT
+      [INFO]   from pom.xml
+      [INFO] --------------------------------[ jar]---------------------------------
+      [INFO] Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/junit/jupiter/junit-jupiter-api/5.7.1/junit-jupiter-api-5.7.1.pom
+      [INFO] Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/junit/jupiter/junit-jupiter-api/5.7.1/junit-jupiter-api-5.7.1.pom
+      [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-api/5.7.1/junit-jupiter-api-5.7.1.pom
+      [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-api/5.7.1/junit-jupiter-api-5.7.1.pom (3.2 kB at 41 kB/s)
+      [INFO] Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/junit/platform/junit-platform-commons/1.7.1/junit-platform-commons-1.7.1.pom
+      [INFO] Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/junit/platform/junit-platform-commons/1.7.1/junit-platform-commons-1.7.1.pom
+      [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-commons/1.7.1/junit-platform-commons-1.7.1.pom
+      [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-commons/1.7.1/junit-platform-commons-1.7.1.pom (2.8 kB at 35 kB/s)
+      [INFO] Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/glassfish/jersey/test-framework/providers/jersey-test-framework-provider-inmemory/2.25.1/jersey-test-framework-provider-inmemory-2.25.1.pom
+      [INFO] Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/glassfish/jersey/test-framework/providers/jersey-test-framework-provider-inmemory/2.25.1/jersey-test-framework-provider-inmemory-2.25.1.pom
+      [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/glassfish/jersey/test-framework/providers/jersey-test-framework-provider-inmemory/2.25.1/jersey-test-framework-provider-inmemory-2.25.1.pom
+      [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/glassfish/jersey/test-framework/providers/jersey-test-framework-provider-inmemory/2.25.1/jersey-test-framework-provider-inmemory-2.25.1.pom (3.4 kB at 27 kB/s)
+      [INFO] Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/junit/vintage/junit-vintage-engine/5.9.3/junit-vintage-engine-5.9.3.pom
+      [INFO] Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/junit/vintage/junit-vintage-engine/5.9.3/junit-vintage-engine-5.9.3.pom
+      [INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/vintage/junit-vintage-engine/5.9.3/junit-vintage-engine-5.9.3.pom
+      [INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/vintage/junit-vintage-engine/5.9.3/junit-vintage-engine-5.9.3.pom (3.2 kB at 26 kB/s)
+      [INFO]
+      [INFO] --- enforcer:3.0.0-M1:enforce (enforce) @ legend-depot-pure-model-context ---
+      [WARNING]
+      Dependency convergence error for org.junit.jupiter:junit-jupiter-api:5.9.3 paths to dependency are:
+      +-org.finos.legend.depot:legend-depot-pure-model-context:2.65.1-SNAPSHOT
+      +-org.junit.jupiter:junit-jupiter-engine:5.9.3
+      +-org.junit.jupiter:junit-jupiter-api:5.9.3
+      and
+      +-org.finos.legend.depot:legend-depot-pure-model-context:2.65.1-SNAPSHOT
+      +-org.mockito:mockito-junit-jupiter:3.9.0
+      +-org.junit.jupiter:junit-jupiter-api:5.7.1
+      [WARNING] Rule 1: org.apache.maven.plugins.enforcer.DependencyConvergence failed with message:
+      Failed while enforcing releasability. See above detailed error message.
+      [INFO] ------------------------------------------------------------------------
+      [INFO] BUILD FAILURE
+      [INFO] ------------------------------------------------------------------------
+      [INFO] Total time:  22.575 s (Wall Clock)
+      [INFO] Finished at: 2025-06-18T16:53:00+01:00
+      [INFO] ------------------------------------------------------------------------
+      [ERROR] Failed to execute goal org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M1:enforce (enforce) on project legend-depot-pure-model-context: Some Enforcer rules have failed. Look above for specific messages explaining why the rule failed. -> [Help 1]
+      [ERROR]
+      [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+      [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+      [ERROR]
+      [ERROR] For more information about the errors and possible solutions, please read the following articles:
+      [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+      Exit code: 1
+      If you want to customize your build system configuration for Diffblue Cover
+      follow the guidelines here:
+      https://docs.diffblue.com/features/cover-cli/project-configuration/configuring-cover-to-work-with-your-projects-build-system/
+INFO  
+INFO   [4/34] Refactoring module: org.finos.legend.depot:legend-depot-store-mongo
+INFO  ===========================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-store-mongo\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+INFO  Modifications applied:
+INFO    legend-depot-store-mongo\pom.xml
+INFO  Refactorings completed
+INFO  
+INFO   [5/34] Refactoring module: org.finos.legend.depot:legend-depot-core-schedules-api
+INFO  ==================================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-core-schedules-api\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+INFO  Modifications applied:
+INFO    legend-depot-core-schedules-api\pom.xml
+INFO  Refactorings completed
+INFO  
+INFO   [6/34] Refactoring module: org.finos.legend.depot:legend-depot-core-schedules
+INFO  ==============================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-core-schedules\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+WARN  Refactorings failed. Restoring changes.
+ERROR E012: Error when using build system
+      An error occurred when using the build system.
+      Read the output of your build system below to fix the problem.
+      Build command: C:\Users\ybagge\.sdkman\candidates\maven\current\bin\mvn.cmd -Dmaven.ext.class.path=C:\Program Files\Diffblue\cover-buildsystem-maven-spy-jar-with-dependencies.jar -Dcom.diffblue.cover.skipTests=true -DskipTestOptimizer --batch-mode --projects=org.finos.legend.depot:legend-depot-core-schedules --global-settings=C:\Users\ybagge\.sdkman\candidates\maven\current\conf\settings.xml install -Dmaven.compiler.failOnWarning=false --also-make -DskipTests -DskipITs --threads=1C
+      Standard output:
+      [INFO] Scanning for projects...
+      [INFO] Inspecting build with total of 1 modules...
+      [INFO] Installing Nexus Staging features:
+      [INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+      [INFO]
+      [INFO] Using the MultiThreadedBuilder implementation with a thread count of 24
+      [INFO]
+      [INFO] ---------< org.finos.legend.depot:legend-depot-core-schedules >---------
+      [INFO] Building Legend Depot - Core - Schedules 2.65.1-SNAPSHOT
+      [INFO]   from pom.xml
+      [INFO] --------------------------------[ jar]---------------------------------
+      [INFO]
+      [INFO] --- enforcer:3.0.0-M1:enforce (enforce) @ legend-depot-core-schedules ---
+      [WARNING]
+      Dependency convergence error for org.junit.jupiter:junit-jupiter-api:5.9.3 paths to dependency are:
+      +-org.finos.legend.depot:legend-depot-core-schedules:2.65.1-SNAPSHOT
+      +-org.junit.jupiter:junit-jupiter-engine:5.9.3
+      +-org.junit.jupiter:junit-jupiter-api:5.9.3
+      and
+      +-org.finos.legend.depot:legend-depot-core-schedules:2.65.1-SNAPSHOT
+      +-org.mockito:mockito-junit-jupiter:3.9.0
+      +-org.junit.jupiter:junit-jupiter-api:5.7.1
+      [WARNING] Rule 1: org.apache.maven.plugins.enforcer.DependencyConvergence failed with message:
+      Failed while enforcing releasability. See above detailed error message.
+      [INFO] ------------------------------------------------------------------------
+      [INFO] BUILD FAILURE
+      [INFO] ------------------------------------------------------------------------
+      [INFO] Total time:  3.824 s (Wall Clock)
+      [INFO] Finished at: 2025-06-18T16:55:23+01:00
+      [INFO] ------------------------------------------------------------------------
+      [ERROR] Failed to execute goal org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M1:enforce (enforce) on project legend-depot-core-schedules: Some Enforcer rules have failed. Look above for specific messages explaining why the rule failed. -> [Help 1]
+      [ERROR]
+      [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+      [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+      [ERROR]
+      [ERROR] For more information about the errors and possible solutions, please read the following articles:
+      [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+      Exit code: 1
+      If you want to customize your build system configuration for Diffblue Cover
+      follow the guidelines here:
+      https://docs.diffblue.com/features/cover-cli/project-configuration/configuring-cover-to-work-with-your-projects-build-system/
+INFO  
+INFO   [7/34] Refactoring module: org.finos.legend.depot:legend-depot-core-schedules-store-mongo
+INFO  ==========================================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-core-schedules-store-mongo\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+INFO  Modifications applied:
+INFO    legend-depot-core-schedules-store-mongo\pom.xml
+INFO  Refactorings completed
+INFO  
+INFO   [8/34] Refactoring module: org.finos.legend.depot:legend-depot-metrics-query-api
+INFO  =================================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-metrics-query-api\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+INFO  Modifications applied:
+INFO    legend-depot-metrics-query-api\pom.xml
+INFO  Refactorings completed
+INFO  
+INFO   [9/34] Refactoring module: org.finos.legend.depot:legend-depot-metrics-query-services
+INFO  ======================================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-metrics-query-services\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+INFO  Modifications applied:
+INFO    legend-depot-metrics-query-services\pom.xml
+INFO  Refactorings completed
+INFO  
+INFO  [10/34] Refactoring module: org.finos.legend.depot:legend-depot-metrics-query-store-mongo
+INFO  =========================================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-metrics-query-store-mongo\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+INFO  Modifications applied:
+INFO    legend-depot-metrics-query-store-mongo\pom.xml
+INFO  Refactorings completed
+INFO  
+INFO  [11/34] Refactoring module: org.finos.legend.depot:legend-depot-notifications-api
+INFO  =================================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-notifications-api\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+INFO  Modifications applied:
+INFO    legend-depot-notifications-api\pom.xml
+INFO  Refactorings completed
+INFO  
+INFO  [12/34] Refactoring module: org.finos.legend.depot:legend-depot-notifications-services
+INFO  ======================================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-notifications-services\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+WARN  Refactorings failed. Restoring changes.
+ERROR E012: Error when using build system
+      An error occurred when using the build system.
+      Read the output of your build system below to fix the problem.
+      Build command: C:\Users\ybagge\.sdkman\candidates\maven\current\bin\mvn.cmd -Dmaven.ext.class.path=C:\Program Files\Diffblue\cover-buildsystem-maven-spy-jar-with-dependencies.jar -Dcom.diffblue.cover.skipTests=true -DskipTestOptimizer --batch-mode --projects=org.finos.legend.depot:legend-depot-notifications-services --global-settings=C:\Users\ybagge\.sdkman\candidates\maven\current\conf\settings.xml install -Dmaven.compiler.failOnWarning=false --also-make -DskipTests -DskipITs --threads=1C
+      Standard output:
+      [INFO] Scanning for projects...
+      [INFO] Inspecting build with total of 1 modules...
+      [INFO] Installing Nexus Staging features:
+      [INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+      [INFO]
+      [INFO] Using the MultiThreadedBuilder implementation with a thread count of 24
+      [INFO]
+      [INFO] -----< org.finos.legend.depot:legend-depot-notifications-services >-----
+      [INFO] Building Legend Depot - Notifications- Services 2.65.1-SNAPSHOT
+      [INFO]   from pom.xml
+      [INFO] --------------------------------[ jar]---------------------------------
+      [INFO]
+      [INFO] --- enforcer:3.0.0-M1:enforce (enforce) @ legend-depot-notifications-services ---
+      [WARNING]
+      Dependency convergence error for org.junit.jupiter:junit-jupiter-api:5.9.3 paths to dependency are:
+      +-org.finos.legend.depot:legend-depot-notifications-services:2.65.1-SNAPSHOT
+      +-org.junit.jupiter:junit-jupiter-engine:5.9.3
+      +-org.junit.jupiter:junit-jupiter-api:5.9.3
+      and
+      +-org.finos.legend.depot:legend-depot-notifications-services:2.65.1-SNAPSHOT
+      +-org.mockito:mockito-junit-jupiter:3.9.0
+      +-org.junit.jupiter:junit-jupiter-api:5.7.1
+      [WARNING] Rule 1: org.apache.maven.plugins.enforcer.DependencyConvergence failed with message:
+      Failed while enforcing releasability. See above detailed error message.
+      [INFO] ------------------------------------------------------------------------
+      [INFO] BUILD FAILURE
+      [INFO] ------------------------------------------------------------------------
+      [INFO] Total time:  4.555 s (Wall Clock)
+      [INFO] Finished at: 2025-06-18T17:00:24+01:00
+      [INFO] ------------------------------------------------------------------------
+      [ERROR] Failed to execute goal org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M1:enforce (enforce) on project legend-depot-notifications-services: Some Enforcer rules have failed. Look above for specific messages explaining why the rule failed. -> [Help 1]
+      [ERROR]
+      [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+      [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+      [ERROR]
+      [ERROR] For more information about the errors and possible solutions, please read the following articles:
+      [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+      Exit code: 1
+      If you want to customize your build system configuration for Diffblue Cover
+      follow the guidelines here:
+      https://docs.diffblue.com/features/cover-cli/project-configuration/configuring-cover-to-work-with-your-projects-build-system/
+INFO  
+INFO  [13/34] Refactoring module: org.finos.legend.depot:legend-depot-notifications-store-mongo
+INFO  =========================================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-notifications-store-mongo\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+WARN  Refactorings failed. Restoring changes.
+ERROR E012: Error when using build system
+      An error occurred when using the build system.
+      Read the output of your build system below to fix the problem.
+      Build command: C:\Users\ybagge\.sdkman\candidates\maven\current\bin\mvn.cmd -Dmaven.ext.class.path=C:\Program Files\Diffblue\cover-buildsystem-maven-spy-jar-with-dependencies.jar -Dcom.diffblue.cover.skipTests=true -DskipTestOptimizer --batch-mode --projects=org.finos.legend.depot:legend-depot-notifications-store-mongo --global-settings=C:\Users\ybagge\.sdkman\candidates\maven\current\conf\settings.xml install -Dmaven.compiler.failOnWarning=false --also-make -DskipTests -DskipITs --threads=1C
+      Standard output:
+      [INFO] Scanning for projects...
+      [INFO] Inspecting build with total of 1 modules...
+      [INFO] Installing Nexus Staging features:
+      [INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+      [INFO]
+      [INFO] Using the MultiThreadedBuilder implementation with a thread count of 24
+      [INFO]
+      [INFO] ---< org.finos.legend.depot:legend-depot-notifications-store-mongo >----
+      [INFO] Building Legend Depot - Notifications - Store - Mongo 2.65.1-SNAPSHOT
+      [INFO]   from pom.xml
+      [INFO] --------------------------------[ jar]---------------------------------
+      [INFO]
+      [INFO] --- enforcer:3.0.0-M1:enforce (enforce) @ legend-depot-notifications-store-mongo ---
+      [WARNING]
+      Dependency convergence error for org.junit.jupiter:junit-jupiter-api:5.9.3 paths to dependency are:
+      +-org.finos.legend.depot:legend-depot-notifications-store-mongo:2.65.1-SNAPSHOT
+      +-org.junit.jupiter:junit-jupiter-engine:5.9.3
+      +-org.junit.jupiter:junit-jupiter-api:5.9.3
+      and
+      +-org.finos.legend.depot:legend-depot-notifications-store-mongo:2.65.1-SNAPSHOT
+      +-org.mockito:mockito-junit-jupiter:3.9.0
+      +-org.junit.jupiter:junit-jupiter-api:5.7.1
+      [WARNING] Rule 1: org.apache.maven.plugins.enforcer.DependencyConvergence failed with message:
+      Failed while enforcing releasability. See above detailed error message.
+      [INFO] ------------------------------------------------------------------------
+      [INFO] BUILD FAILURE
+      [INFO] ------------------------------------------------------------------------
+      [INFO] Total time:  4.257 s (Wall Clock)
+      [INFO] Finished at: 2025-06-18T17:01:18+01:00
+      [INFO] ------------------------------------------------------------------------
+      [ERROR] Failed to execute goal org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M1:enforce (enforce) on project legend-depot-notifications-store-mongo: Some Enforcer rules have failed. Look above for specific messages explaining why the rule failed. -> [Help 1]
+      [ERROR]
+      [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+      [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+      [ERROR]
+      [ERROR] For more information about the errors and possible solutions, please read the following articles:
+      [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+      Exit code: 1
+      If you want to customize your build system configuration for Diffblue Cover
+      follow the guidelines here:
+      https://docs.diffblue.com/features/cover-cli/project-configuration/configuring-cover-to-work-with-your-projects-build-system/
+INFO  
+INFO  [14/34] Refactoring module: org.finos.legend.depot:legend-depot-notifications-queue-mongo
+INFO  =========================================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-notifications-queue-mongo\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+WARN  Refactorings failed. Restoring changes.
+ERROR E012: Error when using build system
+      An error occurred when using the build system.
+      Read the output of your build system below to fix the problem.
+      Build command: C:\Users\ybagge\.sdkman\candidates\maven\current\bin\mvn.cmd -Dmaven.ext.class.path=C:\Program Files\Diffblue\cover-buildsystem-maven-spy-jar-with-dependencies.jar -Dcom.diffblue.cover.skipTests=true -DskipTestOptimizer --batch-mode --projects=org.finos.legend.depot:legend-depot-notifications-queue-mongo --global-settings=C:\Users\ybagge\.sdkman\candidates\maven\current\conf\settings.xml install -Dmaven.compiler.failOnWarning=false --also-make -DskipTests -DskipITs --threads=1C
+      Standard output:
+      [INFO] Scanning for projects...
+      [INFO] Inspecting build with total of 1 modules...
+      [INFO] Installing Nexus Staging features:
+      [INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+      [INFO]
+      [INFO] Using the MultiThreadedBuilder implementation with a thread count of 24
+      [INFO]
+      [INFO] ---< org.finos.legend.depot:legend-depot-notifications-queue-mongo >----
+      [INFO] Building Legend Depot - Notifications - Queue - Mongo 2.65.1-SNAPSHOT
+      [INFO]   from pom.xml
+      [INFO] --------------------------------[ jar]---------------------------------
+      [INFO]
+      [INFO] --- enforcer:3.0.0-M1:enforce (enforce) @ legend-depot-notifications-queue-mongo ---
+      [WARNING]
+      Dependency convergence error for org.junit.jupiter:junit-jupiter-api:5.9.3 paths to dependency are:
+      +-org.finos.legend.depot:legend-depot-notifications-queue-mongo:2.65.1-SNAPSHOT
+      +-org.junit.jupiter:junit-jupiter-engine:5.9.3
+      +-org.junit.jupiter:junit-jupiter-api:5.9.3
+      and
+      +-org.finos.legend.depot:legend-depot-notifications-queue-mongo:2.65.1-SNAPSHOT
+      +-org.mockito:mockito-junit-jupiter:3.9.0
+      +-org.junit.jupiter:junit-jupiter-api:5.7.1
+      [WARNING] Rule 1: org.apache.maven.plugins.enforcer.DependencyConvergence failed with message:
+      Failed while enforcing releasability. See above detailed error message.
+      [INFO] ------------------------------------------------------------------------
+      [INFO] BUILD FAILURE
+      [INFO] ------------------------------------------------------------------------
+      [INFO] Total time:  3.974 s (Wall Clock)
+      [INFO] Finished at: 2025-06-18T17:02:19+01:00
+      [INFO] ------------------------------------------------------------------------
+      [ERROR] Failed to execute goal org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M1:enforce (enforce) on project legend-depot-notifications-queue-mongo: Some Enforcer rules have failed. Look above for specific messages explaining why the rule failed. -> [Help 1]
+      [ERROR]
+      [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+      [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+      [ERROR]
+      [ERROR] For more information about the errors and possible solutions, please read the following articles:
+      [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+      Exit code: 1
+      If you want to customize your build system configuration for Diffblue Cover
+      follow the guidelines here:
+      https://docs.diffblue.com/features/cover-cli/project-configuration/configuring-cover-to-work-with-your-projects-build-system/
+INFO  
+INFO  [15/34] Refactoring module: org.finos.legend.depot:legend-depot-core-data-api
+INFO  =============================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-core-data-api\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+INFO  Modifications applied:
+INFO    legend-depot-core-data-api\pom.xml
+INFO  Refactorings completed
+INFO  
+INFO  [16/34] Refactoring module: org.finos.legend.depot:legend-depot-core-data-services
+INFO  ==================================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-core-data-services\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+WARN  Refactorings failed. Restoring changes.
+ERROR E012: Error when using build system
+      An error occurred when using the build system.
+      Read the output of your build system below to fix the problem.
+      Build command: C:\Users\ybagge\.sdkman\candidates\maven\current\bin\mvn.cmd -Dmaven.ext.class.path=C:\Program Files\Diffblue\cover-buildsystem-maven-spy-jar-with-dependencies.jar -Dcom.diffblue.cover.skipTests=true -DskipTestOptimizer --batch-mode --projects=org.finos.legend.depot:legend-depot-core-data-services --global-settings=C:\Users\ybagge\.sdkman\candidates\maven\current\conf\settings.xml install -Dmaven.compiler.failOnWarning=false --also-make -DskipTests -DskipITs --threads=1C
+      Standard output:
+      [INFO] Scanning for projects...
+      [INFO] Inspecting build with total of 1 modules...
+      [INFO] Installing Nexus Staging features:
+      [INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+      [INFO]
+      [INFO] Using the MultiThreadedBuilder implementation with a thread count of 24
+      [INFO]
+      [INFO] -------< org.finos.legend.depot:legend-depot-core-data-services >-------
+      [INFO] Building Legend Depot - Core Data - Services 2.65.1-SNAPSHOT
+      [INFO]   from pom.xml
+      [INFO] --------------------------------[ jar]---------------------------------
+      [INFO]
+      [INFO] --- enforcer:3.0.0-M1:enforce (enforce) @ legend-depot-core-data-services ---
+      [WARNING]
+      Dependency convergence error for org.junit.jupiter:junit-jupiter-api:5.9.3 paths to dependency are:
+      +-org.finos.legend.depot:legend-depot-core-data-services:2.65.1-SNAPSHOT
+      +-org.junit.jupiter:junit-jupiter-engine:5.9.3
+      +-org.junit.jupiter:junit-jupiter-api:5.9.3
+      and
+      +-org.finos.legend.depot:legend-depot-core-data-services:2.65.1-SNAPSHOT
+      +-org.mockito:mockito-junit-jupiter:3.9.0
+      +-org.junit.jupiter:junit-jupiter-api:5.7.1
+      [WARNING] Rule 1: org.apache.maven.plugins.enforcer.DependencyConvergence failed with message:
+      Failed while enforcing releasability. See above detailed error message.
+      [INFO] ------------------------------------------------------------------------
+      [INFO] BUILD FAILURE
+      [INFO] ------------------------------------------------------------------------
+      [INFO] Total time:  9.807 s (Wall Clock)
+      [INFO] Finished at: 2025-06-18T17:04:33+01:00
+      [INFO] ------------------------------------------------------------------------
+      [ERROR] Failed to execute goal org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M1:enforce (enforce) on project legend-depot-core-data-services: Some Enforcer rules have failed. Look above for specific messages explaining why the rule failed. -> [Help 1]
+      [ERROR]
+      [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+      [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+      [ERROR]
+      [ERROR] For more information about the errors and possible solutions, please read the following articles:
+      [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+      Exit code: 1
+      If you want to customize your build system configuration for Diffblue Cover
+      follow the guidelines here:
+      https://docs.diffblue.com/features/cover-cli/project-configuration/configuring-cover-to-work-with-your-projects-build-system/
+INFO  
+INFO  [17/34] Refactoring module: org.finos.legend.depot:legend-depot-core-data-store-mongo
+INFO  =====================================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-core-data-store-mongo\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+INFO  Modifications applied:
+INFO    legend-depot-core-data-store-mongo\pom.xml
+INFO  Refactorings completed
+INFO  
+INFO  [18/34] Refactoring module: org.finos.legend.depot:legend-depot-entities-api
+INFO  ============================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-entities-api\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+INFO  Modifications applied:
+INFO    legend-depot-entities-api\pom.xml
+INFO  Refactorings completed
+INFO  
+INFO  [19/34] Refactoring module: org.finos.legend.depot:legend-depot-entities-services
+INFO  =================================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-entities-services\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+WARN  Refactorings failed. Restoring changes.
+ERROR E012: Error when using build system
+      An error occurred when using the build system.
+      Read the output of your build system below to fix the problem.
+      Build command: C:\Users\ybagge\.sdkman\candidates\maven\current\bin\mvn.cmd -Dmaven.ext.class.path=C:\Program Files\Diffblue\cover-buildsystem-maven-spy-jar-with-dependencies.jar -Dcom.diffblue.cover.skipTests=true -DskipTestOptimizer --batch-mode --projects=org.finos.legend.depot:legend-depot-entities-services --global-settings=C:\Users\ybagge\.sdkman\candidates\maven\current\conf\settings.xml install -Dmaven.compiler.failOnWarning=false --also-make -DskipTests -DskipITs --threads=1C
+      Standard output:
+      [INFO] Scanning for projects...
+      [INFO] Inspecting build with total of 1 modules...
+      [INFO] Installing Nexus Staging features:
+      [INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+      [INFO]
+      [INFO] Using the MultiThreadedBuilder implementation with a thread count of 24
+      [INFO]
+      [INFO] -------< org.finos.legend.depot:legend-depot-entities-services >--------
+      [INFO] Building Legend Depot - Entities - Services 2.65.1-SNAPSHOT
+      [INFO]   from pom.xml
+      [INFO] --------------------------------[ jar]---------------------------------
+      [INFO]
+      [INFO] --- enforcer:3.0.0-M1:enforce (enforce) @ legend-depot-entities-services ---
+      [WARNING]
+      Dependency convergence error for org.junit.jupiter:junit-jupiter-api:5.9.3 paths to dependency are:
+      +-org.finos.legend.depot:legend-depot-entities-services:2.65.1-SNAPSHOT
+      +-org.junit.jupiter:junit-jupiter-engine:5.9.3
+      +-org.junit.jupiter:junit-jupiter-api:5.9.3
+      and
+      +-org.finos.legend.depot:legend-depot-entities-services:2.65.1-SNAPSHOT
+      +-org.mockito:mockito-junit-jupiter:3.9.0
+      +-org.junit.jupiter:junit-jupiter-api:5.7.1
+      [WARNING] Rule 1: org.apache.maven.plugins.enforcer.DependencyConvergence failed with message:
+      Failed while enforcing releasability. See above detailed error message.
+      [INFO] ------------------------------------------------------------------------
+      [INFO] BUILD FAILURE
+      [INFO] ------------------------------------------------------------------------
+      [INFO] Total time:  11.531 s (Wall Clock)
+      [INFO] Finished at: 2025-06-18T17:07:02+01:00
+      [INFO] ------------------------------------------------------------------------
+      [ERROR] Failed to execute goal org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M1:enforce (enforce) on project legend-depot-entities-services: Some Enforcer rules have failed. Look above for specific messages explaining why the rule failed. -> [Help 1]
+      [ERROR]
+      [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+      [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+      [ERROR]
+      [ERROR] For more information about the errors and possible solutions, please read the following articles:
+      [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+      Exit code: 1
+      If you want to customize your build system configuration for Diffblue Cover
+      follow the guidelines here:
+      https://docs.diffblue.com/features/cover-cli/project-configuration/configuring-cover-to-work-with-your-projects-build-system/
+INFO  
+INFO  [20/34] Refactoring module: org.finos.legend.depot:legend-depot-entities-store-mongo
+INFO  ====================================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-entities-store-mongo\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+INFO  Modifications applied:
+INFO    legend-depot-entities-store-mongo\pom.xml
+INFO  Refactorings completed
+INFO  
+INFO  [21/34] Refactoring module: org.finos.legend.depot:legend-depot-generations-api
+INFO  ===============================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-generations-api\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+INFO  Modifications applied:
+INFO    legend-depot-generations-api\pom.xml
+INFO  Refactorings completed
+INFO  
+INFO  [22/34] Refactoring module: org.finos.legend.depot:legend-depot-generations-services
+INFO  ====================================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-generations-services\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+WARN  Refactorings failed. Restoring changes.
+ERROR E012: Error when using build system
+      An error occurred when using the build system.
+      Read the output of your build system below to fix the problem.
+      Build command: C:\Users\ybagge\.sdkman\candidates\maven\current\bin\mvn.cmd -Dmaven.ext.class.path=C:\Program Files\Diffblue\cover-buildsystem-maven-spy-jar-with-dependencies.jar -Dcom.diffblue.cover.skipTests=true -DskipTestOptimizer --batch-mode --projects=org.finos.legend.depot:legend-depot-generations-services --global-settings=C:\Users\ybagge\.sdkman\candidates\maven\current\conf\settings.xml install -Dmaven.compiler.failOnWarning=false --also-make -DskipTests -DskipITs --threads=1C
+      Standard output:
+      [INFO] Scanning for projects...
+      [INFO] Inspecting build with total of 1 modules...
+      [INFO] Installing Nexus Staging features:
+      [INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+      [INFO]
+      [INFO] Using the MultiThreadedBuilder implementation with a thread count of 24
+      [INFO]
+      [INFO] ------< org.finos.legend.depot:legend-depot-generations-services >------
+      [INFO] Building Legend Depot - Generations - Services 2.65.1-SNAPSHOT
+      [INFO]   from pom.xml
+      [INFO] --------------------------------[ jar]---------------------------------
+      [INFO]
+      [INFO] --- enforcer:3.0.0-M1:enforce (enforce) @ legend-depot-generations-services ---
+      [WARNING]
+      Dependency convergence error for org.junit.jupiter:junit-jupiter-api:5.9.3 paths to dependency are:
+      +-org.finos.legend.depot:legend-depot-generations-services:2.65.1-SNAPSHOT
+      +-org.junit.jupiter:junit-jupiter-engine:5.9.3
+      +-org.junit.jupiter:junit-jupiter-api:5.9.3
+      and
+      +-org.finos.legend.depot:legend-depot-generations-services:2.65.1-SNAPSHOT
+      +-org.mockito:mockito-junit-jupiter:3.9.0
+      +-org.junit.jupiter:junit-jupiter-api:5.7.1
+      [WARNING] Rule 1: org.apache.maven.plugins.enforcer.DependencyConvergence failed with message:
+      Failed while enforcing releasability. See above detailed error message.
+      [INFO] ------------------------------------------------------------------------
+      [INFO] BUILD FAILURE
+      [INFO] ------------------------------------------------------------------------
+      [INFO] Total time:  4.283 s (Wall Clock)
+      [INFO] Finished at: 2025-06-18T17:09:30+01:00
+      [INFO] ------------------------------------------------------------------------
+      [ERROR] Failed to execute goal org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M1:enforce (enforce) on project legend-depot-generations-services: Some Enforcer rules have failed. Look above for specific messages explaining why the rule failed. -> [Help 1]
+      [ERROR]
+      [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+      [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+      [ERROR]
+      [ERROR] For more information about the errors and possible solutions, please read the following articles:
+      [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+      Exit code: 1
+      If you want to customize your build system configuration for Diffblue Cover
+      follow the guidelines here:
+      https://docs.diffblue.com/features/cover-cli/project-configuration/configuring-cover-to-work-with-your-projects-build-system/
+INFO  
+INFO  [23/34] Refactoring module: org.finos.legend.depot:legend-depot-generations-store-mongo
+INFO  =======================================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-generations-store-mongo\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+INFO  Modifications applied:
+INFO    legend-depot-generations-store-mongo\pom.xml
+INFO  Refactorings completed
+INFO  
+INFO  [24/34] Refactoring module: org.finos.legend.depot:legend-depot-core-tracing
+INFO  ============================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-core-tracing\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+INFO  Modifications applied:
+INFO    legend-depot-core-tracing\pom.xml
+INFO  Refactorings completed
+INFO  
+INFO  [25/34] Refactoring module: org.finos.legend.depot:legend-depot-core-authorisation
+INFO  ==================================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-core-authorisation\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+INFO  Modifications applied:
+INFO    legend-depot-core-authorisation\pom.xml
+INFO  Refactorings completed
+INFO  
+INFO  [26/34] Refactoring module: org.finos.legend.depot:legend-depot-artifacts-api
+INFO  =============================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-artifacts-api\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+INFO  Modifications applied:
+INFO    legend-depot-artifacts-api\pom.xml
+INFO  Refactorings completed
+INFO  
+INFO  [27/34] Refactoring module: org.finos.legend.depot:legend-depot-artifacts-store-mongo
+INFO  =====================================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-artifacts-store-mongo\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+INFO  Modifications applied:
+INFO    legend-depot-artifacts-store-mongo\pom.xml
+INFO  Refactorings completed
+INFO  
+INFO  [28/34] Refactoring module: org.finos.legend.depot:legend-depot-artifacts-services
+INFO  ==================================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-artifacts-services\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+WARN  Refactorings failed. Restoring changes.
+ERROR E012: Error when using build system
+      An error occurred when using the build system.
+      Read the output of your build system below to fix the problem.
+      Build command: C:\Users\ybagge\.sdkman\candidates\maven\current\bin\mvn.cmd -Dmaven.ext.class.path=C:\Program Files\Diffblue\cover-buildsystem-maven-spy-jar-with-dependencies.jar -Dcom.diffblue.cover.skipTests=true -DskipTestOptimizer --batch-mode --projects=org.finos.legend.depot:legend-depot-artifacts-services --global-settings=C:\Users\ybagge\.sdkman\candidates\maven\current\conf\settings.xml install -Dmaven.compiler.failOnWarning=false --also-make -DskipTests -DskipITs --threads=1C
+      Standard output:
+      [INFO] Scanning for projects...
+      [INFO] Inspecting build with total of 1 modules...
+      [INFO] Installing Nexus Staging features:
+      [INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+      [INFO]
+      [INFO] Using the MultiThreadedBuilder implementation with a thread count of 24
+      [INFO]
+      [INFO] -------< org.finos.legend.depot:legend-depot-artifacts-services >-------
+      [INFO] Building Legend Depot - Artifacts - Services 2.65.1-SNAPSHOT
+      [INFO]   from pom.xml
+      [INFO] --------------------------------[ jar]---------------------------------
+      [INFO]
+      [INFO] --- enforcer:3.0.0-M1:enforce (enforce) @ legend-depot-artifacts-services ---
+      [WARNING]
+      Dependency convergence error for org.junit.jupiter:junit-jupiter-api:5.9.3 paths to dependency are:
+      +-org.finos.legend.depot:legend-depot-artifacts-services:2.65.1-SNAPSHOT
+      +-org.junit.jupiter:junit-jupiter-engine:5.9.3
+      +-org.junit.jupiter:junit-jupiter-api:5.9.3
+      and
+      +-org.finos.legend.depot:legend-depot-artifacts-services:2.65.1-SNAPSHOT
+      +-org.mockito:mockito-junit-jupiter:3.9.0
+      +-org.junit.jupiter:junit-jupiter-api:5.7.1
+      [WARNING] Rule 1: org.apache.maven.plugins.enforcer.DependencyConvergence failed with message:
+      Failed while enforcing releasability. See above detailed error message.
+      [INFO] ------------------------------------------------------------------------
+      [INFO] BUILD FAILURE
+      [INFO] ------------------------------------------------------------------------
+      [INFO] Total time:  5.114 s (Wall Clock)
+      [INFO] Finished at: 2025-06-18T17:15:23+01:00
+      [INFO] ------------------------------------------------------------------------
+      [ERROR] Failed to execute goal org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M1:enforce (enforce) on project legend-depot-artifacts-services: Some Enforcer rules have failed. Look above for specific messages explaining why the rule failed. -> [Help 1]
+      [ERROR]
+      [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+      [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+      [ERROR]
+      [ERROR] For more information about the errors and possible solutions, please read the following articles:
+      [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+      Exit code: 1
+      If you want to customize your build system configuration for Diffblue Cover
+      follow the guidelines here:
+      https://docs.diffblue.com/features/cover-cli/project-configuration/configuring-cover-to-work-with-your-projects-build-system/
+INFO  
+INFO  [29/34] Refactoring module: org.finos.legend.depot:legend-depot-artifacts-repository-api
+INFO  ========================================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-artifacts-repository-api\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+WARN  Refactorings failed. Restoring changes.
+ERROR E012: Error when using build system
+      An error occurred when using the build system.
+      Read the output of your build system below to fix the problem.
+      Build command: C:\Users\ybagge\.sdkman\candidates\maven\current\bin\mvn.cmd -Dmaven.ext.class.path=C:\Program Files\Diffblue\cover-buildsystem-maven-spy-jar-with-dependencies.jar -Dcom.diffblue.cover.skipTests=true -DskipTestOptimizer --batch-mode --projects=org.finos.legend.depot:legend-depot-artifacts-repository-api --global-settings=C:\Users\ybagge\.sdkman\candidates\maven\current\conf\settings.xml install -Dmaven.compiler.failOnWarning=false --also-make -DskipTests -DskipITs --threads=1C
+      Standard output:
+      [INFO] Scanning for projects...
+      [INFO] Inspecting build with total of 1 modules...
+      [INFO] Installing Nexus Staging features:
+      [INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+      [INFO]
+      [INFO] Using the MultiThreadedBuilder implementation with a thread count of 24
+      [INFO]
+      [INFO] ----< org.finos.legend.depot:legend-depot-artifacts-repository-api >----
+      [INFO] Building Legend Depot - Artifacts - Repository - API 2.65.1-SNAPSHOT
+      [INFO]   from pom.xml
+      [INFO] --------------------------------[ jar]---------------------------------
+      [INFO]
+      [INFO] --- enforcer:3.0.0-M1:enforce (enforce) @ legend-depot-artifacts-repository-api ---
+      [WARNING]
+      Dependency convergence error for org.junit.jupiter:junit-jupiter-api:5.9.3 paths to dependency are:
+      +-org.finos.legend.depot:legend-depot-artifacts-repository-api:2.65.1-SNAPSHOT
+      +-org.junit.jupiter:junit-jupiter-engine:5.9.3
+      +-org.junit.jupiter:junit-jupiter-api:5.9.3
+      and
+      +-org.finos.legend.depot:legend-depot-artifacts-repository-api:2.65.1-SNAPSHOT
+      +-org.mockito:mockito-junit-jupiter:3.9.0
+      +-org.junit.jupiter:junit-jupiter-api:5.7.1
+      [WARNING] Rule 1: org.apache.maven.plugins.enforcer.DependencyConvergence failed with message:
+      Failed while enforcing releasability. See above detailed error message.
+      [INFO] ------------------------------------------------------------------------
+      [INFO] BUILD FAILURE
+      [INFO] ------------------------------------------------------------------------
+      [INFO] Total time:  4.062 s (Wall Clock)
+      [INFO] Finished at: 2025-06-18T17:16:12+01:00
+      [INFO] ------------------------------------------------------------------------
+      [ERROR] Failed to execute goal org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M1:enforce (enforce) on project legend-depot-artifacts-repository-api: Some Enforcer rules have failed. Look above for specific messages explaining why the rule failed. -> [Help 1]
+      [ERROR]
+      [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+      [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+      [ERROR]
+      [ERROR] For more information about the errors and possible solutions, please read the following articles:
+      [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+      Exit code: 1
+      If you want to customize your build system configuration for Diffblue Cover
+      follow the guidelines here:
+      https://docs.diffblue.com/features/cover-cli/project-configuration/configuring-cover-to-work-with-your-projects-build-system/
+INFO  
+INFO  [30/34] Refactoring module: org.finos.legend.depot:legend-depot-artifacts-repository-maven-impl
+INFO  ===============================================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-artifacts-repository-maven-impl\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+WARN  Refactorings failed. Restoring changes.
+ERROR E012: Error when using build system
+      An error occurred when using the build system.
+      Read the output of your build system below to fix the problem.
+      Build command: C:\Users\ybagge\.sdkman\candidates\maven\current\bin\mvn.cmd -Dmaven.ext.class.path=C:\Program Files\Diffblue\cover-buildsystem-maven-spy-jar-with-dependencies.jar -Dcom.diffblue.cover.skipTests=true -DskipTestOptimizer --batch-mode --projects=org.finos.legend.depot:legend-depot-artifacts-repository-maven-impl --global-settings=C:\Users\ybagge\.sdkman\candidates\maven\current\conf\settings.xml install -Dmaven.compiler.failOnWarning=false --also-make -DskipTests -DskipITs --threads=1C
+      Standard output:
+      [INFO] Scanning for projects...
+      [INFO] Inspecting build with total of 1 modules...
+      [INFO] Installing Nexus Staging features:
+      [INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+      [INFO]
+      [INFO] Using the MultiThreadedBuilder implementation with a thread count of 24
+      [INFO]
+      [INFO] --< org.finos.legend.depot:legend-depot-artifacts-repository-maven-impl >--
+      [INFO] Building Legend Depot - Artifacts - Repository - Maven 2.65.1-SNAPSHOT
+      [INFO]   from pom.xml
+      [INFO] --------------------------------[ jar]---------------------------------
+      [INFO]
+      [INFO] --- enforcer:3.0.0-M1:enforce (enforce) @ legend-depot-artifacts-repository-maven-impl ---
+      [WARNING]
+      Dependency convergence error for org.junit.jupiter:junit-jupiter-api:5.9.3 paths to dependency are:
+      +-org.finos.legend.depot:legend-depot-artifacts-repository-maven-impl:2.65.1-SNAPSHOT
+      +-org.junit.jupiter:junit-jupiter-engine:5.9.3
+      +-org.junit.jupiter:junit-jupiter-api:5.9.3
+      and
+      +-org.finos.legend.depot:legend-depot-artifacts-repository-maven-impl:2.65.1-SNAPSHOT
+      +-org.mockito:mockito-junit-jupiter:3.9.0
+      +-org.junit.jupiter:junit-jupiter-api:5.7.1
+      [WARNING] Rule 1: org.apache.maven.plugins.enforcer.DependencyConvergence failed with message:
+      Failed while enforcing releasability. See above detailed error message.
+      [INFO] ------------------------------------------------------------------------
+      [INFO] BUILD FAILURE
+      [INFO] ------------------------------------------------------------------------
+      [INFO] Total time:  4.322 s (Wall Clock)
+      [INFO] Finished at: 2025-06-18T17:17:05+01:00
+      [INFO] ------------------------------------------------------------------------
+      [ERROR] Failed to execute goal org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M1:enforce (enforce) on project legend-depot-artifacts-repository-maven-impl: Some Enforcer rules have failed. Look above for specific messages explaining why the rule failed. -> [Help 1]
+      [ERROR]
+      [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+      [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+      [ERROR]
+      [ERROR] For more information about the errors and possible solutions, please read the following articles:
+      [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+      Exit code: 1
+      If you want to customize your build system configuration for Diffblue Cover
+      follow the guidelines here:
+      https://docs.diffblue.com/features/cover-cli/project-configuration/configuring-cover-to-work-with-your-projects-build-system/
+INFO  
+INFO  [31/34] Refactoring module: org.finos.legend.depot:legend-depot-servers-common
+INFO  ==============================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-servers-common\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+INFO  Modifications applied:
+INFO    legend-depot-servers-common\pom.xml
+INFO  Refactorings completed
+INFO  
+INFO  [32/34] Refactoring module: org.finos.legend.depot:legend-depot-server
+INFO  ======================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-server\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+INFO  Modifications applied:
+INFO    legend-depot-server\pom.xml
+INFO  Refactorings completed
+INFO  
+INFO  [33/34] Refactoring module: org.finos.legend.depot:legend-depot-store-server
+INFO  ============================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-store-server\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+INFO  Modifications applied:
+INFO    legend-depot-store-server\pom.xml
+INFO  Refactorings completed
+INFO  
+INFO  [34/34] Refactoring module: org.finos.legend.depot:legend-depot-core-store-api
+INFO  ==============================================================================
+INFO  
+INFO  Detected Java version 11.0.27
+INFO  Selected build system: Maven
+INFO  Selected classpath from build system maven
+INFO  Selected Java language compliance level: 11
+INFO  Applying refactorings from configuration file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-core-store-api\.diffblue\refactorings.yml
+INFO  Refreshing project state
+INFO  Validating refactorings -- this may take a few moments...
+INFO  Modifications applied:
+INFO    legend-depot-core-store-api\pom.xml
+INFO  Refactorings completed
+INFO  
+INFO  Run summary:
+INFO  ------------
+ERROR refactor                                                    ERROR
+ERROR - org.finos.legend.depot:legend-depot-test-reports          ERROR
+INFO  - org.finos.legend.depot:legend-depot-model                 SUCCESS
+ERROR - org.finos.legend.depot:legend-depot-pure-model-context    ERROR
+INFO  - org.finos.legend.depot:legend-depot-store-mongo           SUCCESS
+INFO  - org.finos.legend.depot:legend-depot-core-schedules-api    SUCCESS
+ERROR - org.finos.legend.depot:legend-depot-core-schedules        ERROR
+INFO  - org.finos.legend.depot:legend-depot-core-schedules-store-mongoSUCCESS
+INFO  - org.finos.legend.depot:legend-depot-metrics-query-api     SUCCESS
+INFO  - org.finos.legend.depot:legend-depot-metrics-query-servicesSUCCESS
+INFO  - org.finos.legend.depot:legend-depot-metrics-query-store-mongoSUCCESS
+INFO  - org.finos.legend.depot:legend-depot-notifications-api     SUCCESS
+ERROR - org.finos.legend.depot:legend-depot-notifications-servicesERROR
+ERROR - org.finos.legend.depot:legend-depot-notifications-store-mongoERROR
+ERROR - org.finos.legend.depot:legend-depot-notifications-queue-mongoERROR
+INFO  - org.finos.legend.depot:legend-depot-core-data-api         SUCCESS
+ERROR - org.finos.legend.depot:legend-depot-core-data-services    ERROR
+INFO  - org.finos.legend.depot:legend-depot-core-data-store-mongo SUCCESS
+INFO  - org.finos.legend.depot:legend-depot-entities-api          SUCCESS
+ERROR - org.finos.legend.depot:legend-depot-entities-services     ERROR
+INFO  - org.finos.legend.depot:legend-depot-entities-store-mongo  SUCCESS
+INFO  - org.finos.legend.depot:legend-depot-generations-api       SUCCESS
+ERROR - org.finos.legend.depot:legend-depot-generations-services  ERROR
+INFO  - org.finos.legend.depot:legend-depot-generations-store-mongoSUCCESS
+INFO  - org.finos.legend.depot:legend-depot-core-tracing          SUCCESS
+INFO  - org.finos.legend.depot:legend-depot-core-authorisation    SUCCESS
+INFO  - org.finos.legend.depot:legend-depot-artifacts-api         SUCCESS
+INFO  - org.finos.legend.depot:legend-depot-artifacts-store-mongo SUCCESS
+ERROR - org.finos.legend.depot:legend-depot-artifacts-services    ERROR
+ERROR - org.finos.legend.depot:legend-depot-artifacts-repository-apiERROR
+ERROR - org.finos.legend.depot:legend-depot-artifacts-repository-maven-implERROR
+INFO  - org.finos.legend.depot:legend-depot-servers-common        SUCCESS
+INFO  - org.finos.legend.depot:legend-depot-server                SUCCESS
+INFO  - org.finos.legend.depot:legend-depot-store-server          SUCCESS
+INFO  - org.finos.legend.depot:legend-depot-core-store-api        SUCCESS
+INFO  
+ERROR One or more errors and warnings were logged, please review them in the log file
+INFO  Log file: C:\Users\ybagge\benchmarks\legend-depot\.diffblue\log\user-20250618T164912.log
+INFO  Finished in 33m 49s

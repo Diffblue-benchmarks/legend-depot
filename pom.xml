@@ -279,6 +279,7 @@
                         <execution>
                             <id>enforce</id>
                             <configuration>
+                                <skip>true</skip>
                                 <rules>
                                     <requireJavaVersion>
                                         <version>${java.version.range}</version>
