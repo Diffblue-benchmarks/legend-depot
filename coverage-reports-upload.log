@@ -186,41 +186,14 @@ INFO  Detected Java version 11.0.27
 INFO  Selected build system: Maven
 INFO  Selected classpath from build system maven
 INFO  Selected test framework: JUnit Jupiter API
-WARN  E119: JUnit Vintage Engine incompatible
-      Diffblue Cover cannot validate tests because JUnit Vintage Engine was found
-      but it did not match the version of JUnit Jupiter 5 that was detected.
-      This could cause JUnit 4 tests to not be included within coverage calculations.
-      Please make the following updates to your configuration:
-      <dependency>
-        <groupId>org.junit.vintage</groupId>
-        <artifactId>junit-vintage-engine</artifactId>
-        <version>5.7.1</version>
-        <scope>test</scope>
-      </dependency>
 INFO  Selected Java language compliance level: 11
-WARN  E033: JUnit Jupiter versions mismatch
-      Diffblue Cover discovered a mismatch in JUnit Jupiter Api and Engine versions.
-      Because of this, Diffblue Cover will not be able to verify tests.
-      Please make the following updates to your configuration:
-      <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-api</artifactId>
-        <version>5.7.1</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-engine</artifactId>
-        <version>5.7.1</version>
-        <scope>test</scope>
-      </dependency>
 INFO  Calculating coverage from Diffblue tests.
 INFO  JaCoCo report file created in C:\Users\ybagge\benchmarks\legend-depot\legend-depot-metrics-query-services\.diffblue\reports\diffblue-tests-jacoco-report.xml
 INFO  Calculating coverage from manual tests.
 INFO  JaCoCo report file created in C:\Users\ybagge\benchmarks\legend-depot\legend-depot-metrics-query-services\.diffblue\reports\manual-tests-jacoco-report.xml
 INFO  
 INFO  Diffblue tests cover 0 of 64 lines to cover (0.0%)
-INFO  Manual tests cover 0 of 64 lines to cover (0.0%)
+INFO  Manual tests cover 33 of 64 lines to cover (51.6%)
 INFO  Writing JSON report to C:\Users\ybagge\benchmarks\legend-depot\legend-depot-metrics-query-services\.diffblue\reports\report.json
 INFO  
 INFO  [10/34] Reporting coverage for module: org.finos.legend.depot:legend-depot-metrics-query-store-mongo
@@ -230,34 +203,7 @@ INFO  Detected Java version 11.0.27
 INFO  Selected build system: Maven
 INFO  Selected classpath from build system maven
 INFO  Selected test framework: JUnit Jupiter API
-WARN  E119: JUnit Vintage Engine incompatible
-      Diffblue Cover cannot validate tests because JUnit Vintage Engine was found
-      but it did not match the version of JUnit Jupiter 5 that was detected.
-      This could cause JUnit 4 tests to not be included within coverage calculations.
-      Please make the following updates to your configuration:
-      <dependency>
-        <groupId>org.junit.vintage</groupId>
-        <artifactId>junit-vintage-engine</artifactId>
-        <version>5.7.1</version>
-        <scope>test</scope>
-      </dependency>
 INFO  Selected Java language compliance level: 11
-WARN  E033: JUnit Jupiter versions mismatch
-      Diffblue Cover discovered a mismatch in JUnit Jupiter Api and Engine versions.
-      Because of this, Diffblue Cover will not be able to verify tests.
-      Please make the following updates to your configuration:
-      <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-api</artifactId>
-        <version>5.7.1</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-engine</artifactId>
-        <version>5.7.1</version>
-        <scope>test</scope>
-      </dependency>
 INFO  Calculating coverage from Diffblue tests.
 INFO  JaCoCo report file created in C:\Users\ybagge\benchmarks\legend-depot\legend-depot-metrics-query-store-mongo\.diffblue\reports\diffblue-tests-jacoco-report.xml
 INFO  Calculating coverage from manual tests.
@@ -376,41 +322,14 @@ INFO  Detected Java version 11.0.27
 INFO  Selected build system: Maven
 INFO  Selected classpath from build system maven
 INFO  Selected test framework: JUnit Jupiter API
-WARN  E119: JUnit Vintage Engine incompatible
-      Diffblue Cover cannot validate tests because JUnit Vintage Engine was found
-      but it did not match the version of JUnit Jupiter 5 that was detected.
-      This could cause JUnit 4 tests to not be included within coverage calculations.
-      Please make the following updates to your configuration:
-      <dependency>
-        <groupId>org.junit.vintage</groupId>
-        <artifactId>junit-vintage-engine</artifactId>
-        <version>5.7.1</version>
-        <scope>test</scope>
-      </dependency>
 INFO  Selected Java language compliance level: 11
-WARN  E033: JUnit Jupiter versions mismatch
-      Diffblue Cover discovered a mismatch in JUnit Jupiter Api and Engine versions.
-      Because of this, Diffblue Cover will not be able to verify tests.
-      Please make the following updates to your configuration:
-      <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-api</artifactId>
-        <version>5.7.1</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-engine</artifactId>
-        <version>5.7.1</version>
-        <scope>test</scope>
-      </dependency>
 INFO  Calculating coverage from Diffblue tests.
 INFO  JaCoCo report file created in C:\Users\ybagge\benchmarks\legend-depot\legend-depot-core-data-store-mongo\.diffblue\reports\diffblue-tests-jacoco-report.xml
 INFO  Calculating coverage from manual tests.
 INFO  JaCoCo report file created in C:\Users\ybagge\benchmarks\legend-depot\legend-depot-core-data-store-mongo\.diffblue\reports\manual-tests-jacoco-report.xml
 INFO  
 INFO  Diffblue tests cover 0 of 273 lines to cover (0.0%)
-INFO  Manual tests cover 0 of 273 lines to cover (0.0%)
+INFO  Manual tests cover 198 of 273 lines to cover (72.5%)
 INFO  Writing JSON report to C:\Users\ybagge\benchmarks\legend-depot\legend-depot-core-data-store-mongo\.diffblue\reports\report.json
 INFO  
 INFO  [18/34] Reporting coverage for module: org.finos.legend.depot:legend-depot-entities-api
@@ -505,41 +424,14 @@ INFO  Detected Java version 11.0.27
 INFO  Selected build system: Maven
 INFO  Selected classpath from build system maven
 INFO  Selected test framework: JUnit Jupiter API
-WARN  E119: JUnit Vintage Engine incompatible
-      Diffblue Cover cannot validate tests because JUnit Vintage Engine was found
-      but it did not match the version of JUnit Jupiter 5 that was detected.
-      This could cause JUnit 4 tests to not be included within coverage calculations.
-      Please make the following updates to your configuration:
-      <dependency>
-        <groupId>org.junit.vintage</groupId>
-        <artifactId>junit-vintage-engine</artifactId>
-        <version>5.7.1</version>
-        <scope>test</scope>
-      </dependency>
 INFO  Selected Java language compliance level: 11
-WARN  E033: JUnit Jupiter versions mismatch
-      Diffblue Cover discovered a mismatch in JUnit Jupiter Api and Engine versions.
-      Because of this, Diffblue Cover will not be able to verify tests.
-      Please make the following updates to your configuration:
-      <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-api</artifactId>
-        <version>5.7.1</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-engine</artifactId>
-        <version>5.7.1</version>
-        <scope>test</scope>
-      </dependency>
 INFO  Calculating coverage from Diffblue tests.
 INFO  JaCoCo report file created in C:\Users\ybagge\benchmarks\legend-depot\legend-depot-generations-store-mongo\.diffblue\reports\diffblue-tests-jacoco-report.xml
 INFO  Calculating coverage from manual tests.
 INFO  JaCoCo report file created in C:\Users\ybagge\benchmarks\legend-depot\legend-depot-generations-store-mongo\.diffblue\reports\manual-tests-jacoco-report.xml
 INFO  
 INFO  Diffblue tests cover 0 of 29 lines to cover (0.0%)
-INFO  Manual tests cover 0 of 29 lines to cover (0.0%)
+INFO  Manual tests cover 8 of 29 lines to cover (27.6%)
 INFO  Writing JSON report to C:\Users\ybagge\benchmarks\legend-depot\legend-depot-generations-store-mongo\.diffblue\reports\report.json
 INFO  
 INFO  [24/34] Reporting coverage for module: org.finos.legend.depot:legend-depot-core-tracing
@@ -566,41 +458,14 @@ INFO  Detected Java version 11.0.27
 INFO  Selected build system: Maven
 INFO  Selected classpath from build system maven
 INFO  Selected test framework: JUnit Jupiter API
-WARN  E119: JUnit Vintage Engine incompatible
-      Diffblue Cover cannot validate tests because JUnit Vintage Engine was found
-      but it did not match the version of JUnit Jupiter 5 that was detected.
-      This could cause JUnit 4 tests to not be included within coverage calculations.
-      Please make the following updates to your configuration:
-      <dependency>
-        <groupId>org.junit.vintage</groupId>
-        <artifactId>junit-vintage-engine</artifactId>
-        <version>5.7.1</version>
-        <scope>test</scope>
-      </dependency>
 INFO  Selected Java language compliance level: 11
-WARN  E033: JUnit Jupiter versions mismatch
-      Diffblue Cover discovered a mismatch in JUnit Jupiter Api and Engine versions.
-      Because of this, Diffblue Cover will not be able to verify tests.
-      Please make the following updates to your configuration:
-      <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-api</artifactId>
-        <version>5.7.1</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-engine</artifactId>
-        <version>5.7.1</version>
-        <scope>test</scope>
-      </dependency>
 INFO  Calculating coverage from Diffblue tests.
 INFO  JaCoCo report file created in C:\Users\ybagge\benchmarks\legend-depot\legend-depot-core-authorisation\.diffblue\reports\diffblue-tests-jacoco-report.xml
 INFO  Calculating coverage from manual tests.
 INFO  JaCoCo report file created in C:\Users\ybagge\benchmarks\legend-depot\legend-depot-core-authorisation\.diffblue\reports\manual-tests-jacoco-report.xml
 INFO  
 INFO  Diffblue tests cover 0 of 28 lines to cover (0.0%)
-INFO  Manual tests cover 0 of 28 lines to cover (0.0%)
+INFO  Manual tests cover 12 of 28 lines to cover (42.9%)
 INFO  Writing JSON report to C:\Users\ybagge\benchmarks\legend-depot\legend-depot-core-authorisation\.diffblue\reports\report.json
 INFO  
 INFO  [26/34] Reporting coverage for module: org.finos.legend.depot:legend-depot-artifacts-api
@@ -767,23 +632,23 @@ INFO  - org.finos.legend.depot:legend-depot-core-schedules-api    SUCCESS
 INFO  - org.finos.legend.depot:legend-depot-core-schedules        SUCCESS
 INFO  - org.finos.legend.depot:legend-depot-core-schedules-store-mongoSUCCESS
 INFO  - org.finos.legend.depot:legend-depot-metrics-query-api     SUCCESS
-WARN  - org.finos.legend.depot:legend-depot-metrics-query-servicesWARNING
-WARN  - org.finos.legend.depot:legend-depot-metrics-query-store-mongoWARNING
+INFO  - org.finos.legend.depot:legend-depot-metrics-query-servicesSUCCESS
+INFO  - org.finos.legend.depot:legend-depot-metrics-query-store-mongoSUCCESS
 INFO  - org.finos.legend.depot:legend-depot-notifications-api     SUCCESS
 INFO  - org.finos.legend.depot:legend-depot-notifications-servicesSUCCESS
 INFO  - org.finos.legend.depot:legend-depot-notifications-store-mongoSUCCESS
 INFO  - org.finos.legend.depot:legend-depot-notifications-queue-mongoSUCCESS
 INFO  - org.finos.legend.depot:legend-depot-core-data-api         SUCCESS
 INFO  - org.finos.legend.depot:legend-depot-core-data-services    SUCCESS
-WARN  - org.finos.legend.depot:legend-depot-core-data-store-mongo WARNING
+INFO  - org.finos.legend.depot:legend-depot-core-data-store-mongo SUCCESS
 INFO  - org.finos.legend.depot:legend-depot-entities-api          SUCCESS
 INFO  - org.finos.legend.depot:legend-depot-entities-services     SUCCESS
 INFO  - org.finos.legend.depot:legend-depot-entities-store-mongo  SUCCESS
 INFO  - org.finos.legend.depot:legend-depot-generations-api       SUCCESS
 INFO  - org.finos.legend.depot:legend-depot-generations-services  SUCCESS
-WARN  - org.finos.legend.depot:legend-depot-generations-store-mongoWARNING
+INFO  - org.finos.legend.depot:legend-depot-generations-store-mongoSUCCESS
 INFO  - org.finos.legend.depot:legend-depot-core-tracing          SUCCESS
-WARN  - org.finos.legend.depot:legend-depot-core-authorisation    WARNING
+INFO  - org.finos.legend.depot:legend-depot-core-authorisation    SUCCESS
 INFO  - org.finos.legend.depot:legend-depot-artifacts-api         SUCCESS
 INFO  - org.finos.legend.depot:legend-depot-artifacts-store-mongo SUCCESS
 INFO  - org.finos.legend.depot:legend-depot-artifacts-services    SUCCESS
@@ -796,5 +661,5 @@ INFO  - org.finos.legend.depot:legend-depot-core-store-api        SUCCESS
 INFO  upload                                                      SKIPPED
 INFO  
 ERROR One or more errors and warnings were logged, please review them in the log file
-INFO  Log file: C:\Users\ybagge\benchmarks\legend-depot\.diffblue\log\user-20250619T101920.log
-INFO  Finished in 59m 47s
+INFO  Log file: C:\Users\ybagge\benchmarks\legend-depot\.diffblue\log\user-20250619T145800.log
+INFO  Finished in 1h 9m 10s
