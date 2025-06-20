@@ -1,0 +1,301 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.06.02-fd4f1ca-licensed",
+    "creationTimestamp" : "2025-06-19T18:01:07.4996814+01:00",
+    "command" : "dcover create --coverage-reports",
+    "totalTime" : 167.092,
+    "environmentDetectionTime" : 0.181,
+    "indexingTime" : 0.408,
+    "entryPointsTime" : 0.175,
+    "generationTime" : 3047.154,
+    "timeToFirstTest" : 4518.875,
+    "timeToLastTest" : 4075.818,
+    "indexQueryTime" : 5.32,
+    "verificationTime" : 350.275,
+    "validationTime" : 12.547
+  },
+  "codes" : {
+    "R000" : "Success",
+    "R002" : "Missing observers",
+    "R005" : "Unable to load class",
+    "R013" : "No inputs found that don't throw a trivial exception",
+    "R081" : "Exception in arrange section",
+    "T000" : "Method eligible for test creation",
+    "T005" : "Trivial constructor",
+    "T012" : "Synthetic method",
+    "T021" : "Empty method body",
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation"
+  },
+  "summary" : {
+    "classesCount" : 2,
+    "methodsCount" : 16,
+    "cumulativeDiffblueTestCount" : 18,
+    "cumulativeManualTestCount" : 4,
+    "completeTestCount" : 18,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 120,
+    "perMethodTestability" : {
+      "T000" : 10,
+      "T005" : 1,
+      "T012" : 4,
+      "T021" : 1
+    },
+    "perMethodOutcome" : {
+      "R000" : 8,
+      "R002" : 1,
+      "R005" : 1,
+      "R013" : 1,
+      "R081" : 1,
+      "T012" : 4
+    },
+    "perTestOutcome" : {
+      "R000" : 18
+    },
+    "perTestValidation" : {
+      "V000" : 18,
+      "V003" : 2
+    }
+  },
+  "classes" : {
+    "org.finos.legend.depot.store.mongo.guice.NotificationsStoreMongoModule" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "R002" : 1,
+        "R005" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      }
+    },
+    "org.finos.legend.depot.store.mongo.notifications.NotificationsMongo" : {
+      "methodsCount" : 13,
+      "completeTestCount" : 16,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 8,
+        "T012" : 4,
+        "T021" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 7,
+        "R013" : 1,
+        "R081" : 1,
+        "T012" : 4
+      },
+      "perTestOutcome" : {
+        "R000" : 16
+      }
+    }
+  },
+  "methods" : {
+    "org.finos.legend.depot.store.mongo.guice.NotificationsStoreMongoModule.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.guice.NotificationsStoreMongoModule.configure:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        34,
+        35,
+        36
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.guice.NotificationsStoreMongoModule.registerIndexes:(Lorg/finos/legend/depot/store/mongo/admin/MongoAdminStore;)Z" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        44,
+        45
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.notifications.NotificationsMongo.<init>:(Lcom/mongodb/client/MongoDatabase;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        61,
+        62
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.notifications.NotificationsMongo.buildIndexes:()Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        74
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.notifications.NotificationsMongo.createOrUpdate:(Lorg/finos/legend/depot/domain/notifications/MetadataNotification;)Lorg/finos/legend/depot/domain/notifications/MetadataNotification;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        49
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.notifications.NotificationsMongo.delete:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        128,
+        129
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.notifications.NotificationsMongo.find:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/time/LocalDateTime;Ljava/time/LocalDateTime;)Ljava/util/List;" : {
+      "completeTestCount" : 9,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 9
+      },
+      "lineNumbers" : [
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        120,
+        121,
+        122
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.notifications.NotificationsMongo.get:(Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        102
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.notifications.NotificationsMongo.getAll:()Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        91
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.notifications.NotificationsMongo.getCollection:()Lcom/mongodb/client/MongoCollection;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        67
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.notifications.NotificationsMongo.getKeyFilter:(Lorg/finos/legend/depot/domain/notifications/MetadataNotification;)Lorg/bson/conversions/Bson;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        85
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.notifications.NotificationsMongo.getKeyFilter:(Lorg/finos/legend/depot/store/model/HasIdentifier;)Lorg/bson/conversions/Bson;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        49
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.notifications.NotificationsMongo.lambda$find$0:(Ljava/util/List;Lorg/bson/Document;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        121
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.notifications.NotificationsMongo.validateNewData:(Lorg/finos/legend/depot/domain/notifications/MetadataNotification;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        98
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.notifications.NotificationsMongo.validateNewData:(Lorg/finos/legend/depot/store/model/HasIdentifier;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        49
+      ]
+    }
+  },
+  "validationMetrics" : {
+    "touchedFiles" : [
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-notifications-store-mongo\\src\\test\\java\\org\\finos\\legend\\depot\\store\\mongo\\guice\\NotificationsStoreMongoModuleDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-notifications-store-mongo\\src\\test\\java\\org\\finos\\legend\\depot\\store\\mongo\\notifications\\NotificationsMongoDiffblueTest.java"
+    ]
+  }
+}

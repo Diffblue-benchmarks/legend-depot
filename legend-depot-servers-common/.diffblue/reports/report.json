@@ -1,0 +1,1807 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.06.02-fd4f1ca-licensed",
+    "creationTimestamp" : "2025-06-19T18:01:07.4996814+01:00",
+    "command" : "dcover create --coverage-reports",
+    "totalTime" : 249.879,
+    "environmentDetectionTime" : 0.256,
+    "indexingTime" : 0.452,
+    "entryPointsTime" : 0.252,
+    "generationTime" : 4596.155,
+    "timeToFirstTest" : 8277.511,
+    "timeToLastTest" : 7044.188,
+    "indexQueryTime" : 12.838000000000001,
+    "verificationTime" : 850.037,
+    "validationTime" : 17.473
+  },
+  "codes" : {
+    "R000" : "Success",
+    "R002" : "Missing observers",
+    "R005" : "Unable to load class",
+    "R006" : "Static initializer failed",
+    "R011" : "Sandboxing policy violation",
+    "R013" : "No inputs found that don't throw a trivial exception",
+    "R034" : "Diffblue Cover can't complete test",
+    "R081" : "Exception in arrange section",
+    "R083" : "Can't find a suitable constructor",
+    "T000" : "Method eligible for test creation",
+    "T001" : "Trivial getter",
+    "T002" : "Trivial setter",
+    "T003" : "Private method",
+    "T004" : "In anonymous inner class",
+    "T005" : "Trivial constructor",
+    "T008" : "Private and never called",
+    "T009" : "No implementation for abstract class",
+    "T010" : "Abstract or interface method",
+    "T012" : "Synthetic method",
+    "T023" : "Testability unknown",
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation",
+    "W002" : "Test compiled, but did not pass"
+  },
+  "summary" : {
+    "classesCount" : 23,
+    "methodsCount" : 124,
+    "cumulativeDiffblueTestCount" : 44,
+    "cumulativeManualTestCount" : 0,
+    "completeTestCount" : 44,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 869,
+    "perMethodTestability" : {
+      "T000" : 28,
+      "T001" : 22,
+      "T002" : 5,
+      "T003" : 19,
+      "T004" : 13,
+      "T005" : 8,
+      "T008" : 3,
+      "T009" : 8,
+      "T010" : 6,
+      "T012" : 6,
+      "T023" : 6
+    },
+    "perMethodOutcome" : {
+      "R000" : 27,
+      "R002" : 1,
+      "R005" : 1,
+      "R006" : 1,
+      "R011" : 1,
+      "R013" : 3,
+      "R034" : 3,
+      "R081" : 16,
+      "R083" : 6,
+      "T003" : 19,
+      "T004" : 13,
+      "T008" : 3,
+      "T009" : 8,
+      "T010" : 6,
+      "T012" : 6,
+      "T023" : 6,
+      "W002" : 4
+    },
+    "perTestOutcome" : {
+      "R000" : 44
+    },
+    "perTestValidation" : {
+      "V000" : 44,
+      "V003" : 2
+    },
+    "warnings" : {
+      "W002" : 8
+    }
+  },
+  "classes" : {
+    "org.finos.legend.depot.core.server.BaseServer" : {
+      "methodsCount" : 13,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 3,
+        "T009" : 4,
+        "T010" : 4,
+        "T012" : 1,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "T003" : 3,
+        "T009" : 4,
+        "T010" : 4,
+        "T012" : 1,
+        "T023" : 1
+      }
+    },
+    "org.finos.legend.depot.core.server.BaseServer$1" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T004" : 2,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "T004" : 2,
+        "T012" : 1
+      }
+    },
+    "org.finos.legend.depot.core.server.BaseServer$2" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T004" : 2
+      },
+      "perMethodOutcome" : {
+        "T004" : 2
+      }
+    },
+    "org.finos.legend.depot.core.server.BaseServer$3" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T004" : 6
+      },
+      "perMethodOutcome" : {
+        "T004" : 6
+      }
+    },
+    "org.finos.legend.depot.core.server.ServerConfiguration" : {
+      "methodsCount" : 17,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 11,
+        "T002" : 4
+      },
+      "perMethodOutcome" : {
+        "R011" : 1,
+        "R034" : 1,
+        "R081" : 15
+      }
+    },
+    "org.finos.legend.depot.core.server.error.BaseExceptionMapper" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T010" : 1,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R013" : 2,
+        "T010" : 1,
+        "T023" : 1
+      }
+    },
+    "org.finos.legend.depot.core.server.error.CatchAllExceptionMapper" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T003" : 1,
+        "T005" : 2
+      },
+      "perMethodOutcome" : {
+        "R000" : 2,
+        "R013" : 1,
+        "T003" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      }
+    },
+    "org.finos.legend.depot.core.server.error.DepotServerExceptionMapper" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T003" : 1,
+        "T005" : 2,
+        "T012" : 1,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 2,
+        "T003" : 1,
+        "T012" : 1,
+        "T023" : 1,
+        "W002" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "warnings" : {
+        "W002" : 1
+      }
+    },
+    "org.finos.legend.depot.core.server.error.DepotServerExceptionMapper$1" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "T023" : 1
+      }
+    },
+    "org.finos.legend.depot.core.server.error.ExtendedErrorMessage" : {
+      "methodsCount" : 13,
+      "completeTestCount" : 13,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 6,
+        "T001" : 2,
+        "T003" : 5
+      },
+      "perMethodOutcome" : {
+        "R000" : 7,
+        "R006" : 1,
+        "T003" : 5
+      },
+      "perTestOutcome" : {
+        "R000" : 13
+      },
+      "warnings" : {
+        "W002" : 4
+      }
+    },
+    "org.finos.legend.depot.core.server.error.LegendDepotServerException" : {
+      "methodsCount" : 12,
+      "completeTestCount" : 25,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 10,
+        "T001" : 1,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 11,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 25
+      }
+    },
+    "org.finos.legend.depot.core.server.error.configuration.ExceptionMapperConfiguration" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T001" : 1,
+        "T002" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 3
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.finos.legend.depot.core.server.filters.HealthcheckFilterFactory" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 2
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.finos.legend.depot.core.server.filters.HealthcheckFilterFactory$1" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T004" : 2,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "T004" : 2,
+        "T012" : 1
+      }
+    },
+    "org.finos.legend.depot.core.server.guice.BaseServerModule" : {
+      "methodsCount" : 9,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 4,
+        "T009" : 4,
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T003" : 4,
+        "T009" : 4,
+        "T010" : 1
+      }
+    },
+    "org.finos.legend.depot.core.server.guice.BaseServerModule$1" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T004" : 1
+      },
+      "perMethodOutcome" : {
+        "T004" : 1
+      }
+    },
+    "org.finos.legend.depot.core.server.guice.ServerInfoModule" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R002" : 1,
+        "R005" : 1,
+        "W002" : 1
+      },
+      "warnings" : {
+        "W002" : 1
+      }
+    },
+    "org.finos.legend.depot.core.server.info.InfoService" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T001" : 1,
+        "T003" : 3,
+        "T012" : 2,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "T003" : 3,
+        "T012" : 2,
+        "T023" : 1,
+        "W002" : 2
+      },
+      "warnings" : {
+        "W002" : 2
+      }
+    },
+    "org.finos.legend.depot.core.server.info.InfoService$PlatformVersionInfo" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T008" : 1
+      },
+      "perMethodOutcome" : {
+        "T008" : 1
+      }
+    },
+    "org.finos.legend.depot.core.server.info.InfoService$ServerInfo" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T001" : 3,
+        "T008" : 1
+      },
+      "perMethodOutcome" : {
+        "R083" : 3,
+        "T008" : 1
+      }
+    },
+    "org.finos.legend.depot.core.server.info.InfoService$ServerPlatformInfo" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T001" : 3,
+        "T003" : 1,
+        "T008" : 1
+      },
+      "perMethodOutcome" : {
+        "R083" : 3,
+        "T003" : 1,
+        "T008" : 1
+      }
+    },
+    "org.finos.legend.depot.core.server.info.InfoService$SupplierWithException" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 1
+      },
+      "perMethodOutcome" : {
+        "T003" : 1
+      }
+    },
+    "org.finos.legend.depot.core.server.resources.info.InfoResource" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R034" : 2,
+        "R081" : 1
+      }
+    }
+  },
+  "methods" : {
+    "org.finos.legend.depot.core.server.BaseServer$1.<init>:(Lorg/finos/legend/depot/core/server/BaseServer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        71
+      ]
+    },
+    "org.finos.legend.depot.core.server.BaseServer$1.getSwaggerBundleConfiguration:(Lio/dropwizard/Configuration;)Lio/federecio/dropwizard/swagger/SwaggerBundleConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        71
+      ]
+    },
+    "org.finos.legend.depot.core.server.BaseServer$1.getSwaggerBundleConfiguration:(Lorg/finos/legend/depot/core/server/ServerConfiguration;)Lio/federecio/dropwizard/swagger/SwaggerBundleConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        75
+      ]
+    },
+    "org.finos.legend.depot.core.server.BaseServer$2.<init>:(Lorg/finos/legend/depot/core/server/BaseServer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        127
+      ]
+    },
+    "org.finos.legend.depot.core.server.BaseServer$2.check:()Lcom/codahale/metrics/health/HealthCheck$Result;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        131
+      ]
+    },
+    "org.finos.legend.depot.core.server.BaseServer$3.<init>:(Lorg/finos/legend/depot/core/server/BaseServer;Lorg/finos/legend/depot/core/server/ServerConfiguration;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        146,
+        147
+      ]
+    },
+    "org.finos.legend.depot.core.server.BaseServer$3.lifeCycleFailure:(Lorg/eclipse/jetty/util/component/LifeCycle;Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        164,
+        165
+      ]
+    },
+    "org.finos.legend.depot.core.server.BaseServer$3.lifeCycleStarted:(Lorg/eclipse/jetty/util/component/LifeCycle;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        157,
+        158,
+        159
+      ]
+    },
+    "org.finos.legend.depot.core.server.BaseServer$3.lifeCycleStarting:(Lorg/eclipse/jetty/util/component/LifeCycle;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        151,
+        152
+      ]
+    },
+    "org.finos.legend.depot.core.server.BaseServer$3.lifeCycleStopped:(Lorg/eclipse/jetty/util/component/LifeCycle;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        177,
+        178
+      ]
+    },
+    "org.finos.legend.depot.core.server.BaseServer$3.lifeCycleStopping:(Lorg/eclipse/jetty/util/component/LifeCycle;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        170,
+        171,
+        172
+      ]
+    },
+    "org.finos.legend.depot.core.server.BaseServer.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.finos.legend.depot.core.server.BaseServer.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        61,
+        62
+      ]
+    },
+    "org.finos.legend.depot.core.server.BaseServer.configureObjectMapper:(Lio/dropwizard/setup/Bootstrap;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        92,
+        93,
+        94,
+        95
+      ]
+    },
+    "org.finos.legend.depot.core.server.BaseServer.getServerModules:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.core.server.BaseServer.initialiseCors:(Lio/dropwizard/setup/Environment;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.core.server.BaseServer.initialiseOpenTracing:(Lio/dropwizard/setup/Environment;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        184,
+        185
+      ]
+    },
+    "org.finos.legend.depot.core.server.BaseServer.initialisePrometheusMetrics:(Lio/dropwizard/setup/Environment;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        189,
+        190,
+        191,
+        192,
+        193
+      ]
+    },
+    "org.finos.legend.depot.core.server.BaseServer.initialize:(Lio/dropwizard/setup/Bootstrap;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        68,
+        69,
+        70,
+        80,
+        81,
+        82,
+        83
+      ]
+    },
+    "org.finos.legend.depot.core.server.BaseServer.isEnvironmentVariableSubstitutionStrict:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        87
+      ]
+    },
+    "org.finos.legend.depot.core.server.BaseServer.registerJacksonJsonProvider:(Lio/dropwizard/jersey/setup/JerseyEnvironment;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.core.server.BaseServer.registerLifeCycleListener:(Lorg/finos/legend/depot/core/server/ServerConfiguration;Lio/dropwizard/setup/Environment;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        145,
+        180
+      ]
+    },
+    "org.finos.legend.depot.core.server.BaseServer.run:(Lio/dropwizard/Configuration;Lio/dropwizard/setup/Environment;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        55
+      ]
+    },
+    "org.finos.legend.depot.core.server.BaseServer.run:(Lorg/finos/legend/depot/core/server/ServerConfiguration;Lio/dropwizard/setup/Environment;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        102,
+        104,
+        105,
+        107,
+        109,
+        111,
+        113,
+        116,
+        118,
+        120,
+        121,
+        122,
+        123,
+        124,
+        126,
+        136,
+        137,
+        138,
+        139
+      ]
+    },
+    "org.finos.legend.depot.core.server.ServerConfiguration.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R011",
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.finos.legend.depot.core.server.ServerConfiguration.getApplicationName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        127
+      ]
+    },
+    "org.finos.legend.depot.core.server.ServerConfiguration.getDeployment:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        82
+      ]
+    },
+    "org.finos.legend.depot.core.server.ServerConfiguration.getExceptionMapperConfiguration:()Lorg/finos/legend/depot/core/server/error/configuration/ExceptionMapperConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R034",
+      "lineNumbers" : [
+        112
+      ]
+    },
+    "org.finos.legend.depot.core.server.ServerConfiguration.getFilterPriorities:()Ljava/util/Map;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        142
+      ]
+    },
+    "org.finos.legend.depot.core.server.ServerConfiguration.getOpenTracingConfiguration:()Lorg/finos/legend/depot/core/services/api/tracing/configuration/OpenTracingConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        102
+      ]
+    },
+    "org.finos.legend.depot.core.server.ServerConfiguration.getPac4jConfiguration:()Lorg/finos/legend/server/pac4j/LegendPac4jConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        137
+      ]
+    },
+    "org.finos.legend.depot.core.server.ServerConfiguration.getProjectsConfiguration:()Lorg/finos/legend/depot/services/api/projects/configuration/ProjectsConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        92
+      ]
+    },
+    "org.finos.legend.depot.core.server.ServerConfiguration.getPrometheusConfiguration:()Lorg/finos/legend/depot/core/services/api/metrics/configuration/PrometheusConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        147
+      ]
+    },
+    "org.finos.legend.depot.core.server.ServerConfiguration.getSessionCookie:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        122
+      ]
+    },
+    "org.finos.legend.depot.core.server.ServerConfiguration.getStorageConfiguration:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        87
+      ]
+    },
+    "org.finos.legend.depot.core.server.ServerConfiguration.getSwaggerBundleConfiguration:()Lio/federecio/dropwizard/swagger/SwaggerBundleConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        132
+      ]
+    },
+    "org.finos.legend.depot.core.server.ServerConfiguration.getUrlPattern:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        157
+      ]
+    },
+    "org.finos.legend.depot.core.server.ServerConfiguration.setExceptionMapperConfiguration:(Lorg/finos/legend/depot/core/server/error/configuration/ExceptionMapperConfiguration;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        117,
+        118
+      ]
+    },
+    "org.finos.legend.depot.core.server.ServerConfiguration.setOpenTracingConfiguration:(Lorg/finos/legend/depot/core/services/api/tracing/configuration/OpenTracingConfiguration;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        107,
+        108
+      ]
+    },
+    "org.finos.legend.depot.core.server.ServerConfiguration.setPrometheusConfiguration:(Lorg/finos/legend/depot/core/services/api/metrics/configuration/PrometheusConfiguration;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        152,
+        153
+      ]
+    },
+    "org.finos.legend.depot.core.server.ServerConfiguration.setStorage:(Ljava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        97,
+        98
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.BaseExceptionMapper.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.finos.legend.depot.core.server.error.BaseExceptionMapper.<init>:(Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        32,
+        33,
+        34
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.BaseExceptionMapper.buildDefaultResponse:(Ljava/lang/Throwable;)Ljavax/ws/rs/core/Response;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        50,
+        51,
+        52,
+        54,
+        55,
+        56,
+        58,
+        62,
+        63,
+        65,
+        69
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.BaseExceptionMapper.buildResponse:(Ljavax/ws/rs/core/Response$Status;Lorg/finos/legend/depot/core/server/error/ExtendedErrorMessage;)Ljavax/ws/rs/core/Response;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        38,
+        40,
+        42,
+        43,
+        44,
+        45,
+        42
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.CatchAllExceptionMapper.<init>:()V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        32,
+        33
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.CatchAllExceptionMapper.<init>:(Z)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        27,
+        28
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.CatchAllExceptionMapper.toResponse:(Ljava/lang/Throwable;)Ljavax/ws/rs/core/Response;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        38
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.CatchAllExceptionMapper.toResponse:(Ljavax/ws/rs/WebApplicationException;)Ljavax/ws/rs/core/Response;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        43,
+        44,
+        46,
+        48,
+        49,
+        50,
+        51,
+        48
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.DepotServerExceptionMapper$1.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.finos.legend.depot.core.server.error.DepotServerExceptionMapper.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.finos.legend.depot.core.server.error.DepotServerExceptionMapper.<init>:()V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        36,
+        37
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.DepotServerExceptionMapper.<init>:(Z)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        31,
+        32
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.DepotServerExceptionMapper.getRedirectLocation:(Lorg/finos/legend/depot/core/server/error/LegendDepotServerException;)Ljava/net/URI;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        82,
+        83,
+        85,
+        86,
+        91,
+        93,
+        95,
+        96
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.DepotServerExceptionMapper.toResponse:(Ljava/lang/Throwable;)Ljavax/ws/rs/core/Response;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.DepotServerExceptionMapper.toResponse:(Lorg/finos/legend/depot/core/server/error/LegendDepotServerException;)Ljavax/ws/rs/core/Response;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        42,
+        43,
+        48,
+        52,
+        57,
+        58,
+        60,
+        61,
+        62,
+        60,
+        67,
+        68,
+        74,
+        75
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.ExtendedErrorMessage.<init>:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/time/Instant;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        35,
+        36,
+        37,
+        38
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.ExtendedErrorMessage.fromLegendDepotServerException:(Lorg/finos/legend/depot/core/server/error/LegendDepotServerException;Z)Lorg/finos/legend/depot/core/server/error/ExtendedErrorMessage;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        77
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.ExtendedErrorMessage.fromThrowable:(Ljava/lang/Throwable;ILjava/lang/String;Ljava/lang/String;Z)Lorg/finos/legend/depot/core/server/error/ExtendedErrorMessage;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        92,
+        93
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.ExtendedErrorMessage.fromThrowable:(Ljava/lang/Throwable;Ljavax/ws/rs/core/Response$Status;Ljava/lang/String;Ljava/lang/String;Z)Lorg/finos/legend/depot/core/server/error/ExtendedErrorMessage;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        87
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.ExtendedErrorMessage.fromThrowable:(Ljava/lang/Throwable;Z)Lorg/finos/legend/depot/core/server/error/ExtendedErrorMessage;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        64,
+        66,
+        68,
+        70,
+        72
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.ExtendedErrorMessage.fromWebApplicationException:(Ljavax/ws/rs/WebApplicationException;Z)Lorg/finos/legend/depot/core/server/error/ExtendedErrorMessage;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R006",
+      "lineNumbers" : [
+        82
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.ExtendedErrorMessage.getDefaultStatus:()Ljavax/ws/rs/core/Response$Status;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        122
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.ExtendedErrorMessage.getDefaultStatusCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        127
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.ExtendedErrorMessage.getMessage:(Ljava/lang/Throwable;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        98,
+        99,
+        101,
+        102,
+        104,
+        107
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.ExtendedErrorMessage.getStackTrace:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        49
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.ExtendedErrorMessage.getStackTrace:(Ljava/lang/Throwable;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        112,
+        113,
+        115,
+        116,
+        113,
+        117
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.ExtendedErrorMessage.getTimestamp:()Ljava/time/Instant;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        43
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.ExtendedErrorMessage.newExtendedErrorMessage:(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/time/Instant;)Lorg/finos/legend/depot/core/server/error/ExtendedErrorMessage;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        59
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.LegendDepotServerException.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.finos.legend.depot.core.server.error.LegendDepotServerException.<init>:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        49,
+        50
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.LegendDepotServerException.<init>:(Ljava/lang/String;Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        44,
+        45
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.LegendDepotServerException.<init>:(Ljava/lang/String;Ljavax/ws/rs/core/Response$Status;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        38,
+        39,
+        40
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.LegendDepotServerException.<init>:(Ljava/lang/String;Ljavax/ws/rs/core/Response$Status;Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        32,
+        33,
+        34
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.LegendDepotServerException.getStatus:()Ljavax/ws/rs/core/Response$Status;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        54
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.LegendDepotServerException.validate:(Ljava/lang/Object;Ljava/util/function/Predicate;Ljava/lang/String;)Ljava/lang/Object;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        69
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.LegendDepotServerException.validate:(Ljava/lang/Object;Ljava/util/function/Predicate;Ljava/lang/String;Ljavax/ws/rs/core/Response$Status;)Ljava/lang/Object;" : {
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 4
+      },
+      "lineNumbers" : [
+        74,
+        76,
+        78
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.LegendDepotServerException.validate:(Ljava/lang/Object;Ljava/util/function/Predicate;Ljava/util/function/Function;)Ljava/lang/Object;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        83
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.LegendDepotServerException.validate:(Ljava/lang/Object;Ljava/util/function/Predicate;Ljava/util/function/Function;Ljavax/ws/rs/core/Response$Status;)Ljava/lang/Object;" : {
+      "completeTestCount" : 6,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 6
+      },
+      "lineNumbers" : [
+        88,
+        90,
+        92
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.LegendDepotServerException.validateNonNull:(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        59
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.LegendDepotServerException.validateNonNull:(Ljava/lang/Object;Ljava/lang/String;Ljavax/ws/rs/core/Response$Status;)Ljava/lang/Object;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        64
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.configuration.ExceptionMapperConfiguration.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        20,
+        22
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.configuration.ExceptionMapperConfiguration.includeStackTrace:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.finos.legend.depot.core.server.error.configuration.ExceptionMapperConfiguration.setIncludeStackTrace:(Z)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        32,
+        33
+      ]
+    },
+    "org.finos.legend.depot.core.server.filters.HealthcheckFilterFactory$1.<init>:(Lorg/finos/legend/depot/core/server/filters/HealthcheckFilterFactory;Ljava/util/concurrent/atomic/AtomicInteger;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        37
+      ]
+    },
+    "org.finos.legend.depot.core.server.filters.HealthcheckFilterFactory$1.decide:(Lch/qos/logback/access/spi/IAccessEvent;)Lch/qos/logback/core/spi/FilterReply;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        41,
+        42,
+        44,
+        48,
+        49
+      ]
+    },
+    "org.finos.legend.depot.core.server.filters.HealthcheckFilterFactory$1.decide:(Ljava/lang/Object;)Lch/qos/logback/core/spi/FilterReply;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        37
+      ]
+    },
+    "org.finos.legend.depot.core.server.filters.HealthcheckFilterFactory.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.finos.legend.depot.core.server.filters.HealthcheckFilterFactory.build:()Lch/qos/logback/core/filter/Filter;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        35,
+        36
+      ]
+    },
+    "org.finos.legend.depot.core.server.guice.BaseServerModule$1.<init>:(Lorg/finos/legend/depot/core/server/guice/BaseServerModule;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        42
+      ]
+    },
+    "org.finos.legend.depot.core.server.guice.BaseServerModule.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.finos.legend.depot.core.server.guice.BaseServerModule.configure:(Lcom/google/inject/Binder;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        41,
+        42,
+        43,
+        44,
+        45
+      ]
+    },
+    "org.finos.legend.depot.core.server.guice.BaseServerModule.getApplicationName:(Lorg/finos/legend/depot/core/server/ServerConfiguration;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        60
+      ]
+    },
+    "org.finos.legend.depot.core.server.guice.BaseServerModule.getConfig:(Lorg/finos/legend/depot/core/server/ServerConfiguration;)Lorg/finos/legend/depot/core/server/ServerConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        66
+      ]
+    },
+    "org.finos.legend.depot.core.server.guice.BaseServerModule.getProjectsConfig:()Lorg/finos/legend/depot/services/api/projects/configuration/ProjectsConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        76
+      ]
+    },
+    "org.finos.legend.depot.core.server.guice.BaseServerModule.getPrometheusConfig:()Lorg/finos/legend/depot/core/services/api/metrics/configuration/PrometheusConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        86
+      ]
+    },
+    "org.finos.legend.depot.core.server.guice.BaseServerModule.getStorageConfig:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        71
+      ]
+    },
+    "org.finos.legend.depot.core.server.guice.BaseServerModule.getTracingConfig:()Lorg/finos/legend/depot/core/services/api/tracing/configuration/OpenTracingConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        81
+      ]
+    },
+    "org.finos.legend.depot.core.server.guice.BaseServerModule.provideUser:(Ljavax/servlet/http/HttpServletRequest;)Ljava/security/Principal;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        52
+      ]
+    },
+    "org.finos.legend.depot.core.server.guice.ServerInfoModule.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.finos.legend.depot.core.server.guice.ServerInfoModule.configure:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        29,
+        30,
+        31,
+        32
+      ]
+    },
+    "org.finos.legend.depot.core.server.guice.ServerInfoModule.initInfo:()Lorg/finos/legend/depot/core/server/info/InfoService;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        38
+      ]
+    },
+    "org.finos.legend.depot.core.server.info.InfoService$PlatformVersionInfo.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T008",
+      "perMethodOutcome" : "T008",
+      "lineNumbers" : [
+        87,
+        88
+      ]
+    },
+    "org.finos.legend.depot.core.server.info.InfoService$ServerInfo.<init>:(Ljava/lang/String;Lorg/finos/legend/depot/core/server/info/InfoService$PlatformVersionInfo;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T008",
+      "perMethodOutcome" : "T008",
+      "lineNumbers" : [
+        132,
+        133,
+        134,
+        135,
+        136
+      ]
+    },
+    "org.finos.legend.depot.core.server.info.InfoService$ServerInfo.getHostName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R083",
+      "lineNumbers" : [
+        140
+      ]
+    },
+    "org.finos.legend.depot.core.server.info.InfoService$ServerInfo.getPlatform:()Lorg/finos/legend/depot/core/server/info/InfoService$ServerPlatformInfo;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R083",
+      "lineNumbers" : [
+        145
+      ]
+    },
+    "org.finos.legend.depot.core.server.info.InfoService$ServerInfo.getServerTimeZone:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R083",
+      "lineNumbers" : [
+        150
+      ]
+    },
+    "org.finos.legend.depot.core.server.info.InfoService$ServerPlatformInfo.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T008",
+      "perMethodOutcome" : "T008",
+      "lineNumbers" : [
+        106,
+        107
+      ]
+    },
+    "org.finos.legend.depot.core.server.info.InfoService$ServerPlatformInfo.<init>:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        98,
+        99,
+        100,
+        101,
+        102
+      ]
+    },
+    "org.finos.legend.depot.core.server.info.InfoService$ServerPlatformInfo.getBuildRevision:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R083",
+      "lineNumbers" : [
+        121
+      ]
+    },
+    "org.finos.legend.depot.core.server.info.InfoService$ServerPlatformInfo.getBuildTime:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R083",
+      "lineNumbers" : [
+        116
+      ]
+    },
+    "org.finos.legend.depot.core.server.info.InfoService$ServerPlatformInfo.getVersion:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R083",
+      "lineNumbers" : [
+        111
+      ]
+    },
+    "org.finos.legend.depot.core.server.info.InfoService$SupplierWithException.get:()Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003"
+    },
+    "org.finos.legend.depot.core.server.info.InfoService.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.finos.legend.depot.core.server.info.InfoService.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        40,
+        41,
+        42,
+        43,
+        44
+      ]
+    },
+    "org.finos.legend.depot.core.server.info.InfoService.getLocalHostName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        61
+      ]
+    },
+    "org.finos.legend.depot.core.server.info.InfoService.getPlatformVersionInfo:()Lorg/finos/legend/depot/core/server/info/InfoService$PlatformVersionInfo;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        66,
+        67
+      ]
+    },
+    "org.finos.legend.depot.core.server.info.InfoService.getServerInfo:()Lorg/finos/legend/depot/core/server/info/InfoService$ServerInfo;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        156
+      ]
+    },
+    "org.finos.legend.depot.core.server.info.InfoService.lambda$new$0:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        41
+      ]
+    },
+    "org.finos.legend.depot.core.server.info.InfoService.lambda$new$1:()Lorg/finos/legend/depot/core/server/info/InfoService$PlatformVersionInfo;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        42
+      ]
+    },
+    "org.finos.legend.depot.core.server.info.InfoService.tryGetValue:(Lorg/finos/legend/depot/core/server/info/InfoService$SupplierWithException;)Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        50,
+        52,
+        54,
+        55
+      ]
+    },
+    "org.finos.legend.depot.core.server.resources.info.InfoResource.<init>:(Lorg/finos/legend/depot/core/server/info/InfoService;Lorg/finos/legend/depot/core/server/ServerConfiguration;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        41,
+        42,
+        43,
+        44
+      ]
+    },
+    "org.finos.legend.depot.core.server.resources.info.InfoResource.getServerConfig:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R034",
+      "lineNumbers" : [
+        61
+      ]
+    },
+    "org.finos.legend.depot.core.server.resources.info.InfoResource.getServerInfo:()Lorg/finos/legend/depot/core/server/info/InfoService$ServerInfo;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R034",
+      "lineNumbers" : [
+        52
+      ]
+    }
+  },
+  "validationMetrics" : {
+    "touchedFiles" : [
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-servers-common\\src\\test\\java\\org\\finos\\legend\\depot\\core\\server\\error\\CatchAllExceptionMapperDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-servers-common\\src\\test\\java\\org\\finos\\legend\\depot\\core\\server\\error\\configuration\\ExceptionMapperConfigurationDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-servers-common\\src\\test\\java\\org\\finos\\legend\\depot\\core\\server\\error\\DepotServerExceptionMapperDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-servers-common\\src\\test\\java\\org\\finos\\legend\\depot\\core\\server\\error\\ExtendedErrorMessageDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-servers-common\\src\\test\\java\\org\\finos\\legend\\depot\\core\\server\\error\\LegendDepotServerExceptionDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-servers-common\\src\\test\\java\\org\\finos\\legend\\depot\\core\\server\\filters\\HealthcheckFilterFactoryDiffblueTest.java"
+    ]
+  }
+}

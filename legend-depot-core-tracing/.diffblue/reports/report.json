@@ -1,0 +1,1789 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.06.02-fd4f1ca-licensed",
+    "creationTimestamp" : "2025-06-19T18:01:07.4996814+01:00",
+    "command" : "dcover create --coverage-reports",
+    "totalTime" : 321.164,
+    "environmentDetectionTime" : 0.246,
+    "indexingTime" : 0.436,
+    "entryPointsTime" : 0.243,
+    "generationTime" : 4272.546,
+    "timeToFirstTest" : 7208.202,
+    "timeToLastTest" : 6262.391,
+    "indexQueryTime" : 8.38,
+    "verificationTime" : 766.459,
+    "validationTime" : 15.11
+  },
+  "codes" : {
+    "R000" : "Success",
+    "R002" : "Missing observers",
+    "R004" : "No meaningful assertions found",
+    "R005" : "Unable to load class",
+    "R011" : "Sandboxing policy violation",
+    "R013" : "No inputs found that don't throw a trivial exception",
+    "T000" : "Method eligible for test creation",
+    "T001" : "Trivial getter",
+    "T002" : "Trivial setter",
+    "T003" : "Private method",
+    "T004" : "In anonymous inner class",
+    "T005" : "Trivial constructor",
+    "T008" : "Private and never called",
+    "T010" : "Abstract or interface method",
+    "T012" : "Synthetic method",
+    "T021" : "Empty method body",
+    "T023" : "Testability unknown",
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation",
+    "W002" : "Test compiled, but did not pass"
+  },
+  "summary" : {
+    "classesCount" : 17,
+    "methodsCount" : 133,
+    "cumulativeDiffblueTestCount" : 142,
+    "cumulativeManualTestCount" : 6,
+    "completeTestCount" : 142,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 833,
+    "perMethodTestability" : {
+      "T000" : 40,
+      "T001" : 6,
+      "T002" : 6,
+      "T003" : 16,
+      "T004" : 2,
+      "T005" : 9,
+      "T008" : 1,
+      "T010" : 17,
+      "T012" : 19,
+      "T021" : 16,
+      "T023" : 1
+    },
+    "perMethodOutcome" : {
+      "R000" : 35,
+      "R002" : 21,
+      "R004" : 3,
+      "R005" : 1,
+      "R011" : 12,
+      "R013" : 4,
+      "T003" : 16,
+      "T004" : 2,
+      "T005" : 1,
+      "T008" : 1,
+      "T010" : 17,
+      "T012" : 19,
+      "T023" : 1
+    },
+    "perTestOutcome" : {
+      "R000" : 142
+    },
+    "perTestValidation" : {
+      "V000" : 142,
+      "V003" : 2
+    },
+    "warnings" : {
+      "W002" : 1
+    }
+  },
+  "classes" : {
+    "org.finos.legend.depot.core.services.api.metrics.PrometheusMetricsHandler" : {
+      "methodsCount" : 16,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 16
+      },
+      "perMethodOutcome" : {
+        "T010" : 16
+      }
+    },
+    "org.finos.legend.depot.core.services.api.metrics.VoidPrometheusMetricsHandler" : {
+      "methodsCount" : 17,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T005" : 1,
+        "T021" : 16
+      },
+      "perMethodOutcome" : {
+        "R002" : 17
+      }
+    },
+    "org.finos.legend.depot.core.services.api.metrics.configuration.PrometheusConfiguration" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T001" : 2,
+        "T002" : 2,
+        "T005" : 2
+      },
+      "perMethodOutcome" : {
+        "R000" : 6
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      }
+    },
+    "org.finos.legend.depot.core.services.api.metrics.configuration.PrometheusMetricsConfiguration" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R002" : 1
+      }
+    },
+    "org.finos.legend.depot.core.services.api.metrics.configuration.PrometheusMetricsProviderConfiguration" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T003" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "T003" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.finos.legend.depot.core.services.api.metrics.configuration.PrometheusMetricsProviderConfiguration$1WrapperMixin" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T004" : 1
+      },
+      "perMethodOutcome" : {
+        "T004" : 1
+      }
+    },
+    "org.finos.legend.depot.core.services.api.tracing.configuration.OpenTracingConfiguration" : {
+      "methodsCount" : 9,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T001" : 4,
+        "T002" : 4,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 9
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.finos.legend.depot.core.services.api.tracing.configuration.TracerProvider" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T010" : 1
+      }
+    },
+    "org.finos.legend.depot.core.services.api.tracing.configuration.TracerProviderConfiguration" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T003" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "T003" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.finos.legend.depot.core.services.api.tracing.configuration.TracerProviderConfiguration$1WrapperMixin" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T004" : 1
+      },
+      "perMethodOutcome" : {
+        "T004" : 1
+      }
+    },
+    "org.finos.legend.depot.core.services.guice.MonitoringModule" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 6,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 2,
+        "R002" : 1,
+        "R005" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 6
+      }
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler" : {
+      "methodsCount" : 41,
+      "completeTestCount" : 102,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 17,
+        "T003" : 8,
+        "T012" : 16
+      },
+      "perMethodOutcome" : {
+        "R000" : 3,
+        "R011" : 12,
+        "R013" : 2,
+        "T003" : 8,
+        "T012" : 16
+      },
+      "perTestOutcome" : {
+        "R000" : 102
+      }
+    },
+    "org.finos.legend.depot.core.services.metrics.PrometheusMetricsFactory" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 2,
+        "T005" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 5
+      }
+    },
+    "org.finos.legend.depot.core.services.tracing.DefaultTracerProvider" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "R002" : 1,
+        "R013" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 5
+      }
+    },
+    "org.finos.legend.depot.core.services.tracing.ResourceLoggingAndTracing" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T008" : 1
+      },
+      "perMethodOutcome" : {
+        "T008" : 1
+      }
+    },
+    "org.finos.legend.depot.core.services.tracing.TracerFactory" : {
+      "methodsCount" : 13,
+      "completeTestCount" : 9,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 8,
+        "T003" : 3,
+        "T012" : 1,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 4,
+        "R004" : 3,
+        "R013" : 1,
+        "T003" : 3,
+        "T012" : 1,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 9
+      },
+      "warnings" : {
+        "W002" : 1
+      }
+    },
+    "org.finos.legend.depot.core.services.tracing.resources.TracingResource" : {
+      "methodsCount" : 12,
+      "completeTestCount" : 10,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 6,
+        "T003" : 3,
+        "T005" : 1,
+        "T012" : 2
+      },
+      "perMethodOutcome" : {
+        "R000" : 6,
+        "R002" : 1,
+        "T003" : 3,
+        "T012" : 2
+      },
+      "perTestOutcome" : {
+        "R000" : 10
+      }
+    }
+  },
+  "methods" : {
+    "org.finos.legend.depot.core.services.api.metrics.PrometheusMetricsHandler.increaseGauge:(Ljava/lang/String;I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.core.services.api.metrics.PrometheusMetricsHandler.incrementCount:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.core.services.api.metrics.PrometheusMetricsHandler.incrementErrorCount:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.core.services.api.metrics.PrometheusMetricsHandler.observe:(Ljava/lang/String;JJ)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.core.services.api.metrics.PrometheusMetricsHandler.observeHistogram:(Ljava/lang/String;D)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.core.services.api.metrics.PrometheusMetricsHandler.observeHistogram:(Ljava/lang/String;JJ)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.core.services.api.metrics.PrometheusMetricsHandler.observeHistogram:(Ljava/lang/String;JJ[Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.core.services.api.metrics.PrometheusMetricsHandler.registerCounter:(Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.core.services.api.metrics.PrometheusMetricsHandler.registerGauge:(Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.core.services.api.metrics.PrometheusMetricsHandler.registerGauge:(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.core.services.api.metrics.PrometheusMetricsHandler.registerHistogram:(Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.core.services.api.metrics.PrometheusMetricsHandler.registerHistogram:(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.core.services.api.metrics.PrometheusMetricsHandler.registerResourceSummaries:(Ljava/lang/Class;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.core.services.api.metrics.PrometheusMetricsHandler.registerSummary:(Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.core.services.api.metrics.PrometheusMetricsHandler.setGauge:(Ljava/lang/String;D)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.core.services.api.metrics.PrometheusMetricsHandler.setGauge:(Ljava/lang/String;DLjava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.core.services.api.metrics.VoidPrometheusMetricsHandler.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.VoidPrometheusMetricsHandler.increaseGauge:(Ljava/lang/String;I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        68
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.VoidPrometheusMetricsHandler.incrementCount:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.VoidPrometheusMetricsHandler.incrementErrorCount:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        33
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.VoidPrometheusMetricsHandler.observe:(Ljava/lang/String;JJ)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        43
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.VoidPrometheusMetricsHandler.observeHistogram:(Ljava/lang/String;D)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        106
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.VoidPrometheusMetricsHandler.observeHistogram:(Ljava/lang/String;JJ)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        88
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.VoidPrometheusMetricsHandler.observeHistogram:(Ljava/lang/String;JJ[Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        100
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.VoidPrometheusMetricsHandler.registerCounter:(Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        38
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.VoidPrometheusMetricsHandler.registerGauge:(Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.VoidPrometheusMetricsHandler.registerGauge:(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        78
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.VoidPrometheusMetricsHandler.registerHistogram:(Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        83
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.VoidPrometheusMetricsHandler.registerHistogram:(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        94
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.VoidPrometheusMetricsHandler.registerResourceSummaries:(Ljava/lang/Class;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        53
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.VoidPrometheusMetricsHandler.registerSummary:(Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        48
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.VoidPrometheusMetricsHandler.setGauge:(Ljava/lang/String;D)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        58
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.VoidPrometheusMetricsHandler.setGauge:(Ljava/lang/String;DLjava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        73
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.configuration.PrometheusConfiguration.<init>:()V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        30,
+        23,
+        31
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.configuration.PrometheusConfiguration.<init>:(ZLorg/finos/legend/depot/core/services/api/metrics/PrometheusMetricsHandler;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        34,
+        23,
+        35,
+        36,
+        37
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.configuration.PrometheusConfiguration.getMetricsHandler:()Lorg/finos/legend/depot/core/services/api/metrics/PrometheusMetricsHandler;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        51
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.configuration.PrometheusConfiguration.isEnabled:()Z" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        41
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.configuration.PrometheusConfiguration.setEnabled:(Z)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        46,
+        47
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.configuration.PrometheusConfiguration.setMetricsHandler:(Lorg/finos/legend/depot/core/services/api/metrics/PrometheusMetricsHandler;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        56,
+        57
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.configuration.PrometheusMetricsConfiguration.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        20,
+        22
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.configuration.PrometheusMetricsProviderConfiguration$1WrapperMixin.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.configuration.PrometheusMetricsProviderConfiguration.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        26,
+        27
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.metrics.configuration.PrometheusMetricsProviderConfiguration.configureObjectMapper:(Lcom/fasterxml/jackson/databind/ObjectMapper;)Lcom/fasterxml/jackson/databind/ObjectMapper;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        36,
+        37,
+        36
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.tracing.configuration.OpenTracingConfiguration.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        21,
+        24
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.tracing.configuration.OpenTracingConfiguration.getOpenTracingUri:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        39
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.tracing.configuration.OpenTracingConfiguration.getServiceName:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        49
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.tracing.configuration.OpenTracingConfiguration.getTracerProvider:()Lorg/finos/legend/depot/core/services/api/tracing/configuration/TracerProvider;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        69
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.tracing.configuration.OpenTracingConfiguration.isEnabled:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        59
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.tracing.configuration.OpenTracingConfiguration.setEnabled:(Z)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        64,
+        65
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.tracing.configuration.OpenTracingConfiguration.setOpenTracingUri:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        44,
+        45
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.tracing.configuration.OpenTracingConfiguration.setServiceName:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        54,
+        55
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.tracing.configuration.OpenTracingConfiguration.setTracerProvider:(Lorg/finos/legend/depot/core/services/api/tracing/configuration/TracerProvider;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        74,
+        75
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.tracing.configuration.TracerProvider.create:(Lorg/finos/legend/depot/core/services/api/tracing/configuration/OpenTracingConfiguration;)Lio/opentracing/Tracer;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.core.services.api.tracing.configuration.TracerProviderConfiguration$1WrapperMixin.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.tracing.configuration.TracerProviderConfiguration.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        24,
+        25
+      ]
+    },
+    "org.finos.legend.depot.core.services.api.tracing.configuration.TracerProviderConfiguration.configureObjectMapper:(Lcom/fasterxml/jackson/databind/ObjectMapper;)Lcom/fasterxml/jackson/databind/ObjectMapper;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        34,
+        35,
+        34
+      ]
+    },
+    "org.finos.legend.depot.core.services.guice.MonitoringModule.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.finos.legend.depot.core.services.guice.MonitoringModule.configure:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        33,
+        34,
+        35
+      ]
+    },
+    "org.finos.legend.depot.core.services.guice.MonitoringModule.initTracerFactory:(Lorg/finos/legend/depot/core/services/api/tracing/configuration/OpenTracingConfiguration;)Lorg/finos/legend/depot/core/services/tracing/TracerFactory;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        41
+      ]
+    },
+    "org.finos.legend.depot.core.services.guice.MonitoringModule.initialisePrometheusMetrics:(Lorg/finos/legend/depot/core/services/api/metrics/configuration/PrometheusConfiguration;)Lorg/finos/legend/depot/core/services/api/metrics/PrometheusMetricsHandler;" : {
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 4
+      },
+      "lineNumbers" : [
+        49
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.$deserializeLambda$:(Ljava/lang/invoke/SerializedLambda;)Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        36
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.<init>:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        58,
+        46,
+        47,
+        48,
+        49,
+        50,
+        59,
+        60
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.buildCounter:(Ljava/lang/String;Ljava/lang/String;)Lio/prometheus/client/Counter;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        84
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.buildErrorCounterName:(Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        79
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.buildGauge:(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Lio/prometheus/client/Gauge;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        94,
+        95,
+        97,
+        99
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.buildHistogram:(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Lio/prometheus/client/Histogram;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        104,
+        105,
+        107,
+        109
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.buildSummary:(Ljava/lang/String;Ljava/lang/String;)Lio/prometheus/client/Summary;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        89
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.getHelpMessage:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        69
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.getKeyName:(Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        64
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.increaseGauge:(Ljava/lang/String;I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R011",
+      "lineNumbers" : [
+        189,
+        190
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.incrementCount:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R011",
+      "lineNumbers" : [
+        116,
+        117
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.incrementErrorCount:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R011",
+      "lineNumbers" : [
+        122,
+        123
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.lambda$increaseGauge$4272dcb7$1:(Ljava/lang/String;Ljava/lang/String;)Lio/prometheus/client/Gauge;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        189
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.lambda$incrementCount$ac79bfba$1:(Ljava/lang/String;Ljava/lang/String;)Lio/prometheus/client/Counter;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        116
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.lambda$incrementErrorCount$ac79bfba$1:(Ljava/lang/String;Ljava/lang/String;)Lio/prometheus/client/Counter;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        122
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.lambda$observe$d5c9ccc5$1:(Ljava/lang/String;Ljava/lang/String;)Lio/prometheus/client/Summary;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        141
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.lambda$observeHistogram$83adb077$1:(Ljava/lang/String;Ljava/lang/String;)Lio/prometheus/client/Histogram;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        207
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.lambda$observeHistogram$9c6ec517$1:(Ljava/lang/String;Ljava/lang/String;)Lio/prometheus/client/Histogram;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        213
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.lambda$registerCounter$c6b5bb23$1:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/prometheus/client/Counter;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        128
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.lambda$registerCounter$c6b5bb23$2:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/prometheus/client/Counter;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        129
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.lambda$registerGauge$152326a0$1:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/prometheus/client/Gauge;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        160
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.lambda$registerGauge$88a020db$1:(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;)Lio/prometheus/client/Gauge;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        167
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.lambda$registerHistogram$3f5546a5$1:(Ljava/lang/String;Ljava/util/List;Ljava/lang/String;)Lio/prometheus/client/Histogram;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        201
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.lambda$registerHistogram$b182356d$1:(Ljava/lang/String;Ljava/lang/String;)Lio/prometheus/client/Histogram;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        195
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.lambda$registerResourceSummaries$0:(Ljava/lang/reflect/Method;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        221,
+        223,
+        224,
+        225,
+        227
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.lambda$registerSummary$1ac2ffcd$1:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/prometheus/client/Summary;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        135
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.lambda$setGauge$aad4b932$1:(Ljava/lang/String;Ljava/lang/String;)Lio/prometheus/client/Gauge;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        173
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.observe:(Ljava/lang/String;JJ)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R011",
+      "lineNumbers" : [
+        141,
+        142
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.observeHistogram:(Ljava/lang/String;D)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R011",
+      "lineNumbers" : [
+        213,
+        214
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.observeHistogram:(Ljava/lang/String;JJ)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R011",
+      "lineNumbers" : [
+        207,
+        208
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.observeHistogram:(Ljava/lang/String;JJ[Ljava/lang/String;)V" : {
+      "completeTestCount" : 44,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 44
+      },
+      "lineNumbers" : [
+        149,
+        151,
+        153,
+        154
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.registerCounter:(Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R011",
+      "lineNumbers" : [
+        128,
+        129,
+        130
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.registerGauge:(Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R011",
+      "lineNumbers" : [
+        160,
+        161
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.registerGauge:(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R011",
+      "lineNumbers" : [
+        167,
+        168
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.registerHistogram:(Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R011",
+      "lineNumbers" : [
+        195,
+        196
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.registerHistogram:(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R011",
+      "lineNumbers" : [
+        201,
+        202
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.registerResourceSummaries:(Ljava/lang/Class;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        219,
+        228
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.registerSummary:(Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        135,
+        136
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.sanitise:(Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        74
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.setGauge:(Ljava/lang/String;D)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R011",
+      "lineNumbers" : [
+        173,
+        174
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler.setGauge:(Ljava/lang/String;DLjava/util/List;)V" : {
+      "completeTestCount" : 57,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 57
+      },
+      "lineNumbers" : [
+        179,
+        181,
+        183,
+        184
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.PrometheusMetricsFactory.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.PrometheusMetricsFactory.configure:(Lorg/finos/legend/depot/core/services/api/metrics/configuration/PrometheusConfiguration;)Lorg/finos/legend/depot/core/services/api/metrics/PrometheusMetricsHandler;" : {
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 4
+      },
+      "lineNumbers" : [
+        40,
+        42,
+        46,
+        48
+      ]
+    },
+    "org.finos.legend.depot.core.services.metrics.PrometheusMetricsFactory.getInstance:()Lorg/finos/legend/depot/core/services/api/metrics/PrometheusMetricsHandler;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        31,
+        33,
+        35
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.DefaultTracerProvider.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.DefaultTracerProvider.create:(Lorg/finos/legend/depot/core/services/api/tracing/configuration/OpenTracingConfiguration;)Lio/opentracing/Tracer;" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        42,
+        44,
+        46,
+        47,
+        50,
+        51,
+        52,
+        53,
+        54,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        57,
+        62,
+        64,
+        66
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.DefaultTracerProvider.getMemoryMetricsReporter:()Lzipkin2/reporter/InMemoryReporterMetrics;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        73,
+        74,
+        75,
+        76
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.ResourceLoggingAndTracing.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T008",
+      "perMethodOutcome" : "T008",
+      "lineNumbers" : [
+        77,
+        78
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.TracerFactory.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.finos.legend.depot.core.services.tracing.TracerFactory.<init>:(Lio/opentracing/Tracer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        46,
+        47,
+        48
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.TracerFactory.addTags:(Ljava/util/Map;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        107,
+        108
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.TracerFactory.addTags:(Ljava/util/Map;Lio/opentracing/Span;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        112,
+        114,
+        116
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.TracerFactory.configure:(Lorg/finos/legend/depot/core/services/api/tracing/configuration/OpenTracingConfiguration;)Lorg/finos/legend/depot/core/services/tracing/TracerFactory;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        66,
+        68,
+        69,
+        70,
+        71,
+        72,
+        75,
+        77
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.TracerFactory.executeWithTrace:(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/Object;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        132
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.TracerFactory.executeWithTrace:(Ljava/lang/String;Ljava/util/function/Supplier;Ljava/util/Map;)Ljava/lang/Object;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        137,
+        140,
+        141,
+        142,
+        168,
+        142,
+        144,
+        146,
+        148,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        161,
+        163,
+        164,
+        168,
+        169
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.TracerFactory.get:()Lorg/finos/legend/depot/core/services/tracing/TracerFactory;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R004",
+      "lineNumbers" : [
+        52,
+        54,
+        56
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.TracerFactory.getTracer:()Lio/opentracing/Tracer;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R004",
+      "lineNumbers" : [
+        61
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.TracerFactory.lambda$addTags$0:(Lio/opentracing/Span;Ljava/util/Map;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        114
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.TracerFactory.log:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R004",
+      "lineNumbers" : [
+        120,
+        122,
+        123,
+        125,
+        128
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.TracerFactory.startSpan:(Ljava/lang/String;)Lio/opentracing/Span;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        84,
+        85,
+        86,
+        87,
+        89,
+        90,
+        91,
+        94
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.TracerFactory.stopSpan:(Lio/opentracing/Span;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        99,
+        101,
+        103
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.resources.TracingResource.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        40,
+        41
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.resources.TracingResource.buildLoggingErrorMessage:(Ljava/lang/Throwable;Ljava/lang/String;J)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        50,
+        51,
+        52,
+        53,
+        54,
+        56,
+        59
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.resources.TracingResource.getLogger:()Lorg/slf4j/Logger;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        45
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.resources.TracingResource.handle:(Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/Object;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        99
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.resources.TracingResource.handle:(Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier;Ljavax/ws/rs/core/Request;Ljava/util/function/Supplier;)Ljavax/ws/rs/core/Response;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        104,
+        105,
+        106,
+        108,
+        110,
+        111,
+        112,
+        114,
+        115,
+        119,
+        120,
+        123,
+        124
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.resources.TracingResource.handle:(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/Object;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        139
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.resources.TracingResource.handle:(Ljava/lang/String;Ljava/util/function/Supplier;Ljavax/ws/rs/core/Request;Ljava/util/function/Supplier;)Ljavax/ws/rs/core/Response;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        144
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.resources.TracingResource.handleResponse:(Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier;)Ljavax/ws/rs/core/Response;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        134
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.resources.TracingResource.handleResponse:(Ljava/lang/String;Ljava/util/function/Supplier;)Ljavax/ws/rs/core/Response;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        129
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.resources.TracingResource.handleWithLogging:(Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        64,
+        65,
+        66,
+        67,
+        68,
+        70,
+        75,
+        76,
+        77,
+        78,
+        80,
+        81,
+        83,
+        85,
+        87,
+        88,
+        90,
+        91,
+        93
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.resources.TracingResource.lambda$handle$0:(Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        99
+      ]
+    },
+    "org.finos.legend.depot.core.services.tracing.resources.TracingResource.lambda$handleResponse$1:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        134
+      ]
+    }
+  },
+  "validationMetrics" : {
+    "touchedFiles" : [
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-core-tracing\\src\\test\\java\\org\\finos\\legend\\depot\\core\\services\\api\\metrics\\configuration\\PrometheusConfigurationDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-core-tracing\\src\\test\\java\\org\\finos\\legend\\depot\\core\\services\\api\\metrics\\configuration\\PrometheusMetricsProviderConfigurationDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-core-tracing\\src\\test\\java\\org\\finos\\legend\\depot\\core\\services\\api\\tracing\\configuration\\OpenTracingConfigurationDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-core-tracing\\src\\test\\java\\org\\finos\\legend\\depot\\core\\services\\api\\tracing\\configuration\\TracerProviderConfigurationDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-core-tracing\\src\\test\\java\\org\\finos\\legend\\depot\\core\\services\\guice\\MonitoringModuleDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-core-tracing\\src\\test\\java\\org\\finos\\legend\\depot\\core\\services\\metrics\\DepotPrometheusMetricsHandlerDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-core-tracing\\src\\test\\java\\org\\finos\\legend\\depot\\core\\services\\metrics\\PrometheusMetricsFactoryDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-core-tracing\\src\\test\\java\\org\\finos\\legend\\depot\\core\\services\\tracing\\DefaultTracerProviderDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-core-tracing\\src\\test\\java\\org\\finos\\legend\\depot\\core\\services\\tracing\\resources\\TracingResourceDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-core-tracing\\src\\test\\java\\org\\finos\\legend\\depot\\core\\services\\tracing\\TracerFactoryDiffblueTest.java"
+    ]
+  }
+}

@@ -1,0 +1,528 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.06.02-fd4f1ca-licensed",
+    "creationTimestamp" : "2025-06-19T18:01:07.4996814+01:00",
+    "command" : "dcover create --coverage-reports",
+    "totalTime" : 74.624,
+    "environmentDetectionTime" : 0.185,
+    "indexingTime" : 0.387,
+    "entryPointsTime" : 0.177,
+    "generationTime" : 2173.561,
+    "timeToFirstTest" : 2723.878,
+    "timeToLastTest" : 2612.331,
+    "indexQueryTime" : 1.969,
+    "verificationTime" : 133.669,
+    "validationTime" : 11.063
+  },
+  "codes" : {
+    "R000" : "Success",
+    "R013" : "No inputs found that don't throw a trivial exception",
+    "T000" : "Method eligible for test creation",
+    "T001" : "Trivial getter",
+    "T002" : "Trivial setter",
+    "T005" : "Trivial constructor",
+    "T010" : "Abstract or interface method",
+    "V000" : "Validated successfully"
+  },
+  "summary" : {
+    "classesCount" : 5,
+    "methodsCount" : 40,
+    "cumulativeDiffblueTestCount" : 4,
+    "cumulativeManualTestCount" : 0,
+    "completeTestCount" : 4,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 165,
+    "perMethodTestability" : {
+      "T000" : 1,
+      "T001" : 9,
+      "T002" : 9,
+      "T005" : 4,
+      "T010" : 17
+    },
+    "perMethodOutcome" : {
+      "R000" : 22,
+      "R013" : 1,
+      "T010" : 17
+    },
+    "perTestOutcome" : {
+      "R000" : 4
+    },
+    "perTestValidation" : {
+      "V000" : 4
+    }
+  },
+  "classes" : {
+    "org.finos.legend.depot.services.api.schedules.SchedulesFactory" : {
+      "methodsCount" : 9,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 9
+      },
+      "perMethodOutcome" : {
+        "T010" : 9
+      }
+    },
+    "org.finos.legend.depot.store.api.admin.schedules.ScheduleInstancesStore" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 4
+      },
+      "perMethodOutcome" : {
+        "T010" : 4
+      }
+    },
+    "org.finos.legend.depot.store.api.admin.schedules.SchedulesStore" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 4
+      },
+      "perMethodOutcome" : {
+        "T010" : 4
+      }
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInfo" : {
+      "methodsCount" : 14,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T001" : 6,
+        "T002" : 6,
+        "T005" : 2
+      },
+      "perMethodOutcome" : {
+        "R000" : 14
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      }
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInstance" : {
+      "methodsCount" : 9,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T001" : 3,
+        "T002" : 3,
+        "T005" : 2
+      },
+      "perMethodOutcome" : {
+        "R000" : 8,
+        "R013" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      }
+    }
+  },
+  "methods" : {
+    "org.finos.legend.depot.services.api.schedules.SchedulesFactory.deRegister:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.schedules.SchedulesFactory.deRegisterAll:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.schedules.SchedulesFactory.register:(Ljava/lang/String;JJLjava/util/function/Supplier;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.schedules.SchedulesFactory.registerExternalTriggerSchedule:(Ljava/lang/String;JLjava/util/function/Supplier;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.schedules.SchedulesFactory.registerSingleInstance:(Ljava/lang/String;JJLjava/util/function/Supplier;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.schedules.SchedulesFactory.run:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.schedules.SchedulesFactory.toggleDisable:(Ljava/lang/String;Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.schedules.SchedulesFactory.toggleDisableAll:(Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.schedules.SchedulesFactory.trigger:(Ljava/lang/String;Z)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.admin.schedules.ScheduleInstancesStore.delete:(J)J" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.admin.schedules.ScheduleInstancesStore.find:(Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.admin.schedules.ScheduleInstancesStore.getAll:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.admin.schedules.ScheduleInstancesStore.insert:(Lorg/finos/legend/depot/store/model/admin/schedules/ScheduleInstance;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.admin.schedules.SchedulesStore.createOrUpdate:(Lorg/finos/legend/depot/store/model/admin/schedules/ScheduleInfo;)Lorg/finos/legend/depot/store/model/admin/schedules/ScheduleInfo;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.admin.schedules.SchedulesStore.delete:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.admin.schedules.SchedulesStore.get:(Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.admin.schedules.SchedulesStore.getAll:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInfo.<init>:()V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        40,
+        30,
+        41
+      ]
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInfo.<init>:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        44,
+        30,
+        45,
+        46
+      ]
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInfo.getExternalTrigger:()Ljava/lang/Boolean;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        91
+      ]
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInfo.getFrequency:()Ljava/lang/Long;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        101
+      ]
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInfo.getId:()Ljava/lang/String;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        51
+      ]
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInfo.getName:()Ljava/lang/String;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        61
+      ]
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInfo.getSingleInstance:()Ljava/lang/Boolean;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        81
+      ]
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInfo.isDisabled:()Z" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        71
+      ]
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInfo.setDisabled:(Z)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        76,
+        77
+      ]
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInfo.setExternalTrigger:(Ljava/lang/Boolean;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        96,
+        97
+      ]
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInfo.setFrequency:(Ljava/lang/Long;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        106,
+        107
+      ]
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInfo.setId:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        56,
+        57
+      ]
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInfo.setName:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        66,
+        67
+      ]
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInfo.setSingleInstance:(Ljava/lang/Boolean;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        86,
+        87
+      ]
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInstance.<init>:()V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        36,
+        37
+      ]
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInstance.<init>:(Ljava/lang/String;Ljava/util/Date;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        40,
+        41,
+        42,
+        43
+      ]
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInstance.getExpires:()Ljava/util/Date;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        54
+      ]
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInstance.getId:()Ljava/lang/String;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        49
+      ]
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInstance.getSchedule:()Ljava/lang/String;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        69
+      ]
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInstance.isExpired:()Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        79
+      ]
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInstance.setExpires:(Ljava/util/Date;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        59,
+        60
+      ]
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInstance.setId:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        64,
+        65
+      ]
+    },
+    "org.finos.legend.depot.store.model.admin.schedules.ScheduleInstance.setSchedule:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        74,
+        75
+      ]
+    }
+  },
+  "validationMetrics" : {
+    "touchedFiles" : [
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-core-schedules-api\\src\\test\\java\\org\\finos\\legend\\depot\\store\\model\\admin\\schedules\\ScheduleInfoDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-core-schedules-api\\src\\test\\java\\org\\finos\\legend\\depot\\store\\model\\admin\\schedules\\ScheduleInstanceDiffblueTest.java"
+    ]
+  }
+}

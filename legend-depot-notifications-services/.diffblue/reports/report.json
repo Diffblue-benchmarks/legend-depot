@@ -1,0 +1,839 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.06.02-fd4f1ca-licensed",
+    "creationTimestamp" : "2025-06-19T18:01:07.4996814+01:00",
+    "command" : "dcover create --coverage-reports",
+    "totalTime" : 213.739,
+    "environmentDetectionTime" : 0.229,
+    "indexingTime" : 0.405,
+    "entryPointsTime" : 0.224,
+    "generationTime" : 2985.936,
+    "timeToFirstTest" : 4351.643,
+    "timeToLastTest" : 3949.263,
+    "indexQueryTime" : 5.553,
+    "verificationTime" : 337.598,
+    "validationTime" : 18.698
+  },
+  "codes" : {
+    "R000" : "Success",
+    "R002" : "Missing observers",
+    "R005" : "Unable to load class",
+    "R081" : "Exception in arrange section",
+    "T000" : "Method eligible for test creation",
+    "T001" : "Trivial getter",
+    "T003" : "Private method",
+    "T005" : "Trivial constructor",
+    "T012" : "Synthetic method",
+    "T021" : "Empty method body",
+    "T023" : "Testability unknown",
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation",
+    "W002" : "Test compiled, but did not pass"
+  },
+  "summary" : {
+    "classesCount" : 8,
+    "methodsCount" : 44,
+    "cumulativeDiffblueTestCount" : 18,
+    "cumulativeManualTestCount" : 8,
+    "completeTestCount" : 18,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 451,
+    "perMethodTestability" : {
+      "T000" : 19,
+      "T001" : 2,
+      "T003" : 1,
+      "T005" : 9,
+      "T012" : 9,
+      "T021" : 2,
+      "T023" : 2
+    },
+    "perMethodOutcome" : {
+      "R000" : 10,
+      "R002" : 6,
+      "R005" : 2,
+      "R081" : 7,
+      "T003" : 1,
+      "T012" : 9,
+      "T023" : 2,
+      "W002" : 7
+    },
+    "perTestOutcome" : {
+      "R000" : 18
+    },
+    "perTestValidation" : {
+      "V000" : 18,
+      "V003" : 2
+    },
+    "warnings" : {
+      "W002" : 10
+    }
+  },
+  "classes" : {
+    "org.finos.legend.depot.services.guice.NotificationsModule" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "R002" : 1,
+        "R005" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      }
+    },
+    "org.finos.legend.depot.services.guice.NotificationsQueueSchedulesModule" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1,
+        "T021" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "R002" : 2
+      },
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "warnings" : {
+        "W002" : 1
+      }
+    },
+    "org.finos.legend.depot.services.guice.NotificationsSchedulesModule" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1,
+        "T012" : 1,
+        "T021" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "R002" : 2,
+        "T012" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.finos.legend.depot.services.notifications.NotificationsQueueManager" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T003" : 1,
+        "T005" : 1,
+        "T012" : 1,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 2,
+        "R081" : 1,
+        "T003" : 1,
+        "T012" : 1,
+        "T023" : 1,
+        "W002" : 2
+      },
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "warnings" : {
+        "W002" : 2
+      }
+    },
+    "org.finos.legend.depot.services.notifications.NotificationsServiceImpl" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T005" : 1,
+        "T012" : 1,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 3,
+        "R081" : 1,
+        "T012" : 1,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 5
+      }
+    },
+    "org.finos.legend.depot.store.resources.guice.NotificationsResourcesModule" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R002" : 1,
+        "R005" : 1
+      }
+    },
+    "org.finos.legend.depot.store.resources.notifications.NotificationsQueueManagerResource" : {
+      "methodsCount" : 11,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 5,
+        "T001" : 1,
+        "T005" : 1,
+        "T012" : 4
+      },
+      "perMethodOutcome" : {
+        "R000" : 2,
+        "R081" : 2,
+        "T012" : 4,
+        "W002" : 3
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "warnings" : {
+        "W002" : 3
+      }
+    },
+    "org.finos.legend.depot.store.resources.notifications.NotificationsResource" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 1,
+        "T005" : 2,
+        "T012" : 2
+      },
+      "perMethodOutcome" : {
+        "R081" : 3,
+        "T012" : 2,
+        "W002" : 2
+      },
+      "warnings" : {
+        "W002" : 4
+      }
+    }
+  },
+  "methods" : {
+    "org.finos.legend.depot.services.guice.NotificationsModule.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        38
+      ]
+    },
+    "org.finos.legend.depot.services.guice.NotificationsModule.configure:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        44,
+        45,
+        47,
+        48,
+        49
+      ]
+    },
+    "org.finos.legend.depot.services.guice.NotificationsModule.registerMetrics:(Lorg/finos/legend/depot/core/services/api/metrics/configuration/PrometheusConfiguration;)Z" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        57,
+        59,
+        60,
+        61,
+        62,
+        64
+      ]
+    },
+    "org.finos.legend.depot.services.guice.NotificationsQueueSchedulesModule.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.finos.legend.depot.services.guice.NotificationsQueueSchedulesModule.configure:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.finos.legend.depot.services.guice.NotificationsQueueSchedulesModule.initQueue:(Lorg/finos/legend/depot/services/api/schedules/SchedulesFactory;Lorg/finos/legend/depot/services/api/notifications/queue/QueueManagerConfiguration;Lorg/finos/legend/depot/services/notifications/NotificationsQueueManager;)Z" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        42,
+        43,
+        45,
+        47,
+        49,
+        47,
+        51
+      ]
+    },
+    "org.finos.legend.depot.services.guice.NotificationsSchedulesModule.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.finos.legend.depot.services.guice.NotificationsSchedulesModule.configure:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        34
+      ]
+    },
+    "org.finos.legend.depot.services.guice.NotificationsSchedulesModule.lambda$notificationsCleanUp$0:(Lorg/finos/legend/depot/services/api/notifications/NotificationsService;)Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        41
+      ]
+    },
+    "org.finos.legend.depot.services.guice.NotificationsSchedulesModule.notificationsCleanUp:(Lorg/finos/legend/depot/services/api/schedules/SchedulesFactory;Lorg/finos/legend/depot/services/api/notifications/NotificationsService;)Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        41,
+        42
+      ]
+    },
+    "org.finos.legend.depot.services.notifications.NotificationsQueueManager.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.finos.legend.depot.services.notifications.NotificationsQueueManager.<init>:(Lorg/finos/legend/depot/store/api/notifications/Notifications;Lorg/finos/legend/depot/services/api/notifications/queue/Queue;Lorg/finos/legend/depot/services/api/notifications/NotificationHandler;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        50,
+        51,
+        52,
+        53,
+        54
+      ]
+    },
+    "org.finos.legend.depot.services.notifications.NotificationsQueueManager.handle:()I" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        59,
+        60,
+        61,
+        62
+      ]
+    },
+    "org.finos.legend.depot.services.notifications.NotificationsQueueManager.handleAll:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        166,
+        169,
+        170,
+        172,
+        173
+      ]
+    },
+    "org.finos.legend.depot.services.notifications.NotificationsQueueManager.handleEvent:(Lorg/finos/legend/depot/domain/notifications/MetadataNotification;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        79,
+        80,
+        81,
+        83,
+        84,
+        83,
+        85,
+        86,
+        87,
+        88,
+        91,
+        94,
+        95,
+        96,
+        95,
+        97,
+        98,
+        99,
+        107,
+        110,
+        112,
+        113,
+        112,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        122,
+        123,
+        122,
+        124,
+        125,
+        126,
+        127,
+        131,
+        132,
+        133,
+        135,
+        101,
+        103,
+        107,
+        110,
+        112,
+        113,
+        112,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        122,
+        123,
+        122,
+        124,
+        125,
+        126,
+        127,
+        131,
+        132,
+        133,
+        135,
+        107,
+        110,
+        112,
+        113,
+        112,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        122,
+        123,
+        122,
+        124,
+        125,
+        126,
+        127,
+        131,
+        132,
+        133,
+        135,
+        136
+      ]
+    },
+    "org.finos.legend.depot.services.notifications.NotificationsQueueManager.handleEvents:(Ljava/util/Optional;)I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        67,
+        69,
+        70,
+        71,
+        73
+      ]
+    },
+    "org.finos.legend.depot.services.notifications.NotificationsQueueManager.lambda$handle$0:()Ljava/lang/Integer;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        62
+      ]
+    },
+    "org.finos.legend.depot.services.notifications.NotificationsQueueManager.notify:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        142,
+        145,
+        146,
+        147,
+        149,
+        150,
+        151,
+        152,
+        156,
+        157,
+        158
+      ]
+    },
+    "org.finos.legend.depot.services.notifications.NotificationsServiceImpl.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.finos.legend.depot.services.notifications.NotificationsServiceImpl.<init>:(Lorg/finos/legend/depot/store/api/notifications/Notifications;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        36,
+        37,
+        38
+      ]
+    },
+    "org.finos.legend.depot.services.notifications.NotificationsServiceImpl.deleteOldNotifications:(J)J" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        57,
+        58,
+        59,
+        60,
+        61
+      ]
+    },
+    "org.finos.legend.depot.services.notifications.NotificationsServiceImpl.findProcessedEvents:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/time/LocalDateTime;Ljava/time/LocalDateTime;)Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        44
+      ]
+    },
+    "org.finos.legend.depot.services.notifications.NotificationsServiceImpl.getProcessedEvent:(Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        50
+      ]
+    },
+    "org.finos.legend.depot.services.notifications.NotificationsServiceImpl.lambda$deleteOldNotifications$0:(Lorg/finos/legend/depot/domain/notifications/MetadataNotification;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        59
+      ]
+    },
+    "org.finos.legend.depot.store.resources.guice.NotificationsResourcesModule.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.finos.legend.depot.store.resources.guice.NotificationsResourcesModule.configure:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        28,
+        29,
+        31,
+        32,
+        33
+      ]
+    },
+    "org.finos.legend.depot.store.resources.notifications.NotificationsQueueManagerResource.<init>:(Lorg/finos/legend/depot/services/notifications/NotificationsQueueManager;Lorg/finos/legend/depot/core/services/api/authorisation/AuthorisationProvider;Ljavax/inject/Provider;Lorg/finos/legend/depot/services/api/notifications/queue/Queue;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        54,
+        55,
+        57,
+        58
+      ]
+    },
+    "org.finos.legend.depot.store.resources.notifications.NotificationsQueueManagerResource.geEventsInQueue:(Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        93
+      ]
+    },
+    "org.finos.legend.depot.store.resources.notifications.NotificationsQueueManagerResource.getAllEventsInQueue:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        74,
+        75
+      ]
+    },
+    "org.finos.legend.depot.store.resources.notifications.NotificationsQueueManagerResource.getAllEventsInQueueCount:()J" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        84
+      ]
+    },
+    "org.finos.legend.depot.store.resources.notifications.NotificationsQueueManagerResource.getResourceName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        64
+      ]
+    },
+    "org.finos.legend.depot.store.resources.notifications.NotificationsQueueManagerResource.lambda$geEventsInQueue$1:(Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        93
+      ]
+    },
+    "org.finos.legend.depot.store.resources.notifications.NotificationsQueueManagerResource.lambda$getAllEventsInQueueCount$0:()Ljava/lang/Long;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        84
+      ]
+    },
+    "org.finos.legend.depot.store.resources.notifications.NotificationsQueueManagerResource.lambda$purgeQueue$3:()Ljava/lang/Long;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        115
+      ]
+    },
+    "org.finos.legend.depot.store.resources.notifications.NotificationsQueueManagerResource.lambda$queueEvent$2:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        106
+      ]
+    },
+    "org.finos.legend.depot.store.resources.notifications.NotificationsQueueManagerResource.purgeQueue:()J" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        114,
+        115
+      ]
+    },
+    "org.finos.legend.depot.store.resources.notifications.NotificationsQueueManagerResource.queueEvent:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        106
+      ]
+    },
+    "org.finos.legend.depot.store.resources.notifications.NotificationsResource.<init>:(Lorg/finos/legend/depot/services/api/notifications/NotificationsService;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        61,
+        62,
+        63
+      ]
+    },
+    "org.finos.legend.depot.store.resources.notifications.NotificationsResource.<init>:(Lorg/finos/legend/depot/services/api/notifications/NotificationsService;Lorg/finos/legend/depot/core/services/api/authorisation/AuthorisationProvider;Ljavax/inject/Provider;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        54,
+        55,
+        57
+      ]
+    },
+    "org.finos.legend.depot.store.resources.notifications.NotificationsResource.getNotificationById:(Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        99
+      ]
+    },
+    "org.finos.legend.depot.store.resources.notifications.NotificationsResource.getPastEventNotifications:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 3
+      },
+      "lineNumbers" : [
+        87
+      ]
+    },
+    "org.finos.legend.depot.store.resources.notifications.NotificationsResource.getResourceName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        68
+      ]
+    },
+    "org.finos.legend.depot.store.resources.notifications.NotificationsResource.lambda$getNotificationById$1:(Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        99
+      ]
+    },
+    "org.finos.legend.depot.store.resources.notifications.NotificationsResource.lambda$getPastEventNotifications$0:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        87,
+        88,
+        89,
+        87
+      ]
+    }
+  },
+  "validationMetrics" : {
+    "touchedFiles" : [
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-notifications-services\\src\\test\\java\\org\\finos\\legend\\depot\\services\\guice\\NotificationsModuleDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-notifications-services\\src\\test\\java\\org\\finos\\legend\\depot\\services\\guice\\NotificationsQueueSchedulesModuleDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-notifications-services\\src\\test\\java\\org\\finos\\legend\\depot\\services\\guice\\NotificationsSchedulesModuleDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-notifications-services\\src\\test\\java\\org\\finos\\legend\\depot\\services\\notifications\\NotificationsQueueManagerDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-notifications-services\\src\\test\\java\\org\\finos\\legend\\depot\\services\\notifications\\NotificationsServiceImplDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-notifications-services\\src\\test\\java\\org\\finos\\legend\\depot\\store\\resources\\notifications\\NotificationsQueueManagerResourceDiffblueTest.java"
+    ]
+  }
+}

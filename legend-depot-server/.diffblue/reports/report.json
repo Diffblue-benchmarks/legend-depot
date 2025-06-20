@@ -1,0 +1,217 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.06.02-fd4f1ca-licensed",
+    "creationTimestamp" : "2025-06-19T18:01:07.4996814+01:00",
+    "command" : "dcover create --coverage-reports",
+    "totalTime" : 202.539,
+    "environmentDetectionTime" : 0.347,
+    "indexingTime" : 0.454,
+    "entryPointsTime" : 0.344,
+    "generationTime" : 4676.248,
+    "timeToFirstTest" : 8480.249,
+    "timeToLastTest" : 7195.618,
+    "indexQueryTime" : 32.418,
+    "verificationTime" : 856.879,
+    "validationTime" : 23.291
+  },
+  "codes" : {
+    "R000" : "Success",
+    "R005" : "Unable to load class",
+    "T000" : "Method eligible for test creation",
+    "T005" : "Trivial constructor",
+    "T006" : "Main method",
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation"
+  },
+  "summary" : {
+    "classesCount" : 4,
+    "methodsCount" : 9,
+    "cumulativeDiffblueTestCount" : 3,
+    "cumulativeManualTestCount" : 0,
+    "completeTestCount" : 3,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 126,
+    "perMethodTestability" : {
+      "T000" : 5,
+      "T005" : 3,
+      "T006" : 1
+    },
+    "perMethodOutcome" : {
+      "R000" : 2,
+      "R005" : 6,
+      "T006" : 1
+    },
+    "perTestOutcome" : {
+      "R000" : 3
+    },
+    "perTestValidation" : {
+      "V000" : 3,
+      "V003" : 2
+    }
+  },
+  "classes" : {
+    "org.finos.legend.depot.server.LegendDepotServer" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T005" : 1,
+        "T006" : 1
+      },
+      "perMethodOutcome" : {
+        "R005" : 4,
+        "T006" : 1
+      }
+    },
+    "org.finos.legend.depot.server.LegendDepotServerJacksonJsonProvider" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2
+      },
+      "perMethodOutcome" : {
+        "R000" : 2
+      },
+      "perTestOutcome" : {
+        "R000" : 3
+      }
+    },
+    "org.finos.legend.depot.server.configuration.DepotServerConfiguration" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R005" : 1
+      }
+    },
+    "org.finos.legend.depot.server.guice.DepotServerModule" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R005" : 1
+      }
+    }
+  },
+  "methods" : {
+    "org.finos.legend.depot.server.LegendDepotServer.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        57,
+        58
+      ]
+    },
+    "org.finos.legend.depot.server.LegendDepotServer.getServerModules:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        67
+      ]
+    },
+    "org.finos.legend.depot.server.LegendDepotServer.initialiseCors:(Lio/dropwizard/setup/Environment;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117
+      ]
+    },
+    "org.finos.legend.depot.server.LegendDepotServer.main:([Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T006",
+      "perMethodOutcome" : "T006",
+      "lineNumbers" : [
+        62,
+        63
+      ]
+    },
+    "org.finos.legend.depot.server.LegendDepotServer.registerJacksonJsonProvider:(Lio/dropwizard/jersey/setup/JerseyEnvironment;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        104,
+        105
+      ]
+    },
+    "org.finos.legend.depot.server.LegendDepotServerJacksonJsonProvider.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        31,
+        32,
+        33,
+        34
+      ]
+    },
+    "org.finos.legend.depot.server.LegendDepotServerJacksonJsonProvider.getContext:(Ljava/lang/Class;)Lcom/fasterxml/jackson/databind/ObjectMapper;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        39,
+        41,
+        43
+      ]
+    },
+    "org.finos.legend.depot.server.configuration.DepotServerConfiguration.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.finos.legend.depot.server.guice.DepotServerModule.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        21
+      ]
+    }
+  },
+  "validationMetrics" : {
+    "touchedFiles" : [
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-server\\src\\test\\java\\org\\finos\\legend\\depot\\server\\LegendDepotServerJacksonJsonProviderDiffblueTest.java"
+    ]
+  }
+}

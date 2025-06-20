@@ -1,0 +1,101 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.06.02-fd4f1ca-licensed",
+    "creationTimestamp" : "2025-06-19T18:01:07.4996814+01:00",
+    "command" : "dcover create --coverage-reports",
+    "totalTime" : 105.609,
+    "environmentDetectionTime" : 0.194,
+    "indexingTime" : 0.443,
+    "entryPointsTime" : 0.189,
+    "generationTime" : 4355.103,
+    "timeToFirstTest" : 7546.665,
+    "timeToLastTest" : 6503.628,
+    "indexQueryTime" : 5.44,
+    "verificationTime" : 777.12,
+    "validationTime" : 16.222
+  },
+  "codes" : {
+    "R002" : "Missing observers",
+    "R005" : "Unable to load class",
+    "R013" : "No inputs found that don't throw a trivial exception",
+    "T000" : "Method eligible for test creation",
+    "T005" : "Trivial constructor",
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation"
+  },
+  "summary" : {
+    "classesCount" : 1,
+    "methodsCount" : 3,
+    "cumulativeDiffblueTestCount" : 0,
+    "cumulativeManualTestCount" : 3,
+    "completeTestCount" : 0,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 74,
+    "perMethodTestability" : {
+      "T000" : 2,
+      "T005" : 1
+    },
+    "perMethodOutcome" : {
+      "R002" : 1,
+      "R005" : 1,
+      "R013" : 1
+    },
+    "perTestValidation" : {
+      "V000" : 14,
+      "V003" : 2
+    }
+  },
+  "classes" : {
+    "org.finos.legend.depot.store.mongo.guice.ArtifactsStoreMongoModule" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R002" : 1,
+        "R005" : 1,
+        "R013" : 1
+      }
+    }
+  },
+  "methods" : {
+    "org.finos.legend.depot.store.mongo.guice.ArtifactsStoreMongoModule.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.guice.ArtifactsStoreMongoModule.configure:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        32,
+        33,
+        34
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.guice.ArtifactsStoreMongoModule.registerIndexes:(Lorg/finos/legend/depot/store/mongo/admin/MongoAdminStore;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        42,
+        43
+      ]
+    }
+  },
+  "validationMetrics" : { }
+}

@@ -1,0 +1,1402 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.06.02-fd4f1ca-licensed",
+    "creationTimestamp" : "2025-06-19T18:01:07.4996814+01:00",
+    "command" : "dcover create --coverage-reports",
+    "totalTime" : 430.902,
+    "environmentDetectionTime" : 0.198,
+    "indexingTime" : 0.419,
+    "entryPointsTime" : 0.194,
+    "generationTime" : 3699.923,
+    "timeToFirstTest" : 5715.701,
+    "timeToLastTest" : 5102.549,
+    "indexQueryTime" : 7.4270000000000005,
+    "verificationTime" : 523.575,
+    "validationTime" : 12.038
+  },
+  "codes" : {
+    "R000" : "Success",
+    "R002" : "Missing observers",
+    "R005" : "Unable to load class",
+    "R013" : "No inputs found that don't throw a trivial exception",
+    "R081" : "Exception in arrange section",
+    "T000" : "Method eligible for test creation",
+    "T001" : "Trivial getter",
+    "T003" : "Private method",
+    "T005" : "Trivial constructor",
+    "T012" : "Synthetic method",
+    "T023" : "Testability unknown",
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation",
+    "W002" : "Test compiled, but did not pass"
+  },
+  "summary" : {
+    "classesCount" : 9,
+    "methodsCount" : 94,
+    "cumulativeDiffblueTestCount" : 42,
+    "cumulativeManualTestCount" : 26,
+    "completeTestCount" : 42,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 723,
+    "perMethodTestability" : {
+      "T000" : 42,
+      "T001" : 1,
+      "T003" : 6,
+      "T005" : 6,
+      "T012" : 37,
+      "T023" : 2
+    },
+    "perMethodOutcome" : {
+      "R000" : 30,
+      "R002" : 4,
+      "R005" : 3,
+      "R013" : 3,
+      "R081" : 4,
+      "T003" : 6,
+      "T012" : 37,
+      "T023" : 2,
+      "W002" : 5
+    },
+    "perTestOutcome" : {
+      "R000" : 42
+    },
+    "perTestValidation" : {
+      "V000" : 42,
+      "V003" : 2
+    },
+    "warnings" : {
+      "W002" : 5
+    }
+  },
+  "classes" : {
+    "org.finos.legend.depot.store.mongo.admin.CoreDataMigrations" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 5,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 5,
+        "R081" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 5
+      }
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration" : {
+      "methodsCount" : 26,
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T003" : 5,
+        "T012" : 17,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 2,
+        "R002" : 1,
+        "T003" : 5,
+        "T012" : 17,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 4
+      }
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.ProjectToProjectVersionMigration" : {
+      "methodsCount" : 15,
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T003" : 1,
+        "T005" : 1,
+        "T012" : 9,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 3,
+        "R081" : 1,
+        "T003" : 1,
+        "T012" : 9,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 3
+      }
+    },
+    "org.finos.legend.depot.store.mongo.guice.CoreDataMigrationsStoreMongoModule" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R002" : 1,
+        "R005" : 1
+      }
+    },
+    "org.finos.legend.depot.store.mongo.guice.CoreDataStoreMongoModule" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R002" : 1,
+        "R005" : 1
+      }
+    },
+    "org.finos.legend.depot.store.mongo.guice.ManageCoreDataStoreMongoModule" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "R002" : 1,
+        "R005" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      }
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsMongo" : {
+      "methodsCount" : 12,
+      "completeTestCount" : 12,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 9,
+        "T012" : 3
+      },
+      "perMethodOutcome" : {
+        "R000" : 8,
+        "R013" : 1,
+        "T012" : 3
+      },
+      "perTestOutcome" : {
+        "R000" : 12
+      }
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsVersionsMongo" : {
+      "methodsCount" : 16,
+      "completeTestCount" : 16,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 13,
+        "T012" : 3
+      },
+      "perMethodOutcome" : {
+        "R000" : 11,
+        "R013" : 2,
+        "T012" : 3
+      },
+      "perTestOutcome" : {
+        "R000" : 16
+      }
+    },
+    "org.finos.legend.depot.store.mongo.resources.CoreDataStoreMigrationsResource" : {
+      "methodsCount" : 12,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 5,
+        "T001" : 1,
+        "T005" : 1,
+        "T012" : 5
+      },
+      "perMethodOutcome" : {
+        "R081" : 2,
+        "T012" : 5,
+        "W002" : 5
+      },
+      "warnings" : {
+        "W002" : 5
+      }
+    }
+  },
+  "methods" : {
+    "org.finos.legend.depot.store.mongo.admin.CoreDataMigrations.<init>:(Lcom/mongodb/client/MongoDatabase;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        32,
+        33
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.CoreDataMigrations.addLatestVersionToProjectData:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        62,
+        63
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.CoreDataMigrations.addTransitiveDependenciesToVersionData:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        56,
+        57
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.CoreDataMigrations.calculateTransitiveDependenciesForAllProjectVersions:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        50,
+        51
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.CoreDataMigrations.cleanUpProjectData:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        44,
+        45
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.CoreDataMigrations.migrationToProjectVersions:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        38,
+        39
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.$deserializeLambda$:(Ljava/lang/invoke/SerializedLambda;)Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        49
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.<init>:(Lcom/mongodb/client/MongoDatabase;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        62,
+        59,
+        63,
+        64
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.addTransitiveDependenciesToVersionData:()V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        92,
+        93,
+        94,
+        95,
+        96,
+        104
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.buildProjectVersionDocument:(Ljava/util/List;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        204,
+        206,
+        208,
+        219,
+        208
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.calculateTransitiveDependencies:(Lorg/finos/legend/depot/domain/project/ProjectVersion;Lorg/eclipse/collections/api/block/function/Function3;)Lorg/finos/legend/depot/domain/project/dependencies/VersionDependencyReport;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        146,
+        149,
+        150,
+        152,
+        154,
+        155,
+        157,
+        158,
+        160,
+        176,
+        179,
+        180,
+        191,
+        183,
+        185,
+        187,
+        189,
+        190,
+        192
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.calculateTransitiveDependenciesForAllProjectVersions:()V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        77,
+        86,
+        83,
+        85,
+        87
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.calculateTransitiveDependenciesForAllVersions:(Ljava/util/List;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        108,
+        109,
+        110,
+        111,
+        114,
+        116,
+        131,
+        127,
+        129,
+        130,
+        132,
+        133,
+        134,
+        135,
+        136
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.getArtifactAndVersionFilter:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/bson/conversions/Bson;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        197,
+        198,
+        199,
+        198,
+        197
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.getDependenciesFromMap:(Ljava/util/Map;)Lorg/eclipse/collections/api/block/function/Function3;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        141
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.lambda$addTransitiveDependenciesToVersionData$2:(Ljava/util/List;Lorg/bson/Document;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        95
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.lambda$addTransitiveDependenciesToVersionData$3:(Lcom/mongodb/client/MongoCollection;Lorg/finos/legend/depot/store/model/projects/StoreProjectVersionData;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        98,
+        99,
+        100,
+        101,
+        99,
+        102,
+        103
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.lambda$buildProjectVersionDocument$12:(Lorg/finos/legend/depot/domain/project/ProjectVersion;)Lorg/bson/Document;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        212,
+        214,
+        216,
+        217
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.lambda$calculateTransitiveDependencies$11:(Lorg/eclipse/collections/api/block/function/Function3;Ljava/util/Set;Lorg/finos/legend/depot/domain/project/ProjectVersion;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        162,
+        163,
+        164,
+        166,
+        167,
+        171,
+        172,
+        174
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.lambda$calculateTransitiveDependencies$86b58880$1:(Lorg/finos/legend/depot/domain/project/ProjectVersion;Lorg/eclipse/collections/api/block/function/Function3;)Lorg/finos/legend/depot/domain/project/dependencies/VersionDependencyReport;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        163
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.lambda$calculateTransitiveDependenciesForAllProjectVersions$0:(Ljava/util/List;Lorg/bson/Document;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        73
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.lambda$calculateTransitiveDependenciesForAllProjectVersions$1:(Lcom/mongodb/client/MongoCollection;Lorg/finos/legend/depot/store/model/projects/StoreProjectVersionData;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        79,
+        80,
+        81
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.lambda$calculateTransitiveDependenciesForAllVersions$10:(Lorg/finos/legend/depot/store/model/projects/StoreProjectVersionData;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        132
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.lambda$calculateTransitiveDependenciesForAllVersions$4:(Lorg/finos/legend/depot/store/model/projects/StoreProjectVersionData;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        109
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.lambda$calculateTransitiveDependenciesForAllVersions$5:(Lorg/finos/legend/depot/store/model/projects/StoreProjectVersionData;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        110
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.lambda$calculateTransitiveDependenciesForAllVersions$696d77fa$1:(Lorg/finos/legend/depot/domain/project/ProjectVersion;Ljava/util/Map;)Lorg/finos/legend/depot/domain/project/dependencies/VersionDependencyReport;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        120
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.lambda$calculateTransitiveDependenciesForAllVersions$6:(Lorg/finos/legend/depot/store/model/projects/StoreProjectVersionData;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        111
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.lambda$calculateTransitiveDependenciesForAllVersions$7:(Lorg/finos/legend/depot/store/model/projects/StoreProjectVersionData;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        111
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.lambda$calculateTransitiveDependenciesForAllVersions$8:(Ljava/util/Map;Ljava/util/concurrent/atomic/AtomicInteger;Lorg/finos/legend/depot/store/model/projects/StoreProjectVersionData;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        125
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.lambda$calculateTransitiveDependenciesForAllVersions$9:(Lorg/finos/legend/depot/store/model/projects/StoreProjectVersionData;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        132
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.DependenciesMigration.lambda$getDependenciesFromMap$ed8c202f$1:(Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/finos/legend/depot/store/model/projects/StoreProjectVersionData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        141
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.ProjectToProjectVersionMigration.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.ProjectToProjectVersionMigration.<init>:(Lcom/mongodb/client/MongoDatabase;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        54,
+        55,
+        56
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.ProjectToProjectVersionMigration.addLatestVersionToProjectData:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        142,
+        143,
+        144,
+        176
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.ProjectToProjectVersionMigration.cleanUpProjectData:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        113,
+        114,
+        115,
+        136,
+        137
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.ProjectToProjectVersionMigration.createStoreProjectData:(Lorg/bson/Document;Ljava/lang/String;)Lorg/finos/legend/depot/store/model/projects/StoreProjectVersionData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        60,
+        61,
+        62,
+        63,
+        67,
+        68,
+        69,
+        70,
+        71
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.ProjectToProjectVersionMigration.lambda$addLatestVersionToProjectData$7:(Ljava/util/List;Lorg/bson/Document;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        157,
+        158
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.ProjectToProjectVersionMigration.lambda$addLatestVersionToProjectData$8:(Lcom/mongodb/client/MongoCollection;Lcom/mongodb/client/MongoCollection;Lorg/bson/Document;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        146,
+        147,
+        148,
+        151,
+        152,
+        153,
+        151,
+        154,
+        155,
+        159,
+        160,
+        162,
+        163,
+        164,
+        163,
+        164,
+        163,
+        165,
+        167,
+        174,
+        169,
+        171,
+        172,
+        173,
+        175
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.ProjectToProjectVersionMigration.lambda$cleanUpProjectData$6:(Lcom/mongodb/client/MongoCollection;Ljava/util/concurrent/atomic/AtomicInteger;Lorg/bson/Document;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        117,
+        118,
+        121,
+        122,
+        123,
+        122,
+        124,
+        122,
+        125,
+        126,
+        134,
+        128,
+        130,
+        132,
+        133,
+        135
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.ProjectToProjectVersionMigration.lambda$createStoreProjectData$0:(Ljava/lang/String;Lorg/bson/Document;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.ProjectToProjectVersionMigration.lambda$createStoreProjectData$1:(Lorg/bson/Document;)Lorg/finos/legend/depot/domain/project/ProjectVersion;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        65,
+        66
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.ProjectToProjectVersionMigration.lambda$createStoreProjectData$2:(Ljava/lang/String;Lorg/bson/Document;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        69
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.ProjectToProjectVersionMigration.lambda$createStoreProjectData$3:(Lorg/bson/Document;)Lorg/finos/legend/depot/domain/project/Property;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        70
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.ProjectToProjectVersionMigration.lambda$migrationToProjectVersions$4:(Lcom/mongodb/client/MongoCollection;Lorg/bson/Document;Ljava/lang/String;Ljava/lang/String;Ljava/util/concurrent/atomic/AtomicInteger;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        95,
+        96,
+        97,
+        98
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.ProjectToProjectVersionMigration.lambda$migrationToProjectVersions$5:(Lcom/mongodb/client/MongoCollection;Lorg/bson/Document;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        82,
+        83,
+        84,
+        87,
+        89,
+        90,
+        91,
+        93,
+        99,
+        106,
+        101,
+        103,
+        104,
+        105,
+        107
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.admin.migrations.ProjectToProjectVersionMigration.migrationToProjectVersions:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        77,
+        78,
+        79,
+        80,
+        108
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.guice.CoreDataMigrationsStoreMongoModule.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.guice.CoreDataMigrationsStoreMongoModule.configure:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        27,
+        28,
+        30,
+        31,
+        32
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.guice.CoreDataStoreMongoModule.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.guice.CoreDataStoreMongoModule.configure:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        29,
+        30,
+        32,
+        33,
+        34
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.guice.ManageCoreDataStoreMongoModule.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.guice.ManageCoreDataStoreMongoModule.configure:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        33,
+        35,
+        36,
+        38,
+        39,
+        40
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.guice.ManageCoreDataStoreMongoModule.registerIndexes:(Lorg/finos/legend/depot/store/mongo/admin/MongoAdminStore;)Z" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        47,
+        48,
+        49
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsMongo.<init>:(Lcom/mongodb/client/MongoDatabase;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        47,
+        48
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsMongo.buildIndexes:()Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        53
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsMongo.createOrUpdate:(Lorg/finos/legend/depot/store/model/projects/StoreProjectData;)Lorg/finos/legend/depot/store/model/projects/StoreProjectData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        38
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsMongo.delete:(Ljava/lang/String;Ljava/lang/String;)J" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        104
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsMongo.find:(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        98
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsMongo.findByProjectId:(Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        92
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsMongo.getAll:()Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        86
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsMongo.getCollection:()Lcom/mongodb/client/MongoCollection;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        66
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsMongo.getKeyFilter:(Lorg/finos/legend/depot/store/model/HasIdentifier;)Lorg/bson/conversions/Bson;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        38
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsMongo.getKeyFilter:(Lorg/finos/legend/depot/store/model/projects/StoreProjectData;)Lorg/bson/conversions/Bson;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        59,
+        60,
+        59
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsMongo.validateNewData:(Lorg/finos/legend/depot/store/model/HasIdentifier;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        38
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsMongo.validateNewData:(Lorg/finos/legend/depot/store/model/projects/StoreProjectData;)V" : {
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 4
+      },
+      "lineNumbers" : [
+        72,
+        74,
+        76,
+        77,
+        79,
+        81
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsVersionsMongo.<init>:(Lcom/mongodb/client/MongoDatabase;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        50,
+        51
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsVersionsMongo.buildIndexes:()Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        55
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsVersionsMongo.createOrUpdate:(Lorg/finos/legend/depot/store/model/projects/StoreProjectVersionData;)Lorg/finos/legend/depot/store/model/projects/StoreProjectVersionData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        42
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsVersionsMongo.delete:(Ljava/lang/String;Ljava/lang/String;)J" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        110
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsVersionsMongo.delete:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)J" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        116
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsVersionsMongo.find:(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        82
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsVersionsMongo.find:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        88,
+        90,
+        92
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsVersionsMongo.findByUpdatedDate:(JJ)Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        76
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsVersionsMongo.findVersion:(Ljava/lang/Boolean;)Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        98
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsVersionsMongo.getAll:()Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        61
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsVersionsMongo.getCollection:()Lcom/mongodb/client/MongoCollection;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        122
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsVersionsMongo.getKeyFilter:(Lorg/finos/legend/depot/store/model/HasIdentifier;)Lorg/bson/conversions/Bson;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        42
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsVersionsMongo.getKeyFilter:(Lorg/finos/legend/depot/store/model/projects/StoreProjectVersionData;)Lorg/bson/conversions/Bson;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        128,
+        129,
+        130,
+        129,
+        128
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsVersionsMongo.getVersionCount:(Ljava/lang/String;Ljava/lang/String;)J" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        104
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsVersionsMongo.validateNewData:(Lorg/finos/legend/depot/store/model/HasIdentifier;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        42
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.projects.ProjectsVersionsMongo.validateNewData:(Lorg/finos/legend/depot/store/model/projects/StoreProjectVersionData;)V" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        136,
+        138,
+        140,
+        142,
+        144
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.resources.CoreDataStoreMigrationsResource.<init>:(Lorg/finos/legend/depot/store/mongo/admin/CoreDataMigrations;Lorg/finos/legend/depot/core/services/api/authorisation/AuthorisationProvider;Ljavax/inject/Provider;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        46,
+        47,
+        49
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.resources.CoreDataStoreMigrationsResource.addLatestVersionToProjectData:()Ljavax/ws/rs/core/Response;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        120
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.resources.CoreDataStoreMigrationsResource.addTransitiveDependenciesToVersionData:()Ljavax/ws/rs/core/Response;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        106
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.resources.CoreDataStoreMigrationsResource.cleanupProjectData:()Ljavax/ws/rs/core/Response;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        78
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.resources.CoreDataStoreMigrationsResource.getResourceName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        54
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.resources.CoreDataStoreMigrationsResource.lambda$addLatestVersionToProjectData$4:()Ljavax/ws/rs/core/Response;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        122,
+        123,
+        124
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.resources.CoreDataStoreMigrationsResource.lambda$addTransitiveDependenciesToVersionData$3:()Ljavax/ws/rs/core/Response;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        108,
+        109,
+        110
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.resources.CoreDataStoreMigrationsResource.lambda$cleanupProjectData$1:()Ljavax/ws/rs/core/Response;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        80,
+        81,
+        82
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.resources.CoreDataStoreMigrationsResource.lambda$migrationToProjectVersionData$0:()Ljavax/ws/rs/core/Response;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        66,
+        67,
+        68
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.resources.CoreDataStoreMigrationsResource.lambda$storeTransitiveDependenciesForVersions$2:()Ljavax/ws/rs/core/Response;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        94,
+        95,
+        96
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.resources.CoreDataStoreMigrationsResource.migrationToProjectVersionData:()Ljavax/ws/rs/core/Response;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        64
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.resources.CoreDataStoreMigrationsResource.storeTransitiveDependenciesForVersions:()Ljavax/ws/rs/core/Response;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        92
+      ]
+    }
+  },
+  "validationMetrics" : {
+    "touchedFiles" : [
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-core-data-store-mongo\\src\\test\\java\\org\\finos\\legend\\depot\\store\\mongo\\admin\\CoreDataMigrationsDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-core-data-store-mongo\\src\\test\\java\\org\\finos\\legend\\depot\\store\\mongo\\admin\\migrations\\DependenciesMigrationDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-core-data-store-mongo\\src\\test\\java\\org\\finos\\legend\\depot\\store\\mongo\\admin\\migrations\\ProjectToProjectVersionMigrationDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-core-data-store-mongo\\src\\test\\java\\org\\finos\\legend\\depot\\store\\mongo\\guice\\ManageCoreDataStoreMongoModuleDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-core-data-store-mongo\\src\\test\\java\\org\\finos\\legend\\depot\\store\\mongo\\projects\\ProjectsMongoDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-core-data-store-mongo\\src\\test\\java\\org\\finos\\legend\\depot\\store\\mongo\\projects\\ProjectsVersionsMongoDiffblueTest.java"
+    ]
+  }
+}

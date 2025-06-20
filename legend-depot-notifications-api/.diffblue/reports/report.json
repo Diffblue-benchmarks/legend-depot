@@ -1,0 +1,1259 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.06.02-fd4f1ca-licensed",
+    "creationTimestamp" : "2025-06-19T18:01:07.4996814+01:00",
+    "command" : "dcover create --coverage-reports",
+    "totalTime" : 124.33,
+    "environmentDetectionTime" : 0.233,
+    "indexingTime" : 0.403,
+    "entryPointsTime" : 0.227,
+    "generationTime" : 2894.804,
+    "timeToFirstTest" : 4137.777,
+    "timeToLastTest" : 3780.935,
+    "indexQueryTime" : 2.189,
+    "verificationTime" : 312.966,
+    "validationTime" : 10.68
+  },
+  "codes" : {
+    "R000" : "Success",
+    "T000" : "Method eligible for test creation",
+    "T001" : "Trivial getter",
+    "T002" : "Trivial setter",
+    "T003" : "Private method",
+    "T005" : "Trivial constructor",
+    "T010" : "Abstract or interface method",
+    "T012" : "Synthetic method",
+    "T020" : "Other trivial method",
+    "T023" : "Testability unknown",
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation"
+  },
+  "summary" : {
+    "classesCount" : 10,
+    "methodsCount" : 93,
+    "cumulativeDiffblueTestCount" : 50,
+    "cumulativeManualTestCount" : 0,
+    "completeTestCount" : 50,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 472,
+    "perMethodTestability" : {
+      "T000" : 27,
+      "T001" : 18,
+      "T002" : 17,
+      "T003" : 3,
+      "T005" : 4,
+      "T010" : 17,
+      "T012" : 4,
+      "T020" : 1,
+      "T023" : 2
+    },
+    "perMethodOutcome" : {
+      "R000" : 67,
+      "T003" : 3,
+      "T010" : 17,
+      "T012" : 4,
+      "T023" : 2
+    },
+    "perTestOutcome" : {
+      "R000" : 50
+    },
+    "perTestValidation" : {
+      "V000" : 50,
+      "V003" : 2
+    }
+  },
+  "classes" : {
+    "org.finos.legend.depot.domain.notifications.MetadataNotification" : {
+      "methodsCount" : 42,
+      "completeTestCount" : 29,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 14,
+        "T001" : 12,
+        "T002" : 14,
+        "T003" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 41,
+        "T003" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 29
+      }
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotificationResponse" : {
+      "methodsCount" : 11,
+      "completeTestCount" : 13,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 7,
+        "T001" : 2,
+        "T005" : 1,
+        "T020" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 11
+      },
+      "perTestOutcome" : {
+        "R000" : 13
+      }
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotificationStatus" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 1,
+        "T012" : 2,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "T003" : 1,
+        "T012" : 2,
+        "T023" : 1
+      }
+    },
+    "org.finos.legend.depot.domain.notifications.Priority" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 1,
+        "T012" : 2,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "T003" : 1,
+        "T012" : 2,
+        "T023" : 1
+      }
+    },
+    "org.finos.legend.depot.services.api.notifications.NotificationHandler" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 2
+      },
+      "perMethodOutcome" : {
+        "T010" : 2
+      }
+    },
+    "org.finos.legend.depot.services.api.notifications.NotificationsService" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 3
+      },
+      "perMethodOutcome" : {
+        "T010" : 3
+      }
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.Queue" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 7
+      },
+      "perMethodOutcome" : {
+        "T010" : 7
+      }
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.QueueManagerConfiguration" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T001" : 3,
+        "T002" : 3,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 7
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.VoidQueue" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 7,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 6,
+        "T001" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 8
+      },
+      "perTestOutcome" : {
+        "R000" : 7
+      }
+    },
+    "org.finos.legend.depot.store.api.notifications.Notifications" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 5
+      },
+      "perMethodOutcome" : {
+        "T010" : 5
+      }
+    }
+  },
+  "methods" : {
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        114,
+        115
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.<init>:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        100,
+        101
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.<init>:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        105,
+        106
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.<init>:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Lorg/finos/legend/depot/domain/notifications/Priority;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        110,
+        111
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.<init>:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/util/Map;Ljava/util/Date;Ljava/util/Date;Ljava/util/Date;Lorg/finos/legend/depot/domain/notifications/Priority;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.addError:(Ljava/lang/String;)Lorg/finos/legend/depot/domain/notifications/MetadataNotification;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        250,
+        251
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.combineResponse:(Lorg/finos/legend/depot/domain/notifications/MetadataNotificationResponse;)Lorg/finos/legend/depot/domain/notifications/MetadataNotification;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        261,
+        263,
+        265
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.complete:()Lorg/finos/legend/depot/domain/notifications/MetadataNotification;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        218,
+        219
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        315
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.getAttempt:()I" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        293
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.getCompleted:()Ljava/util/Date;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        140
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.getCreated:()Ljava/util/Date;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        198
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.getCurrentResponse:()Lorg/finos/legend/depot/domain/notifications/MetadataNotificationResponse;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        277
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.getEventId:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        129
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.getEventPriority:()Lorg/finos/legend/depot/domain/notifications/Priority;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        309
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.getId:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        119
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.getMaxAttempts:()I" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        304
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.getParentEventId:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        177
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.getProjectId:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        160
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.getResponse:(I)Lorg/finos/legend/depot/domain/notifications/MetadataNotificationResponse;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        270,
+        271
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.getResponses:()Ljava/util/Map;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        236,
+        238,
+        240
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.getStatus:()Lorg/finos/legend/depot/domain/notifications/MetadataNotificationStatus;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        172
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.getUpdated:()Ljava/util/Date;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        282
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.hashCode:()I" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        321
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.increaseAttempts:()Lorg/finos/legend/depot/domain/notifications/MetadataNotification;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        224,
+        225
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.isFullUpdate:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        155
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.isTransitive:()Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        213
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.retriesExceeded:()Z" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        230
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.setAttempt:(I)Lorg/finos/legend/depot/domain/notifications/MetadataNotification;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        298,
+        299
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.setCompleted:(Ljava/util/Date;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        145,
+        146
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.setCreated:(Ljava/util/Date;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        203,
+        204
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.setEventId:(Ljava/lang/String;)Lorg/finos/legend/depot/domain/notifications/MetadataNotification;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        134,
+        135
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.setEventPriority:(Lorg/finos/legend/depot/domain/notifications/Priority;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        150,
+        151
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.setFullUpdate:(Z)Lorg/finos/legend/depot/domain/notifications/MetadataNotification;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        187,
+        188
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.setId:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        124,
+        125
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.setMaxAttempts:(I)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        208,
+        209
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.setParentEventId:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        182,
+        183
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.setProjectId:(Ljava/lang/String;)Lorg/finos/legend/depot/domain/notifications/MetadataNotification;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        165,
+        166
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.setResponse:(Lorg/finos/legend/depot/domain/notifications/MetadataNotificationResponse;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        256,
+        257
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.setResponses:(Ljava/util/Map;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        245,
+        246
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.setTransitive:(Z)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        193,
+        194
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotification.setUpdated:(Ljava/util/Date;)Lorg/finos/legend/depot/domain/notifications/MetadataNotification;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        287,
+        288
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotificationResponse.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        25,
+        28,
+        30
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotificationResponse.addError:(Ljava/lang/String;)Lorg/finos/legend/depot/domain/notifications/MetadataNotificationResponse;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        60,
+        61
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotificationResponse.addMessage:(Ljava/lang/String;)Lorg/finos/legend/depot/domain/notifications/MetadataNotificationResponse;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        66,
+        67
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotificationResponse.addMessages:(Ljava/util/List;)Lorg/finos/legend/depot/domain/notifications/MetadataNotificationResponse;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        72,
+        73
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotificationResponse.combine:(Lorg/finos/legend/depot/domain/notifications/MetadataNotificationResponse;)Lorg/finos/legend/depot/domain/notifications/MetadataNotificationResponse;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        88,
+        90,
+        91,
+        93
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotificationResponse.getErrors:()Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        50
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotificationResponse.getMessages:()Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        55
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotificationResponse.getStatus:()Lorg/finos/legend/depot/domain/notifications/MetadataNotificationStatus;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        36
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotificationResponse.hasErrors:()Z" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        83
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotificationResponse.logError:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        78,
+        79
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotificationResponse.toString:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T020",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        42
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotificationStatus.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotificationStatus.<init>:(Ljava/lang/String;I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        18
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotificationStatus.valueOf:(Ljava/lang/String;)Lorg/finos/legend/depot/domain/notifications/MetadataNotificationStatus;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        18
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.MetadataNotificationStatus.values:()[Lorg/finos/legend/depot/domain/notifications/MetadataNotificationStatus;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        18
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.Priority.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.finos.legend.depot.domain.notifications.Priority.<init>:(Ljava/lang/String;I)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        18
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.Priority.valueOf:(Ljava/lang/String;)Lorg/finos/legend/depot/domain/notifications/Priority;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        18
+      ]
+    },
+    "org.finos.legend.depot.domain.notifications.Priority.values:()[Lorg/finos/legend/depot/domain/notifications/Priority;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        18
+      ]
+    },
+    "org.finos.legend.depot.services.api.notifications.NotificationHandler.handleNotification:(Lorg/finos/legend/depot/domain/notifications/MetadataNotification;)Lorg/finos/legend/depot/domain/notifications/MetadataNotificationResponse;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.notifications.NotificationHandler.validate:(Lorg/finos/legend/depot/domain/notifications/MetadataNotification;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.notifications.NotificationsService.deleteOldNotifications:(J)J" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.notifications.NotificationsService.findProcessedEvents:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/time/LocalDateTime;Ljava/time/LocalDateTime;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.notifications.NotificationsService.getProcessedEvent:(Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.Queue.deleteAll:()J" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.Queue.get:(Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.Queue.getAll:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.Queue.getFirstInQueue:()Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.Queue.pullAll:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.Queue.push:(Lorg/finos/legend/depot/domain/notifications/MetadataNotification;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.Queue.size:()J" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.QueueManagerConfiguration.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        22,
+        28,
+        31,
+        34
+      ]
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.QueueManagerConfiguration.getNumberOfQueueWorkers:()J" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        59
+      ]
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.QueueManagerConfiguration.getQueueDelay:()J" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        44
+      ]
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.QueueManagerConfiguration.getQueueInterval:()J" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        39
+      ]
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.QueueManagerConfiguration.setNumberOfQueueWorkers:(J)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        64,
+        65
+      ]
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.QueueManagerConfiguration.setQueueDelay:(J)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        54,
+        55
+      ]
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.QueueManagerConfiguration.setQueueInterval:(J)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        49,
+        50
+      ]
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.VoidQueue.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        28,
+        29
+      ]
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.VoidQueue.deleteAll:()J" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        70
+      ]
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.VoidQueue.get:(Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        52
+      ]
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.VoidQueue.getAll:()Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        34
+      ]
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.VoidQueue.getFirstInQueue:()Ljava/util/Optional;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        46
+      ]
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.VoidQueue.pullAll:()Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        40
+      ]
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.VoidQueue.push:(Lorg/finos/legend/depot/domain/notifications/MetadataNotification;)Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        58
+      ]
+    },
+    "org.finos.legend.depot.services.api.notifications.queue.VoidQueue.size:()J" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        64
+      ]
+    },
+    "org.finos.legend.depot.store.api.notifications.Notifications.createOrUpdate:(Lorg/finos/legend/depot/domain/notifications/MetadataNotification;)Lorg/finos/legend/depot/domain/notifications/MetadataNotification;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.notifications.Notifications.delete:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.notifications.Notifications.find:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/time/LocalDateTime;Ljava/time/LocalDateTime;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.notifications.Notifications.get:(Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.notifications.Notifications.getAll:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    }
+  },
+  "validationMetrics" : {
+    "touchedFiles" : [
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-notifications-api\\src\\test\\java\\org\\finos\\legend\\depot\\domain\\notifications\\MetadataNotificationDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-notifications-api\\src\\test\\java\\org\\finos\\legend\\depot\\domain\\notifications\\MetadataNotificationResponseDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-notifications-api\\src\\test\\java\\org\\finos\\legend\\depot\\services\\api\\notifications\\queue\\QueueManagerConfigurationDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-notifications-api\\src\\test\\java\\org\\finos\\legend\\depot\\services\\api\\notifications\\queue\\VoidQueueDiffblueTest.java"
+    ]
+  }
+}

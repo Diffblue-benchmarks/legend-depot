@@ -1,0 +1,533 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.06.02-fd4f1ca-licensed",
+    "creationTimestamp" : "2025-06-19T18:01:07.4996814+01:00",
+    "command" : "dcover create --coverage-reports",
+    "totalTime" : 372.231,
+    "environmentDetectionTime" : 0.154,
+    "indexingTime" : 0.397,
+    "entryPointsTime" : 0.146,
+    "generationTime" : 2765.053,
+    "timeToFirstTest" : 3845.157,
+    "timeToLastTest" : 3551.063,
+    "indexQueryTime" : 4.634,
+    "verificationTime" : 294.807,
+    "validationTime" : 12.141
+  },
+  "codes" : {
+    "R000" : "Success",
+    "R002" : "Missing observers",
+    "R005" : "Unable to load class",
+    "R013" : "No inputs found that don't throw a trivial exception",
+    "R081" : "Exception in arrange section",
+    "T000" : "Method eligible for test creation",
+    "T003" : "Private method",
+    "T005" : "Trivial constructor",
+    "T012" : "Synthetic method",
+    "T021" : "Empty method body",
+    "T023" : "Testability unknown",
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation"
+  },
+  "summary" : {
+    "classesCount" : 5,
+    "methodsCount" : 31,
+    "cumulativeDiffblueTestCount" : 32,
+    "cumulativeManualTestCount" : 8,
+    "completeTestCount" : 32,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 203,
+    "perMethodTestability" : {
+      "T000" : 15,
+      "T003" : 1,
+      "T005" : 5,
+      "T012" : 7,
+      "T021" : 2,
+      "T023" : 1
+    },
+    "perMethodOutcome" : {
+      "R000" : 14,
+      "R002" : 5,
+      "R005" : 1,
+      "R013" : 1,
+      "R081" : 1,
+      "T003" : 1,
+      "T012" : 7,
+      "T023" : 1
+    },
+    "perTestOutcome" : {
+      "R000" : 32
+    },
+    "perTestValidation" : {
+      "V000" : 32,
+      "V003" : 2
+    }
+  },
+  "classes" : {
+    "org.finos.legend.depot.services.guice.ManageQueryMetricsSchedulesModule" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1,
+        "T012" : 1,
+        "T021" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "R002" : 2,
+        "T012" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.finos.legend.depot.services.guice.QueryMetricsModule" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 2,
+        "R005" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      }
+    },
+    "org.finos.legend.depot.services.guice.QueryMetricsSchedulesModule" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1,
+        "T012" : 1,
+        "T021" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "R002" : 2,
+        "T012" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.finos.legend.depot.services.metrics.query.InMemoryQueryMetricsRegistry" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 2,
+        "R002" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      }
+    },
+    "org.finos.legend.depot.services.metrics.query.QueryMetricsServiceImpl" : {
+      "methodsCount" : 17,
+      "completeTestCount" : 26,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 9,
+        "T003" : 1,
+        "T005" : 1,
+        "T012" : 5,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 8,
+        "R013" : 1,
+        "R081" : 1,
+        "T003" : 1,
+        "T012" : 5,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 26
+      }
+    }
+  },
+  "methods" : {
+    "org.finos.legend.depot.services.guice.ManageQueryMetricsSchedulesModule.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.finos.legend.depot.services.guice.ManageQueryMetricsSchedulesModule.configure:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.finos.legend.depot.services.guice.ManageQueryMetricsSchedulesModule.lambda$scheduleMetricsConsolidation$0:(Lorg/finos/legend/depot/services/api/metrics/query/QueryMetricsService;)Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        40,
+        41
+      ]
+    },
+    "org.finos.legend.depot.services.guice.ManageQueryMetricsSchedulesModule.scheduleMetricsConsolidation:(Lorg/finos/legend/depot/services/api/schedules/SchedulesFactory;Lorg/finos/legend/depot/services/api/metrics/query/QueryMetricsService;)Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        38,
+        43
+      ]
+    },
+    "org.finos.legend.depot.services.guice.QueryMetricsModule.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.finos.legend.depot.services.guice.QueryMetricsModule.configure:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        33,
+        34,
+        35,
+        36
+      ]
+    },
+    "org.finos.legend.depot.services.guice.QueryMetricsModule.getQueryMetricsRegistry:()Lorg/finos/legend/depot/services/api/metrics/query/QueryMetricsRegistry;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        43
+      ]
+    },
+    "org.finos.legend.depot.services.guice.QueryMetricsSchedulesModule.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.finos.legend.depot.services.guice.QueryMetricsSchedulesModule.configure:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.finos.legend.depot.services.guice.QueryMetricsSchedulesModule.lambda$scheduleMetricsPersistence$0:(Lorg/finos/legend/depot/services/api/metrics/query/QueryMetricsService;Lorg/finos/legend/depot/services/api/metrics/query/QueryMetricsRegistry;)Ljava/lang/Object;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        42,
+        43
+      ]
+    },
+    "org.finos.legend.depot.services.guice.QueryMetricsSchedulesModule.scheduleMetricsPersistence:(Lorg/finos/legend/depot/services/api/schedules/SchedulesFactory;Lorg/finos/legend/depot/services/api/metrics/query/QueryMetricsRegistry;Lorg/finos/legend/depot/services/api/metrics/query/QueryMetricsService;)Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        40,
+        45
+      ]
+    },
+    "org.finos.legend.depot.services.metrics.query.InMemoryQueryMetricsRegistry.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        32,
+        33,
+        34
+      ]
+    },
+    "org.finos.legend.depot.services.metrics.query.InMemoryQueryMetricsRegistry.findFirst:()Ljava/util/Optional;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        44,
+        45
+      ]
+    },
+    "org.finos.legend.depot.services.metrics.query.InMemoryQueryMetricsRegistry.record:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Date;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        38,
+        39
+      ]
+    },
+    "org.finos.legend.depot.services.metrics.query.QueryMetricsServiceImpl.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.finos.legend.depot.services.metrics.query.QueryMetricsServiceImpl.<init>:(Lorg/finos/legend/depot/store/api/metrics/query/QueryMetrics;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        43,
+        44,
+        46
+      ]
+    },
+    "org.finos.legend.depot.services.metrics.query.QueryMetricsServiceImpl.checkDateBeforeNumDays:(Ljava/util/Date;I)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        103
+      ]
+    },
+    "org.finos.legend.depot.services.metrics.query.QueryMetricsServiceImpl.consolidateMetrics:()V" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        118,
+        119,
+        132,
+        133
+      ]
+    },
+    "org.finos.legend.depot.services.metrics.query.QueryMetricsServiceImpl.delete:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        98,
+        99
+      ]
+    },
+    "org.finos.legend.depot.services.metrics.query.QueryMetricsServiceImpl.findMetricsForProjectCoordinates:(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        70
+      ]
+    },
+    "org.finos.legend.depot.services.metrics.query.QueryMetricsServiceImpl.findReleasedVersionMetricsBefore:(Ljava/util/Date;)Ljava/util/List;" : {
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 4
+      },
+      "lineNumbers" : [
+        75
+      ]
+    },
+    "org.finos.legend.depot.services.metrics.query.QueryMetricsServiceImpl.findSnapshotVersionMetricsBefore:(Ljava/util/Date;)Ljava/util/List;" : {
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 4
+      },
+      "lineNumbers" : [
+        80
+      ]
+    },
+    "org.finos.legend.depot.services.metrics.query.QueryMetricsServiceImpl.getStaleMetrics:(II)Ljava/util/List;" : {
+      "completeTestCount" : 6,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 6
+      },
+      "lineNumbers" : [
+        108,
+        109,
+        113,
+        108
+      ]
+    },
+    "org.finos.legend.depot.services.metrics.query.QueryMetricsServiceImpl.getSummary:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        50,
+        51,
+        53,
+        55,
+        56
+      ]
+    },
+    "org.finos.legend.depot.services.metrics.query.QueryMetricsServiceImpl.getSummaryByProjectVersion:()Ljava/util/List;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        62,
+        63,
+        64,
+        62
+      ]
+    },
+    "org.finos.legend.depot.services.metrics.query.QueryMetricsServiceImpl.lambda$consolidateMetrics$4:(Lorg/finos/legend/depot/domain/project/ProjectVersion;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        123,
+        124,
+        125,
+        130,
+        127,
+        129,
+        131
+      ]
+    },
+    "org.finos.legend.depot.services.metrics.query.QueryMetricsServiceImpl.lambda$findReleasedVersionMetricsBefore$1:(Lorg/finos/legend/depot/store/model/metrics/query/VersionQueryMetric;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        75
+      ]
+    },
+    "org.finos.legend.depot.services.metrics.query.QueryMetricsServiceImpl.lambda$findSnapshotVersionMetricsBefore$2:(Lorg/finos/legend/depot/store/model/metrics/query/VersionQueryMetric;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        80
+      ]
+    },
+    "org.finos.legend.depot.services.metrics.query.QueryMetricsServiceImpl.lambda$getStaleMetrics$3:(IILorg/finos/legend/depot/store/model/metrics/query/VersionQueryMetric;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        110,
+        111,
+        110
+      ]
+    },
+    "org.finos.legend.depot.services.metrics.query.QueryMetricsServiceImpl.lambda$getSummaryByProjectVersion$0:(Lorg/finos/legend/depot/domain/project/ProjectVersion;)Lorg/finos/legend/depot/store/model/metrics/query/VersionQueryMetric;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.finos.legend.depot.services.metrics.query.QueryMetricsServiceImpl.persist:(Lorg/finos/legend/depot/services/api/metrics/query/QueryMetricsRegistry;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        87,
+        88,
+        90,
+        91,
+        94
+      ]
+    }
+  },
+  "validationMetrics" : {
+    "touchedFiles" : [
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-metrics-query-services\\src\\test\\java\\org\\finos\\legend\\depot\\services\\guice\\ManageQueryMetricsSchedulesModuleDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-metrics-query-services\\src\\test\\java\\org\\finos\\legend\\depot\\services\\guice\\QueryMetricsModuleDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-metrics-query-services\\src\\test\\java\\org\\finos\\legend\\depot\\services\\guice\\QueryMetricsSchedulesModuleDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-metrics-query-services\\src\\test\\java\\org\\finos\\legend\\depot\\services\\metrics\\query\\InMemoryQueryMetricsRegistryDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-metrics-query-services\\src\\test\\java\\org\\finos\\legend\\depot\\services\\metrics\\query\\QueryMetricsServiceImplDiffblueTest.java"
+    ]
+  }
+}

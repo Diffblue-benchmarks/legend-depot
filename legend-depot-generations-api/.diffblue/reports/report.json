@@ -1,0 +1,744 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.06.02-fd4f1ca-licensed",
+    "creationTimestamp" : "2025-06-19T18:01:07.4996814+01:00",
+    "command" : "dcover create --coverage-reports",
+    "totalTime" : 126.495,
+    "environmentDetectionTime" : 0.179,
+    "indexingTime" : 0.428,
+    "entryPointsTime" : 0.175,
+    "generationTime" : 4085.87,
+    "timeToFirstTest" : 6653.928,
+    "timeToLastTest" : 5822.131,
+    "indexQueryTime" : 2.766,
+    "verificationTime" : 672.316,
+    "validationTime" : 14.177
+  },
+  "codes" : {
+    "R000" : "Success",
+    "R004" : "No meaningful assertions found",
+    "T000" : "Method eligible for test creation",
+    "T001" : "Trivial getter",
+    "T003" : "Private method",
+    "T005" : "Trivial constructor",
+    "T008" : "Private and never called",
+    "T009" : "No implementation for abstract class",
+    "T010" : "Abstract or interface method",
+    "T012" : "Synthetic method",
+    "T023" : "Testability unknown",
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation",
+    "W001" : "Test did not compile"
+  },
+  "summary" : {
+    "classesCount" : 10,
+    "methodsCount" : 51,
+    "cumulativeDiffblueTestCount" : 15,
+    "cumulativeManualTestCount" : 1,
+    "completeTestCount" : 15,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 344,
+    "perMethodTestability" : {
+      "T000" : 8,
+      "T001" : 6,
+      "T003" : 13,
+      "T005" : 2,
+      "T008" : 2,
+      "T009" : 2,
+      "T010" : 15,
+      "T012" : 2,
+      "T023" : 1
+    },
+    "perMethodOutcome" : {
+      "R000" : 15,
+      "R004" : 1,
+      "T003" : 13,
+      "T008" : 2,
+      "T009" : 2,
+      "T010" : 15,
+      "T012" : 2,
+      "T023" : 1
+    },
+    "perTestOutcome" : {
+      "R000" : 15
+    },
+    "perTestValidation" : {
+      "V000" : 15,
+      "V003" : 2
+    },
+    "warnings" : {
+      "W001" : 2
+    }
+  },
+  "classes" : {
+    "org.finos.legend.depot.domain.generation.DepotGeneration" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 6,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 2,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 5
+      },
+      "perTestOutcome" : {
+        "R000" : 6
+      }
+    },
+    "org.finos.legend.depot.services.api.generations.FileGenerationsService" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T009" : 2,
+        "T010" : 4,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "T009" : 2,
+        "T010" : 4,
+        "T012" : 1
+      }
+    },
+    "org.finos.legend.depot.services.api.generations.ManageFileGenerationsService" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 3
+      },
+      "perMethodOutcome" : {
+        "T010" : 3
+      }
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader" : {
+      "methodsCount" : 12,
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T003" : 6,
+        "T012" : 1,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 3,
+        "R004" : 1,
+        "T003" : 6,
+        "T012" : 1,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "warnings" : {
+        "W001" : 2
+      }
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader$DirectoryEntityFileSearch" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 4,
+        "T008" : 1
+      },
+      "perMethodOutcome" : {
+        "T003" : 4,
+        "T008" : 1
+      }
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader$DirectoryEntityFileSearchWithCloseable" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 1,
+        "T008" : 1
+      },
+      "perMethodOutcome" : {
+        "T003" : 1,
+        "T008" : 1
+      }
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader$GenerationFileSearch" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 2
+      },
+      "perMethodOutcome" : {
+        "T003" : 2
+      }
+    },
+    "org.finos.legend.depot.store.api.generations.FileGenerations" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 6
+      },
+      "perMethodOutcome" : {
+        "T010" : 6
+      }
+    },
+    "org.finos.legend.depot.store.api.generations.UpdateFileGenerations" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 2
+      },
+      "perMethodOutcome" : {
+        "T010" : 2
+      }
+    },
+    "org.finos.legend.depot.store.model.generations.StoredFileGeneration" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 6,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 4,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 7
+      },
+      "perTestOutcome" : {
+        "R000" : 6
+      }
+    }
+  },
+  "methods" : {
+    "org.finos.legend.depot.domain.generation.DepotGeneration.<init>:(Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        37,
+        38,
+        39,
+        40
+      ]
+    },
+    "org.finos.legend.depot.domain.generation.DepotGeneration.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        56
+      ]
+    },
+    "org.finos.legend.depot.domain.generation.DepotGeneration.getContent:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        44
+      ]
+    },
+    "org.finos.legend.depot.domain.generation.DepotGeneration.getPath:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        49
+      ]
+    },
+    "org.finos.legend.depot.domain.generation.DepotGeneration.hashCode:()I" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        62
+      ]
+    },
+    "org.finos.legend.depot.services.api.generations.FileGenerationsService.findByType:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.finos.legend.depot.services.api.generations.FileGenerationsService.findByTypeAndElementPath:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.generations.FileGenerationsService.getFileGenerationContentByFilePath:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        42
+      ]
+    },
+    "org.finos.legend.depot.services.api.generations.FileGenerationsService.getFileGenerations:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.generations.FileGenerationsService.getFileGenerationsByElementPath:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.generations.FileGenerationsService.getFileGenerationsByFilePath:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.generations.FileGenerationsService.lambda$getFileGenerationContentByFilePath$0:(Lorg/finos/legend/depot/domain/generation/DepotGeneration;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        42
+      ]
+    },
+    "org.finos.legend.depot.services.api.generations.ManageFileGenerationsService.createOrUpdate:(Ljava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.generations.ManageFileGenerationsService.delete:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)J" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.generations.ManageFileGenerationsService.getAll:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader$DirectoryEntityFileSearch.<init>:(Ljava/nio/file/Path;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T008",
+      "perMethodOutcome" : "T008",
+      "lineNumbers" : [
+        210,
+        211,
+        212
+      ]
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader$DirectoryEntityFileSearch.close:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        239
+      ]
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader$DirectoryEntityFileSearch.getDirectoryStream:(Ljava/nio/file/Path;)Ljava/util/stream/Stream;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        218,
+        220,
+        222
+      ]
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader$DirectoryEntityFileSearch.getPath:(Ljava/lang/String;)Ljava/nio/file/Path;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        228
+      ]
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader$DirectoryEntityFileSearch.getPathsInDirectory:(Ljava/lang/String;)Ljava/util/stream/Stream;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        233,
+        234
+      ]
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader$DirectoryEntityFileSearchWithCloseable.<init>:(Ljava/nio/file/Path;Ljava/lang/AutoCloseable;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T008",
+      "perMethodOutcome" : "T008",
+      "lineNumbers" : [
+        194,
+        195,
+        196
+      ]
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader$DirectoryEntityFileSearchWithCloseable.close:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        201,
+        202
+      ]
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader$GenerationFileSearch.getPath:(Ljava/lang/String;)Ljava/nio/file/Path;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003"
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader$GenerationFileSearch.getPathsInDirectory:(Ljava/lang/String;)Ljava/util/stream/Stream;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003"
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader.<init>:(Ljava/util/List;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        49,
+        50,
+        51
+      ]
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader.close:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R004",
+      "lineNumbers" : [
+        154,
+        156,
+        158,
+        161,
+        173,
+        163,
+        165,
+        167,
+        171,
+        174,
+        175,
+        177,
+        179
+      ]
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader.getAllFileGenerations:()Ljava/util/stream/Stream;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        139,
+        141,
+        143
+      ]
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader.getGenerationFileSearch:(Ljava/nio/file/Path;)Lorg/finos/legend/depot/services/generations/loader/FileGenerationLoader$GenerationFileSearch;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        115,
+        120,
+        117,
+        119,
+        122,
+        124,
+        128,
+        130
+      ]
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader.getGenerationsInDirectory:(Ljava/lang/String;)Ljava/util/stream/Stream;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        149
+      ]
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader.isPossiblyGenerationFile:(Ljava/nio/file/Path;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        86,
+        87,
+        86
+      ]
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader.lambda$getGenerationsInDirectory$0:(Ljava/lang/String;Lorg/finos/legend/depot/services/generations/loader/FileGenerationLoader$GenerationFileSearch;)Ljava/util/stream/Stream;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        149
+      ]
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader.newFileGenerationsLoader:(Ljava/io/File;)Lorg/finos/legend/depot/services/generations/loader/FileGenerationLoader;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "warnings" : {
+        "W001" : 1
+      },
+      "lineNumbers" : [
+        62
+      ]
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader.newFileGenerationsLoader:(Ljava/nio/file/Path;)Lorg/finos/legend/depot/services/generations/loader/FileGenerationLoader;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "warnings" : {
+        "W001" : 1
+      },
+      "lineNumbers" : [
+        56,
+        57
+      ]
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader.newPathEntityFileSearch:(Ljava/nio/file/Path;)Lorg/finos/legend/depot/services/generations/loader/FileGenerationLoader$GenerationFileSearch;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        95,
+        97,
+        99,
+        100,
+        101,
+        103,
+        106
+      ]
+    },
+    "org.finos.legend.depot.services.generations.loader.FileGenerationLoader.readGeneration:(Ljava/nio/file/Path;)Lorg/finos/legend/depot/domain/generation/DepotGeneration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        67,
+        70,
+        72,
+        73,
+        74,
+        70,
+        75,
+        76,
+        75,
+        67,
+        77,
+        79,
+        80
+      ]
+    },
+    "org.finos.legend.depot.store.api.generations.FileGenerations.find:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.generations.FileGenerations.findByElementPath:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.generations.FileGenerations.findByFilePath:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.generations.FileGenerations.findByType:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.generations.FileGenerations.findByTypeAndElementPath:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.generations.FileGenerations.getAll:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.generations.UpdateFileGenerations.createOrUpdate:(Ljava/util/List;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.generations.UpdateFileGenerations.delete:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)J" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.model.generations.StoredFileGeneration.<init>:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/finos/legend/depot/domain/generation/DepotGeneration;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        46,
+        47,
+        48,
+        49,
+        50
+      ]
+    },
+    "org.finos.legend.depot.store.model.generations.StoredFileGeneration.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        77
+      ]
+    },
+    "org.finos.legend.depot.store.model.generations.StoredFileGeneration.getFile:()Lorg/finos/legend/depot/domain/generation/DepotGeneration;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        71
+      ]
+    },
+    "org.finos.legend.depot.store.model.generations.StoredFileGeneration.getId:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        56
+      ]
+    },
+    "org.finos.legend.depot.store.model.generations.StoredFileGeneration.getPath:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        61
+      ]
+    },
+    "org.finos.legend.depot.store.model.generations.StoredFileGeneration.getType:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        66
+      ]
+    },
+    "org.finos.legend.depot.store.model.generations.StoredFileGeneration.hashCode:()I" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        83
+      ]
+    }
+  },
+  "validationMetrics" : {
+    "touchedFiles" : [
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-generations-api\\src\\test\\java\\org\\finos\\legend\\depot\\domain\\generation\\DepotGenerationDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-generations-api\\src\\test\\java\\org\\finos\\legend\\depot\\services\\generations\\loader\\FileGenerationLoaderDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-generations-api\\src\\test\\java\\org\\finos\\legend\\depot\\store\\model\\generations\\StoredFileGenerationDiffblueTest.java"
+    ]
+  }
+}

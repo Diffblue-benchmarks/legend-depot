@@ -1,0 +1,171 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.06.02-fd4f1ca-licensed",
+    "creationTimestamp" : "2025-06-19T18:01:07.4996814+01:00",
+    "command" : "dcover create --coverage-reports",
+    "totalTime" : 98.912,
+    "environmentDetectionTime" : 0.103,
+    "indexingTime" : 0.459,
+    "entryPointsTime" : 0.099,
+    "generationTime" : 4739.658,
+    "timeToFirstTest" : 8729.076,
+    "timeToLastTest" : 7365.315,
+    "indexQueryTime" : 2.5020000000000002,
+    "verificationTime" : 860.645,
+    "validationTime" : 14.404
+  },
+  "codes" : {
+    "R000" : "Success",
+    "T000" : "Method eligible for test creation",
+    "T004" : "In anonymous inner class",
+    "T005" : "Trivial constructor",
+    "T010" : "Abstract or interface method",
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation"
+  },
+  "summary" : {
+    "classesCount" : 4,
+    "methodsCount" : 5,
+    "cumulativeDiffblueTestCount" : 2,
+    "cumulativeManualTestCount" : 0,
+    "completeTestCount" : 2,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 31,
+    "perMethodTestability" : {
+      "T000" : 1,
+      "T004" : 1,
+      "T005" : 1,
+      "T010" : 2
+    },
+    "perMethodOutcome" : {
+      "R000" : 2,
+      "T004" : 1,
+      "T010" : 2
+    },
+    "perTestOutcome" : {
+      "R000" : 2
+    },
+    "perTestValidation" : {
+      "V000" : 2,
+      "V003" : 2
+    }
+  },
+  "classes" : {
+    "org.finos.legend.depot.store.StorageConfiguration" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "T010" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.finos.legend.depot.store.StorageConfiguration$1WrapperMixin" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T004" : 1
+      },
+      "perMethodOutcome" : {
+        "T004" : 1
+      }
+    },
+    "org.finos.legend.depot.store.StoreException" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.finos.legend.depot.store.model.HasIdentifier" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T010" : 1
+      }
+    }
+  },
+  "methods" : {
+    "org.finos.legend.depot.store.StorageConfiguration$1WrapperMixin.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.finos.legend.depot.store.StorageConfiguration.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        25,
+        26
+      ]
+    },
+    "org.finos.legend.depot.store.StorageConfiguration.configureObjectMapper:(Lcom/fasterxml/jackson/databind/ObjectMapper;)Lcom/fasterxml/jackson/databind/ObjectMapper;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        35,
+        36,
+        35
+      ]
+    },
+    "org.finos.legend.depot.store.StoreException.<init>:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        22,
+        23
+      ]
+    },
+    "org.finos.legend.depot.store.model.HasIdentifier.getId:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    }
+  },
+  "validationMetrics" : {
+    "touchedFiles" : [
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-core-store-api\\src\\test\\java\\org\\finos\\legend\\depot\\store\\StorageConfigurationDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-core-store-api\\src\\test\\java\\org\\finos\\legend\\depot\\store\\StoreExceptionDiffblueTest.java"
+    ]
+  }
+}

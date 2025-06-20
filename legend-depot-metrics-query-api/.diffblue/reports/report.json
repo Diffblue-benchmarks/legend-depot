@@ -1,0 +1,416 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.06.02-fd4f1ca-licensed",
+    "creationTimestamp" : "2025-06-19T18:01:07.4996814+01:00",
+    "command" : "dcover create --coverage-reports",
+    "totalTime" : 77.339,
+    "environmentDetectionTime" : 0.178,
+    "indexingTime" : 0.395,
+    "entryPointsTime" : 0.171,
+    "generationTime" : 2510.842,
+    "timeToFirstTest" : 3472.806,
+    "timeToLastTest" : 3225.854,
+    "indexQueryTime" : 2.452,
+    "verificationTime" : 274.753,
+    "validationTime" : 10.946
+  },
+  "codes" : {
+    "R000" : "Success",
+    "R002" : "Missing observers",
+    "R004" : "No meaningful assertions found",
+    "T000" : "Method eligible for test creation",
+    "T001" : "Trivial getter",
+    "T002" : "Trivial setter",
+    "T005" : "Trivial constructor",
+    "T010" : "Abstract or interface method",
+    "T021" : "Empty method body",
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation"
+  },
+  "summary" : {
+    "classesCount" : 5,
+    "methodsCount" : 32,
+    "cumulativeDiffblueTestCount" : 4,
+    "cumulativeManualTestCount" : 0,
+    "completeTestCount" : 4,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 123,
+    "perMethodTestability" : {
+      "T000" : 2,
+      "T001" : 5,
+      "T002" : 1,
+      "T005" : 4,
+      "T010" : 19,
+      "T021" : 1
+    },
+    "perMethodOutcome" : {
+      "R000" : 10,
+      "R002" : 2,
+      "R004" : 1,
+      "T010" : 19
+    },
+    "perTestOutcome" : {
+      "R000" : 4
+    },
+    "perTestValidation" : {
+      "V000" : 4,
+      "V003" : 2
+    }
+  },
+  "classes" : {
+    "org.finos.legend.depot.services.api.metrics.query.QueryMetricsRegistry" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T010" : 2
+      },
+      "perMethodOutcome" : {
+        "R004" : 1,
+        "T010" : 2
+      }
+    },
+    "org.finos.legend.depot.services.api.metrics.query.QueryMetricsService" : {
+      "methodsCount" : 9,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 9
+      },
+      "perMethodOutcome" : {
+        "T010" : 9
+      }
+    },
+    "org.finos.legend.depot.services.api.metrics.query.VoidQueryMetricsRegistry" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1,
+        "T021" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "R002" : 2
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.finos.legend.depot.store.api.metrics.query.QueryMetrics" : {
+      "methodsCount" : 8,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 8
+      },
+      "perMethodOutcome" : {
+        "T010" : 8
+      }
+    },
+    "org.finos.legend.depot.store.model.metrics.query.VersionQueryMetric" : {
+      "methodsCount" : 9,
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T001" : 5,
+        "T002" : 1,
+        "T005" : 3
+      },
+      "perMethodOutcome" : {
+        "R000" : 9
+      },
+      "perTestOutcome" : {
+        "R000" : 3
+      }
+    }
+  },
+  "methods" : {
+    "org.finos.legend.depot.services.api.metrics.query.QueryMetricsRegistry.findFirst:()Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.metrics.query.QueryMetricsRegistry.record:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R004",
+      "lineNumbers" : [
+        27,
+        28
+      ]
+    },
+    "org.finos.legend.depot.services.api.metrics.query.QueryMetricsRegistry.record:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Date;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.metrics.query.QueryMetricsService.consolidateMetrics:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.metrics.query.QueryMetricsService.delete:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.metrics.query.QueryMetricsService.findMetricsForProjectCoordinates:(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.metrics.query.QueryMetricsService.findReleasedVersionMetricsBefore:(Ljava/util/Date;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.metrics.query.QueryMetricsService.findSnapshotVersionMetricsBefore:(Ljava/util/Date;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.metrics.query.QueryMetricsService.getStaleMetrics:(II)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.metrics.query.QueryMetricsService.getSummary:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.metrics.query.QueryMetricsService.getSummaryByProjectVersion:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.metrics.query.QueryMetricsService.persist:(Lorg/finos/legend/depot/services/api/metrics/query/QueryMetricsRegistry;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.metrics.query.VoidQueryMetricsRegistry.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        23
+      ]
+    },
+    "org.finos.legend.depot.services.api.metrics.query.VoidQueryMetricsRegistry.findFirst:()Ljava/util/Optional;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        33
+      ]
+    },
+    "org.finos.legend.depot.services.api.metrics.query.VoidQueryMetricsRegistry.record:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Date;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.finos.legend.depot.store.api.metrics.query.QueryMetrics.consolidate:(Lorg/finos/legend/depot/store/model/metrics/query/VersionQueryMetric;)J" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.metrics.query.QueryMetrics.delete:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)J" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.metrics.query.QueryMetrics.find:(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.metrics.query.QueryMetrics.findMetricsBefore:(Ljava/util/Date;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.metrics.query.QueryMetrics.get:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.metrics.query.QueryMetrics.getAll:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.metrics.query.QueryMetrics.getAllStoredEntitiesCoordinates:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.api.metrics.query.QueryMetrics.insert:(Lorg/finos/legend/depot/store/model/metrics/query/VersionQueryMetric;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.store.model.metrics.query.VersionQueryMetric.<init>:()V" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        39,
+        40
+      ]
+    },
+    "org.finos.legend.depot.store.model.metrics.query.VersionQueryMetric.<init>:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ]
+    },
+    "org.finos.legend.depot.store.model.metrics.query.VersionQueryMetric.<init>:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Date;)V" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+      ]
+    },
+    "org.finos.legend.depot.store.model.metrics.query.VersionQueryMetric.getArtifactId:()Ljava/lang/String;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        66
+      ]
+    },
+    "org.finos.legend.depot.store.model.metrics.query.VersionQueryMetric.getGroupId:()Ljava/lang/String;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        61
+      ]
+    },
+    "org.finos.legend.depot.store.model.metrics.query.VersionQueryMetric.getId:()Ljava/lang/String;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        88
+      ]
+    },
+    "org.finos.legend.depot.store.model.metrics.query.VersionQueryMetric.getLastQueryTime:()Ljava/util/Date;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        76
+      ]
+    },
+    "org.finos.legend.depot.store.model.metrics.query.VersionQueryMetric.getVersionId:()Ljava/lang/String;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        71
+      ]
+    },
+    "org.finos.legend.depot.store.model.metrics.query.VersionQueryMetric.setLastQueryTime:(Ljava/util/Date;)V" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        81,
+        82
+      ]
+    }
+  },
+  "validationMetrics" : {
+    "touchedFiles" : [
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-metrics-query-api\\src\\test\\java\\org\\finos\\legend\\depot\\services\\api\\metrics\\query\\VoidQueryMetricsRegistryDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-metrics-query-api\\src\\test\\java\\org\\finos\\legend\\depot\\store\\model\\metrics\\query\\VersionQueryMetricDiffblueTest.java"
+    ]
+  }
+}

@@ -1,0 +1,288 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.06.02-fd4f1ca-licensed",
+    "creationTimestamp" : "2025-06-19T18:01:07.4996814+01:00",
+    "command" : "dcover create --coverage-reports",
+    "totalTime" : 114.001,
+    "environmentDetectionTime" : 0.154,
+    "indexingTime" : 0.438,
+    "entryPointsTime" : 0.15,
+    "generationTime" : 4299.197,
+    "timeToFirstTest" : 7322.426,
+    "timeToLastTest" : 6339.212,
+    "indexQueryTime" : 4.499,
+    "verificationTime" : 769.147,
+    "validationTime" : 12.369
+  },
+  "codes" : {
+    "F009" : "Internal error",
+    "R000" : "Success",
+    "R002" : "Missing observers",
+    "R005" : "Unable to load class",
+    "T000" : "Method eligible for test creation",
+    "T004" : "In anonymous inner class",
+    "T005" : "Trivial constructor",
+    "T009" : "No implementation for abstract class",
+    "T010" : "Abstract or interface method",
+    "T012" : "Synthetic method",
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation"
+  },
+  "summary" : {
+    "classesCount" : 5,
+    "methodsCount" : 12,
+    "cumulativeDiffblueTestCount" : 3,
+    "cumulativeManualTestCount" : 3,
+    "completeTestCount" : 3,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 97,
+    "perMethodTestability" : {
+      "T000" : 4,
+      "T004" : 1,
+      "T005" : 2,
+      "T009" : 1,
+      "T010" : 3,
+      "T012" : 1
+    },
+    "perMethodOutcome" : {
+      "F009" : 1,
+      "R000" : 3,
+      "R002" : 1,
+      "R005" : 1,
+      "T004" : 1,
+      "T009" : 1,
+      "T010" : 3,
+      "T012" : 1
+    },
+    "perTestOutcome" : {
+      "R000" : 3
+    },
+    "perTestValidation" : {
+      "V000" : 3,
+      "V003" : 2
+    },
+    "warnings" : {
+      "F009" : 1
+    }
+  },
+  "classes" : {
+    "org.finos.legend.depot.core.services.api.authorisation.AuthorisationProvider" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 1
+      },
+      "perMethodOutcome" : {
+        "T010" : 1
+      }
+    },
+    "org.finos.legend.depot.core.services.authorisation.BasicAuthorisationProvider" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "F009" : 1,
+        "R000" : 1,
+        "R002" : 1,
+        "T012" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "warnings" : {
+        "F009" : 1
+      }
+    },
+    "org.finos.legend.depot.core.services.authorisation.BasicAuthorisationProvider$1" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T004" : 1
+      },
+      "perMethodOutcome" : {
+        "T004" : 1
+      }
+    },
+    "org.finos.legend.depot.core.services.authorisation.resources.AuthorisedResource" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T009" : 1,
+        "T010" : 2
+      },
+      "perMethodOutcome" : {
+        "T009" : 1,
+        "T010" : 2
+      }
+    },
+    "org.finos.legend.depot.core.services.guice.AuthorisationModule" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 2,
+        "R005" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      }
+    }
+  },
+  "methods" : {
+    "org.finos.legend.depot.core.services.api.authorisation.AuthorisationProvider.authorise:(Ljavax/inject/Provider;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.core.services.authorisation.BasicAuthorisationProvider$1.<init>:(Lorg/finos/legend/depot/core/services/authorisation/BasicAuthorisationProvider;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        43
+      ]
+    },
+    "org.finos.legend.depot.core.services.authorisation.BasicAuthorisationProvider.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "F009",
+      "warnings" : {
+        "F009" : 1
+      },
+      "lineNumbers" : [
+        34,
+        35,
+        36,
+        38,
+        42,
+        48,
+        45,
+        47,
+        49
+      ]
+    },
+    "org.finos.legend.depot.core.services.authorisation.BasicAuthorisationProvider.<init>:(Ljava/util/Map;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        52,
+        53,
+        54
+      ]
+    },
+    "org.finos.legend.depot.core.services.authorisation.BasicAuthorisationProvider.authorise:(Ljavax/inject/Provider;Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        59,
+        61,
+        63,
+        65,
+        67
+      ]
+    },
+    "org.finos.legend.depot.core.services.authorisation.BasicAuthorisationProvider.lambda$authorise$0:(Ljavax/inject/Provider;Ljava/lang/String;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.finos.legend.depot.core.services.authorisation.resources.AuthorisedResource.<init>:(Lorg/finos/legend/depot/core/services/api/authorisation/AuthorisationProvider;Ljavax/inject/Provider;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        33,
+        34,
+        35,
+        36
+      ]
+    },
+    "org.finos.legend.depot.core.services.authorisation.resources.AuthorisedResource.getResourceName:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.core.services.authorisation.resources.AuthorisedResource.validateUser:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        42,
+        43
+      ]
+    },
+    "org.finos.legend.depot.core.services.guice.AuthorisationModule.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.finos.legend.depot.core.services.guice.AuthorisationModule.configure:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        29,
+        30
+      ]
+    },
+    "org.finos.legend.depot.core.services.guice.AuthorisationModule.getAuthorisationProvider:()Lorg/finos/legend/depot/core/services/api/authorisation/AuthorisationProvider;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        37
+      ]
+    }
+  },
+  "validationMetrics" : {
+    "touchedFiles" : [
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-core-authorisation\\src\\test\\java\\org\\finos\\legend\\depot\\core\\services\\authorisation\\BasicAuthorisationProviderDiffblueTest.java",
+      "C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-core-authorisation\\src\\test\\java\\org\\finos\\legend\\depot\\core\\services\\guice\\AuthorisationModuleDiffblueTest.java"
+    ]
+  }
+}
