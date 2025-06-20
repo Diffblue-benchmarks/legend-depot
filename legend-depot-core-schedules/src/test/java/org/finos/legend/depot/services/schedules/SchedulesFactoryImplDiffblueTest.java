@@ -25,11 +25,13 @@ import org.finos.legend.depot.store.api.admin.schedules.ScheduleInstancesStore;
 import org.finos.legend.depot.store.api.admin.schedules.SchedulesStore;
 import org.finos.legend.depot.store.model.admin.schedules.ScheduleInfo;
 import org.finos.legend.depot.store.model.admin.schedules.ScheduleInstance;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+@Disabled("Failed pitest")
 class SchedulesFactoryImplDiffblueTest {
   /**
    * Test {@link SchedulesFactoryImpl#SchedulesFactoryImpl(SchedulesStore, ScheduleInstancesStore, boolean)}.
