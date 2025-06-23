@@ -10,617 +10,70 @@
 [WARNING] 
 [WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
 [WARNING] 
-[INFO] Inspecting build with total of 7 modules...
+[INFO] Inspecting build with total of 3 modules...
 [INFO] Installing Nexus Staging features:
-[INFO]   ... total of 7 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO]   ... total of 3 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Build Order:
 [INFO] 
-[INFO] Legend Depot - Core - Schedules                                    [jar]
-[INFO] Legend Depot - Pure Model Context - Services                       [jar]
-[INFO] Legend Depot - Servers - Common                                    [jar]
-[INFO] Legend Depot - Test Reports                                        [pom]
 [INFO] Legend Depot - Server                                              [jar]
 [INFO] Legend Depot - Store Admin Server                                  [jar]
 [INFO] legend-depot-mutation-aggregation                                  [pom]
 [INFO] 
-[INFO] ---------< org.finos.legend.depot:legend-depot-core-schedules >---------
-[INFO] Building Legend Depot - Core - Schedules 2.65.1-SNAPSHOT           [1/7]
+[INFO] -------------< org.finos.legend.depot:legend-depot-server >-------------
+[INFO] Building Legend Depot - Server 2.65.1-SNAPSHOT                     [1/3]
 [INFO]   from pom.xml
 [INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- enforcer:3.0.0-M1:enforce (enforce) @ legend-depot-core-schedules ---
-[INFO] Skipping Rule Enforcement.
-[INFO] 
-[INFO] --- jacoco:0.8.5:prepare-agent (pre-unit-test) @ legend-depot-core-schedules ---
-[INFO] argLine set to -javaagent:C:\\Users\\ybagge\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.5\\org.jacoco.agent-0.8.5-runtime.jar=destfile=C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-core-schedules\\target\\jacoco.exec
-[INFO] 
-[INFO] --- resources:2.7:resources (default-resources) @ legend-depot-core-schedules ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory C:\Users\ybagge\benchmarks\legend-depot\legend-depot-core-schedules\src\main\resources
-[INFO] 
-[INFO] --- compiler:3.7.0:compile (default-compile) @ legend-depot-core-schedules ---
-[INFO] Nothing to compile - all classes are up to date
-[INFO] 
-[INFO] --- resources:2.7:testResources (default-testResources) @ legend-depot-core-schedules ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory C:\Users\ybagge\benchmarks\legend-depot\legend-depot-core-schedules\src\test\resources
-[INFO] 
-[INFO] --- compiler:3.7.0:testCompile (default-testCompile) @ legend-depot-core-schedules ---
-[INFO] Changes detected - recompiling the module!
-[INFO] Compiling 7 source files to C:\Users\ybagge\benchmarks\legend-depot\legend-depot-core-schedules\target\test-classes
-[INFO] /C:/Users/ybagge/benchmarks/legend-depot/legend-depot-core-schedules/src/test/java/org/finos/legend/depot/services/schedules/SchedulesFactoryImplDiffblueTest.java: Some input files use unchecked or unsafe operations.
-[INFO] /C:/Users/ybagge/benchmarks/legend-depot/legend-depot-core-schedules/src/test/java/org/finos/legend/depot/services/schedules/SchedulesFactoryImplDiffblueTest.java: Recompile with -Xlint:unchecked for details.
-[INFO] 
-[INFO] --- surefire:3.0.0-M3:test (default-test) @ legend-depot-core-schedules ---
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.finos.legend.depot.services.guice.ManageSchedulesModuleDiffblueTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 s - in org.finos.legend.depot.services.guice.ManageSchedulesModuleDiffblueTest
-[INFO] Running org.finos.legend.depot.services.guice.SchedulesModuleDiffblueTest
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.868 s - in org.finos.legend.depot.services.guice.SchedulesModuleDiffblueTest
-[INFO] Running org.finos.legend.depot.services.schedules.SchedulesFactoryImplDiffblueTest
-[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 s - in org.finos.legend.depot.services.schedules.SchedulesFactoryImplDiffblueTest
-[INFO] Running org.finos.legend.depot.services.schedules.TestSchedules
-17:06:01.965 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - Found job3 schedule: disabled true, singleInstance false
-17:06:01.970 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - Schedule job3 disabled, skipping
-17:06:01.973 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - De-registering schedule job4
-17:06:01.973 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - De-registering schedule job3
-17:06:01.977 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - De-registering schedule job33
-17:06:01.977 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - De-registering schedule job34
-17:06:01.986 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - Deleted 1 expired schedule runs
-17:06:01.989 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - Found multiInstance schedule: disabled false, singleInstance false
-17:06:01.989 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - Starting schedule multiInstance 
-17:06:01.989 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - Schedule multiInstance completed
-17:06:01.989 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - Found multiInstance schedule: disabled false, singleInstance false
-17:06:01.989 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - Starting schedule multiInstance 
-17:06:01.989 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - Schedule multiInstance completed
-17:06:01.989 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - Found multiInstance schedule: disabled false, singleInstance false
-17:06:01.989 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - Starting schedule multiInstance 
-17:06:01.989 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - Schedule multiInstance completed
-17:06:01.989 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - Found singleInstance schedule: disabled false, singleInstance true
-17:06:01.990 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - Starting schedule singleInstance 
-17:06:01.990 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - Schedule singleInstance completed
-17:06:01.990 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - Found singleInstance schedule: disabled false, singleInstance true
-17:06:01.990 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - Skipping singleInstance execution
-17:06:01.990 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - Found singleInstance schedule: disabled false, singleInstance true
-17:06:01.990 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - Starting schedule singleInstance 
-17:06:01.990 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - Schedule singleInstance completed
-17:06:01.990 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - De-registering schedule multiInstance
-17:06:01.990 [main] INFO org.finos.legend.depot.services.schedules.SchedulesFactoryImpl - De-registering schedule singleInstance
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in org.finos.legend.depot.services.schedules.TestSchedules
-[INFO] Running org.finos.legend.depot.store.resources.schedules.ManageSchedulesResourceDiffblueTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.finos.legend.depot.store.resources.schedules.ManageSchedulesResourceDiffblueTest
-[INFO] 
-[INFO] Results:
-[INFO] 
-[WARNING] Tests run: 11, Failures: 0, Errors: 0, Skipped: 1
-[INFO] 
-[INFO] 
-[INFO] --- jacoco:0.8.5:report (post-unit-test) @ legend-depot-core-schedules ---
-[INFO] Loading execution data file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-core-schedules\target\jacoco.exec
-[INFO] Analyzed bundle 'Legend Depot - Core - Schedules' with 7 classes
-[INFO] 
-[INFO] --- pitest:1.17.1:mutationCoverage (default-cli) @ legend-depot-core-schedules ---
-[INFO] Root dir is : C:\Users\ybagge\benchmarks\legend-depot
-[INFO] Found plugin : Default csv report plugin
-[INFO] Found plugin : Default xml report plugin
-[INFO] Found plugin : Default html report plugin
-[INFO] Found plugin : Static initializer code detector plugin
-[INFO] Found plugin : Excluded annotations plugin
-[INFO] Found plugin : Try with resources filter
-[INFO] Found plugin : Inlined finally block filter plugin
-[INFO] Found plugin : Implicit null check filter
-[INFO] Found plugin : Method reference null check filter
-[INFO] Found plugin : For each loop filter
-[INFO] Found plugin : Enum junk filter
-[INFO] Found plugin : Record junk mutation filter
-[INFO] Found plugin : String switch filter
-[INFO] Found plugin : Assertions filter
-[INFO] Found plugin : Enum switch filter
-[INFO] Found plugin : Logging calls filter
-[INFO] Found plugin : Infinite for loop filter
-[INFO] Found plugin : Long running iterator loop filter
-[INFO] Found plugin : For loop counter filter
-[INFO] Found plugin : Kotlin junk mutations filter
-[INFO] Found plugin : Groovy junk mutations filter
-[INFO] Found plugin : Max mutations per class limit
-[INFO] Found plugin : Equals shortcut equivalent mutant filter
-[INFO] Found plugin : Trivial return vals equivalence filter
-[INFO] Found plugin : Filters mutants with line number <= 1
-[INFO] Found plugin : Division by one equivalent mutant filter
-[INFO] Found plugin : Lombok junk mutations filter
-[INFO] Found plugin : Filter mutations to defensive wrappers such as unmodifiableCollection on return or field write
-[INFO] Found plugin : Mutant export plugin
-[INFO] Found plugin : Auto add java.awt.headless=true to keep keyboard focus on Mac OS
-[INFO] Found plugin : Auto set number of threads based on machine
-[INFO] Found plugin : Automatically add -ea to launch args to enable assertions
-[INFO] Found plugin : Default build verifier
-[INFO] Found plugin : Detect missing JUnit5 plugin
-[INFO] Found plugin : Detect missing TestNG plugin
-[INFO] Found plugin : Detect missing kotlin plugin
-[INFO] Found plugin : Detect missing spring plugin
-[INFO] Found plugin : Default coverage exporter
-[INFO] Found shared classpath plugin : Default mutation engine
-[INFO] Found shared classpath plugin : JUnit 5 test framework support
-[INFO] Found shared classpath plugin : JUnit plugin
-[INFO] Found shared classpath plugin : Support for mocking frameworks using javassist
-[INFO] Found shared classpath plugin : Reset environment for javassist
-[INFO] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH
-[INFO] Adding org.pitest:pitest-junit5-plugin to SUT classpath
-[INFO] Adding org.pitest:pitest to SUT classpath
-[INFO] Auto adding org.junit.platform:junit-platform-launcher:jar:1.9.3 < central (https://repo.maven.apache.org/maven2, default, releases) to classpath.
-[INFO] Mutating from C:\Users\ybagge\benchmarks\legend-depot\legend-depot-core-schedules\target\classes
-[INFO] Defaulting target classes to match packages in build directory
-[INFO] Replacing properties in argLine -javaagent:C:\\Users\\ybagge\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.5\\org.jacoco.agent-0.8.5-runtime.jar=destfile=C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-core-schedules\\target\\jacoco.exec
-/-\|/-/-\|/================================================================================
-- Mutators
-================================================================================
-> org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator
->> Generated 1 Killed 0 (0%)
-> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 1 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator
->> Generated 31 Killed 0 (0%)
-> KILLED 0 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 30 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator
->> Generated 4 Killed 1 (25%)
-> KILLED 1 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 3 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator
->> Generated 12 Killed 1 (8%)
-> KILLED 1 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 11 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.MathMutator
->> Generated 1 Killed 0 (0%)
-> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 1 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator
->> Generated 5 Killed 1 (20%)
-> KILLED 1 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 4 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator
->> Generated 3 Killed 1 (33%)
-> KILLED 1 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 2 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator
->> Generated 11 Killed 0 (0%)
-> KILLED 0 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 10 
---------------------------------------------------------------------------------
-================================================================================
-- Timings
-================================================================================
-> pre-scan for mutations : < 1 second
-> scan classpath : < 1 second
-> coverage and dependency analysis : 1 seconds
-> build mutation tests : < 1 second
-> run mutation analysis : 5 seconds
---------------------------------------------------------------------------------
-> Total  : 6 seconds
---------------------------------------------------------------------------------
-================================================================================
-- Statistics
-================================================================================
->> Line Coverage (for mutated classes only): 23/126 (18%)
->> Generated 68 mutations Killed 4 (6%)
->> Mutations with no coverage 62. Test strength 67%
->> Ran 9 tests (0.13 tests per mutation)
-Enhanced functionality available at https://www.arcmutate.com/
-[INFO] 
-[INFO] -------< org.finos.legend.depot:legend-depot-pure-model-context >-------
-[INFO] Building Legend Depot - Pure Model Context - Services 2.65.1-SNAPSHOT [2/7]
-[INFO]   from C:\Users\ybagge\benchmarks\legend-depot\legend-depot-pure-model-context\pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- enforcer:3.0.0-M1:enforce (enforce) @ legend-depot-pure-model-context ---
-[INFO] Skipping Rule Enforcement.
-[INFO] 
-[INFO] --- jacoco:0.8.5:prepare-agent (pre-unit-test) @ legend-depot-pure-model-context ---
-[INFO] argLine set to -javaagent:C:\\Users\\ybagge\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.5\\org.jacoco.agent-0.8.5-runtime.jar=destfile=C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-pure-model-context\\target\\jacoco.exec
-[INFO] 
-[INFO] --- resources:2.7:resources (default-resources) @ legend-depot-pure-model-context ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory C:\Users\ybagge\benchmarks\legend-depot\legend-depot-pure-model-context\src\main\resources
-[INFO] 
-[INFO] --- compiler:3.7.0:compile (default-compile) @ legend-depot-pure-model-context ---
-[INFO] Changes detected - recompiling the module!
-[INFO] Compiling 5 source files to C:\Users\ybagge\benchmarks\legend-depot\legend-depot-pure-model-context\target\classes
-[INFO] /C:/Users/ybagge/benchmarks/legend-depot/legend-depot-pure-model-context/src/main/java/org/finos/legend/depot/services/pure/model/context/PureModelContextServiceImpl.java: C:\Users\ybagge\benchmarks\legend-depot\legend-depot-pure-model-context\src\main\java\org\finos\legend\depot\services\pure\model\context\PureModelContextServiceImpl.java uses or overrides a deprecated API.
-[INFO] /C:/Users/ybagge/benchmarks/legend-depot/legend-depot-pure-model-context/src/main/java/org/finos/legend/depot/services/pure/model/context/PureModelContextServiceImpl.java: Recompile with -Xlint:deprecation for details.
-[INFO] /C:/Users/ybagge/benchmarks/legend-depot/legend-depot-pure-model-context/src/main/java/org/finos/legend/depot/services/pure/model/context/PureModelContextServiceImpl.java: C:\Users\ybagge\benchmarks\legend-depot\legend-depot-pure-model-context\src\main\java\org\finos\legend\depot\services\pure\model\context\PureModelContextServiceImpl.java uses unchecked or unsafe operations.
-[INFO] /C:/Users/ybagge/benchmarks/legend-depot/legend-depot-pure-model-context/src/main/java/org/finos/legend/depot/services/pure/model/context/PureModelContextServiceImpl.java: Recompile with -Xlint:unchecked for details.
-[INFO] 
-[INFO] --- resources:2.7:testResources (default-testResources) @ legend-depot-pure-model-context ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] Copying 5 resources
-[INFO] 
-[INFO] --- compiler:3.7.0:testCompile (default-testCompile) @ legend-depot-pure-model-context ---
-[INFO] Changes detected - recompiling the module!
-[INFO] Compiling 4 source files to C:\Users\ybagge\benchmarks\legend-depot\legend-depot-pure-model-context\target\test-classes
-[INFO] /C:/Users/ybagge/benchmarks/legend-depot/legend-depot-pure-model-context/src/test/java/org/finos/legend/depot/services/pure/model/context/PureModelContextServiceImplDiffblueTest.java: Some input files use or override a deprecated API.
-[INFO] /C:/Users/ybagge/benchmarks/legend-depot/legend-depot-pure-model-context/src/test/java/org/finos/legend/depot/services/pure/model/context/PureModelContextServiceImplDiffblueTest.java: Recompile with -Xlint:deprecation for details.
-[INFO] /C:/Users/ybagge/benchmarks/legend-depot/legend-depot-pure-model-context/src/test/java/org/finos/legend/depot/services/pure/model/context/PureModelContextServiceImplDiffblueTest.java: C:\Users\ybagge\benchmarks\legend-depot\legend-depot-pure-model-context\src\test\java\org\finos\legend\depot\services\pure\model\context\PureModelContextServiceImplDiffblueTest.java uses unchecked or unsafe operations.
-[INFO] /C:/Users/ybagge/benchmarks/legend-depot/legend-depot-pure-model-context/src/test/java/org/finos/legend/depot/services/pure/model/context/PureModelContextServiceImplDiffblueTest.java: Recompile with -Xlint:unchecked for details.
-[INFO] 
-[INFO] --- surefire:3.0.0-M3:test (default-test) @ legend-depot-pure-model-context ---
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.finos.legend.depot.server.resources.guice.PureModelContextResourcesModuleDiffblueTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 s - in org.finos.legend.depot.server.resources.guice.PureModelContextResourcesModuleDiffblueTest
-[INFO] Running org.finos.legend.depot.server.resources.TestPureModelContextDataResource
-17:06:21,421 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback-test.xml] at [jar:file:/C:/Users/ybagge/.m2/repository/org/finos/legend/depot/legend-depot-core-data-services/2.65.1-SNAPSHOT/legend-depot-core-data-services-2.65.1-SNAPSHOT-tests.jar!/logback-test.xml]
-17:06:21,421 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback-test.xml] occurs multiple times on the classpath.
-17:06:21,421 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback-test.xml] occurs at [jar:file:/C:/Users/ybagge/.m2/repository/org/finos/legend/depot/legend-depot-entities-store-mongo/2.65.1-SNAPSHOT/legend-depot-entities-store-mongo-2.65.1-SNAPSHOT-tests.jar!/logback-test.xml]
-17:06:21,421 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback-test.xml] occurs at [jar:file:/C:/Users/ybagge/.m2/repository/org/finos/legend/depot/legend-depot-store-mongo/2.65.1-SNAPSHOT/legend-depot-store-mongo-2.65.1-SNAPSHOT-tests.jar!/logback-test.xml]
-17:06:21,421 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback-test.xml] occurs at [jar:file:/C:/Users/ybagge/.m2/repository/org/finos/legend/depot/legend-depot-core-data-services/2.65.1-SNAPSHOT/legend-depot-core-data-services-2.65.1-SNAPSHOT-tests.jar!/logback-test.xml]
-17:06:21,447 |-INFO in ch.qos.logback.core.joran.spi.ConfigurationWatchList@525647f3 - URL [jar:file:/C:/Users/ybagge/.m2/repository/org/finos/legend/depot/legend-depot-core-data-services/2.65.1-SNAPSHOT/legend-depot-core-data-services-2.65.1-SNAPSHOT-tests.jar!/logback-test.xml] is not of type file
-17:06:21,519 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
-17:06:21,520 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
-17:06:21,535 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [CONSOLE]
-17:06:21,543 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
-17:06:21,586 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to OFF
-17:06:21,587 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [CONSOLE] to Logger[ROOT]
-17:06:21,588 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.finos.legend.depot] to OFF
-17:06:21,588 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.finos.legend.depot] to false
-17:06:21,588 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [CONSOLE] to Logger[org.finos.legend.depot]
-17:06:21,588 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
-17:06:21,588 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@42fc4ac4 - Registering current configuration as safe fallback point
-
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.9 s - in org.finos.legend.depot.server.resources.TestPureModelContextDataResource
-[INFO] Running org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImplDiffblueTest
-[INFO] Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.313 s - in org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImplDiffblueTest
-[INFO] Running org.finos.legend.depot.services.pure.model.context.TestPureModelContextService
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.466 s - in org.finos.legend.depot.services.pure.model.context.TestPureModelContextService
-[INFO] 
-[INFO] Results:
-[INFO] 
-[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0
-[INFO] 
-[INFO] 
-[INFO] --- jacoco:0.8.5:report (post-unit-test) @ legend-depot-pure-model-context ---
-[INFO] Loading execution data file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-pure-model-context\target\jacoco.exec
-[INFO] Analyzed bundle 'Legend Depot - Pure Model Context - Services' with 6 classes
-[INFO] 
-[INFO] --- pitest:1.17.1:mutationCoverage (default-cli) @ legend-depot-pure-model-context ---
-[INFO] Root dir is : C:\Users\ybagge\benchmarks\legend-depot
-[INFO] Found plugin : Default csv report plugin
-[INFO] Found plugin : Default xml report plugin
-[INFO] Found plugin : Default html report plugin
-[INFO] Found plugin : Static initializer code detector plugin
-[INFO] Found plugin : Excluded annotations plugin
-[INFO] Found plugin : Try with resources filter
-[INFO] Found plugin : Inlined finally block filter plugin
-[INFO] Found plugin : Implicit null check filter
-[INFO] Found plugin : Method reference null check filter
-[INFO] Found plugin : For each loop filter
-[INFO] Found plugin : Enum junk filter
-[INFO] Found plugin : Record junk mutation filter
-[INFO] Found plugin : String switch filter
-[INFO] Found plugin : Assertions filter
-[INFO] Found plugin : Enum switch filter
-[INFO] Found plugin : Logging calls filter
-[INFO] Found plugin : Infinite for loop filter
-[INFO] Found plugin : Long running iterator loop filter
-[INFO] Found plugin : For loop counter filter
-[INFO] Found plugin : Kotlin junk mutations filter
-[INFO] Found plugin : Groovy junk mutations filter
-[INFO] Found plugin : Max mutations per class limit
-[INFO] Found plugin : Equals shortcut equivalent mutant filter
-[INFO] Found plugin : Trivial return vals equivalence filter
-[INFO] Found plugin : Filters mutants with line number <= 1
-[INFO] Found plugin : Division by one equivalent mutant filter
-[INFO] Found plugin : Lombok junk mutations filter
-[INFO] Found plugin : Filter mutations to defensive wrappers such as unmodifiableCollection on return or field write
-[INFO] Found plugin : Mutant export plugin
-[INFO] Found plugin : Auto add java.awt.headless=true to keep keyboard focus on Mac OS
-[INFO] Found plugin : Auto set number of threads based on machine
-[INFO] Found plugin : Automatically add -ea to launch args to enable assertions
-[INFO] Found plugin : Default build verifier
-[INFO] Found plugin : Detect missing JUnit5 plugin
-[INFO] Found plugin : Detect missing TestNG plugin
-[INFO] Found plugin : Detect missing kotlin plugin
-[INFO] Found plugin : Detect missing spring plugin
-[INFO] Found plugin : Default coverage exporter
-[INFO] Found shared classpath plugin : Default mutation engine
-[INFO] Found shared classpath plugin : JUnit 5 test framework support
-[INFO] Found shared classpath plugin : JUnit plugin
-[INFO] Found shared classpath plugin : Support for mocking frameworks using javassist
-[INFO] Found shared classpath plugin : Reset environment for javassist
-[INFO] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH
-[INFO] Adding org.pitest:pitest-junit5-plugin to SUT classpath
-[INFO] Adding org.pitest:pitest to SUT classpath
-[INFO] Auto adding org.junit.platform:junit-platform-launcher:jar:1.9.3 < central (https://repo.maven.apache.org/maven2, default, releases) to classpath.
-[INFO] Mutating from C:\Users\ybagge\benchmarks\legend-depot\legend-depot-pure-model-context\target\classes
-[INFO] Defaulting target classes to match packages in build directory
-[INFO] Replacing properties in argLine -javaagent:C:\\Users\\ybagge\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.5\\org.jacoco.agent-0.8.5-runtime.jar=destfile=C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-pure-model-context\\target\\jacoco.exec
-/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-/-\|/================================================================================
-- Mutators
-================================================================================
-> org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator
->> Generated 4 Killed 0 (0%)
-> KILLED 0 SURVIVED 2 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 2 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator
->> Generated 13 Killed 9 (69%)
-> KILLED 9 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 4 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator
->> Generated 5 Killed 3 (60%)
-> KILLED 3 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 1 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator
->> Generated 1 Killed 1 (100%)
-> KILLED 1 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 0 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator
->> Generated 5 Killed 5 (100%)
-> KILLED 5 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 0 
---------------------------------------------------------------------------------
-================================================================================
-- Timings
-================================================================================
-> pre-scan for mutations : < 1 second
-> scan classpath : < 1 second
-> coverage and dependency analysis : 2 seconds
-> build mutation tests : < 1 second
-> run mutation analysis : 6 seconds
---------------------------------------------------------------------------------
-> Total  : 8 seconds
---------------------------------------------------------------------------------
-================================================================================
-- Statistics
-================================================================================
->> Line Coverage (for mutated classes only): 48/60 (80%)
->> Generated 28 mutations Killed 18 (64%)
->> Mutations with no coverage 7. Test strength 86%
->> Ran 35 tests (1.25 tests per mutation)
-Enhanced functionality available at https://www.arcmutate.com/
-[INFO] 
-[INFO] ---------< org.finos.legend.depot:legend-depot-servers-common >---------
-[INFO] Building Legend Depot - Servers - Common 2.65.1-SNAPSHOT           [3/7]
-[INFO]   from C:\Users\ybagge\benchmarks\legend-depot\legend-depot-servers-common\pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- enforcer:3.0.0-M1:enforce (enforce) @ legend-depot-servers-common ---
-[INFO] Skipping Rule Enforcement.
-[INFO] 
-[INFO] --- jacoco:0.8.5:prepare-agent (pre-unit-test) @ legend-depot-servers-common ---
-[INFO] argLine set to -javaagent:C:\\Users\\ybagge\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.5\\org.jacoco.agent-0.8.5-runtime.jar=destfile=C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-servers-common\\target\\jacoco.exec
-[INFO] 
-[INFO] --- resources:2.7:resources (default-resources) @ legend-depot-servers-common ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory C:\Users\ybagge\benchmarks\legend-depot\legend-depot-servers-common\src\main\resources
-[INFO] 
-[INFO] --- compiler:3.7.0:compile (default-compile) @ legend-depot-servers-common ---
-[INFO] Changes detected - recompiling the module!
-[INFO] Compiling 13 source files to C:\Users\ybagge\benchmarks\legend-depot\legend-depot-servers-common\target\classes
-[INFO] 
-[INFO] --- resources:2.7:testResources (default-testResources) @ legend-depot-servers-common ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory C:\Users\ybagge\benchmarks\legend-depot\legend-depot-servers-common\src\test\resources
-[INFO] 
-[INFO] --- compiler:3.7.0:testCompile (default-testCompile) @ legend-depot-servers-common ---
-[INFO] Changes detected - recompiling the module!
-[INFO] Compiling 6 source files to C:\Users\ybagge\benchmarks\legend-depot\legend-depot-servers-common\target\test-classes
-[INFO] /C:/Users/ybagge/benchmarks/legend-depot/legend-depot-servers-common/src/test/java/org/finos/legend/depot/core/server/error/LegendDepotServerExceptionDiffblueTest.java: C:\Users\ybagge\benchmarks\legend-depot\legend-depot-servers-common\src\test\java\org\finos\legend\depot\core\server\error\LegendDepotServerExceptionDiffblueTest.java uses unchecked or unsafe operations.
-[INFO] /C:/Users/ybagge/benchmarks/legend-depot/legend-depot-servers-common/src/test/java/org/finos/legend/depot/core/server/error/LegendDepotServerExceptionDiffblueTest.java: Recompile with -Xlint:unchecked for details.
-[INFO] 
-[INFO] --- surefire:3.0.0-M3:test (default-test) @ legend-depot-servers-common ---
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.finos.legend.depot.core.server.error.CatchAllExceptionMapperDiffblueTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.143 s - in org.finos.legend.depot.core.server.error.CatchAllExceptionMapperDiffblueTest
-[INFO] Running org.finos.legend.depot.core.server.error.configuration.ExceptionMapperConfigurationDiffblueTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.finos.legend.depot.core.server.error.configuration.ExceptionMapperConfigurationDiffblueTest
-[INFO] Running org.finos.legend.depot.core.server.error.DepotServerExceptionMapperDiffblueTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.finos.legend.depot.core.server.error.DepotServerExceptionMapperDiffblueTest
-[INFO] Running org.finos.legend.depot.core.server.error.ExtendedErrorMessageDiffblueTest
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.finos.legend.depot.core.server.error.ExtendedErrorMessageDiffblueTest
-[INFO] Running org.finos.legend.depot.core.server.error.LegendDepotServerExceptionDiffblueTest
-[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.565 s - in org.finos.legend.depot.core.server.error.LegendDepotServerExceptionDiffblueTest
-[INFO] Running org.finos.legend.depot.core.server.filters.HealthcheckFilterFactoryDiffblueTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.finos.legend.depot.core.server.filters.HealthcheckFilterFactoryDiffblueTest
-[INFO] 
-[INFO] Results:
-[INFO] 
-[INFO] Tests run: 44, Failures: 0, Errors: 0, Skipped: 0
-[INFO] 
-[INFO] 
-[INFO] --- jacoco:0.8.5:report (post-unit-test) @ legend-depot-servers-common ---
-[INFO] Loading execution data file C:\Users\ybagge\benchmarks\legend-depot\legend-depot-servers-common\target\jacoco.exec
-[INFO] Analyzed bundle 'Legend Depot - Servers - Common' with 20 classes
-[INFO] 
-[INFO] --- pitest:1.17.1:mutationCoverage (default-cli) @ legend-depot-servers-common ---
-[INFO] Root dir is : C:\Users\ybagge\benchmarks\legend-depot
-[INFO] Found plugin : Default csv report plugin
-[INFO] Found plugin : Default xml report plugin
-[INFO] Found plugin : Default html report plugin
-[INFO] Found plugin : Static initializer code detector plugin
-[INFO] Found plugin : Excluded annotations plugin
-[INFO] Found plugin : Try with resources filter
-[INFO] Found plugin : Inlined finally block filter plugin
-[INFO] Found plugin : Implicit null check filter
-[INFO] Found plugin : Method reference null check filter
-[INFO] Found plugin : For each loop filter
-[INFO] Found plugin : Enum junk filter
-[INFO] Found plugin : Record junk mutation filter
-[INFO] Found plugin : String switch filter
-[INFO] Found plugin : Assertions filter
-[INFO] Found plugin : Enum switch filter
-[INFO] Found plugin : Logging calls filter
-[INFO] Found plugin : Infinite for loop filter
-[INFO] Found plugin : Long running iterator loop filter
-[INFO] Found plugin : For loop counter filter
-[INFO] Found plugin : Kotlin junk mutations filter
-[INFO] Found plugin : Groovy junk mutations filter
-[INFO] Found plugin : Max mutations per class limit
-[INFO] Found plugin : Equals shortcut equivalent mutant filter
-[INFO] Found plugin : Trivial return vals equivalence filter
-[INFO] Found plugin : Filters mutants with line number <= 1
-[INFO] Found plugin : Division by one equivalent mutant filter
-[INFO] Found plugin : Lombok junk mutations filter
-[INFO] Found plugin : Filter mutations to defensive wrappers such as unmodifiableCollection on return or field write
-[INFO] Found plugin : Mutant export plugin
-[INFO] Found plugin : Auto add java.awt.headless=true to keep keyboard focus on Mac OS
-[INFO] Found plugin : Auto set number of threads based on machine
-[INFO] Found plugin : Automatically add -ea to launch args to enable assertions
-[INFO] Found plugin : Default build verifier
-[INFO] Found plugin : Detect missing JUnit5 plugin
-[INFO] Found plugin : Detect missing TestNG plugin
-[INFO] Found plugin : Detect missing kotlin plugin
-[INFO] Found plugin : Detect missing spring plugin
-[INFO] Found plugin : Default coverage exporter
-[INFO] Found shared classpath plugin : Default mutation engine
-[INFO] Found shared classpath plugin : JUnit 5 test framework support
-[INFO] Found shared classpath plugin : JUnit plugin
-[INFO] Found shared classpath plugin : Support for mocking frameworks using javassist
-[INFO] Found shared classpath plugin : Reset environment for javassist
-[INFO] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH
-[INFO] Adding org.pitest:pitest-junit5-plugin to SUT classpath
-[INFO] Adding org.pitest:pitest to SUT classpath
-[INFO] Auto adding org.junit.platform:junit-platform-launcher:jar:1.9.3 < central (https://repo.maven.apache.org/maven2, default, releases) to classpath.
-[INFO] Mutating from C:\Users\ybagge\benchmarks\legend-depot\legend-depot-servers-common\target\classes
-[INFO] Defaulting target classes to match packages in build directory
-[INFO] Replacing properties in argLine -javaagent:C:\\Users\\ybagge\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.5\\org.jacoco.agent-0.8.5-runtime.jar=destfile=C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-servers-common\\target\\jacoco.exec
-/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\================================================================================
-- Mutators
-================================================================================
-> org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator
->> Generated 1 Killed 1 (100%)
-> KILLED 1 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 0 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator
->> Generated 1 Killed 0 (0%)
-> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 1 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator
->> Generated 26 Killed 0 (0%)
-> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 26 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator
->> Generated 1 Killed 0 (0%)
-> KILLED 0 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 0 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator
->> Generated 51 Killed 15 (29%)
-> KILLED 15 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 36 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator
->> Generated 2 Killed 1 (50%)
-> KILLED 1 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 1 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator
->> Generated 20 Killed 3 (15%)
-> KILLED 3 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 17 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator
->> Generated 35 Killed 12 (34%)
-> KILLED 12 SURVIVED 2 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 21 
---------------------------------------------------------------------------------
-================================================================================
-- Timings
-================================================================================
-> pre-scan for mutations : < 1 second
-> scan classpath : < 1 second
-> coverage and dependency analysis : 1 seconds
-> build mutation tests : < 1 second
-> run mutation analysis : 4 seconds
---------------------------------------------------------------------------------
-> Total  : 5 seconds
---------------------------------------------------------------------------------
-================================================================================
-- Statistics
-================================================================================
->> Line Coverage (for mutated classes only): 66/265 (25%)
->> Generated 137 mutations Killed 32 (23%)
->> Mutations with no coverage 102. Test strength 91%
->> Ran 42 tests (0.31 tests per mutation)
-Enhanced functionality available at https://www.arcmutate.com/
-[INFO] 
-[INFO] ----------< org.finos.legend.depot:legend-depot-test-reports >----------
-[INFO] Building Legend Depot - Test Reports 2.65.1-SNAPSHOT               [4/7]
-[INFO]   from C:\Users\ybagge\benchmarks\legend-depot\legend-depot-test-reports\pom.xml
-[INFO] --------------------------------[ pom ]---------------------------------
-Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-notifications-store-mongo/2.65.1-SNAPSHOT/maven-metadata.xml
-Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-notifications-store-mongo/2.65.1-SNAPSHOT/maven-metadata.xml
-Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-notifications-services/2.65.1-SNAPSHOT/maven-metadata.xml
-Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-notifications-services/2.65.1-SNAPSHOT/maven-metadata.xml
-Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-artifacts-services/2.65.1-SNAPSHOT/maven-metadata.xml
-Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-artifacts-services/2.65.1-SNAPSHOT/maven-metadata.xml
-Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-artifacts-repository-api/2.65.1-SNAPSHOT/maven-metadata.xml
-Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-artifacts-repository-api/2.65.1-SNAPSHOT/maven-metadata.xml
-Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-artifacts-repository-maven-impl/2.65.1-SNAPSHOT/maven-metadata.xml
-Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-artifacts-repository-maven-impl/2.65.1-SNAPSHOT/maven-metadata.xml
-Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-core-schedules-store-mongo/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-servers-common/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-servers-common/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-core-data-api/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-core-data-api/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-core-store-api/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-core-store-api/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-model/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-model/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-core-tracing/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-core-tracing/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-metrics-query-services/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-metrics-query-services/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-metrics-query-api/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-metrics-query-api/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-core-schedules-api/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-core-schedules-api/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-metrics-query-store-mongo/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-metrics-query-store-mongo/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-store-mongo/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-store-mongo/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-core-authorisation/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-core-authorisation/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-core-schedules/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-core-schedules/2.65.1-SNAPSHOT/maven-metadata.xml
 Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-core-schedules-store-mongo/2.65.1-SNAPSHOT/maven-metadata.xml
-[INFO] 
-[INFO] --- enforcer:3.0.0-M1:enforce (enforce) @ legend-depot-test-reports ---
-[INFO] Skipping Rule Enforcement.
-[INFO] 
-[INFO] --- jacoco:0.8.5:prepare-agent (pre-unit-test) @ legend-depot-test-reports ---
-[INFO] argLine set to -javaagent:C:\\Users\\ybagge\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.5\\org.jacoco.agent-0.8.5-runtime.jar=destfile=C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-test-reports\\target\\jacoco.exec
-[INFO] 
-[INFO] --- jacoco:0.8.5:report (post-unit-test) @ legend-depot-test-reports ---
-[INFO] Skipping JaCoCo execution due to missing execution data file.
-[INFO] 
-[INFO] --- pitest:1.17.1:mutationCoverage (default-cli) @ legend-depot-test-reports ---
-[INFO] Skipping project because:
-[INFO]   - Packaging is POM.
-[INFO]   - Project has either no tests or no production code.
-[INFO] 
-[INFO] -------------< org.finos.legend.depot:legend-depot-server >-------------
-[INFO] Building Legend Depot - Server 2.65.1-SNAPSHOT                     [5/7]
-[INFO]   from C:\Users\ybagge\benchmarks\legend-depot\legend-depot-server\pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-core-schedules-store-mongo/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-core-data-services/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-core-data-services/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-notifications-api/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-notifications-api/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-core-data-store-mongo/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-core-data-store-mongo/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-entities-services/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-entities-services/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-entities-api/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-entities-api/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-pure-model-context/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-pure-model-context/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-entities-store-mongo/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-entities-store-mongo/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-generations-services/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-generations-services/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-generations-api/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-generations-api/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-generations-store-mongo/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-generations-store-mongo/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapshots/org/finos/legend/depot/legend-depot-notifications-queue-mongo/2.65.1-SNAPSHOT/maven-metadata.xml
+Downloading from ossrh-releases: https://s01.oss.sonatype.org/content/repositories/releases/org/finos/legend/depot/legend-depot-notifications-queue-mongo/2.65.1-SNAPSHOT/maven-metadata.xml
 [INFO] 
 [INFO] --- enforcer:3.0.0-M1:enforce (enforce) @ legend-depot-server ---
 [INFO] Skipping Rule Enforcement.
@@ -635,18 +88,14 @@ Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapsh
 [INFO] Copying 2 resources
 [INFO] 
 [INFO] --- compiler:3.7.0:compile (default-compile) @ legend-depot-server ---
-[INFO] Changes detected - recompiling the module!
-[INFO] Compiling 4 source files to C:\Users\ybagge\benchmarks\legend-depot\legend-depot-server\target\classes
+[INFO] Nothing to compile - all classes are up to date
 [INFO] 
 [INFO] --- resources:2.7:testResources (default-testResources) @ legend-depot-server ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
 [INFO] Copying 2 resources
 [INFO] 
 [INFO] --- compiler:3.7.0:testCompile (default-testCompile) @ legend-depot-server ---
-[INFO] Changes detected - recompiling the module!
-[INFO] Compiling 1 source file to C:\Users\ybagge\benchmarks\legend-depot\legend-depot-server\target\test-classes
-[INFO] /C:/Users/ybagge/benchmarks/legend-depot/legend-depot-server/src/test/java/org/finos/legend/depot/server/LegendDepotServerJacksonJsonProviderDiffblueTest.java: C:\Users\ybagge\benchmarks\legend-depot\legend-depot-server\src\test\java\org\finos\legend\depot\server\LegendDepotServerJacksonJsonProviderDiffblueTest.java uses or overrides a deprecated API.
-[INFO] /C:/Users/ybagge/benchmarks/legend-depot/legend-depot-server/src/test/java/org/finos/legend/depot/server/LegendDepotServerJacksonJsonProviderDiffblueTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] Nothing to compile - all classes are up to date
 [INFO] 
 [INFO] --- surefire:3.0.0-M3:test (default-test) @ legend-depot-server ---
 [INFO] 
@@ -654,7 +103,7 @@ Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapsh
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.finos.legend.depot.server.LegendDepotServerJacksonJsonProviderDiffblueTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.609 s - in org.finos.legend.depot.server.LegendDepotServerJacksonJsonProviderDiffblueTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.549 s - in org.finos.legend.depot.server.LegendDepotServerJacksonJsonProviderDiffblueTest
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -717,20 +166,16 @@ Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapsh
 [INFO] Defaulting target classes to match packages in build directory
 [INFO] Replacing properties in argLine -javaagent:C:\\Users\\ybagge\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.5\\org.jacoco.agent-0.8.5-runtime.jar=destfile=C:\\Users\\ybagge\\benchmarks\\legend-depot\\legend-depot-server\\target\\jacoco.exec
 [INFO] ------------------------------------------------------------------------
-[INFO] Reactor Summary for Legend Depot - Core - Schedules 2.65.1-SNAPSHOT:
+[INFO] Reactor Summary for Legend Depot - Server 2.65.1-SNAPSHOT:
 [INFO] 
-[INFO] Legend Depot - Core - Schedules .................... SUCCESS [ 15.402 s]
-[INFO] Legend Depot - Pure Model Context - Services ....... SUCCESS [ 25.644 s]
-[INFO] Legend Depot - Servers - Common .................... SUCCESS [ 10.772 s]
-[INFO] Legend Depot - Test Reports ........................ SUCCESS [  1.240 s]
-[INFO] Legend Depot - Server .............................. FAILURE [ 11.033 s]
+[INFO] Legend Depot - Server .............................. FAILURE [ 20.346 s]
 [INFO] Legend Depot - Store Admin Server .................. SKIPPED
 [INFO] legend-depot-mutation-aggregation .................. SKIPPED
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  01:05 min
-[INFO] Finished at: 2025-06-20T17:06:59+01:00
+[INFO] Total time:  22.154 s
+[INFO] Finished at: 2025-06-23T09:15:05+01:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.pitest:pitest-maven:1.17.1:mutationCoverage (default-cli) on project legend-depot-server: Execution default-cli of goal org.pitest:pitest-maven:1.17.1:mutationCoverage failed: Coverage generation minion exited abnormally! (UNKNOWN_ERROR)
 [ERROR] 
@@ -738,7 +183,7 @@ Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapsh
 [ERROR] VM : OpenJDK 64-Bit Server VM
 [ERROR] Vendor : Amazon.com Inc.
 [ERROR] Version : 11.0.27+6-LTS
-[ERROR] Uptime : 66187
+[ERROR] Uptime : 23317
 [ERROR] Input -> 
 [ERROR]  1 : -Dclassworlds.conf=C:/Users/ybagge/.sdkman/candidates/maven/current/bin/m2.conf
 [ERROR]  2 : -Dmaven.home=C:/Users/ybagge/.sdkman/candidates/maven/current
@@ -751,7 +196,7 @@ Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapsh
 [ERROR] VM : OpenJDK 64-Bit Server VM
 [ERROR] Vendor : Amazon.com Inc.
 [ERROR] Version : 11.0.27+6-LTS
-[ERROR] Uptime : 66187
+[ERROR] Uptime : 23317
 [ERROR] Input -> 
 [ERROR]  1 : -Dclassworlds.conf=C:/Users/ybagge/.sdkman/candidates/maven/current/bin/m2.conf
 [ERROR]  2 : -Dmaven.home=C:/Users/ybagge/.sdkman/candidates/maven/current
@@ -766,6 +211,3 @@ Downloading from ossrh: https://s01.oss.sonatype.org/content/repositories/snapsh
 [ERROR] 
 [ERROR] For more information about the errors and possible solutions, please read the following articles:
 [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginExecutionException
-[ERROR] 
-[ERROR] After correcting the problems, you can resume the build with the command
-[ERROR]   mvn <args> -rf :legend-depot-server
