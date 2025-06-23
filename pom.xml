@@ -82,6 +82,7 @@
         <module>legend-depot-store-server</module>
 
         <module>legend-depot-core-store-api</module>
+        <module>legend-depot-mutation-aggregation</module>
     </modules>
 
     <properties>
@@ -407,6 +408,38 @@
                     <groupId>com.spotify</groupId>
                     <artifactId>dockerfile-maven-plugin</artifactId>
                     <version>${dockerfile.maven.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.pitest</groupId>
+                    <artifactId>pitest-maven</artifactId>
+                    <version>1.17.1</version>
+                    <configuration>
+                        <failWhenNoMutations>false</failWhenNoMutations>
+                        <targetTests>
+                            <param>**DiffblueTest*</param>
+                        </targetTests>
+                        <exportLineCoverage>true</exportLineCoverage>
+                        <outputFormats>
+                            <value>XML</value>
+                            <value>HTML</value>
+                        </outputFormats>
+                        <timestampedReports>false</timestampedReports>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>run-mutation-tests</id>
+                            <goals>
+                                <goal>mutationCoverage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.pitest</groupId>
+                            <artifactId>pitest-junit5-plugin</artifactId>
+                            <version>1.2.1</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
             </plugins>
         </pluginManagement>
