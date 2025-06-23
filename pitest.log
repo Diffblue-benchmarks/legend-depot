@@ -45,10 +45,7 @@
 [INFO] Copying 2 resources
 [INFO] 
 [INFO] --- compiler:3.7.0:testCompile (default-testCompile) @ legend-depot-server ---
-[INFO] Changes detected - recompiling the module!
-[INFO] Compiling 1 source file to C:\Users\ybagge\benchmarks\legend-depot\legend-depot-server\target\test-classes
-[INFO] /C:/Users/ybagge/benchmarks/legend-depot/legend-depot-server/src/test/java/org/finos/legend/depot/server/LegendDepotServerJacksonJsonProviderDiffblueTest.java: C:\Users\ybagge\benchmarks\legend-depot\legend-depot-server\src\test\java\org\finos\legend\depot\server\LegendDepotServerJacksonJsonProviderDiffblueTest.java uses or overrides a deprecated API.
-[INFO] /C:/Users/ybagge/benchmarks/legend-depot/legend-depot-server/src/test/java/org/finos/legend/depot/server/LegendDepotServerJacksonJsonProviderDiffblueTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] Nothing to compile - all classes are up to date
 [INFO] 
 [INFO] --- surefire:3.0.0-M3:test (default-test) @ legend-depot-server ---
 [INFO] 
@@ -56,7 +53,7 @@
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.finos.legend.depot.server.LegendDepotServerJacksonJsonProviderDiffblueTest
-[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.021 s - in org.finos.legend.depot.server.LegendDepotServerJacksonJsonProviderDiffblueTest
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.022 s - in org.finos.legend.depot.server.LegendDepotServerJacksonJsonProviderDiffblueTest
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -121,14 +118,14 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Summary for Legend Depot - Server 2.65.1-SNAPSHOT:
 [INFO] 
-[INFO] Legend Depot - Server .............................. FAILURE [ 11.877 s]
+[INFO] Legend Depot - Server .............................. FAILURE [  9.478 s]
 [INFO] Legend Depot - Store Admin Server .................. SKIPPED
 [INFO] legend-depot-mutation-aggregation .................. SKIPPED
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  12.982 s
-[INFO] Finished at: 2025-06-23T09:34:08+01:00
+[INFO] Total time:  10.597 s
+[INFO] Finished at: 2025-06-23T09:37:46+01:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.pitest:pitest-maven:1.17.1:mutationCoverage (default-cli) on project legend-depot-server: Execution default-cli of goal org.pitest:pitest-maven:1.17.1:mutationCoverage failed: Coverage generation minion exited abnormally! (UNKNOWN_ERROR)
 [ERROR] 
@@ -136,7 +133,7 @@
 [ERROR] VM : OpenJDK 64-Bit Server VM
 [ERROR] Vendor : Amazon.com Inc.
 [ERROR] Version : 11.0.27+6-LTS
-[ERROR] Uptime : 13893
+[ERROR] Uptime : 11497
 [ERROR] Input -> 
 [ERROR]  1 : -Dclassworlds.conf=C:/Users/ybagge/.sdkman/candidates/maven/current/bin/m2.conf
 [ERROR]  2 : -Dmaven.home=C:/Users/ybagge/.sdkman/candidates/maven/current
@@ -149,7 +146,7 @@
 [ERROR] VM : OpenJDK 64-Bit Server VM
 [ERROR] Vendor : Amazon.com Inc.
 [ERROR] Version : 11.0.27+6-LTS
-[ERROR] Uptime : 13894
+[ERROR] Uptime : 11497
 [ERROR] Input -> 
 [ERROR]  1 : -Dclassworlds.conf=C:/Users/ybagge/.sdkman/candidates/maven/current/bin/m2.conf
 [ERROR]  2 : -Dmaven.home=C:/Users/ybagge/.sdkman/candidates/maven/current

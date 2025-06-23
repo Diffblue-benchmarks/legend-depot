@@ -78,7 +78,7 @@
         <module>legend-depot-artifacts-repository-maven-impl</module>
 
         <module>legend-depot-servers-common</module>
-        <module>legend-depot-server</module>
+<!--        <module>legend-depot-server</module>-->
         <module>legend-depot-store-server</module>
 
         <module>legend-depot-core-store-api</module>
