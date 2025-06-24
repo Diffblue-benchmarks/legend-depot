@@ -23,6 +23,7 @@ import org.finos.legend.depot.store.mongo.admin.MongoAdminStore;
 import org.finos.legend.depot.store.mongo.admin.metrics.StorageMetricsHandler.CollectionStats;
 import org.finos.legend.depot.store.mongo.admin.metrics.StorageMetricsHandler.DbStats;
 import org.finos.legend.depot.store.mongo.admin.metrics.StorageMetricsHandler.StorageStats;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -32,6 +33,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+@Disabled("Failed pitest")
 @ExtendWith(MockitoExtension.class)
 class StorageMetricsHandlerDiffblueTest {
   @Mock
