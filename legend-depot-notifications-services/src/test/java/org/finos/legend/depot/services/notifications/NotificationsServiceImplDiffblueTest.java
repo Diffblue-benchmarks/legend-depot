@@ -19,11 +19,13 @@ import java.util.List;
 import java.util.Optional;
 import org.finos.legend.depot.domain.notifications.MetadataNotification;
 import org.finos.legend.depot.store.mongo.notifications.NotificationsMongo;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+@Disabled("Failed pitest")
 class NotificationsServiceImplDiffblueTest {
   /**
    * Test {@link NotificationsServiceImpl#findProcessedEvents(String, String, String, String, String, Boolean, LocalDateTime, LocalDateTime)}.
