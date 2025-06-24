@@ -1,5 +1,9 @@
 name: com.diffblue.cover.refactoring.Recipe
 recipeList:
-- org.openrewrite.maven.AddDependency: {groupId: org.junit.vintage, artifactId: junit-vintage-engine,
-    version: 5.9.3, onlyIfUsing: '*..*', scope: test}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.inject.PrivateModule,
+    fieldName: binder}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: org.finos.legend.depot.store.resources.artifacts.repository.RepositoryResource,
+    fieldName: artifactRepository}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.inject.PrivateModule,
+    fieldName: binder}
 type: specs.openrewrite.org/v1beta/recipe

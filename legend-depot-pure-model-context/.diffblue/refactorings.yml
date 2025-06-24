@@ -1,3 +1,7 @@
 name: com.diffblue.cover.refactoring.Recipe
-recipeList: []
+recipeList:
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.inject.PrivateModule,
+    fieldName: binder}
+- com.diffblue.cover.refactoring.recipes.AddGetter: {className: com.google.inject.PrivateModule,
+    fieldName: binder}
 type: specs.openrewrite.org/v1beta/recipe
