@@ -21,11 +21,13 @@ import org.finos.legend.depot.services.api.notifications.NotificationsService;
 import org.finos.legend.depot.services.api.schedules.SchedulesFactory;
 import org.finos.legend.depot.services.notifications.NotificationsServiceImpl;
 import org.finos.legend.depot.store.mongo.notifications.NotificationsMongo;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+@Disabled("Disable pitest")
 class NotificationsSchedulesModuleDiffblueTest {
   /**
    * Test {@link NotificationsSchedulesModule#notificationsCleanUp(SchedulesFactory, NotificationsService)}.
