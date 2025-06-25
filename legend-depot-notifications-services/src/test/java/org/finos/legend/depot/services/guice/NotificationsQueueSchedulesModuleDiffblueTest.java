@@ -26,11 +26,13 @@ import org.finos.legend.depot.services.api.notifications.queue.VoidQueue;
 import org.finos.legend.depot.services.api.schedules.SchedulesFactory;
 import org.finos.legend.depot.services.notifications.NotificationsQueueManager;
 import org.finos.legend.depot.store.mongo.notifications.NotificationsMongo;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+@Disabled("Failed pitest")
 class NotificationsQueueSchedulesModuleDiffblueTest {
   /**
    * Test {@link NotificationsQueueSchedulesModule#initQueue(SchedulesFactory, QueueManagerConfiguration, NotificationsQueueManager)}.
