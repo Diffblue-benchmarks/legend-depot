@@ -96,11 +96,11 @@
             <artifactId>legend-depot-servers-common</artifactId>
             <version>2.65.1-SNAPSHOT</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.finos.legend.depot</groupId>-->
-<!--            <artifactId>legend-depot-server</artifactId>-->
-<!--            <version>2.65.1-SNAPSHOT</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.finos.legend.depot</groupId>
+            <artifactId>legend-depot-server</artifactId>
+            <version>2.65.1-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>org.finos.legend.depot</groupId>
             <artifactId>legend-depot-store-server</artifactId>
@@ -109,6 +109,16 @@
         <dependency>
             <groupId>org.finos.legend.depot</groupId>
             <artifactId>legend-depot-core-store-api</artifactId>
+            <version>2.65.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.finos.legend.depot</groupId>
+            <artifactId>legend-depot-notifications-services</artifactId>
+            <version>2.65.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.finos.legend.depot</groupId>
+            <artifactId>legend-depot-notifications-store-mongo</artifactId>
             <version>2.65.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
