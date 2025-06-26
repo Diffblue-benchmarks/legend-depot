@@ -51,7 +51,7 @@
         <module>legend-depot-metrics-query-store-mongo</module>
 
         <module>legend-depot-notifications-api</module>
-        <module>legend-depot-notifications-services</module>
+<!--        <module>legend-depot-notifications-services</module>-->
 <!--        <module>legend-depot-notifications-store-mongo</module>-->
         <module>legend-depot-notifications-queue-mongo</module>
 
