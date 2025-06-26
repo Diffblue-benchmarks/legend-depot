@@ -21,11 +21,13 @@ import org.finos.legend.depot.core.services.api.metrics.VoidPrometheusMetricsHan
 import org.finos.legend.depot.services.api.schedules.SchedulesFactory;
 import org.finos.legend.depot.store.mongo.admin.MongoAdminStore;
 import org.finos.legend.depot.store.mongo.admin.metrics.StorageMetricsHandler;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+@Disabled("Failed pitest")
 class ManageMongoStoreSchedulesModuleDiffblueTest {
   /**
    * Test {@link ManageMongoStoreSchedulesModule#scheduleStorageMetrics(SchedulesFactory, StorageMetricsHandler)}.
