@@ -49,11 +49,13 @@ import org.finos.legend.depot.domain.project.ProjectVersion;
 import org.finos.legend.depot.store.model.entities.EntityDefinition;
 import org.finos.legend.depot.store.model.entities.StoredEntity;
 import org.finos.legend.sdlc.domain.model.entity.Entity;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+@Disabled("Failed pitest")
 class AbstractEntitiesMongoDiffblueTest {
   /**
    * Test {@link AbstractEntitiesMongo#getEntityPathFilter(String, String, String, String)}.

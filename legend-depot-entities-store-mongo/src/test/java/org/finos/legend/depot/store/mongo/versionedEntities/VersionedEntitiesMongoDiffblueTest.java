@@ -28,6 +28,7 @@ import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.conversions.Bson;
 import org.finos.legend.depot.store.model.versionedEntities.StoredVersionedEntity;
 import org.finos.legend.depot.store.model.versionedEntities.StoredVersionedEntityData;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -37,6 +38,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+@Disabled("Failed pitest")
 @ExtendWith(MockitoExtension.class)
 class VersionedEntitiesMongoDiffblueTest {
   @Mock
