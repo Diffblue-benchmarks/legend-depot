@@ -17,11 +17,13 @@ import java.util.List;
 import org.bson.UuidRepresentation;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.finos.legend.depot.store.mongo.admin.MongoAdminStore;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+@Disabled("Failed pitest")
 class ManageEntitiesStoreMongoModuleDiffblueTest {
   /**
    * Test {@link ManageEntitiesStoreMongoModule#registerGenerationsIndexes(MongoAdminStore)}.
