@@ -1,0 +1,383 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.09.01-44e352d-licensed",
+    "creationTimestamp" : "2025-09-19T12:17:40.962442Z",
+    "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
+    "totalTime" : 105.145,
+    "environmentDetectionTime" : 0.041,
+    "indexingTime" : 0.531,
+    "entryPointsTime" : 0.035,
+    "generationTime" : 1366.977,
+    "timeToFirstTest" : 3611.943,
+    "timeToLastTest" : 2561.043,
+    "indexQueryTime" : 8.667,
+    "verificationTime" : 94.283,
+    "validationTime" : 13.493
+  },
+  "codes" : {
+    "R000" : "Success",
+    "R005" : "Unable to load class",
+    "T000" : "Method eligible for test creation",
+    "T001" : "Trivial getter",
+    "T002" : "Trivial setter",
+    "T003" : "Private method",
+    "T005" : "Trivial constructor",
+    "T006" : "Main method",
+    "T023" : "Testability unknown",
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation"
+  },
+  "summary" : {
+    "classesCount" : 4,
+    "methodsCount" : 25,
+    "cumulativeDiffblueTestCount" : 2,
+    "cumulativeManualTestCount" : 0,
+    "completeTestCount" : 2,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 242,
+    "perMethodTestability" : {
+      "T000" : 7,
+      "T001" : 4,
+      "T002" : 4,
+      "T003" : 5,
+      "T005" : 3,
+      "T006" : 1,
+      "T023" : 1
+    },
+    "perMethodOutcome" : {
+      "R000" : 2,
+      "R005" : 16,
+      "T003" : 5,
+      "T006" : 1,
+      "T023" : 1
+    },
+    "perTestOutcome" : {
+      "R000" : 2
+    },
+    "perTestValidation" : {
+      "V000" : 2,
+      "V003" : 1
+    }
+  },
+  "classes" : {
+    "org.finos.legend.depot.store.server.LegendDepotStoreServer" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 4,
+        "T005" : 1,
+        "T006" : 1
+      },
+      "perMethodOutcome" : {
+        "R005" : 5,
+        "T006" : 1
+      }
+    },
+    "org.finos.legend.depot.store.server.LegendDepotStoreServerJacksonJsonProvider" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 2,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      }
+    },
+    "org.finos.legend.depot.store.server.configuration.DepotStoreServerConfiguration" : {
+      "methodsCount" : 9,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T001" : 4,
+        "T002" : 4,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R005" : 9
+      }
+    },
+    "org.finos.legend.depot.store.server.guice.DepotStoreServerModule" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T003" : 5,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R005" : 2,
+        "T003" : 5
+      }
+    }
+  },
+  "methods" : {
+    "org.finos.legend.depot.store.server.LegendDepotStoreServer.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        73,
+        74
+      ]
+    },
+    "org.finos.legend.depot.store.server.LegendDepotStoreServer.configureObjectMapper:(Lio/dropwizard/setup/Bootstrap;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        84,
+        85,
+        86
+      ]
+    },
+    "org.finos.legend.depot.store.server.LegendDepotStoreServer.getServerModules:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        97
+      ]
+    },
+    "org.finos.legend.depot.store.server.LegendDepotStoreServer.initialiseCors:(Lio/dropwizard/setup/Environment;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160
+      ]
+    },
+    "org.finos.legend.depot.store.server.LegendDepotStoreServer.main:([Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T006",
+      "perMethodOutcome" : "T006",
+      "lineNumbers" : [
+        78,
+        79
+      ]
+    },
+    "org.finos.legend.depot.store.server.LegendDepotStoreServer.registerJacksonJsonProvider:(Lio/dropwizard/jersey/setup/JerseyEnvironment;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        91,
+        92
+      ]
+    },
+    "org.finos.legend.depot.store.server.LegendDepotStoreServerJacksonJsonProvider.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.finos.legend.depot.store.server.LegendDepotStoreServerJacksonJsonProvider.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        32,
+        33,
+        34,
+        35,
+        36
+      ]
+    },
+    "org.finos.legend.depot.store.server.LegendDepotStoreServerJacksonJsonProvider.getContext:(Ljava/lang/Class;)Lcom/fasterxml/jackson/databind/ObjectMapper;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        41
+      ]
+    },
+    "org.finos.legend.depot.store.server.configuration.DepotStoreServerConfiguration.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.finos.legend.depot.store.server.configuration.DepotStoreServerConfiguration.getArtifactRepositoryProviderConfiguration:()Lorg/finos/legend/depot/services/api/artifacts/repository/ArtifactRepositoryProviderConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        55
+      ]
+    },
+    "org.finos.legend.depot.store.server.configuration.DepotStoreServerConfiguration.getArtifactsRefreshPolicyConfiguration:()Lorg/finos/legend/depot/services/api/artifacts/configuration/ArtifactsRefreshPolicyConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        65
+      ]
+    },
+    "org.finos.legend.depot.store.server.configuration.DepotStoreServerConfiguration.getQueueManagerConfiguration:()Lorg/finos/legend/depot/services/api/notifications/queue/QueueManagerConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        45
+      ]
+    },
+    "org.finos.legend.depot.store.server.configuration.DepotStoreServerConfiguration.getRetentionPolicyConfiguration:()Lorg/finos/legend/depot/services/api/artifacts/configuration/ArtifactsRetentionPolicyConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        75
+      ]
+    },
+    "org.finos.legend.depot.store.server.configuration.DepotStoreServerConfiguration.setArtifactRepositoryProviderConfiguration:(Lorg/finos/legend/depot/services/api/artifacts/repository/ArtifactRepositoryProviderConfiguration;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        60,
+        61
+      ]
+    },
+    "org.finos.legend.depot.store.server.configuration.DepotStoreServerConfiguration.setArtifactsRefreshPolicyConfiguration:(Lorg/finos/legend/depot/services/api/artifacts/configuration/ArtifactsRefreshPolicyConfiguration;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        70,
+        71
+      ]
+    },
+    "org.finos.legend.depot.store.server.configuration.DepotStoreServerConfiguration.setQueueManagerConfiguration:(Lorg/finos/legend/depot/services/api/notifications/queue/QueueManagerConfiguration;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        50,
+        51
+      ]
+    },
+    "org.finos.legend.depot.store.server.configuration.DepotStoreServerConfiguration.setRetentionPolicyConfiguration:(Lorg/finos/legend/depot/services/api/artifacts/configuration/ArtifactsRetentionPolicyConfiguration;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T002",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        80,
+        81
+      ]
+    },
+    "org.finos.legend.depot.store.server.guice.DepotStoreServerModule.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        27
+      ]
+    },
+    "org.finos.legend.depot.store.server.guice.DepotStoreServerModule.configure:(Lcom/google/inject/Binder;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ]
+    },
+    "org.finos.legend.depot.store.server.guice.DepotStoreServerModule.getArtifactRepositoryConfiguration:()Lorg/finos/legend/depot/services/api/artifacts/repository/ArtifactRepositoryProviderConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        63,
+        64
+      ]
+    },
+    "org.finos.legend.depot.store.server.guice.DepotStoreServerModule.getIncludePropertiesConfiguration:()Lorg/finos/legend/depot/services/api/artifacts/configuration/IncludeProjectPropertiesConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        48
+      ]
+    },
+    "org.finos.legend.depot.store.server.guice.DepotStoreServerModule.getQueueManagerConfiguration:()Lorg/finos/legend/depot/services/api/notifications/queue/QueueManagerConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        43
+      ]
+    },
+    "org.finos.legend.depot.store.server.guice.DepotStoreServerModule.getRefreshPolicyConfiguration:()Lorg/finos/legend/depot/services/api/artifacts/configuration/ArtifactsRefreshPolicyConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        53
+      ]
+    },
+    "org.finos.legend.depot.store.server.guice.DepotStoreServerModule.getRetentionPolicyConfiguration:()Lorg/finos/legend/depot/services/api/artifacts/configuration/ArtifactsRetentionPolicyConfiguration;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        58
+      ]
+    }
+  },
+  "validationMetrics" : { }
+}

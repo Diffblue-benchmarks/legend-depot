@@ -1,0 +1,356 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.09.01-44e352d-licensed",
+    "creationTimestamp" : "2025-09-19T12:17:40.962442Z",
+    "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
+    "totalTime" : 63.332,
+    "environmentDetectionTime" : 0.039,
+    "indexingTime" : 0.445,
+    "entryPointsTime" : 0.03,
+    "generationTime" : 428.588,
+    "timeToFirstTest" : 1011.418,
+    "timeToLastTest" : 720.968,
+    "indexQueryTime" : 4.61,
+    "verificationTime" : 41.059,
+    "validationTime" : 168.301
+  },
+  "codes" : {
+    "R002" : "Missing observers",
+    "R005" : "Unable to load class",
+    "T000" : "Method eligible for test creation",
+    "T005" : "Trivial constructor",
+    "T012" : "Synthetic method",
+    "T021" : "Empty method body",
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation"
+  },
+  "summary" : {
+    "classesCount" : 4,
+    "methodsCount" : 26,
+    "cumulativeDiffblueTestCount" : 0,
+    "cumulativeManualTestCount" : 0,
+    "completeTestCount" : 0,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 155,
+    "perMethodTestability" : {
+      "T000" : 16,
+      "T005" : 2,
+      "T012" : 6,
+      "T021" : 2
+    },
+    "perMethodOutcome" : {
+      "R002" : 1,
+      "R005" : 19,
+      "T012" : 6
+    },
+    "perTestValidation" : {
+      "V000" : 45,
+      "V003" : 36
+    }
+  },
+  "classes" : {
+    "org.finos.legend.depot.store.mongo.guice.ManageSchedulesStoreMongoModule" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R005" : 2
+      }
+    },
+    "org.finos.legend.depot.store.mongo.guice.SchedulesStoreMongoModule" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R002" : 1,
+        "R005" : 1
+      }
+    },
+    "org.finos.legend.depot.store.mongo.schedules.ScheduleInstancesMongo" : {
+      "methodsCount" : 11,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 7,
+        "T012" : 3,
+        "T021" : 1
+      },
+      "perMethodOutcome" : {
+        "R005" : 8,
+        "T012" : 3
+      }
+    },
+    "org.finos.legend.depot.store.mongo.schedules.SchedulesMongo" : {
+      "methodsCount" : 11,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 7,
+        "T012" : 3,
+        "T021" : 1
+      },
+      "perMethodOutcome" : {
+        "R005" : 8,
+        "T012" : 3
+      }
+    }
+  },
+  "methods" : {
+    "org.finos.legend.depot.store.mongo.guice.ManageSchedulesStoreMongoModule.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.guice.ManageSchedulesStoreMongoModule.registerIndexes:(Lorg/finos/legend/depot/store/mongo/admin/MongoAdminStore;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        33,
+        34,
+        35
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.guice.SchedulesStoreMongoModule.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.guice.SchedulesStoreMongoModule.configure:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        30,
+        31,
+        33,
+        34,
+        35
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.schedules.ScheduleInstancesMongo.<init>:(Lcom/mongodb/client/MongoDatabase;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        46,
+        47
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.schedules.ScheduleInstancesMongo.buildIndexes:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        69
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.schedules.ScheduleInstancesMongo.delete:(J)J" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        81
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.schedules.ScheduleInstancesMongo.find:(Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        87
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.schedules.ScheduleInstancesMongo.getAll:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        75
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.schedules.ScheduleInstancesMongo.getCollection:()Lcom/mongodb/client/MongoCollection;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        58
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.schedules.ScheduleInstancesMongo.getKeyFilter:(Lorg/finos/legend/depot/store/model/HasIdentifier;)Lorg/bson/conversions/Bson;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        36
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.schedules.ScheduleInstancesMongo.getKeyFilter:(Lorg/finos/legend/depot/store/model/admin/schedules/ScheduleInstance;)Lorg/bson/conversions/Bson;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        64
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.schedules.ScheduleInstancesMongo.insert:(Lorg/finos/legend/depot/store/model/admin/schedules/ScheduleInstance;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        36
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.schedules.ScheduleInstancesMongo.validateNewData:(Lorg/finos/legend/depot/store/model/HasIdentifier;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        36
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.schedules.ScheduleInstancesMongo.validateNewData:(Lorg/finos/legend/depot/store/model/admin/schedules/ScheduleInstance;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        53
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.schedules.SchedulesMongo.<init>:(Lcom/mongodb/client/MongoDatabase;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        45,
+        46
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.schedules.SchedulesMongo.buildIndexes:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        90
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.schedules.SchedulesMongo.createOrUpdate:(Lorg/finos/legend/depot/store/model/admin/schedules/ScheduleInfo;)Lorg/finos/legend/depot/store/model/admin/schedules/ScheduleInfo;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        36
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.schedules.SchedulesMongo.delete:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        84,
+        85
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.schedules.SchedulesMongo.get:(Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        70
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.schedules.SchedulesMongo.getAll:()Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        77
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.schedules.SchedulesMongo.getCollection:()Lcom/mongodb/client/MongoCollection;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        57
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.schedules.SchedulesMongo.getKeyFilter:(Lorg/finos/legend/depot/store/model/HasIdentifier;)Lorg/bson/conversions/Bson;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        36
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.schedules.SchedulesMongo.getKeyFilter:(Lorg/finos/legend/depot/store/model/admin/schedules/ScheduleInfo;)Lorg/bson/conversions/Bson;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.schedules.SchedulesMongo.validateNewData:(Lorg/finos/legend/depot/store/model/HasIdentifier;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        36
+      ]
+    },
+    "org.finos.legend.depot.store.mongo.schedules.SchedulesMongo.validateNewData:(Lorg/finos/legend/depot/store/model/admin/schedules/ScheduleInfo;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T021",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        52
+      ]
+    }
+  },
+  "validationMetrics" : { }
+}

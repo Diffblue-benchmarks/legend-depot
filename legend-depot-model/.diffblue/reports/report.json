@@ -1,0 +1,560 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.09.01-44e352d-licensed",
+    "creationTimestamp" : "2025-09-19T12:17:40.962442Z",
+    "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
+    "totalTime" : 120.786,
+    "environmentDetectionTime" : 0.174,
+    "indexingTime" : 0.426,
+    "entryPointsTime" : 0.143,
+    "generationTime" : 18.227,
+    "timeToFirstTest" : 89.366,
+    "timeToLastTest" : 97.777,
+    "indexQueryTime" : 3.235,
+    "verificationTime" : 3.197,
+    "validationTime" : 8.653
+  },
+  "codes" : {
+    "R000" : "Success",
+    "R031" : "Method may be time-sensitive",
+    "T000" : "Method eligible for test creation",
+    "T001" : "Trivial getter",
+    "T003" : "Private method",
+    "T005" : "Trivial constructor",
+    "T008" : "Private and never called",
+    "T009" : "No implementation for abstract class",
+    "T010" : "Abstract or interface method",
+    "T012" : "Synthetic method",
+    "T023" : "Testability unknown",
+    "V000" : "Validated successfully"
+  },
+  "summary" : {
+    "classesCount" : 6,
+    "methodsCount" : 37,
+    "cumulativeDiffblueTestCount" : 32,
+    "cumulativeManualTestCount" : 2,
+    "completeTestCount" : 32,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 202,
+    "perMethodTestability" : {
+      "T000" : 12,
+      "T001" : 2,
+      "T003" : 2,
+      "T005" : 1,
+      "T008" : 1,
+      "T009" : 9,
+      "T010" : 4,
+      "T012" : 3,
+      "T023" : 3
+    },
+    "perMethodOutcome" : {
+      "R000" : 13,
+      "R031" : 1,
+      "T003" : 2,
+      "T005" : 1,
+      "T008" : 1,
+      "T009" : 9,
+      "T010" : 4,
+      "T012" : 3,
+      "T023" : 3
+    },
+    "perTestOutcome" : {
+      "R000" : 32
+    },
+    "perTestValidation" : {
+      "V000" : 32
+    }
+  },
+  "classes" : {
+    "org.finos.legend.depot.domain.CoordinateData" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T009" : 5,
+        "T010" : 2
+      },
+      "perMethodOutcome" : {
+        "T009" : 5,
+        "T010" : 2
+      }
+    },
+    "org.finos.legend.depot.domain.CoordinateValidator" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 7,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T008" : 1,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 2,
+        "T008" : 1,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 7
+      }
+    },
+    "org.finos.legend.depot.domain.DatesHandler" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 5,
+        "T005" : 1,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 4,
+        "R031" : 1,
+        "T005" : 1,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 4
+      }
+    },
+    "org.finos.legend.depot.domain.VersionedData" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T009" : 4,
+        "T010" : 2
+      },
+      "perMethodOutcome" : {
+        "T009" : 4,
+        "T010" : 2
+      }
+    },
+    "org.finos.legend.depot.domain.version.VersionAlias" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T001" : 2,
+        "T003" : 1,
+        "T012" : 2,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 2,
+        "T003" : 1,
+        "T012" : 2,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.finos.legend.depot.domain.version.VersionValidator" : {
+      "methodsCount" : 7,
+      "completeTestCount" : 20,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 5,
+        "T003" : 1,
+        "T012" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 5,
+        "T003" : 1,
+        "T012" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 20
+      }
+    }
+  },
+  "methods" : {
+    "org.finos.legend.depot.domain.CoordinateData.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        36,
+        37
+      ]
+    },
+    "org.finos.legend.depot.domain.CoordinateData.<init>:(Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        40,
+        41,
+        42,
+        43
+      ]
+    },
+    "org.finos.legend.depot.domain.CoordinateData.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        64
+      ]
+    },
+    "org.finos.legend.depot.domain.CoordinateData.getArtifactId:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        53
+      ]
+    },
+    "org.finos.legend.depot.domain.CoordinateData.getGroupId:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        48
+      ]
+    },
+    "org.finos.legend.depot.domain.CoordinateData.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        70
+      ]
+    },
+    "org.finos.legend.depot.domain.CoordinateData.setArtifactId:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        58,
+        59
+      ]
+    },
+    "org.finos.legend.depot.domain.CoordinateValidator.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.finos.legend.depot.domain.CoordinateValidator.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T008",
+      "perMethodOutcome" : "T008",
+      "lineNumbers" : [
+        27,
+        28
+      ]
+    },
+    "org.finos.legend.depot.domain.CoordinateValidator.isValidArtifactId:(Ljava/lang/String;)Z" : {
+      "completeTestCount" : 4,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 4
+      },
+      "lineNumbers" : [
+        32
+      ]
+    },
+    "org.finos.legend.depot.domain.CoordinateValidator.isValidGroupId:(Ljava/lang/String;)Z" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        37
+      ]
+    },
+    "org.finos.legend.depot.domain.DatesHandler.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.finos.legend.depot.domain.DatesHandler.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "T005",
+      "lineNumbers" : [
+        25
+      ]
+    },
+    "org.finos.legend.depot.domain.DatesHandler.parseDate:(Ljava/lang/String;)Ljava/time/LocalDateTime;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        54,
+        56,
+        58
+      ]
+    },
+    "org.finos.legend.depot.domain.DatesHandler.toDate:(J)Ljava/time/LocalDateTime;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        41
+      ]
+    },
+    "org.finos.legend.depot.domain.DatesHandler.toDate:(Ljava/time/LocalDateTime;)Ljava/util/Date;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R031",
+      "lineNumbers" : [
+        46
+      ]
+    },
+    "org.finos.legend.depot.domain.DatesHandler.toDate:(Ljava/util/Date;)Ljava/time/LocalDateTime;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        36
+      ]
+    },
+    "org.finos.legend.depot.domain.DatesHandler.toTime:(Ljava/time/LocalDateTime;)J" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        31
+      ]
+    },
+    "org.finos.legend.depot.domain.VersionedData.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        34,
+        35
+      ]
+    },
+    "org.finos.legend.depot.domain.VersionedData.<init>:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        39,
+        40,
+        41
+      ]
+    },
+    "org.finos.legend.depot.domain.VersionedData.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        56
+      ]
+    },
+    "org.finos.legend.depot.domain.VersionedData.getVersionId:()Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        45
+      ]
+    },
+    "org.finos.legend.depot.domain.VersionedData.hashCode:()I" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        62
+      ]
+    },
+    "org.finos.legend.depot.domain.VersionedData.setVersionId:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        50,
+        51
+      ]
+    },
+    "org.finos.legend.depot.domain.version.VersionAlias.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.finos.legend.depot.domain.version.VersionAlias.<init>:(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        28,
+        29,
+        30,
+        31
+      ]
+    },
+    "org.finos.legend.depot.domain.version.VersionAlias.getDescription:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        40
+      ]
+    },
+    "org.finos.legend.depot.domain.version.VersionAlias.getName:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        35
+      ]
+    },
+    "org.finos.legend.depot.domain.version.VersionAlias.valueOf:(Ljava/lang/String;)Lorg/finos/legend/depot/domain/version/VersionAlias;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        18
+      ]
+    },
+    "org.finos.legend.depot.domain.version.VersionAlias.values:()[Lorg/finos/legend/depot/domain/version/VersionAlias;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        18
+      ]
+    },
+    "org.finos.legend.depot.domain.version.VersionValidator.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        33,
+        34
+      ]
+    },
+    "org.finos.legend.depot.domain.version.VersionValidator.BRANCH_SNAPSHOT:(Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.finos.legend.depot.domain.version.VersionValidator.isSnapshotVersion:(Ljava/lang/String;)Z" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        56
+      ]
+    },
+    "org.finos.legend.depot.domain.version.VersionValidator.isValid:(Ljava/lang/String;)Z" : {
+      "completeTestCount" : 9,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 9
+      },
+      "lineNumbers" : [
+        38
+      ]
+    },
+    "org.finos.legend.depot.domain.version.VersionValidator.isValidReleaseVersion:(Ljava/lang/String;)Z" : {
+      "completeTestCount" : 7,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 7
+      },
+      "lineNumbers" : [
+        45,
+        46,
+        48,
+        50
+      ]
+    },
+    "org.finos.legend.depot.domain.version.VersionValidator.isVersionAlias:(Ljava/lang/String;)Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        61
+      ]
+    },
+    "org.finos.legend.depot.domain.version.VersionValidator.lambda$isVersionAlias$0:(Ljava/lang/String;Lorg/finos/legend/depot/domain/version/VersionAlias;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        61
+      ]
+    }
+  },
+  "validationMetrics" : { }
+}

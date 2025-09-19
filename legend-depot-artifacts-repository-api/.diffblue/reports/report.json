@@ -1,0 +1,943 @@
+{
+  "meta" : {
+    "reportVersion" : "2.7"
+  },
+  "run" : {
+    "version" : "2025.09.01-44e352d-licensed",
+    "creationTimestamp" : "2025-09-19T12:17:40.962442Z",
+    "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
+    "totalTime" : 110.348,
+    "environmentDetectionTime" : 0.038,
+    "indexingTime" : 0.517,
+    "entryPointsTime" : 0.032,
+    "generationTime" : 1096.677,
+    "timeToFirstTest" : 3073.382,
+    "timeToLastTest" : 2132.914,
+    "indexQueryTime" : 4.691,
+    "verificationTime" : 82.678,
+    "validationTime" : 11.101
+  },
+  "codes" : {
+    "R000" : "Success",
+    "R002" : "Missing observers",
+    "R005" : "Unable to load class",
+    "T000" : "Method eligible for test creation",
+    "T001" : "Trivial getter",
+    "T003" : "Private method",
+    "T004" : "In anonymous inner class",
+    "T005" : "Trivial constructor",
+    "T009" : "No implementation for abstract class",
+    "T010" : "Abstract or interface method",
+    "T012" : "Synthetic method",
+    "T023" : "Testability unknown",
+    "V000" : "Validated successfully",
+    "V003" : "Tests discarded during validation",
+    "W002" : "Test compiled, but did not pass"
+  },
+  "summary" : {
+    "classesCount" : 13,
+    "methodsCount" : 65,
+    "cumulativeDiffblueTestCount" : 29,
+    "cumulativeManualTestCount" : 0,
+    "completeTestCount" : 29,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 368,
+    "perMethodTestability" : {
+      "T000" : 21,
+      "T001" : 4,
+      "T003" : 1,
+      "T004" : 1,
+      "T005" : 9,
+      "T009" : 10,
+      "T010" : 12,
+      "T012" : 5,
+      "T023" : 2
+    },
+    "perMethodOutcome" : {
+      "R000" : 27,
+      "R002" : 4,
+      "R005" : 2,
+      "T003" : 1,
+      "T004" : 1,
+      "T009" : 10,
+      "T010" : 12,
+      "T012" : 5,
+      "T023" : 2,
+      "W002" : 1
+    },
+    "perTestOutcome" : {
+      "R000" : 29
+    },
+    "perTestValidation" : {
+      "V000" : 29,
+      "V003" : 1
+    },
+    "warnings" : {
+      "W002" : 1
+    }
+  },
+  "classes" : {
+    "org.finos.legend.depot.domain.artifacts.repository.ArtifactDependency" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 6,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T001" : 3,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 6
+      },
+      "perTestOutcome" : {
+        "R000" : 6
+      }
+    },
+    "org.finos.legend.depot.domain.artifacts.repository.ArtifactType" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T001" : 1,
+        "T003" : 1,
+        "T012" : 2,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "T003" : 1,
+        "T012" : 2,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.ArtifactNotFoundException" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepository" : {
+      "methodsCount" : 10,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 10
+      },
+      "perMethodOutcome" : {
+        "T010" : 10
+      }
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepositoryException" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T005" : 2
+      },
+      "perMethodOutcome" : {
+        "R000" : 2
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      }
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepositoryProviderConfiguration" : {
+      "methodsCount" : 5,
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 3,
+        "T010" : 2
+      },
+      "perMethodOutcome" : {
+        "R000" : 3,
+        "T010" : 2
+      },
+      "perTestOutcome" : {
+        "R000" : 3
+      }
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepositoryProviderConfiguration$1WrapperMixin" : {
+      "methodsCount" : 1,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T004" : 1
+      },
+      "perMethodOutcome" : {
+        "T004" : 1
+      }
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.DefaultArtifactRepositoryProvider" : {
+      "methodsCount" : 10,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T009" : 10
+      },
+      "perMethodOutcome" : {
+        "T009" : 10
+      }
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.VoidArtifactRepositoryConfiguration" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 2
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      }
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.VoidArtifactRepositoryProvider" : {
+      "methodsCount" : 11,
+      "completeTestCount" : 10,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 10,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 10,
+        "R002" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 10
+      }
+    },
+    "org.finos.legend.depot.services.guice.RepositoryModule" : {
+      "methodsCount" : 4,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1,
+        "T023" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "R002" : 1,
+        "R005" : 1,
+        "T023" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      }
+    },
+    "org.finos.legend.depot.store.resources.artifacts.repository.RepositoryResource" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1,
+        "T012" : 3
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "R002" : 1,
+        "T012" : 3,
+        "W002" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "warnings" : {
+        "W002" : 1
+      }
+    },
+    "org.finos.legend.depot.store.resources.guice.RepositoryResourcesModule" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R002" : 1,
+        "R005" : 1
+      }
+    }
+  },
+  "methods" : {
+    "org.finos.legend.depot.domain.artifacts.repository.ArtifactDependency.<init>:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        31,
+        32,
+        33,
+        34,
+        35
+      ]
+    },
+    "org.finos.legend.depot.domain.artifacts.repository.ArtifactDependency.equals:(Ljava/lang/Object;)Z" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        55
+      ]
+    },
+    "org.finos.legend.depot.domain.artifacts.repository.ArtifactDependency.getArtifactId:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        44
+      ]
+    },
+    "org.finos.legend.depot.domain.artifacts.repository.ArtifactDependency.getGroupId:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        39
+      ]
+    },
+    "org.finos.legend.depot.domain.artifacts.repository.ArtifactDependency.getVersion:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        49
+      ]
+    },
+    "org.finos.legend.depot.domain.artifacts.repository.ArtifactDependency.hashCode:()I" : {
+      "completeTestCount" : 5,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 5
+      },
+      "lineNumbers" : [
+        61
+      ]
+    },
+    "org.finos.legend.depot.domain.artifacts.repository.ArtifactType.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.finos.legend.depot.domain.artifacts.repository.ArtifactType.<init>:(Ljava/lang/String;ILjava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        24,
+        25,
+        26
+      ]
+    },
+    "org.finos.legend.depot.domain.artifacts.repository.ArtifactType.getModuleName:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T001",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        30
+      ]
+    },
+    "org.finos.legend.depot.domain.artifacts.repository.ArtifactType.valueOf:(Ljava/lang/String;)Lorg/finos/legend/depot/domain/artifacts/repository/ArtifactType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        18
+      ]
+    },
+    "org.finos.legend.depot.domain.artifacts.repository.ArtifactType.values:()[Lorg/finos/legend/depot/domain/artifacts/repository/ArtifactType;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        18
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.ArtifactNotFoundException.<init>:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        23,
+        24
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepository.areValidCoordinates:(Ljava/lang/String;Ljava/lang/String;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepository.findDependencies:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Set;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepository.findDependenciesByArtifactType:(Lorg/finos/legend/depot/domain/artifacts/repository/ArtifactType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Set;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepository.findDependenciesFiles:(Lorg/finos/legend/depot/domain/artifacts/repository/ArtifactType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepository.findFiles:(Lorg/finos/legend/depot/domain/artifacts/repository/ArtifactType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepository.findVersion:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepository.findVersions:(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepository.getJarFile:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepository.getModulesFromPOM:(Lorg/finos/legend/depot/domain/artifacts/repository/ArtifactType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepository.getPOM:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/apache/maven/model/Model;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepositoryException.<init>:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        27,
+        28
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepositoryException.<init>:(Ljava/lang/Throwable;)V" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        22,
+        23
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepositoryProviderConfiguration$1WrapperMixin.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T004",
+      "perMethodOutcome" : "T004",
+      "lineNumbers" : [
+        33
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepositoryProviderConfiguration.<init>:(Ljava/lang/String;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010",
+      "lineNumbers" : [
+        26,
+        27,
+        28
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepositoryProviderConfiguration.configureObjectMapper:(Lcom/fasterxml/jackson/databind/ObjectMapper;)Lcom/fasterxml/jackson/databind/ObjectMapper;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        37,
+        38,
+        37
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepositoryProviderConfiguration.getName:()Ljava/lang/String;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        48
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepositoryProviderConfiguration.initialiseArtifactRepositoryProvider:()Lorg/finos/legend/depot/services/api/artifacts/repository/ArtifactRepository;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepositoryProviderConfiguration.voidConfiguration:()Lorg/finos/legend/depot/services/api/artifacts/repository/ArtifactRepositoryProviderConfiguration;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        43
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.DefaultArtifactRepositoryProvider.areValidCoordinates:(Ljava/lang/String;Ljava/lang/String;)Z" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        33
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.DefaultArtifactRepositoryProvider.findDependencies:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Set;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        78
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.DefaultArtifactRepositoryProvider.findDependenciesByArtifactType:(Lorg/finos/legend/depot/domain/artifacts/repository/ArtifactType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Set;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        73
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.DefaultArtifactRepositoryProvider.findDependenciesFiles:(Lorg/finos/legend/depot/domain/artifacts/repository/ArtifactType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        68
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.DefaultArtifactRepositoryProvider.findFiles:(Lorg/finos/legend/depot/domain/artifacts/repository/ArtifactType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        63
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.DefaultArtifactRepositoryProvider.findVersion:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        58
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.DefaultArtifactRepositoryProvider.findVersions:(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        53
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.DefaultArtifactRepositoryProvider.getJarFile:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        43
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.DefaultArtifactRepositoryProvider.getModulesFromPOM:(Lorg/finos/legend/depot/domain/artifacts/repository/ArtifactType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        48
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.DefaultArtifactRepositoryProvider.getPOM:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/apache/maven/model/Model;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T009",
+      "perMethodOutcome" : "T009",
+      "lineNumbers" : [
+        38
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.VoidArtifactRepositoryConfiguration.<init>:()V" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        22,
+        23
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.VoidArtifactRepositoryConfiguration.initialiseArtifactRepositoryProvider:()Lorg/finos/legend/depot/services/api/artifacts/repository/ArtifactRepository;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        28
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.VoidArtifactRepositoryProvider.<init>:(Lorg/finos/legend/depot/services/api/artifacts/repository/ArtifactRepositoryProviderConfiguration;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        32,
+        33
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.VoidArtifactRepositoryProvider.areValidCoordinates:(Ljava/lang/String;Ljava/lang/String;)Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        38
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.VoidArtifactRepositoryProvider.findDependencies:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Set;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        92
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.VoidArtifactRepositoryProvider.findDependenciesByArtifactType:(Lorg/finos/legend/depot/domain/artifacts/repository/ArtifactType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Set;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        86
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.VoidArtifactRepositoryProvider.findDependenciesFiles:(Lorg/finos/legend/depot/domain/artifacts/repository/ArtifactType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        80
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.VoidArtifactRepositoryProvider.findFiles:(Lorg/finos/legend/depot/domain/artifacts/repository/ArtifactType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        74
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.VoidArtifactRepositoryProvider.findVersion:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        68
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.VoidArtifactRepositoryProvider.findVersions:(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        62
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.VoidArtifactRepositoryProvider.getJarFile:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        50
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.VoidArtifactRepositoryProvider.getModulesFromPOM:(Lorg/finos/legend/depot/domain/artifacts/repository/ArtifactType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        56
+      ]
+    },
+    "org.finos.legend.depot.services.api.artifacts.repository.VoidArtifactRepositoryProvider.getPOM:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/apache/maven/model/Model;" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        44
+      ]
+    },
+    "org.finos.legend.depot.services.guice.RepositoryModule.<clinit>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T023",
+      "perMethodOutcome" : "T023"
+    },
+    "org.finos.legend.depot.services.guice.RepositoryModule.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        26
+      ]
+    },
+    "org.finos.legend.depot.services.guice.RepositoryModule.configure:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        33,
+        34
+      ]
+    },
+    "org.finos.legend.depot.services.guice.RepositoryModule.getArtifactRepository:(Lorg/finos/legend/depot/services/api/artifacts/repository/ArtifactRepositoryProviderConfiguration;)Lorg/finos/legend/depot/services/api/artifacts/repository/ArtifactRepository;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        41,
+        43,
+        44,
+        46,
+        47,
+        50,
+        51
+      ]
+    },
+    "org.finos.legend.depot.store.resources.artifacts.repository.RepositoryResource.<init>:(Lorg/finos/legend/depot/services/api/artifacts/repository/ArtifactRepository;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        45,
+        46,
+        47
+      ]
+    },
+    "org.finos.legend.depot.store.resources.artifacts.repository.RepositoryResource.getRepositoryVersion:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 2,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
+      "lineNumbers" : [
+        78
+      ]
+    },
+    "org.finos.legend.depot.store.resources.artifacts.repository.RepositoryResource.getRepositoryVersions:(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
+      "lineNumbers" : [
+        56
+      ]
+    },
+    "org.finos.legend.depot.store.resources.artifacts.repository.RepositoryResource.lambda$getRepositoryVersion$2:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        82,
+        84,
+        86
+      ]
+    },
+    "org.finos.legend.depot.store.resources.artifacts.repository.RepositoryResource.lambda$getRepositoryVersions$0:(Lorg/finos/legend/sdlc/domain/model/version/VersionId;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        61
+      ]
+    },
+    "org.finos.legend.depot.store.resources.artifacts.repository.RepositoryResource.lambda$getRepositoryVersions$1:(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        61,
+        63,
+        65
+      ]
+    },
+    "org.finos.legend.depot.store.resources.guice.RepositoryResourcesModule.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.finos.legend.depot.store.resources.guice.RepositoryResourcesModule.configure:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R005",
+      "lineNumbers" : [
+        27,
+        28,
+        29
+      ]
+    }
+  },
+  "validationMetrics" : { }
+}
