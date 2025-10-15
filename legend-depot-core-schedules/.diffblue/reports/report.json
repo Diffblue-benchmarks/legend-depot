@@ -4,18 +4,18 @@
   },
   "run" : {
     "version" : "2025.09.01-44e352d-licensed",
-    "creationTimestamp" : "2025-09-19T12:17:40.962442Z",
+    "creationTimestamp" : "2025-10-15T16:17:39.309867Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 334.573,
-    "environmentDetectionTime" : 0.072,
-    "indexingTime" : 0.442,
-    "entryPointsTime" : 0.062,
-    "generationTime" : 410.067,
-    "timeToFirstTest" : 946.89,
-    "timeToLastTest" : 669.657,
-    "indexQueryTime" : 5.2780000000000005,
-    "verificationTime" : 41.059,
-    "validationTime" : 168.301
+    "totalTime" : 228.194,
+    "environmentDetectionTime" : 0.062,
+    "indexingTime" : 0.499,
+    "entryPointsTime" : 0.047,
+    "generationTime" : 413.385,
+    "timeToFirstTest" : 854.156,
+    "timeToLastTest" : 678.207,
+    "indexQueryTime" : 5.252,
+    "verificationTime" : 40.731,
+    "validationTime" : 63.397
   },
   "codes" : {
     "R000" : "Success",
@@ -36,9 +36,9 @@
   "summary" : {
     "classesCount" : 7,
     "methodsCount" : 52,
-    "cumulativeDiffblueTestCount" : 43,
+    "cumulativeDiffblueTestCount" : 57,
     "cumulativeManualTestCount" : 4,
-    "completeTestCount" : 81,
+    "completeTestCount" : 69,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 375,
@@ -63,14 +63,14 @@
       "W002" : 1
     },
     "perTestOutcome" : {
-      "R000" : 81
+      "R000" : 69
     },
     "perTestValidation" : {
-      "V000" : 45,
-      "V003" : 36
+      "V000" : 57,
+      "V003" : 12
     },
     "warnings" : {
-      "W002" : 1
+      "W002" : 2
     }
   },
   "classes" : {
@@ -110,7 +110,7 @@
     },
     "org.finos.legend.depot.services.schedules.SchedulesFactoryImpl" : {
       "methodsCount" : 22,
-      "completeTestCount" : 64,
+      "completeTestCount" : 52,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 12,
@@ -127,10 +127,10 @@
         "W002" : 1
       },
       "perTestOutcome" : {
-        "R000" : 64
+        "R000" : 52
       },
       "warnings" : {
-        "W002" : 1
+        "W002" : 2
       }
     },
     "org.finos.legend.depot.services.schedules.SchedulesFactoryImpl$1" : {
@@ -504,12 +504,15 @@
       ]
     },
     "org.finos.legend.depot.services.schedules.SchedulesFactoryImpl.register:(Ljava/lang/String;JJLjava/util/function/Supplier;)V" : {
-      "completeTestCount" : 27,
+      "completeTestCount" : 20,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 27
+        "R000" : 20
+      },
+      "warnings" : {
+        "W002" : 1
       },
       "lineNumbers" : [
         87,
@@ -517,12 +520,12 @@
       ]
     },
     "org.finos.legend.depot.services.schedules.SchedulesFactoryImpl.registerExternalTriggerSchedule:(Ljava/lang/String;JLjava/util/function/Supplier;)V" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 6,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 6
       },
       "lineNumbers" : [
         77,
@@ -530,12 +533,12 @@
       ]
     },
     "org.finos.legend.depot.services.schedules.SchedulesFactoryImpl.registerSingleInstance:(Ljava/lang/String;JJLjava/util/function/Supplier;)V" : {
-      "completeTestCount" : 16,
+      "completeTestCount" : 6,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 16
+        "R000" : 6
       },
       "lineNumbers" : [
         82,

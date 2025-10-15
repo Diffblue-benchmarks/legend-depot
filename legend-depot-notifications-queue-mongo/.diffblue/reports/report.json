@@ -4,18 +4,18 @@
   },
   "run" : {
     "version" : "2025.09.01-44e352d-licensed",
-    "creationTimestamp" : "2025-09-19T12:17:40.962442Z",
+    "creationTimestamp" : "2025-10-15T16:17:39.309867Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 68.331,
-    "environmentDetectionTime" : 0.04,
-    "indexingTime" : 0.468,
+    "totalTime" : 69.961,
+    "environmentDetectionTime" : 0.042,
+    "indexingTime" : 0.534,
     "entryPointsTime" : 0.033,
-    "generationTime" : 575.55,
-    "timeToFirstTest" : 1531.396,
-    "timeToLastTest" : 1085.318,
-    "indexQueryTime" : 4.609,
-    "verificationTime" : 44.369,
-    "validationTime" : 13.873
+    "generationTime" : 583.112,
+    "timeToFirstTest" : 1453.801,
+    "timeToLastTest" : 1105.074,
+    "indexQueryTime" : 4.6080000000000005,
+    "verificationTime" : 44.161,
+    "validationTime" : 14.741
   },
   "codes" : {
     "R002" : "Missing observers",
@@ -52,7 +52,7 @@
     },
     "perTestValidation" : {
       "V000" : 2,
-      "V003" : 36
+      "V003" : 12
     }
   },
   "classes" : {

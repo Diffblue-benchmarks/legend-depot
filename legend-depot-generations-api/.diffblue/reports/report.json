@@ -4,21 +4,22 @@
   },
   "run" : {
     "version" : "2025.09.01-44e352d-licensed",
-    "creationTimestamp" : "2025-09-19T12:17:40.962442Z",
+    "creationTimestamp" : "2025-10-15T16:17:39.309867Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 76.322,
-    "environmentDetectionTime" : 0.026,
-    "indexingTime" : 0.492,
-    "entryPointsTime" : 0.02,
-    "generationTime" : 792.164,
-    "timeToFirstTest" : 2239.187,
-    "timeToLastTest" : 1530.766,
-    "indexQueryTime" : 2.565,
-    "verificationTime" : 58.457,
-    "validationTime" : 14.488
+    "totalTime" : 132.88,
+    "environmentDetectionTime" : 0.027,
+    "indexingTime" : 0.561,
+    "entryPointsTime" : 0.021,
+    "generationTime" : 858.89,
+    "timeToFirstTest" : 2231.772,
+    "timeToLastTest" : 1615.246,
+    "indexQueryTime" : 2.606,
+    "verificationTime" : 58.804,
+    "validationTime" : 15.327
   },
   "codes" : {
     "R000" : "Success",
+    "R004" : "No meaningful assertions found",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
     "T003" : "Private method",
@@ -34,7 +35,7 @@
   "summary" : {
     "classesCount" : 10,
     "methodsCount" : 51,
-    "cumulativeDiffblueTestCount" : 16,
+    "cumulativeDiffblueTestCount" : 15,
     "cumulativeManualTestCount" : 1,
     "completeTestCount" : 17,
     "incompleteTestCount" : 0,
@@ -52,7 +53,8 @@
       "T023" : 1
     },
     "perMethodOutcome" : {
-      "R000" : 16,
+      "R000" : 15,
+      "R004" : 1,
       "T003" : 13,
       "T008" : 2,
       "T009" : 2,
@@ -64,8 +66,8 @@
       "R000" : 17
     },
     "perTestValidation" : {
-      "V000" : 16,
-      "V003" : 1
+      "V000" : 15,
+      "V003" : 2
     }
   },
   "classes" : {
@@ -122,7 +124,8 @@
         "T023" : 1
       },
       "perMethodOutcome" : {
-        "R000" : 4,
+        "R000" : 3,
+        "R004" : 1,
         "T003" : 6,
         "T012" : 1,
         "T023" : 1
@@ -441,13 +444,10 @@
       ]
     },
     "org.finos.legend.depot.services.generations.loader.FileGenerationLoader.close:()V" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R000",
-      "perTestOutcome" : {
-        "R000" : 1
-      },
+      "perMethodOutcome" : "R004",
       "lineNumbers" : [
         154,
         156,
@@ -536,12 +536,12 @@
       ]
     },
     "org.finos.legend.depot.services.generations.loader.FileGenerationLoader.newFileGenerationsLoader:(Ljava/nio/file/Path;)Lorg/finos/legend/depot/services/generations/loader/FileGenerationLoader;" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       },
       "lineNumbers" : [
         56,
