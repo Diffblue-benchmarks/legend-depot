@@ -4,18 +4,18 @@
   },
   "run" : {
     "version" : "2025.09.01-44e352d-licensed",
-    "creationTimestamp" : "2025-10-15T16:17:39.309867Z",
+    "creationTimestamp" : "2025-10-16T18:38:22.071754Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 108.459,
-    "environmentDetectionTime" : 0.099,
-    "indexingTime" : 0.521,
-    "entryPointsTime" : 0.09,
-    "generationTime" : 533.873,
-    "timeToFirstTest" : 1226.366,
-    "timeToLastTest" : 950.673,
-    "indexQueryTime" : 2.091,
-    "verificationTime" : 43.575,
-    "validationTime" : 9.243
+    "totalTime" : 106.633,
+    "environmentDetectionTime" : 0.093,
+    "indexingTime" : 0.43,
+    "entryPointsTime" : 0.084,
+    "generationTime" : 525.178,
+    "timeToFirstTest" : 1206.419,
+    "timeToLastTest" : 931.793,
+    "indexQueryTime" : 2.118,
+    "verificationTime" : 43.599,
+    "validationTime" : 8.833
   },
   "codes" : {
     "R000" : "Success",
@@ -63,7 +63,7 @@
     },
     "perTestValidation" : {
       "V000" : 50,
-      "V003" : 12
+      "V003" : 25
     }
   },
   "classes" : {

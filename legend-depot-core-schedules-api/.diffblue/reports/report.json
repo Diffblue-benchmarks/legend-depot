@@ -4,28 +4,28 @@
   },
   "run" : {
     "version" : "2025.09.01-44e352d-licensed",
-    "creationTimestamp" : "2025-10-15T16:17:39.309867Z",
+    "creationTimestamp" : "2025-10-16T18:38:22.071754Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 60.532,
-    "environmentDetectionTime" : 0.048,
-    "indexingTime" : 0.495,
-    "entryPointsTime" : 0.034,
-    "generationTime" : 310.997,
-    "timeToFirstTest" : 624.853,
-    "timeToLastTest" : 532.293,
-    "indexQueryTime" : 1.946,
-    "verificationTime" : 31.539,
-    "validationTime" : 8.744
+    "totalTime" : 57.213,
+    "environmentDetectionTime" : 0.034,
+    "indexingTime" : 0.407,
+    "entryPointsTime" : 0.024,
+    "generationTime" : 301.418,
+    "timeToFirstTest" : 605.258,
+    "timeToLastTest" : 517.162,
+    "indexQueryTime" : 1.9020000000000001,
+    "verificationTime" : 31.178,
+    "validationTime" : 8.144
   },
   "codes" : {
     "R000" : "Success",
-    "R013" : "No inputs found that don't throw a trivial exception",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
     "T002" : "Trivial setter",
     "T005" : "Trivial constructor",
     "T010" : "Abstract or interface method",
-    "V000" : "Validated successfully"
+    "V000" : "Validated successfully",
+    "W002" : "Test compiled, but did not pass"
   },
   "summary" : {
     "classesCount" : 5,
@@ -45,14 +45,17 @@
     },
     "perMethodOutcome" : {
       "R000" : 22,
-      "R013" : 1,
-      "T010" : 17
+      "T010" : 17,
+      "W002" : 1
     },
     "perTestOutcome" : {
       "R000" : 4
     },
     "perTestValidation" : {
       "V000" : 4
+    },
+    "warnings" : {
+      "W002" : 1
     }
   },
   "classes" : {
@@ -117,10 +120,13 @@
       },
       "perMethodOutcome" : {
         "R000" : 8,
-        "R013" : 1
+        "W002" : 1
       },
       "perTestOutcome" : {
         "R000" : 2
+      },
+      "warnings" : {
+        "W002" : 1
       }
     }
   },
@@ -474,7 +480,10 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
       "lineNumbers" : [
         79
       ]

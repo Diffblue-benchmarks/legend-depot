@@ -4,18 +4,18 @@
   },
   "run" : {
     "version" : "2025.09.01-44e352d-licensed",
-    "creationTimestamp" : "2025-10-15T16:17:39.309867Z",
+    "creationTimestamp" : "2025-10-16T18:38:22.071754Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 59.682,
-    "environmentDetectionTime" : 0.039,
-    "indexingTime" : 0.529,
-    "entryPointsTime" : 0.031,
-    "generationTime" : 564.745,
-    "timeToFirstTest" : 1382.751,
-    "timeToLastTest" : 1052.759,
-    "indexQueryTime" : 3.295,
-    "verificationTime" : 44.161,
-    "validationTime" : 14.741
+    "totalTime" : 56.816,
+    "environmentDetectionTime" : 0.038,
+    "indexingTime" : 0.437,
+    "entryPointsTime" : 0.029,
+    "generationTime" : 555.22,
+    "timeToFirstTest" : 1356.887,
+    "timeToLastTest" : 1029.608,
+    "indexQueryTime" : 3.169,
+    "verificationTime" : 44.158,
+    "validationTime" : 14.263
   },
   "codes" : {
     "R005" : "Unable to load class",
@@ -47,7 +47,7 @@
     },
     "perTestValidation" : {
       "V000" : 2,
-      "V003" : 12
+      "V003" : 25
     }
   },
   "classes" : {

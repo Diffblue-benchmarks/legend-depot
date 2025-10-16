@@ -131,212 +131,6 @@ class SchedulesFactoryImplDiffblueTest {
   }
 
   /**
-   * Test {@link SchedulesFactoryImpl#registerExternalTriggerSchedule(String, long, Supplier)}.
-   *
-   * <ul>
-   *   <li>Given {@link MockScheduleStore} {@link MockScheduleStore#get(String)} return empty.
-   * </ul>
-   *
-   * <p>Method under test: {@link SchedulesFactoryImpl#registerExternalTriggerSchedule(String, long,
-   * Supplier)}
-   */
-  @Test
-  @DisplayName(
-      "Test registerExternalTriggerSchedule(String, long, Supplier); given MockScheduleStore get(String) return empty")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "void SchedulesFactoryImpl.registerExternalTriggerSchedule(String, long, Supplier)"
-  })
-  void testRegisterExternalTriggerSchedule_givenMockScheduleStoreGetReturnEmpty() {
-    // Arrange
-    MockScheduleStore manageSchedulesService = mock(MockScheduleStore.class);
-    Optional<ScheduleInfo> emptyResult = Optional.empty();
-    when(manageSchedulesService.get(Mockito.<String>any())).thenReturn(emptyResult);
-    when(manageSchedulesService.createOrUpdate(Mockito.<ScheduleInfo>any()))
-        .thenReturn(new ScheduleInfo("Name"));
-    SchedulesFactoryImpl schedulesFactoryImpl =
-        new SchedulesFactoryImpl(manageSchedulesService, null, true);
-    Supplier<Object> function = mock(Supplier.class);
-
-    // Act
-    schedulesFactoryImpl.registerExternalTriggerSchedule("", 42L, function);
-
-    // Assert
-    verify(manageSchedulesService).createOrUpdate(isA(ScheduleInfo.class));
-    verify(manageSchedulesService).get("");
-    MutableList<Supplier<Object>> toListResult = schedulesFactoryImpl.functions.toList();
-    assertEquals(1, toListResult.size());
-    assertSame(function, toListResult.get(0));
-  }
-
-  /**
-   * Test {@link SchedulesFactoryImpl#registerExternalTriggerSchedule(String, long, Supplier)}.
-   *
-   * <ul>
-   *   <li>Given {@link ScheduleInfo#ScheduleInfo(String)} with {@code Name} Id is {@code 42}.
-   *   <li>When four.
-   * </ul>
-   *
-   * <p>Method under test: {@link SchedulesFactoryImpl#registerExternalTriggerSchedule(String, long,
-   * Supplier)}
-   */
-  @Test
-  @DisplayName(
-      "Test registerExternalTriggerSchedule(String, long, Supplier); given ScheduleInfo(String) with 'Name' Id is '42'; when four")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "void SchedulesFactoryImpl.registerExternalTriggerSchedule(String, long, Supplier)"
-  })
-  void testRegisterExternalTriggerSchedule_givenScheduleInfoWithNameIdIs42_whenFour() {
-    // Arrange
-    ScheduleInfo scheduleInfo = new ScheduleInfo("Name");
-    scheduleInfo.setId("42");
-
-    MockScheduleStore manageSchedulesService = mock(MockScheduleStore.class);
-    Optional<ScheduleInfo> emptyResult = Optional.empty();
-    when(manageSchedulesService.get(Mockito.<String>any())).thenReturn(emptyResult);
-    when(manageSchedulesService.createOrUpdate(Mockito.<ScheduleInfo>any()))
-        .thenReturn(scheduleInfo);
-    SchedulesFactoryImpl schedulesFactoryImpl =
-        new SchedulesFactoryImpl(manageSchedulesService, null, true);
-    Supplier<Object> function = mock(Supplier.class);
-
-    // Act
-    schedulesFactoryImpl.registerExternalTriggerSchedule("", 4L, function);
-
-    // Assert
-    verify(manageSchedulesService).createOrUpdate(isA(ScheduleInfo.class));
-    verify(manageSchedulesService).get("");
-    MutableList<Supplier<Object>> toListResult = schedulesFactoryImpl.functions.toList();
-    assertEquals(1, toListResult.size());
-    assertSame(function, toListResult.get(0));
-  }
-
-  /**
-   * Test {@link SchedulesFactoryImpl#registerExternalTriggerSchedule(String, long, Supplier)}.
-   *
-   * <ul>
-   *   <li>Given {@link ScheduleInfo#ScheduleInfo(String)} with {@code Name} Id is {@code 42}.
-   *   <li>When minus one.
-   * </ul>
-   *
-   * <p>Method under test: {@link SchedulesFactoryImpl#registerExternalTriggerSchedule(String, long,
-   * Supplier)}
-   */
-  @Test
-  @DisplayName(
-      "Test registerExternalTriggerSchedule(String, long, Supplier); given ScheduleInfo(String) with 'Name' Id is '42'; when minus one")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "void SchedulesFactoryImpl.registerExternalTriggerSchedule(String, long, Supplier)"
-  })
-  void testRegisterExternalTriggerSchedule_givenScheduleInfoWithNameIdIs42_whenMinusOne() {
-    // Arrange
-    ScheduleInfo scheduleInfo = new ScheduleInfo("Name");
-    scheduleInfo.setId("42");
-
-    MockScheduleStore manageSchedulesService = mock(MockScheduleStore.class);
-    Optional<ScheduleInfo> emptyResult = Optional.empty();
-    when(manageSchedulesService.get(Mockito.<String>any())).thenReturn(emptyResult);
-    when(manageSchedulesService.createOrUpdate(Mockito.<ScheduleInfo>any()))
-        .thenReturn(scheduleInfo);
-    SchedulesFactoryImpl schedulesFactoryImpl =
-        new SchedulesFactoryImpl(manageSchedulesService, null, true);
-    Supplier<Object> function = mock(Supplier.class);
-
-    // Act
-    schedulesFactoryImpl.registerExternalTriggerSchedule("", -1L, function);
-
-    // Assert
-    verify(manageSchedulesService).createOrUpdate(isA(ScheduleInfo.class));
-    verify(manageSchedulesService).get("");
-    MutableList<Supplier<Object>> toListResult = schedulesFactoryImpl.functions.toList();
-    assertEquals(1, toListResult.size());
-    assertSame(function, toListResult.get(0));
-  }
-
-  /**
-   * Test {@link SchedulesFactoryImpl#registerExternalTriggerSchedule(String, long, Supplier)}.
-   *
-   * <ul>
-   *   <li>When {@code 42}.
-   * </ul>
-   *
-   * <p>Method under test: {@link SchedulesFactoryImpl#registerExternalTriggerSchedule(String, long,
-   * Supplier)}
-   */
-  @Test
-  @DisplayName("Test registerExternalTriggerSchedule(String, long, Supplier); when '42'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "void SchedulesFactoryImpl.registerExternalTriggerSchedule(String, long, Supplier)"
-  })
-  void testRegisterExternalTriggerSchedule_when42() {
-    // Arrange
-    MockScheduleStore manageSchedulesService = mock(MockScheduleStore.class);
-    Optional<ScheduleInfo> ofResult = Optional.of(new ScheduleInfo("Name"));
-    when(manageSchedulesService.get(Mockito.<String>any())).thenReturn(ofResult);
-    when(manageSchedulesService.createOrUpdate(Mockito.<ScheduleInfo>any()))
-        .thenReturn(new ScheduleInfo("Name"));
-    SchedulesFactoryImpl schedulesFactoryImpl =
-        new SchedulesFactoryImpl(manageSchedulesService, null, true);
-    Supplier<Object> function = mock(Supplier.class);
-
-    // Act
-    schedulesFactoryImpl.registerExternalTriggerSchedule("42", 42L, function);
-
-    // Assert
-    verify(manageSchedulesService).createOrUpdate(isA(ScheduleInfo.class));
-    verify(manageSchedulesService).get("42");
-    MutableList<Supplier<Object>> toListResult = schedulesFactoryImpl.functions.toList();
-    assertEquals(1, toListResult.size());
-    assertSame(function, toListResult.get(0));
-  }
-
-  /**
-   * Test {@link SchedulesFactoryImpl#registerExternalTriggerSchedule(String, long, Supplier)}.
-   *
-   * <ul>
-   *   <li>When four.
-   * </ul>
-   *
-   * <p>Method under test: {@link SchedulesFactoryImpl#registerExternalTriggerSchedule(String, long,
-   * Supplier)}
-   */
-  @Test
-  @DisplayName("Test registerExternalTriggerSchedule(String, long, Supplier); when four")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "void SchedulesFactoryImpl.registerExternalTriggerSchedule(String, long, Supplier)"
-  })
-  void testRegisterExternalTriggerSchedule_whenFour() {
-    // Arrange
-    MockScheduleStore manageSchedulesService = mock(MockScheduleStore.class);
-    Optional<ScheduleInfo> emptyResult = Optional.empty();
-    when(manageSchedulesService.get(Mockito.<String>any())).thenReturn(emptyResult);
-    when(manageSchedulesService.createOrUpdate(Mockito.<ScheduleInfo>any()))
-        .thenReturn(new ScheduleInfo("Name"));
-    SchedulesFactoryImpl schedulesFactoryImpl =
-        new SchedulesFactoryImpl(manageSchedulesService, null, true);
-    Supplier<Object> function = mock(Supplier.class);
-
-    // Act
-    schedulesFactoryImpl.registerExternalTriggerSchedule("", 4L, function);
-
-    // Assert
-    verify(manageSchedulesService).createOrUpdate(isA(ScheduleInfo.class));
-    verify(manageSchedulesService).get("");
-    MutableList<Supplier<Object>> toListResult = schedulesFactoryImpl.functions.toList();
-    assertEquals(1, toListResult.size());
-    assertSame(function, toListResult.get(0));
-  }
-
-  /**
    * Test {@link SchedulesFactoryImpl#registerSingleInstance(String, long, long, Supplier)}.
    *
    * <p>Method under test: {@link SchedulesFactoryImpl#registerSingleInstance(String, long, long,
@@ -355,7 +149,7 @@ class SchedulesFactoryImplDiffblueTest {
     Optional<ScheduleInfo> ofResult = Optional.of(new ScheduleInfo("Name"));
     when(manageSchedulesService.get(Mockito.<String>any())).thenReturn(ofResult);
     when(manageSchedulesService.createOrUpdate(Mockito.<ScheduleInfo>any()))
-        .thenReturn(new ScheduleInfo("Name"));
+        .thenReturn(mock(ScheduleInfo.class));
     SchedulesFactoryImpl schedulesFactoryImpl =
         new SchedulesFactoryImpl(manageSchedulesService, null, true);
     Supplier<Object> function = mock(Supplier.class);
@@ -387,8 +181,11 @@ class SchedulesFactoryImplDiffblueTest {
   })
   void testRegisterSingleInstance2() {
     // Arrange
+    ScheduleInfo scheduleInfo = new ScheduleInfo("Name");
+    scheduleInfo.setDisabled(true);
+    Optional<ScheduleInfo> ofResult = Optional.of(scheduleInfo);
+
     MockScheduleStore manageSchedulesService = mock(MockScheduleStore.class);
-    Optional<ScheduleInfo> ofResult = Optional.of(new ScheduleInfo("Name"));
     when(manageSchedulesService.get(Mockito.<String>any())).thenReturn(ofResult);
     when(manageSchedulesService.createOrUpdate(Mockito.<ScheduleInfo>any()))
         .thenReturn(mock(ScheduleInfo.class));
@@ -411,9 +208,47 @@ class SchedulesFactoryImplDiffblueTest {
   /**
    * Test {@link SchedulesFactoryImpl#registerSingleInstance(String, long, long, Supplier)}.
    *
+   * <p>Method under test: {@link SchedulesFactoryImpl#registerSingleInstance(String, long, long,
+   * Supplier)}
+   */
+  @Test
+  @DisplayName("Test registerSingleInstance(String, long, long, Supplier)")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "void SchedulesFactoryImpl.registerSingleInstance(String, long, long, Supplier)"
+  })
+  void testRegisterSingleInstance3() {
+    // Arrange
+    ScheduleInfo scheduleInfo = new ScheduleInfo("Schedule {} disabled, skipping");
+    scheduleInfo.setSingleInstance(true);
+
+    MockScheduleStore manageSchedulesService = mock(MockScheduleStore.class);
+    Optional<ScheduleInfo> emptyResult = Optional.empty();
+    when(manageSchedulesService.get(Mockito.<String>any())).thenReturn(emptyResult);
+    when(manageSchedulesService.createOrUpdate(Mockito.<ScheduleInfo>any()))
+        .thenReturn(scheduleInfo);
+    SchedulesFactoryImpl schedulesFactoryImpl =
+        new SchedulesFactoryImpl(manageSchedulesService, null, true);
+    Supplier<Object> function = mock(Supplier.class);
+
+    // Act
+    schedulesFactoryImpl.registerSingleInstance("java.util.TimerTask", 1L, 42L, function);
+
+    // Assert
+    verify(manageSchedulesService).createOrUpdate(isA(ScheduleInfo.class));
+    verify(manageSchedulesService).get("java.util.TimerTask");
+    MutableList<Supplier<Object>> toListResult = schedulesFactoryImpl.functions.toList();
+    assertEquals(1, toListResult.size());
+    assertSame(function, toListResult.get(0));
+  }
+
+  /**
+   * Test {@link SchedulesFactoryImpl#registerSingleInstance(String, long, long, Supplier)}.
+   *
    * <ul>
-   *   <li>Given {@link ScheduleInfo#ScheduleInfo(String)} with {@code Name} SingleInstance is
-   *       {@code true}.
+   *   <li>Given {@link MockScheduleStore} {@link MockScheduleStore#get(String)} return empty.
+   *   <li>When one thousand.
    * </ul>
    *
    * <p>Method under test: {@link SchedulesFactoryImpl#registerSingleInstance(String, long, long,
@@ -421,16 +256,61 @@ class SchedulesFactoryImplDiffblueTest {
    */
   @Test
   @DisplayName(
-      "Test registerSingleInstance(String, long, long, Supplier); given ScheduleInfo(String) with 'Name' SingleInstance is 'true'")
+      "Test registerSingleInstance(String, long, long, Supplier); given MockScheduleStore get(String) return empty; when one thousand")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void SchedulesFactoryImpl.registerSingleInstance(String, long, long, Supplier)"
   })
-  void testRegisterSingleInstance_givenScheduleInfoWithNameSingleInstanceIsTrue() {
+  void testRegisterSingleInstance_givenMockScheduleStoreGetReturnEmpty_whenOneThousand() {
     // Arrange
     ScheduleInfo scheduleInfo = new ScheduleInfo("Name");
     scheduleInfo.setSingleInstance(true);
+
+    MockScheduleStore manageSchedulesService = mock(MockScheduleStore.class);
+    Optional<ScheduleInfo> emptyResult = Optional.empty();
+    when(manageSchedulesService.get(Mockito.<String>any())).thenReturn(emptyResult);
+    when(manageSchedulesService.createOrUpdate(Mockito.<ScheduleInfo>any()))
+        .thenReturn(scheduleInfo);
+    SchedulesFactoryImpl schedulesFactoryImpl =
+        new SchedulesFactoryImpl(manageSchedulesService, null, true);
+    Supplier<Object> function = mock(Supplier.class);
+
+    // Act
+    schedulesFactoryImpl.registerSingleInstance("Name", 1000L, 42L, function);
+
+    // Assert
+    verify(manageSchedulesService).createOrUpdate(isA(ScheduleInfo.class));
+    verify(manageSchedulesService).get("Name");
+    MutableList<Supplier<Object>> toListResult = schedulesFactoryImpl.functions.toList();
+    assertEquals(1, toListResult.size());
+    assertEquals(1, schedulesFactoryImpl.tasksRegistry.toList().size());
+    assertSame(function, toListResult.get(0));
+  }
+
+  /**
+   * Test {@link SchedulesFactoryImpl#registerSingleInstance(String, long, long, Supplier)}.
+   *
+   * <ul>
+   *   <li>Given {@link ScheduleInfo#ScheduleInfo(String)} with {@code Name} Disabled is {@code
+   *       true}.
+   * </ul>
+   *
+   * <p>Method under test: {@link SchedulesFactoryImpl#registerSingleInstance(String, long, long,
+   * Supplier)}
+   */
+  @Test
+  @DisplayName(
+      "Test registerSingleInstance(String, long, long, Supplier); given ScheduleInfo(String) with 'Name' Disabled is 'true'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "void SchedulesFactoryImpl.registerSingleInstance(String, long, long, Supplier)"
+  })
+  void testRegisterSingleInstance_givenScheduleInfoWithNameDisabledIsTrue() {
+    // Arrange
+    ScheduleInfo scheduleInfo = new ScheduleInfo("Name");
+    scheduleInfo.setDisabled(true);
     Optional<ScheduleInfo> ofResult = Optional.of(scheduleInfo);
 
     MockScheduleStore manageSchedulesService = mock(MockScheduleStore.class);
@@ -457,36 +337,88 @@ class SchedulesFactoryImplDiffblueTest {
    * Test {@link SchedulesFactoryImpl#registerSingleInstance(String, long, long, Supplier)}.
    *
    * <ul>
-   *   <li>When {@link Long#MAX_VALUE}.
+   *   <li>Given {@link ScheduleInfo#ScheduleInfo(String)} with {@code Name} Disabled is {@code
+   *       true}.
    * </ul>
    *
    * <p>Method under test: {@link SchedulesFactoryImpl#registerSingleInstance(String, long, long,
    * Supplier)}
    */
   @Test
-  @DisplayName("Test registerSingleInstance(String, long, long, Supplier); when MAX_VALUE")
+  @DisplayName(
+      "Test registerSingleInstance(String, long, long, Supplier); given ScheduleInfo(String) with 'Name' Disabled is 'true'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "void SchedulesFactoryImpl.registerSingleInstance(String, long, long, Supplier)"
   })
-  void testRegisterSingleInstance_whenMax_value() {
+  void testRegisterSingleInstance_givenScheduleInfoWithNameDisabledIsTrue2() {
     // Arrange
     ScheduleInfo scheduleInfo = new ScheduleInfo("Name");
-    scheduleInfo.setExternalTrigger(true);
-    scheduleInfo.setSingleInstance(true);
+    scheduleInfo.setDisabled(true);
     Optional<ScheduleInfo> ofResult = Optional.of(scheduleInfo);
+
+    ScheduleInfo scheduleInfo2 = new ScheduleInfo("Name");
+    scheduleInfo2.setSingleInstance(true);
 
     MockScheduleStore manageSchedulesService = mock(MockScheduleStore.class);
     when(manageSchedulesService.get(Mockito.<String>any())).thenReturn(ofResult);
     when(manageSchedulesService.createOrUpdate(Mockito.<ScheduleInfo>any()))
-        .thenReturn(new ScheduleInfo("Name"));
+        .thenReturn(scheduleInfo2);
     SchedulesFactoryImpl schedulesFactoryImpl =
         new SchedulesFactoryImpl(manageSchedulesService, null, true);
     Supplier<Object> function = mock(Supplier.class);
 
     // Act
-    schedulesFactoryImpl.registerSingleInstance("Name", 4L, Long.MAX_VALUE, function);
+    schedulesFactoryImpl.registerSingleInstance("Name", 1L, 42L, function);
+
+    // Assert
+    verify(manageSchedulesService).createOrUpdate(isA(ScheduleInfo.class));
+    verify(manageSchedulesService).get("Name");
+    MutableList<Supplier<Object>> toListResult = schedulesFactoryImpl.functions.toList();
+    assertEquals(1, toListResult.size());
+    assertEquals(1, schedulesFactoryImpl.tasksRegistry.toList().size());
+    assertSame(function, toListResult.get(0));
+  }
+
+  /**
+   * Test {@link SchedulesFactoryImpl#registerSingleInstance(String, long, long, Supplier)}.
+   *
+   * <ul>
+   *   <li>Given {@link ScheduleInfo#ScheduleInfo(String)} with name is empty string Disabled is
+   *       {@code true}.
+   * </ul>
+   *
+   * <p>Method under test: {@link SchedulesFactoryImpl#registerSingleInstance(String, long, long,
+   * Supplier)}
+   */
+  @Test
+  @DisplayName(
+      "Test registerSingleInstance(String, long, long, Supplier); given ScheduleInfo(String) with name is empty string Disabled is 'true'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "void SchedulesFactoryImpl.registerSingleInstance(String, long, long, Supplier)"
+  })
+  void testRegisterSingleInstance_givenScheduleInfoWithNameIsEmptyStringDisabledIsTrue() {
+    // Arrange
+    ScheduleInfo scheduleInfo = new ScheduleInfo("");
+    scheduleInfo.setDisabled(true);
+    Optional<ScheduleInfo> ofResult = Optional.of(scheduleInfo);
+
+    ScheduleInfo scheduleInfo2 = new ScheduleInfo("Starting schedule {} ");
+    scheduleInfo2.setSingleInstance(true);
+
+    MockScheduleStore manageSchedulesService = mock(MockScheduleStore.class);
+    when(manageSchedulesService.get(Mockito.<String>any())).thenReturn(ofResult);
+    when(manageSchedulesService.createOrUpdate(Mockito.<ScheduleInfo>any()))
+        .thenReturn(scheduleInfo2);
+    SchedulesFactoryImpl schedulesFactoryImpl =
+        new SchedulesFactoryImpl(manageSchedulesService, null, true);
+    Supplier<Object> function = mock(Supplier.class);
+
+    // Act
+    schedulesFactoryImpl.registerSingleInstance("Name", 1L, 42L, function);
 
     // Assert
     verify(manageSchedulesService).createOrUpdate(isA(ScheduleInfo.class));
@@ -512,10 +444,9 @@ class SchedulesFactoryImplDiffblueTest {
   void testRegisterWithNameDelayStartInMillisecondsIntervalInMillisecondsTask() {
     // Arrange
     MockScheduleStore manageSchedulesService = mock(MockScheduleStore.class);
-    Optional<ScheduleInfo> emptyResult = Optional.empty();
-    when(manageSchedulesService.get(Mockito.<String>any())).thenReturn(emptyResult);
-    when(manageSchedulesService.createOrUpdate(Mockito.<ScheduleInfo>any()))
-        .thenReturn(new ScheduleInfo("Name"));
+    Optional<ScheduleInfo> ofResult = Optional.of(new ScheduleInfo("Name"));
+    when(manageSchedulesService.get(Mockito.<String>any())).thenReturn(ofResult);
+    when(manageSchedulesService.createOrUpdate(Mockito.<ScheduleInfo>any())).thenReturn(null);
     SchedulesFactoryImpl schedulesFactoryImpl =
         new SchedulesFactoryImpl(manageSchedulesService, null, true);
     Supplier<Object> task = mock(Supplier.class);
@@ -528,6 +459,7 @@ class SchedulesFactoryImplDiffblueTest {
     verify(manageSchedulesService).get("Name");
     MutableList<Supplier<Object>> toListResult = schedulesFactoryImpl.functions.toList();
     assertEquals(1, toListResult.size());
+    assertEquals(1, schedulesFactoryImpl.tasksRegistry.toList().size());
     assertSame(task, toListResult.get(0));
   }
 
@@ -617,11 +549,8 @@ class SchedulesFactoryImplDiffblueTest {
   @MethodsUnderTest({"void SchedulesFactoryImpl.register(String, long, long, Supplier)"})
   void testRegisterWithNameDelayStartInMillisecondsIntervalInMillisecondsTask4() {
     // Arrange
-    ScheduleInfo scheduleInfo = new ScheduleInfo("Name");
-    scheduleInfo.setDisabled(true);
-    Optional<ScheduleInfo> ofResult = Optional.of(scheduleInfo);
-
     MockScheduleStore manageSchedulesService = mock(MockScheduleStore.class);
+    Optional<ScheduleInfo> ofResult = Optional.of(new ScheduleInfo("Name"));
     when(manageSchedulesService.get(Mockito.<String>any())).thenReturn(ofResult);
     when(manageSchedulesService.createOrUpdate(Mockito.<ScheduleInfo>any()))
         .thenReturn(new ScheduleInfo("Name"));
@@ -630,7 +559,7 @@ class SchedulesFactoryImplDiffblueTest {
     Supplier<Object> task = mock(Supplier.class);
 
     // Act
-    schedulesFactoryImpl.register("Name", 1L, 42L, task);
+    schedulesFactoryImpl.register("Name", 1L, Long.MAX_VALUE, task);
 
     // Assert
     verify(manageSchedulesService).createOrUpdate(isA(ScheduleInfo.class));
@@ -654,82 +583,6 @@ class SchedulesFactoryImplDiffblueTest {
   @ManagedByDiffblue
   @MethodsUnderTest({"void SchedulesFactoryImpl.register(String, long, long, Supplier)"})
   void testRegisterWithNameDelayStartInMillisecondsIntervalInMillisecondsTask5() {
-    // Arrange
-    ScheduleInfo scheduleInfo = new ScheduleInfo("Name");
-    scheduleInfo.setExternalTrigger(true);
-    Optional<ScheduleInfo> ofResult = Optional.of(scheduleInfo);
-
-    MockScheduleStore manageSchedulesService = mock(MockScheduleStore.class);
-    when(manageSchedulesService.get(Mockito.<String>any())).thenReturn(ofResult);
-    when(manageSchedulesService.createOrUpdate(Mockito.<ScheduleInfo>any()))
-        .thenReturn(new ScheduleInfo("Name"));
-    SchedulesFactoryImpl schedulesFactoryImpl =
-        new SchedulesFactoryImpl(manageSchedulesService, null, true);
-    Supplier<Object> task = mock(Supplier.class);
-
-    // Act
-    schedulesFactoryImpl.register("Name", 1L, 42L, task);
-
-    // Assert
-    verify(manageSchedulesService).createOrUpdate(isA(ScheduleInfo.class));
-    verify(manageSchedulesService).get("Name");
-    MutableList<Supplier<Object>> toListResult = schedulesFactoryImpl.functions.toList();
-    assertEquals(1, toListResult.size());
-    assertEquals(1, schedulesFactoryImpl.tasksRegistry.toList().size());
-    assertSame(task, toListResult.get(0));
-  }
-
-  /**
-   * Test {@link SchedulesFactoryImpl#register(String, long, long, Supplier)} with {@code name},
-   * {@code delayStartInMilliseconds}, {@code intervalInMilliseconds}, {@code task}.
-   *
-   * <p>Method under test: {@link SchedulesFactoryImpl#register(String, long, long, Supplier)}
-   */
-  @Test
-  @DisplayName(
-      "Test register(String, long, long, Supplier) with 'name', 'delayStartInMilliseconds', 'intervalInMilliseconds', 'task'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"void SchedulesFactoryImpl.register(String, long, long, Supplier)"})
-  void testRegisterWithNameDelayStartInMillisecondsIntervalInMillisecondsTask6() {
-    // Arrange
-    ScheduleInfo scheduleInfo = new ScheduleInfo("Name");
-    scheduleInfo.setFrequency(1L);
-    Optional<ScheduleInfo> ofResult = Optional.of(scheduleInfo);
-
-    MockScheduleStore manageSchedulesService = mock(MockScheduleStore.class);
-    when(manageSchedulesService.get(Mockito.<String>any())).thenReturn(ofResult);
-    when(manageSchedulesService.createOrUpdate(Mockito.<ScheduleInfo>any()))
-        .thenReturn(new ScheduleInfo("Name"));
-    SchedulesFactoryImpl schedulesFactoryImpl =
-        new SchedulesFactoryImpl(manageSchedulesService, null, true);
-    Supplier<Object> task = mock(Supplier.class);
-
-    // Act
-    schedulesFactoryImpl.register("Name", 1L, 42L, task);
-
-    // Assert
-    verify(manageSchedulesService).createOrUpdate(isA(ScheduleInfo.class));
-    verify(manageSchedulesService).get("Name");
-    MutableList<Supplier<Object>> toListResult = schedulesFactoryImpl.functions.toList();
-    assertEquals(1, toListResult.size());
-    assertEquals(1, schedulesFactoryImpl.tasksRegistry.toList().size());
-    assertSame(task, toListResult.get(0));
-  }
-
-  /**
-   * Test {@link SchedulesFactoryImpl#register(String, long, long, Supplier)} with {@code name},
-   * {@code delayStartInMilliseconds}, {@code intervalInMilliseconds}, {@code task}.
-   *
-   * <p>Method under test: {@link SchedulesFactoryImpl#register(String, long, long, Supplier)}
-   */
-  @Test
-  @DisplayName(
-      "Test register(String, long, long, Supplier) with 'name', 'delayStartInMilliseconds', 'intervalInMilliseconds', 'task'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"void SchedulesFactoryImpl.register(String, long, long, Supplier)"})
-  void testRegisterWithNameDelayStartInMillisecondsIntervalInMillisecondsTask7() {
     // Arrange
     MockScheduleStore manageSchedulesService = mock(MockScheduleStore.class);
     Optional<ScheduleInfo> ofResult = Optional.of(new ScheduleInfo("NameName"));
@@ -764,15 +617,15 @@ class SchedulesFactoryImplDiffblueTest {
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SchedulesFactoryImpl.register(String, long, long, Supplier)"})
-  void testRegisterWithNameDelayStartInMillisecondsIntervalInMillisecondsTask8() {
+  void testRegisterWithNameDelayStartInMillisecondsIntervalInMillisecondsTask6() {
     // Arrange
     MockScheduleStore manageSchedulesService = mock(MockScheduleStore.class);
-    Optional<ScheduleInfo> emptyResult = Optional.empty();
-    when(manageSchedulesService.get(Mockito.<String>any())).thenReturn(emptyResult);
+    Optional<ScheduleInfo> ofResult = Optional.of(new ScheduleInfo(""));
+    when(manageSchedulesService.get(Mockito.<String>any())).thenReturn(ofResult);
     when(manageSchedulesService.createOrUpdate(Mockito.<ScheduleInfo>any()))
-        .thenReturn(mock(ScheduleInfo.class));
+        .thenReturn(new ScheduleInfo("Name"));
     SchedulesFactoryImpl schedulesFactoryImpl =
-        new SchedulesFactoryImpl(manageSchedulesService, null, true);
+        new SchedulesFactoryImpl(manageSchedulesService, null, false);
     Supplier<Object> task = mock(Supplier.class);
 
     // Act
@@ -783,6 +636,7 @@ class SchedulesFactoryImplDiffblueTest {
     verify(manageSchedulesService).get("Name");
     MutableList<Supplier<Object>> toListResult = schedulesFactoryImpl.functions.toList();
     assertEquals(1, toListResult.size());
+    assertEquals(1, schedulesFactoryImpl.tasksRegistry.toList().size());
     assertSame(task, toListResult.get(0));
   }
 
@@ -798,25 +652,25 @@ class SchedulesFactoryImplDiffblueTest {
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SchedulesFactoryImpl.register(String, long, long, Supplier)"})
-  void testRegisterWithNameDelayStartInMillisecondsIntervalInMillisecondsTask9() {
+  void testRegisterWithNameDelayStartInMillisecondsIntervalInMillisecondsTask7() {
     // Arrange
     MockScheduleStore manageSchedulesService = mock(MockScheduleStore.class);
-    Optional<ScheduleInfo> emptyResult = Optional.empty();
-    when(manageSchedulesService.get(Mockito.<String>any())).thenReturn(emptyResult);
-    when(manageSchedulesService.createOrUpdate(Mockito.<ScheduleInfo>any()))
-        .thenReturn(new ScheduleInfo("Name42"));
+    Optional<ScheduleInfo> ofResult = Optional.of(new ScheduleInfo("Name"));
+    when(manageSchedulesService.get(Mockito.<String>any())).thenReturn(ofResult);
+    when(manageSchedulesService.createOrUpdate(Mockito.<ScheduleInfo>any())).thenReturn(null);
     SchedulesFactoryImpl schedulesFactoryImpl =
         new SchedulesFactoryImpl(manageSchedulesService, null, true);
     Supplier<Object> task = mock(Supplier.class);
 
     // Act
-    schedulesFactoryImpl.register("Name", 1L, 42L, task);
+    schedulesFactoryImpl.register("Name", 1L, 4L, task);
 
     // Assert
     verify(manageSchedulesService).createOrUpdate(isA(ScheduleInfo.class));
     verify(manageSchedulesService).get("Name");
     MutableList<Supplier<Object>> toListResult = schedulesFactoryImpl.functions.toList();
     assertEquals(1, toListResult.size());
+    assertEquals(1, schedulesFactoryImpl.tasksRegistry.toList().size());
     assertSame(task, toListResult.get(0));
   }
 
@@ -825,22 +679,22 @@ class SchedulesFactoryImplDiffblueTest {
    * {@code delayStartInMilliseconds}, {@code intervalInMilliseconds}, {@code task}.
    *
    * <ul>
-   *   <li>When {@code 6000}.
+   *   <li>When four.
    * </ul>
    *
    * <p>Method under test: {@link SchedulesFactoryImpl#register(String, long, long, Supplier)}
    */
   @Test
   @DisplayName(
-      "Test register(String, long, long, Supplier) with 'name', 'delayStartInMilliseconds', 'intervalInMilliseconds', 'task'; when '6000'")
+      "Test register(String, long, long, Supplier) with 'name', 'delayStartInMilliseconds', 'intervalInMilliseconds', 'task'; when four")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void SchedulesFactoryImpl.register(String, long, long, Supplier)"})
-  void testRegisterWithNameDelayStartInMillisecondsIntervalInMillisecondsTask_when6000() {
+  void testRegisterWithNameDelayStartInMillisecondsIntervalInMillisecondsTask_whenFour() {
     // Arrange
     MockScheduleStore manageSchedulesService = mock(MockScheduleStore.class);
-    Optional<ScheduleInfo> emptyResult = Optional.empty();
-    when(manageSchedulesService.get(Mockito.<String>any())).thenReturn(emptyResult);
+    Optional<ScheduleInfo> ofResult = Optional.of(new ScheduleInfo("Name"));
+    when(manageSchedulesService.get(Mockito.<String>any())).thenReturn(ofResult);
     when(manageSchedulesService.createOrUpdate(Mockito.<ScheduleInfo>any()))
         .thenReturn(new ScheduleInfo("Name"));
     SchedulesFactoryImpl schedulesFactoryImpl =
@@ -848,13 +702,14 @@ class SchedulesFactoryImplDiffblueTest {
     Supplier<Object> task = mock(Supplier.class);
 
     // Act
-    schedulesFactoryImpl.register("Name", 1L, 6000L, task);
+    schedulesFactoryImpl.register("Name", 1L, 4L, task);
 
     // Assert
     verify(manageSchedulesService).createOrUpdate(isA(ScheduleInfo.class));
     verify(manageSchedulesService).get("Name");
     MutableList<Supplier<Object>> toListResult = schedulesFactoryImpl.functions.toList();
     assertEquals(1, toListResult.size());
+    assertEquals(1, schedulesFactoryImpl.tasksRegistry.toList().size());
     assertSame(task, toListResult.get(0));
   }
 

@@ -4,18 +4,18 @@
   },
   "run" : {
     "version" : "2025.09.01-44e352d-licensed",
-    "creationTimestamp" : "2025-10-15T16:17:39.309867Z",
+    "creationTimestamp" : "2025-10-16T18:38:22.071754Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 132.88,
-    "environmentDetectionTime" : 0.027,
-    "indexingTime" : 0.561,
-    "entryPointsTime" : 0.021,
-    "generationTime" : 858.89,
-    "timeToFirstTest" : 2231.772,
-    "timeToLastTest" : 1615.246,
-    "indexQueryTime" : 2.606,
-    "verificationTime" : 58.804,
-    "validationTime" : 15.327
+    "totalTime" : 78.937,
+    "environmentDetectionTime" : 0.025,
+    "indexingTime" : 0.471,
+    "entryPointsTime" : 0.019,
+    "generationTime" : 792.901,
+    "timeToFirstTest" : 2142.613,
+    "timeToLastTest" : 1532.339,
+    "indexQueryTime" : 2.586,
+    "verificationTime" : 58.262,
+    "validationTime" : 14.712
   },
   "codes" : {
     "R000" : "Success",
@@ -37,7 +37,7 @@
     "methodsCount" : 51,
     "cumulativeDiffblueTestCount" : 15,
     "cumulativeManualTestCount" : 1,
-    "completeTestCount" : 17,
+    "completeTestCount" : 16,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 344,
@@ -63,11 +63,11 @@
       "T023" : 1
     },
     "perTestOutcome" : {
-      "R000" : 17
+      "R000" : 16
     },
     "perTestValidation" : {
       "V000" : 15,
-      "V003" : 2
+      "V003" : 1
     }
   },
   "classes" : {
@@ -115,7 +115,7 @@
     },
     "org.finos.legend.depot.services.generations.loader.FileGenerationLoader" : {
       "methodsCount" : 12,
-      "completeTestCount" : 5,
+      "completeTestCount" : 4,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 4,
@@ -131,7 +131,7 @@
         "T023" : 1
       },
       "perTestOutcome" : {
-        "R000" : 5
+        "R000" : 4
       }
     },
     "org.finos.legend.depot.services.generations.loader.FileGenerationLoader$DirectoryEntityFileSearch" : {
@@ -536,12 +536,12 @@
       ]
     },
     "org.finos.legend.depot.services.generations.loader.FileGenerationLoader.newFileGenerationsLoader:(Ljava/nio/file/Path;)Lorg/finos/legend/depot/services/generations/loader/FileGenerationLoader;" : {
-      "completeTestCount" : 2,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 1
       },
       "lineNumbers" : [
         56,
