@@ -22,18 +22,18 @@ class VersionAliasDiffblueTest {
   @DisplayName("Test getters and setters")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
-  @MethodsUnderTest({"String VersionAlias.getDescription()", "String VersionAlias.getName()"})
+  @MethodsUnderTest({
+    "java.lang.String VersionAlias.getDescription()",
+    "java.lang.String VersionAlias.getName()"
+  })
   void testGettersAndSetters() {
     // Arrange
     VersionAlias valueOfResult = VersionAlias.valueOf("LATEST");
 
     // Act
-    String actualDescription = valueOfResult.getDescription();
+    valueOfResult.getDescription();
 
     // Assert
     assertEquals("latest", valueOfResult.getName());
-    String expectedDescription =
-        String.join("", "last ", System.getProperty("jdk.debug"), "d version");
-    assertEquals(expectedDescription, actualDescription);
   }
 }

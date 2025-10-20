@@ -1,21 +1,21 @@
 {
   "meta" : {
-    "reportVersion" : "2.7"
+    "reportVersion" : "2.8"
   },
   "run" : {
-    "version" : "2025.09.01-44e352d-licensed",
-    "creationTimestamp" : "2025-10-16T18:38:22.071754Z",
+    "version" : "2025.10.02-RC2-1dd3d17-licensed",
+    "creationTimestamp" : "2025-10-20T11:26:04.35261Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 120.911,
-    "environmentDetectionTime" : 0.131,
-    "indexingTime" : 0.395,
-    "entryPointsTime" : 0.106,
-    "generationTime" : 18.094,
-    "timeToFirstTest" : 89.722,
-    "timeToLastTest" : 97.946,
-    "indexQueryTime" : 3.249,
-    "verificationTime" : 3.399,
-    "validationTime" : 8.497
+    "totalTime" : 83.58,
+    "environmentDetectionTime" : 1.072,
+    "indexingTime" : 0.362,
+    "entryPointsTime" : 1.044,
+    "generationTime" : 35.456,
+    "timeToFirstTest" : 38.51,
+    "timeToLastTest" : 59.558,
+    "indexQueryTime" : 3.9330000000000003,
+    "verificationTime" : 3.173,
+    "validationTime" : 8.954
   },
   "codes" : {
     "R000" : "Success",
@@ -28,12 +28,11 @@
     "T009" : "No implementation for abstract class",
     "T010" : "Abstract or interface method",
     "T012" : "Synthetic method",
-    "T023" : "Testability unknown",
     "V000" : "Validated successfully"
   },
   "summary" : {
     "classesCount" : 6,
-    "methodsCount" : 37,
+    "methodsCount" : 34,
     "cumulativeDiffblueTestCount" : 32,
     "cumulativeManualTestCount" : 2,
     "completeTestCount" : 32,
@@ -48,8 +47,7 @@
       "T008" : 1,
       "T009" : 9,
       "T010" : 4,
-      "T012" : 3,
-      "T023" : 3
+      "T012" : 3
     },
     "perMethodOutcome" : {
       "R000" : 13,
@@ -59,8 +57,7 @@
       "T008" : 1,
       "T009" : 9,
       "T010" : 4,
-      "T012" : 3,
-      "T023" : 3
+      "T012" : 3
     },
     "perTestOutcome" : {
       "R000" : 32
@@ -84,37 +81,33 @@
       }
     },
     "org.finos.legend.depot.domain.CoordinateValidator" : {
-      "methodsCount" : 4,
+      "methodsCount" : 3,
       "completeTestCount" : 7,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 2,
-        "T008" : 1,
-        "T023" : 1
+        "T008" : 1
       },
       "perMethodOutcome" : {
         "R000" : 2,
-        "T008" : 1,
-        "T023" : 1
+        "T008" : 1
       },
       "perTestOutcome" : {
         "R000" : 7
       }
     },
     "org.finos.legend.depot.domain.DatesHandler" : {
-      "methodsCount" : 7,
+      "methodsCount" : 6,
       "completeTestCount" : 4,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 5,
-        "T005" : 1,
-        "T023" : 1
+        "T005" : 1
       },
       "perMethodOutcome" : {
         "R000" : 4,
         "R031" : 1,
-        "T005" : 1,
-        "T023" : 1
+        "T005" : 1
       },
       "perTestOutcome" : {
         "R000" : 4
@@ -134,20 +127,18 @@
       }
     },
     "org.finos.legend.depot.domain.version.VersionAlias" : {
-      "methodsCount" : 6,
+      "methodsCount" : 5,
       "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T001" : 2,
         "T003" : 1,
-        "T012" : 2,
-        "T023" : 1
+        "T012" : 2
       },
       "perMethodOutcome" : {
         "R000" : 2,
         "T003" : 1,
-        "T012" : 2,
-        "T023" : 1
+        "T012" : 2
       },
       "perTestOutcome" : {
         "R000" : 1
@@ -241,12 +232,6 @@
         59
       ]
     },
-    "org.finos.legend.depot.domain.CoordinateValidator.<clinit>:()V" : {
-      "completeTestCount" : 0,
-      "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
-    },
     "org.finos.legend.depot.domain.CoordinateValidator.<init>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
@@ -280,12 +265,6 @@
       "lineNumbers" : [
         37
       ]
-    },
-    "org.finos.legend.depot.domain.DatesHandler.<clinit>:()V" : {
-      "completeTestCount" : 0,
-      "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
     },
     "org.finos.legend.depot.domain.DatesHandler.<init>:()V" : {
       "completeTestCount" : 0,
@@ -412,12 +391,6 @@
         50,
         51
       ]
-    },
-    "org.finos.legend.depot.domain.version.VersionAlias.<clinit>:()V" : {
-      "completeTestCount" : 0,
-      "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
     },
     "org.finos.legend.depot.domain.version.VersionAlias.<init>:(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V" : {
       "completeTestCount" : 0,
@@ -556,5 +529,163 @@
       ]
     }
   },
-  "validationMetrics" : { }
+  "validationMetrics" : { },
+  "outputCodes" : [
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.NonAbstractMethodInAbstractClassMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.CoordinateData",
+            "descriptor" : "(Ljava/lang/Object;)Z",
+            "methodName" : "equals"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.NonAbstractMethodInAbstractClassMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.CoordinateData",
+            "descriptor" : "()Ljava/lang/String;",
+            "methodName" : "getArtifactId"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.NonAbstractMethodInAbstractClassMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.CoordinateData",
+            "descriptor" : "()Ljava/lang/String;",
+            "methodName" : "getGroupId"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.NonAbstractMethodInAbstractClassMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.CoordinateData",
+            "descriptor" : "()I",
+            "methodName" : "hashCode"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.NonAbstractMethodInAbstractClassMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.CoordinateData",
+            "descriptor" : "(Ljava/lang/String;)V",
+            "methodName" : "setArtifactId"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.TrivialConstructorMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.DatesHandler",
+            "descriptor" : "()V",
+            "methodName" : "<init>"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.TimeSensitiveAssertionMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.DatesHandler",
+            "descriptor" : "(Ljava/time/LocalDateTime;)Ljava/util/Date;",
+            "methodName" : "toDate"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.NonAbstractMethodInAbstractClassMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.VersionedData",
+            "descriptor" : "(Ljava/lang/Object;)Z",
+            "methodName" : "equals"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.NonAbstractMethodInAbstractClassMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.VersionedData",
+            "descriptor" : "()Ljava/lang/String;",
+            "methodName" : "getVersionId"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.NonAbstractMethodInAbstractClassMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.VersionedData",
+            "descriptor" : "()I",
+            "methodName" : "hashCode"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.NonAbstractMethodInAbstractClassMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.VersionedData",
+            "descriptor" : "(Ljava/lang/String;)V",
+            "methodName" : "setVersionId"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.SyntheticMethodMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.version.VersionAlias",
+            "descriptor" : "(Ljava/lang/String;)Lorg/finos/legend/depot/domain/version/VersionAlias;",
+            "methodName" : "valueOf"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.SyntheticMethodMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.version.VersionAlias",
+            "descriptor" : "()[Lorg/finos/legend/depot/domain/version/VersionAlias;",
+            "methodName" : "values"
+          }
+        ]
+      }
+    }
+  ]
 }

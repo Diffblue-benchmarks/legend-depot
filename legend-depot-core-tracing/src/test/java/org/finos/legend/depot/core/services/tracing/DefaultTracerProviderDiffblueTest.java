@@ -15,36 +15,6 @@ class DefaultTracerProviderDiffblueTest {
    * Test {@link DefaultTracerProvider#create(OpenTracingConfiguration)}.
    *
    * <ul>
-   *   <li>Given {@code Configuration}.
-   * </ul>
-   *
-   * <p>Method under test: {@link DefaultTracerProvider#create(OpenTracingConfiguration)}
-   */
-  @Test
-  @DisplayName("Test create(OpenTracingConfiguration); given 'Configuration'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "io.opentracing.Tracer DefaultTracerProvider.create(OpenTracingConfiguration)"
-  })
-  void testCreate_givenConfiguration() {
-    // Arrange
-    DefaultTracerProvider defaultTracerProvider = new DefaultTracerProvider();
-
-    OpenTracingConfiguration configuration = new OpenTracingConfiguration();
-    configuration.setEnabled(true);
-    configuration.setTracerProvider(mock(TracerProvider.class));
-    configuration.setOpenTracingUri("Configuration");
-    configuration.setServiceName(null);
-
-    // Act and Assert
-    assertThrows(IllegalArgumentException.class, () -> defaultTracerProvider.create(configuration));
-  }
-
-  /**
-   * Test {@link DefaultTracerProvider#create(OpenTracingConfiguration)}.
-   *
-   * <ul>
    *   <li>Given {@code null}.
    *   <li>When {@link OpenTracingConfiguration} (default constructor) OpenTracingUri is {@code
    *       null}.
@@ -68,7 +38,39 @@ class DefaultTracerProviderDiffblueTest {
     configuration.setEnabled(true);
     configuration.setTracerProvider(mock(TracerProvider.class));
     configuration.setOpenTracingUri(null);
+    configuration.setServiceName("");
+
+    // Act and Assert
+    assertThrows(IllegalArgumentException.class, () -> defaultTracerProvider.create(configuration));
+  }
+
+  /**
+   * Test {@link DefaultTracerProvider#create(OpenTracingConfiguration)}.
+   *
+   * <ul>
+   *   <li>Given {@code null}.
+   *   <li>When {@link OpenTracingConfiguration} (default constructor) ServiceName is {@code null}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DefaultTracerProvider#create(OpenTracingConfiguration)}
+   */
+  @Test
+  @DisplayName(
+      "Test create(OpenTracingConfiguration); given 'null'; when OpenTracingConfiguration (default constructor) ServiceName is 'null'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "io.opentracing.Tracer DefaultTracerProvider.create(OpenTracingConfiguration)"
+  })
+  void testCreate_givenNull_whenOpenTracingConfigurationServiceNameIsNull() {
+    // Arrange
+    DefaultTracerProvider defaultTracerProvider = new DefaultTracerProvider();
+
+    OpenTracingConfiguration configuration = new OpenTracingConfiguration();
+    configuration.setEnabled(true);
+    configuration.setOpenTracingUri("Open Tracing Uri");
     configuration.setServiceName(null);
+    configuration.setTracerProvider(mock(TracerProvider.class));
 
     // Act and Assert
     assertThrows(IllegalArgumentException.class, () -> defaultTracerProvider.create(configuration));
@@ -91,6 +93,39 @@ class DefaultTracerProviderDiffblueTest {
     "io.opentracing.Tracer DefaultTracerProvider.create(OpenTracingConfiguration)"
   })
   void testCreate_givenOpenTracingUri() {
+    // Arrange
+    DefaultTracerProvider defaultTracerProvider = new DefaultTracerProvider();
+
+    OpenTracingConfiguration configuration = new OpenTracingConfiguration();
+    configuration.setEnabled(true);
+    configuration.setOpenTracingUri("Open Tracing Uri");
+    configuration.setServiceName("");
+    configuration.setTracerProvider(mock(TracerProvider.class));
+
+    // Act and Assert
+    assertThrows(IllegalArgumentException.class, () -> defaultTracerProvider.create(configuration));
+  }
+
+  /**
+   * Test {@link DefaultTracerProvider#create(OpenTracingConfiguration)}.
+   *
+   * <ul>
+   *   <li>Given {@code Service Name}.
+   *   <li>When {@link OpenTracingConfiguration} (default constructor) ServiceName is {@code Service
+   *       Name}.
+   * </ul>
+   *
+   * <p>Method under test: {@link DefaultTracerProvider#create(OpenTracingConfiguration)}
+   */
+  @Test
+  @DisplayName(
+      "Test create(OpenTracingConfiguration); given 'Service Name'; when OpenTracingConfiguration (default constructor) ServiceName is 'Service Name'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "io.opentracing.Tracer DefaultTracerProvider.create(OpenTracingConfiguration)"
+  })
+  void testCreate_givenServiceName_whenOpenTracingConfigurationServiceNameIsServiceName() {
     // Arrange
     DefaultTracerProvider defaultTracerProvider = new DefaultTracerProvider();
 
@@ -130,37 +165,6 @@ class DefaultTracerProviderDiffblueTest {
     configuration.setEnabled(true);
     configuration.setTracerProvider(mock(TracerProvider.class));
     configuration.setOpenTracingUri("");
-    configuration.setServiceName(null);
-
-    // Act and Assert
-    assertThrows(IllegalArgumentException.class, () -> defaultTracerProvider.create(configuration));
-  }
-
-  /**
-   * Test {@link DefaultTracerProvider#create(OpenTracingConfiguration)}.
-   *
-   * <ul>
-   *   <li>When {@link OpenTracingConfiguration} (default constructor) ServiceName is empty string.
-   * </ul>
-   *
-   * <p>Method under test: {@link DefaultTracerProvider#create(OpenTracingConfiguration)}
-   */
-  @Test
-  @DisplayName(
-      "Test create(OpenTracingConfiguration); when OpenTracingConfiguration (default constructor) ServiceName is empty string")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "io.opentracing.Tracer DefaultTracerProvider.create(OpenTracingConfiguration)"
-  })
-  void testCreate_whenOpenTracingConfigurationServiceNameIsEmptyString() {
-    // Arrange
-    DefaultTracerProvider defaultTracerProvider = new DefaultTracerProvider();
-
-    OpenTracingConfiguration configuration = new OpenTracingConfiguration();
-    configuration.setEnabled(true);
-    configuration.setTracerProvider(mock(TracerProvider.class));
-    configuration.setOpenTracingUri("Configuration");
     configuration.setServiceName("");
 
     // Act and Assert

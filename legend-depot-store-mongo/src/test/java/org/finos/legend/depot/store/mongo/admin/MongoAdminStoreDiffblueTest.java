@@ -51,7 +51,7 @@ class MongoAdminStoreDiffblueTest {
     // Arrange
     CodecRegistry codecRegistry = mock(CodecRegistry.class);
     ReadPreference readPreference = mock(ReadPreference.class);
-    WriteConcern writeConcern = new WriteConcern(1);
+    WriteConcern writeConcern = new WriteConcern();
     ReadConcern readConcern = new ReadConcern(ReadConcernLevel.LOCAL);
 
     MongoDatabaseImpl mongoDatabase =
@@ -105,7 +105,7 @@ class MongoAdminStoreDiffblueTest {
         .thenReturn(null);
     CodecRegistry codecRegistry = mock(CodecRegistry.class);
     ReadPreference readPreference = mock(ReadPreference.class);
-    WriteConcern writeConcern = new WriteConcern(1);
+    WriteConcern writeConcern = new WriteConcern();
 
     MongoDatabaseImpl mongoDatabase =
         new MongoDatabaseImpl(
@@ -219,7 +219,7 @@ class MongoAdminStoreDiffblueTest {
         .thenReturn(null);
     CodecRegistry codecRegistry = mock(CodecRegistry.class);
     ReadPreference readPreference = mock(ReadPreference.class);
-    WriteConcern writeConcern = new WriteConcern(1);
+    WriteConcern writeConcern = new WriteConcern();
 
     MongoDatabaseImpl mongoDatabase =
         new MongoDatabaseImpl(
@@ -254,7 +254,7 @@ class MongoAdminStoreDiffblueTest {
     // Arrange
     CodecRegistry codecRegistry = mock(CodecRegistry.class);
     ReadPreference readPreference = mock(ReadPreference.class);
-    WriteConcern writeConcern = new WriteConcern(1);
+    WriteConcern writeConcern = new WriteConcern();
 
     MongoDatabaseImpl mongoDatabase =
         new MongoDatabaseImpl(
@@ -347,22 +347,23 @@ class MongoAdminStoreDiffblueTest {
    * Test {@link MongoAdminStore#getName()}.
    *
    * <ul>
-   *   <li>Given {@link WriteConcern#WriteConcern(int)} with w is one.
+   *   <li>Given {@link ReadConcern#ReadConcern(ReadConcernLevel)} with level is {@code LOCAL}.
    *   <li>Then return {@code Name}.
    * </ul>
    *
    * <p>Method under test: {@link MongoAdminStore#getName()}
    */
   @Test
-  @DisplayName("Test getName(); given WriteConcern(int) with w is one; then return 'Name'")
+  @DisplayName(
+      "Test getName(); given ReadConcern(ReadConcernLevel) with level is 'LOCAL'; then return 'Name'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"String MongoAdminStore.getName()"})
-  void testGetName_givenWriteConcernWithWIsOne_thenReturnName() {
+  void testGetName_givenReadConcernWithLevelIsLocal_thenReturnName() {
     // Arrange
     CodecRegistry codecRegistry = mock(CodecRegistry.class);
     ReadPreference readPreference = mock(ReadPreference.class);
-    WriteConcern writeConcern = new WriteConcern(1);
+    WriteConcern writeConcern = new WriteConcern();
 
     MongoDatabaseImpl mongoDatabase =
         new MongoDatabaseImpl(

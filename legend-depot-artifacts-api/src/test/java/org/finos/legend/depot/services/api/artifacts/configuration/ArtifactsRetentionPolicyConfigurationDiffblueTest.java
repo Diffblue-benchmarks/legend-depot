@@ -13,6 +13,60 @@ class ArtifactsRetentionPolicyConfigurationDiffblueTest {
    * ArtifactsRetentionPolicyConfiguration#ArtifactsRetentionPolicyConfiguration(Integer, Integer,
    * Integer)}.
    *
+   * <p>Method under test: {@link
+   * ArtifactsRetentionPolicyConfiguration#ArtifactsRetentionPolicyConfiguration(Integer, Integer,
+   * Integer)}
+   */
+  @Test
+  @DisplayName("Test new ArtifactsRetentionPolicyConfiguration(Integer, Integer, Integer)")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "void ArtifactsRetentionPolicyConfiguration.<init>(Integer, Integer, Integer)"
+  })
+  void testNewArtifactsRetentionPolicyConfiguration() {
+    // Arrange and Act
+    ArtifactsRetentionPolicyConfiguration actualArtifactsRetentionPolicyConfiguration =
+        new ArtifactsRetentionPolicyConfiguration(3, null, 1);
+
+    // Assert
+    assertEquals(1, actualArtifactsRetentionPolicyConfiguration.getTtlForSnapshots());
+    assertEquals(3, actualArtifactsRetentionPolicyConfiguration.getMaximumSnapshotsAllowed());
+    assertEquals(365, actualArtifactsRetentionPolicyConfiguration.getTtlForVersions());
+  }
+
+  /**
+   * Test {@link
+   * ArtifactsRetentionPolicyConfiguration#ArtifactsRetentionPolicyConfiguration(Integer, Integer,
+   * Integer)}.
+   *
+   * <p>Method under test: {@link
+   * ArtifactsRetentionPolicyConfiguration#ArtifactsRetentionPolicyConfiguration(Integer, Integer,
+   * Integer)}
+   */
+  @Test
+  @DisplayName("Test new ArtifactsRetentionPolicyConfiguration(Integer, Integer, Integer)")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "void ArtifactsRetentionPolicyConfiguration.<init>(Integer, Integer, Integer)"
+  })
+  void testNewArtifactsRetentionPolicyConfiguration2() {
+    // Arrange and Act
+    ArtifactsRetentionPolicyConfiguration actualArtifactsRetentionPolicyConfiguration =
+        new ArtifactsRetentionPolicyConfiguration(null, 1, 1);
+
+    // Assert
+    assertEquals(1, actualArtifactsRetentionPolicyConfiguration.getTtlForSnapshots());
+    assertEquals(1, actualArtifactsRetentionPolicyConfiguration.getTtlForVersions());
+    assertEquals(5, actualArtifactsRetentionPolicyConfiguration.getMaximumSnapshotsAllowed());
+  }
+
+  /**
+   * Test {@link
+   * ArtifactsRetentionPolicyConfiguration#ArtifactsRetentionPolicyConfiguration(Integer, Integer,
+   * Integer)}.
+   *
    * <ul>
    *   <li>Then return TtlForSnapshots is one.
    * </ul>
@@ -64,12 +118,12 @@ class ArtifactsRetentionPolicyConfigurationDiffblueTest {
   void testNewArtifactsRetentionPolicyConfiguration_thenReturnTtlForSnapshotsIsThirty() {
     // Arrange and Act
     ArtifactsRetentionPolicyConfiguration actualArtifactsRetentionPolicyConfiguration =
-        new ArtifactsRetentionPolicyConfiguration(null, null, null);
+        new ArtifactsRetentionPolicyConfiguration(3, 1, null);
 
     // Assert
+    assertEquals(1, actualArtifactsRetentionPolicyConfiguration.getTtlForVersions());
+    assertEquals(3, actualArtifactsRetentionPolicyConfiguration.getMaximumSnapshotsAllowed());
     assertEquals(30, actualArtifactsRetentionPolicyConfiguration.getTtlForSnapshots());
-    assertEquals(365, actualArtifactsRetentionPolicyConfiguration.getTtlForVersions());
-    assertEquals(5, actualArtifactsRetentionPolicyConfiguration.getMaximumSnapshotsAllowed());
   }
 
   /**

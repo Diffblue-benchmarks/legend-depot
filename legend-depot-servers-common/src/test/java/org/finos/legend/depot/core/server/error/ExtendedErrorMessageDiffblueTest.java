@@ -8,6 +8,7 @@ import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
+import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -86,28 +87,30 @@ class ExtendedErrorMessageDiffblueTest {
    * Test {@link ExtendedErrorMessage#fromThrowable(Throwable, boolean)} with {@code t}, {@code
    * includeStackTrace}.
    *
-   * <ul>
-   *   <li>Given {@code null}.
-   * </ul>
-   *
    * <p>Method under test: {@link ExtendedErrorMessage#fromThrowable(Throwable, boolean)}
    */
   @Test
-  @DisplayName("Test fromThrowable(Throwable, boolean) with 't', 'includeStackTrace'; given 'null'")
+  @DisplayName("Test fromThrowable(Throwable, boolean) with 't', 'includeStackTrace'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"ExtendedErrorMessage ExtendedErrorMessage.fromThrowable(Throwable, boolean)"})
-  void testFromThrowableWithTIncludeStackTrace_givenNull() {
+  void testFromThrowableWithTIncludeStackTrace() {
     // Arrange
-    Throwable t = new Throwable((String) null);
-    t.initCause(null);
+    RuntimeException runtimeException = new RuntimeException("An error occurred");
+    runtimeException.initCause(new Throwable());
+
+    RuntimeException runtimeException2 = new RuntimeException("An error occurred");
+    runtimeException2.initCause(runtimeException);
+
+    RuntimeException t = new RuntimeException("An error occurred");
+    t.initCause(runtimeException2);
 
     // Act
     ExtendedErrorMessage actualFromThrowableResult = ExtendedErrorMessage.fromThrowable(t, false);
 
     // Assert
+    assertEquals("An error occurred", actualFromThrowableResult.getMessage());
     assertNull(actualFromThrowableResult.getDetails());
-    assertNull(actualFromThrowableResult.getMessage());
     assertNull(actualFromThrowableResult.getStackTrace());
     assertEquals(500, actualFromThrowableResult.getCode().intValue());
   }
@@ -116,65 +119,29 @@ class ExtendedErrorMessageDiffblueTest {
    * Test {@link ExtendedErrorMessage#fromThrowable(Throwable, boolean)} with {@code t}, {@code
    * includeStackTrace}.
    *
-   * <ul>
-   *   <li>Given {@link Throwable#Throwable()}.
-   * </ul>
-   *
    * <p>Method under test: {@link ExtendedErrorMessage#fromThrowable(Throwable, boolean)}
    */
   @Test
-  @DisplayName(
-      "Test fromThrowable(Throwable, boolean) with 't', 'includeStackTrace'; given Throwable()")
+  @DisplayName("Test fromThrowable(Throwable, boolean) with 't', 'includeStackTrace'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"ExtendedErrorMessage ExtendedErrorMessage.fromThrowable(Throwable, boolean)"})
-  void testFromThrowableWithTIncludeStackTrace_givenThrowable() {
+  void testFromThrowableWithTIncludeStackTrace2() {
     // Arrange
-    Throwable t = new Throwable((String) null);
-    t.initCause(new Throwable());
+    RuntimeException runtimeException = new RuntimeException("An error occurred");
+    runtimeException.initCause(new Throwable());
+
+    RuntimeException runtimeException2 = new RuntimeException("An error occurred");
+    runtimeException2.initCause(runtimeException);
+
+    RuntimeException t = new RuntimeException((String) null);
+    t.initCause(runtimeException2);
 
     // Act
     ExtendedErrorMessage actualFromThrowableResult = ExtendedErrorMessage.fromThrowable(t, false);
 
     // Assert
-    assertNull(actualFromThrowableResult.getDetails());
-    assertNull(actualFromThrowableResult.getMessage());
-    assertNull(actualFromThrowableResult.getStackTrace());
-    assertEquals(500, actualFromThrowableResult.getCode().intValue());
-  }
-
-  /**
-   * Test {@link ExtendedErrorMessage#fromThrowable(Throwable, boolean)} with {@code t}, {@code
-   * includeStackTrace}.
-   *
-   * <ul>
-   *   <li>Then return Message is {@code foo}.
-   * </ul>
-   *
-   * <p>Method under test: {@link ExtendedErrorMessage#fromThrowable(Throwable, boolean)}
-   */
-  @Test
-  @DisplayName(
-      "Test fromThrowable(Throwable, boolean) with 't', 'includeStackTrace'; then return Message is 'foo'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"ExtendedErrorMessage ExtendedErrorMessage.fromThrowable(Throwable, boolean)"})
-  void testFromThrowableWithTIncludeStackTrace_thenReturnMessageIsFoo() {
-    // Arrange
-    Throwable throwable = new Throwable("foo");
-    throwable.initCause(null);
-
-    Throwable throwable2 = new Throwable((String) null);
-    throwable2.initCause(throwable);
-
-    Throwable t = new Throwable((String) null);
-    t.initCause(throwable2);
-
-    // Act
-    ExtendedErrorMessage actualFromThrowableResult = ExtendedErrorMessage.fromThrowable(t, false);
-
-    // Assert
-    assertEquals("foo", actualFromThrowableResult.getMessage());
+    assertEquals("An error occurred", actualFromThrowableResult.getMessage());
     assertNull(actualFromThrowableResult.getDetails());
     assertNull(actualFromThrowableResult.getStackTrace());
     assertEquals(500, actualFromThrowableResult.getCode().intValue());
@@ -197,22 +164,22 @@ class ExtendedErrorMessageDiffblueTest {
   })
   void testFromThrowableWithTStatusCodeMessageDetailsIncludeStrackTrace() {
     // Arrange
-    Throwable throwable = new Throwable("foo");
-    throwable.initCause(null);
+    RuntimeException runtimeException = new RuntimeException("An error occurred");
+    runtimeException.initCause(new Throwable());
 
-    Throwable throwable2 = new Throwable((String) null);
-    throwable2.initCause(throwable);
+    RuntimeException runtimeException2 = new RuntimeException("An error occurred");
+    runtimeException2.initCause(runtimeException);
 
-    Throwable t = new Throwable((String) null);
-    t.initCause(throwable2);
+    RuntimeException t = new RuntimeException("An error occurred");
+    t.initCause(runtimeException2);
 
     // Act
     ExtendedErrorMessage actualFromThrowableResult =
-        ExtendedErrorMessage.fromThrowable(t, 1, null, "Details", false);
+        ExtendedErrorMessage.fromThrowable(t, 1, "Not all who wander are lost", "Details", false);
 
     // Assert
     assertEquals("Details", actualFromThrowableResult.getDetails());
-    assertEquals("foo", actualFromThrowableResult.getMessage());
+    assertEquals("Not all who wander are lost", actualFromThrowableResult.getMessage());
     assertNull(actualFromThrowableResult.getStackTrace());
     assertEquals(1, actualFromThrowableResult.getCode().intValue());
   }
@@ -221,33 +188,35 @@ class ExtendedErrorMessageDiffblueTest {
    * Test {@link ExtendedErrorMessage#fromThrowable(Throwable, int, String, String, boolean)} with
    * {@code t}, {@code statusCode}, {@code message}, {@code details}, {@code includeStrackTrace}.
    *
-   * <ul>
-   *   <li>Given {@code null}.
-   * </ul>
-   *
    * <p>Method under test: {@link ExtendedErrorMessage#fromThrowable(Throwable, int, String, String,
    * boolean)}
    */
   @Test
   @DisplayName(
-      "Test fromThrowable(Throwable, int, String, String, boolean) with 't', 'statusCode', 'message', 'details', 'includeStrackTrace'; given 'null'")
+      "Test fromThrowable(Throwable, int, String, String, boolean) with 't', 'statusCode', 'message', 'details', 'includeStrackTrace'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "ExtendedErrorMessage ExtendedErrorMessage.fromThrowable(Throwable, int, String, String, boolean)"
   })
-  void testFromThrowableWithTStatusCodeMessageDetailsIncludeStrackTrace_givenNull() {
+  void testFromThrowableWithTStatusCodeMessageDetailsIncludeStrackTrace2() {
     // Arrange
-    Throwable t = new Throwable((String) null);
-    t.initCause(null);
+    RuntimeException runtimeException = new RuntimeException("An error occurred");
+    runtimeException.initCause(new Throwable());
+
+    RuntimeException runtimeException2 = new RuntimeException("An error occurred");
+    runtimeException2.initCause(runtimeException);
+
+    RuntimeException t = new RuntimeException("An error occurred");
+    t.initCause(runtimeException2);
 
     // Act
     ExtendedErrorMessage actualFromThrowableResult =
         ExtendedErrorMessage.fromThrowable(t, 1, null, "Details", false);
 
     // Assert
+    assertEquals("An error occurred", actualFromThrowableResult.getMessage());
     assertEquals("Details", actualFromThrowableResult.getDetails());
-    assertNull(actualFromThrowableResult.getMessage());
     assertNull(actualFromThrowableResult.getStackTrace());
     assertEquals(1, actualFromThrowableResult.getCode().intValue());
   }
@@ -256,25 +225,64 @@ class ExtendedErrorMessageDiffblueTest {
    * Test {@link ExtendedErrorMessage#fromThrowable(Throwable, int, String, String, boolean)} with
    * {@code t}, {@code statusCode}, {@code message}, {@code details}, {@code includeStrackTrace}.
    *
-   * <ul>
-   *   <li>Given {@link Throwable#Throwable()}.
-   * </ul>
+   * <p>Method under test: {@link ExtendedErrorMessage#fromThrowable(Throwable, int, String, String,
+   * boolean)}
+   */
+  @Test
+  @DisplayName(
+      "Test fromThrowable(Throwable, int, String, String, boolean) with 't', 'statusCode', 'message', 'details', 'includeStrackTrace'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "ExtendedErrorMessage ExtendedErrorMessage.fromThrowable(Throwable, int, String, String, boolean)"
+  })
+  void testFromThrowableWithTStatusCodeMessageDetailsIncludeStrackTrace3() {
+    // Arrange
+    RuntimeException runtimeException = new RuntimeException("An error occurred");
+    runtimeException.initCause(new Throwable());
+
+    RuntimeException runtimeException2 = new RuntimeException("An error occurred");
+    runtimeException2.initCause(runtimeException);
+
+    RuntimeException t = new RuntimeException((String) null);
+    t.initCause(runtimeException2);
+
+    // Act
+    ExtendedErrorMessage actualFromThrowableResult =
+        ExtendedErrorMessage.fromThrowable(t, 1, null, "Details", false);
+
+    // Assert
+    assertEquals("An error occurred", actualFromThrowableResult.getMessage());
+    assertEquals("Details", actualFromThrowableResult.getDetails());
+    assertNull(actualFromThrowableResult.getStackTrace());
+    assertEquals(1, actualFromThrowableResult.getCode().intValue());
+  }
+
+  /**
+   * Test {@link ExtendedErrorMessage#fromThrowable(Throwable, int, String, String, boolean)} with
+   * {@code t}, {@code statusCode}, {@code message}, {@code details}, {@code includeStrackTrace}.
    *
    * <p>Method under test: {@link ExtendedErrorMessage#fromThrowable(Throwable, int, String, String,
    * boolean)}
    */
   @Test
   @DisplayName(
-      "Test fromThrowable(Throwable, int, String, String, boolean) with 't', 'statusCode', 'message', 'details', 'includeStrackTrace'; given Throwable()")
+      "Test fromThrowable(Throwable, int, String, String, boolean) with 't', 'statusCode', 'message', 'details', 'includeStrackTrace'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "ExtendedErrorMessage ExtendedErrorMessage.fromThrowable(Throwable, int, String, String, boolean)"
   })
-  void testFromThrowableWithTStatusCodeMessageDetailsIncludeStrackTrace_givenThrowable() {
+  void testFromThrowableWithTStatusCodeMessageDetailsIncludeStrackTrace4() {
     // Arrange
-    Throwable t = new Throwable((String) null);
-    t.initCause(new Throwable());
+    RuntimeException runtimeException = new RuntimeException((String) null);
+    runtimeException.initCause(new Throwable());
+
+    RuntimeException runtimeException2 = new RuntimeException((String) null);
+    runtimeException2.initCause(runtimeException);
+
+    RuntimeException t = new RuntimeException((String) null);
+    t.initCause(runtimeException2);
 
     // Act
     ExtendedErrorMessage actualFromThrowableResult =
@@ -304,92 +312,98 @@ class ExtendedErrorMessageDiffblueTest {
   })
   void testFromThrowableWithTStatusMessageDetailsIncludeStrackTrace() {
     // Arrange
-    Throwable throwable = new Throwable("foo");
-    throwable.initCause(null);
+    RuntimeException runtimeException = new RuntimeException("An error occurred");
+    runtimeException.initCause(new Throwable());
 
-    Throwable throwable2 = new Throwable((String) null);
-    throwable2.initCause(throwable);
+    RuntimeException runtimeException2 = new RuntimeException("An error occurred");
+    runtimeException2.initCause(runtimeException);
 
-    Throwable t = new Throwable((String) null);
-    t.initCause(throwable2);
+    RuntimeException t = new RuntimeException("An error occurred");
+    t.initCause(runtimeException2);
 
     // Act
     ExtendedErrorMessage actualFromThrowableResult =
-        ExtendedErrorMessage.fromThrowable(t, null, null, "Details", false);
+        ExtendedErrorMessage.fromThrowable(
+            t, Status.OK, "Not all who wander are lost", "Details", false);
 
     // Assert
     assertEquals("Details", actualFromThrowableResult.getDetails());
-    assertEquals("foo", actualFromThrowableResult.getMessage());
+    assertEquals("Not all who wander are lost", actualFromThrowableResult.getMessage());
     assertNull(actualFromThrowableResult.getStackTrace());
-    assertEquals(500, actualFromThrowableResult.getCode().intValue());
+    assertEquals(200, actualFromThrowableResult.getCode().intValue());
   }
 
   /**
    * Test {@link ExtendedErrorMessage#fromThrowable(Throwable, Status, String, String, boolean)}
    * with {@code t}, {@code status}, {@code message}, {@code details}, {@code includeStrackTrace}.
    *
-   * <ul>
-   *   <li>Given {@code null}.
-   * </ul>
-   *
    * <p>Method under test: {@link ExtendedErrorMessage#fromThrowable(Throwable, Status, String,
    * String, boolean)}
    */
   @Test
   @DisplayName(
-      "Test fromThrowable(Throwable, Status, String, String, boolean) with 't', 'status', 'message', 'details', 'includeStrackTrace'; given 'null'")
+      "Test fromThrowable(Throwable, Status, String, String, boolean) with 't', 'status', 'message', 'details', 'includeStrackTrace'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "ExtendedErrorMessage ExtendedErrorMessage.fromThrowable(Throwable, Status, String, String, boolean)"
   })
-  void testFromThrowableWithTStatusMessageDetailsIncludeStrackTrace_givenNull() {
+  void testFromThrowableWithTStatusMessageDetailsIncludeStrackTrace2() {
     // Arrange
-    Throwable t = new Throwable((String) null);
-    t.initCause(null);
+    RuntimeException runtimeException = new RuntimeException("An error occurred");
+    runtimeException.initCause(new Throwable());
+
+    RuntimeException runtimeException2 = new RuntimeException("An error occurred");
+    runtimeException2.initCause(runtimeException);
+
+    RuntimeException t = new RuntimeException("An error occurred");
+    t.initCause(runtimeException2);
 
     // Act
     ExtendedErrorMessage actualFromThrowableResult =
-        ExtendedErrorMessage.fromThrowable(t, null, null, "Details", false);
+        ExtendedErrorMessage.fromThrowable(t, Status.OK, null, "Details", false);
 
     // Assert
+    assertEquals("An error occurred", actualFromThrowableResult.getMessage());
     assertEquals("Details", actualFromThrowableResult.getDetails());
-    assertNull(actualFromThrowableResult.getMessage());
     assertNull(actualFromThrowableResult.getStackTrace());
-    assertEquals(500, actualFromThrowableResult.getCode().intValue());
+    assertEquals(200, actualFromThrowableResult.getCode().intValue());
   }
 
   /**
    * Test {@link ExtendedErrorMessage#fromThrowable(Throwable, Status, String, String, boolean)}
    * with {@code t}, {@code status}, {@code message}, {@code details}, {@code includeStrackTrace}.
    *
-   * <ul>
-   *   <li>Given {@link Throwable#Throwable()}.
-   * </ul>
-   *
    * <p>Method under test: {@link ExtendedErrorMessage#fromThrowable(Throwable, Status, String,
    * String, boolean)}
    */
   @Test
   @DisplayName(
-      "Test fromThrowable(Throwable, Status, String, String, boolean) with 't', 'status', 'message', 'details', 'includeStrackTrace'; given Throwable()")
+      "Test fromThrowable(Throwable, Status, String, String, boolean) with 't', 'status', 'message', 'details', 'includeStrackTrace'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "ExtendedErrorMessage ExtendedErrorMessage.fromThrowable(Throwable, Status, String, String, boolean)"
   })
-  void testFromThrowableWithTStatusMessageDetailsIncludeStrackTrace_givenThrowable() {
+  void testFromThrowableWithTStatusMessageDetailsIncludeStrackTrace3() {
     // Arrange
-    Throwable t = new Throwable((String) null);
-    t.initCause(new Throwable());
+    RuntimeException runtimeException = new RuntimeException("An error occurred");
+    runtimeException.initCause(new Throwable());
+
+    RuntimeException runtimeException2 = new RuntimeException("An error occurred");
+    runtimeException2.initCause(runtimeException);
+
+    RuntimeException t = new RuntimeException("An error occurred");
+    t.initCause(runtimeException2);
 
     // Act
     ExtendedErrorMessage actualFromThrowableResult =
-        ExtendedErrorMessage.fromThrowable(t, null, null, "Details", false);
+        ExtendedErrorMessage.fromThrowable(
+            t, null, "Not all who wander are lost", "Details", false);
 
     // Assert
     assertEquals("Details", actualFromThrowableResult.getDetails());
-    assertNull(actualFromThrowableResult.getMessage());
+    assertEquals("Not all who wander are lost", actualFromThrowableResult.getMessage());
     assertNull(actualFromThrowableResult.getStackTrace());
     assertEquals(500, actualFromThrowableResult.getCode().intValue());
   }
@@ -398,33 +412,70 @@ class ExtendedErrorMessageDiffblueTest {
    * Test {@link ExtendedErrorMessage#fromLegendDepotServerException(LegendDepotServerException,
    * boolean)}.
    *
-   * <ul>
-   *   <li>Given {@code null}.
-   * </ul>
-   *
    * <p>Method under test: {@link
    * ExtendedErrorMessage#fromLegendDepotServerException(LegendDepotServerException, boolean)}
    */
   @Test
-  @DisplayName(
-      "Test fromLegendDepotServerException(LegendDepotServerException, boolean); given 'null'")
+  @DisplayName("Test fromLegendDepotServerException(LegendDepotServerException, boolean)")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "ExtendedErrorMessage ExtendedErrorMessage.fromLegendDepotServerException(LegendDepotServerException, boolean)"
   })
-  void testFromLegendDepotServerException_givenNull() {
+  void testFromLegendDepotServerException() {
     // Arrange
-    LegendDepotServerException e = new LegendDepotServerException(null);
-    e.initCause(null);
+    RuntimeException runtimeException = new RuntimeException("An error occurred");
+    runtimeException.initCause(new Throwable());
+
+    RuntimeException runtimeException2 = new RuntimeException("An error occurred");
+    runtimeException2.initCause(runtimeException);
+
+    LegendDepotServerException e = new LegendDepotServerException("An error occurred");
+    e.initCause(runtimeException2);
 
     // Act
     ExtendedErrorMessage actualFromLegendDepotServerExceptionResult =
         ExtendedErrorMessage.fromLegendDepotServerException(e, false);
 
     // Assert
+    assertEquals("An error occurred", actualFromLegendDepotServerExceptionResult.getMessage());
     assertNull(actualFromLegendDepotServerExceptionResult.getDetails());
-    assertNull(actualFromLegendDepotServerExceptionResult.getMessage());
+    assertNull(actualFromLegendDepotServerExceptionResult.getStackTrace());
+    assertEquals(500, actualFromLegendDepotServerExceptionResult.getCode().intValue());
+  }
+
+  /**
+   * Test {@link ExtendedErrorMessage#fromLegendDepotServerException(LegendDepotServerException,
+   * boolean)}.
+   *
+   * <p>Method under test: {@link
+   * ExtendedErrorMessage#fromLegendDepotServerException(LegendDepotServerException, boolean)}
+   */
+  @Test
+  @DisplayName("Test fromLegendDepotServerException(LegendDepotServerException, boolean)")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({
+    "ExtendedErrorMessage ExtendedErrorMessage.fromLegendDepotServerException(LegendDepotServerException, boolean)"
+  })
+  void testFromLegendDepotServerException2() {
+    // Arrange
+    RuntimeException runtimeException = new RuntimeException("An error occurred");
+    runtimeException.initCause(new Throwable());
+
+    RuntimeException runtimeException2 = new RuntimeException("An error occurred");
+    runtimeException2.initCause(runtimeException);
+
+    LegendDepotServerException e = new LegendDepotServerException(null);
+    e.initCause(runtimeException2);
+
+    // Act
+    ExtendedErrorMessage actualFromLegendDepotServerExceptionResult =
+        ExtendedErrorMessage.fromLegendDepotServerException(e, false);
+
+    // Assert
+    assertEquals("An error occurred", actualFromLegendDepotServerExceptionResult.getMessage());
+    assertNull(actualFromLegendDepotServerExceptionResult.getDetails());
     assertNull(actualFromLegendDepotServerExceptionResult.getStackTrace());
     assertEquals(500, actualFromLegendDepotServerExceptionResult.getCode().intValue());
   }
@@ -434,7 +485,7 @@ class ExtendedErrorMessageDiffblueTest {
    * boolean)}.
    *
    * <ul>
-   *   <li>Given {@link Throwable#Throwable()}.
+   *   <li>Then return Message is {@code null}.
    * </ul>
    *
    * <p>Method under test: {@link
@@ -442,16 +493,22 @@ class ExtendedErrorMessageDiffblueTest {
    */
   @Test
   @DisplayName(
-      "Test fromLegendDepotServerException(LegendDepotServerException, boolean); given Throwable()")
+      "Test fromLegendDepotServerException(LegendDepotServerException, boolean); then return Message is 'null'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "ExtendedErrorMessage ExtendedErrorMessage.fromLegendDepotServerException(LegendDepotServerException, boolean)"
   })
-  void testFromLegendDepotServerException_givenThrowable() {
+  void testFromLegendDepotServerException_thenReturnMessageIsNull() {
     // Arrange
+    RuntimeException runtimeException = new RuntimeException((String) null);
+    runtimeException.initCause(new Throwable());
+
+    RuntimeException runtimeException2 = new RuntimeException((String) null);
+    runtimeException2.initCause(runtimeException);
+
     LegendDepotServerException e = new LegendDepotServerException(null);
-    e.initCause(new Throwable());
+    e.initCause(runtimeException2);
 
     // Act
     ExtendedErrorMessage actualFromLegendDepotServerExceptionResult =
