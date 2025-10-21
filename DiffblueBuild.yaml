@@ -21,9 +21,8 @@
 # There are (currently) eight phases that Cover progresses through during the various executions. They are listed
 # below along with examples of commands where they're invoked:
 #
-# info      : dcover create             : gathering information about the structure of the project (child-modules, etc.);
-#                                         the classpath is not guaranteed to be correctly resolved at this stage.
-# classpath : dcover create             : computes the project structure and classpath of the project under test
+# info      : dcover create             : gathering information about the structure of the project (child-modules,
+#                                         classpaths, etc.)
 # launcher  : dcover create             : downloads the JUnit Jupiter Launcher if needed
 # clean     : dcover build --clean      : cleans the existing target/build files from the modules
 # build     : dcover build              : rebuilds the modules
@@ -72,24 +71,18 @@
 # DIFFBLUE_GRADLE_INIT_SCRIPT             : the location of the Gradle init script, e.g. .diffblue/init.gradle
 # DIFFBLUE_GRADLE_SPY_JAR                 : the location of the Gradle event listener classes
 # DIFFBLUE_TEST_CLASS                     : the name of a single class containing tests to execute, used during the env checks
-# DIFFBLUE_TEST_CLASS_REGEX               : the pattern matching class names containing created tests, e.g. **/*DiffblueTest**
-# DIFFBLUE_TEST_CLASS_GLOB_PATTERN        : the pattern matching file names containing created tests, e.g. **/*DiffblueTest**
-# DIFFBLUE_TEST_CLASS_REGEX_PATTERN       : the regex matching class names containing created tests, e.g. .*DiffblueTest.*
+# DIFFBLUE_TEST_CLASS_REGEX               : the regex matching class names containing created tests, e.g. **/*DiffblueTest*
 # DIFFBLUE_COVER_REFACTORING_INIT_SCRIPT  : the location of the Gradle init script to apply when configuring refactoring
 #
 # Maven Specific
 # **************
-# MODULE                             : the name of the module, e.g. application
-# DIFFBLUE_JACOCO_VERSION            : the version of the Jacoco Maven plugin to use
-# DIFFBLUE_MAVEN_USER_SETTINGS       : the location of the Maven user settings.xml configuration file
-# DIFFBLUE_MAVEN_GLOBAL_SETTINGS     : the location of the Maven global settings.xml configuration file
-# DIFFBLUE_MAVEN_SPY_JAR             : the location of the Maven event listener classes
-# DIFFBLUE_TEST_FILE                 : the name of a single file containing tests to execute, used during the env checks
-# DIFFBLUE_TEST_FILE_REGEX           : the pattern matching file names containing created tests, e.g. **/*DiffblueTest*.java
-# DIFFBLUE_TEST_FILE_GLOB_PATTERN    : the pattern matching file names containing created tests, e.g. **/*DiffblueTest*.java
-# DIFFBLUE_TEST_FILE_REGEX_PATTERN   : the regex matching class names containing created tests, e.g. .*DiffblueTest.*\.java
-# DIFFBLUE_TEST_CLASS_GLOB_PATTERN   : the pattern matching file names containing created tests, e.g. **/*DiffblueTest**
-# DIFFBLUE_TEST_CLASS_REGEX_PATTERN  : the regex matching class names containing created tests, e.g. .*DiffblueTest.*
+# MODULE                          : the name of the module, e.g. application
+# DIFFBLUE_JACOCO_VERSION         : the version of the Jacoco Maven plugin to use
+# DIFFBLUE_MAVEN_USER_SETTINGS    : the location of the Maven user settings.xml configuration file
+# DIFFBLUE_MAVEN_GLOBAL_SETTINGS  : the location of the Maven global settings.xml configuration file
+# DIFFBLUE_MAVEN_SPY_JAR          : the location of the Maven event listener classes
+# DIFFBLUE_TEST_FILE              : the name of a single file containing tests to execute, used during the env checks
+# DIFFBLUE_TEST_FILE_REGEX        : the regex matching file names containing created tests, e.g. **DiffblueTest*.java
 #
 # Note: Only the MODULE_PATH can be the empty string, all other variables that evaluate to the empty string will be
 # filtered out before being executed.
@@ -108,7 +101,7 @@
 # in the project.
 
 meta:
-  version: 3
+  version: 1
   # The tool name is used to key the configuration internally. We have two known tool names, either maven or gradle.
   # If one of these is used by a user-provided file, the intent is that the user-provided configuration will supersede
   # the configuration here.
@@ -132,7 +125,6 @@ global:
     - -Dmaven.ext.class.path=${DIFFBLUE_MAVEN_SPY_JAR}
     - -Dcom.diffblue.cover.skipTests=true
     - -Denforcer.skip=true
-    - -DskipTestOptimizer
     - --batch-mode
     - --projects=${MODULE}
     - --settings=${DIFFBLUE_MAVEN_USER_SETTINGS}
@@ -172,7 +164,7 @@ global:
         - name: apply
           goal: com.diffplug.spotless:spotless-maven-plugin:apply
           flags:
-            - -DspotlessFiles=${DIFFBLUE_TEST_FILE_REGEX_PATTERN}
+            - -DspotlessFiles=${DIFFBLUE_TEST_FILE_REGEX}
         - name: disable
           goal: ~
           flags:
@@ -223,17 +215,9 @@ global:
 phase:
 
   # The info phase is used early on to gather information about the structure of the project under test.
-  info:
-    goals:
-      - name: ~
-        goal: validate
-        flags:
-          - --also-make
-
-  # The classpath phase is used to compute the classpath including the dependencies of the project under test.
   # For maven projects, the dependencies have to have been resolved (i.e. be present on the file system and maven
   # should be able to discover the path to them) for this to work correctly.
-  classpath:
+  info:
     goals:
       - name: ~
         goal: install
@@ -289,25 +273,13 @@ phase:
       # By default, all tests are executed
       default: ~
       # To execute tests that Diffblue hasn't created (often referred to manual tests in Cover Reports), this is the
-      # pattern to use to match file names. This is the default Maven Surefire pattern with the negation of the
-      # Diffblue test file names. This does not execute tests tagged with "MaintainedByDiffblue" so it should only be
-      # used when running by tag is not possible.
+      # regular expression to use to match file names. This is the default maven regex with the negation of the
+      # Diffblue test file names.
       neverDiffblue:
-        - -Dtest=!${DIFFBLUE_TEST_FILE_GLOB_PATTERN},**/Test*.java,**/*Test.java,**/*Tests.java,**/*TestCase.java
-      # To execute tests that Diffblue hasn't created (often referred to manual tests in Cover Reports), this is the
-      # pattern to use to match file names. This is the default Maven Surefire pattern with the negation of the Diffblue
-      # test file names and excludes tests tagged with "MaintainedByDiffblue" or "ContributionFromDiffblue".
-      neverDiffblueTag:
-        - -Dtest=!${DIFFBLUE_TEST_FILE_GLOB_PATTERN},**/Test*.java,**/*Test.java,**/*Tests.java,**/*TestCase.java
-        - -DexcludedGroups=MaintainedByDiffblue,ContributionFromDiffblue
-      # To execute only the Diffblue-created tests, then pass this pattern to match the file names
+        - -Dtest=!${DIFFBLUE_TEST_FILE_REGEX},**/Test*.java,**/*Test.java,**/*Tests.java,**/*TestCase.java
+      # To execute only the Diffblue created tests, then pass this regular expression to match the file names
       onlyDiffblue:
-        - -Dtest=${DIFFBLUE_TEST_FILE_GLOB_PATTERN}
-      # To execute Tests tagged with "MaintainedByDiffblue" or "ContributionFromDiffblue", in classes that do not
-      # match the Diffblue test file names
-      onlyDiffblueTag:
-        - -Dtest=!${DIFFBLUE_TEST_FILE_GLOB_PATTERN},**/Test*.java,**/*Test.java,**/*Tests.java,**/*TestCase.java
-        - -Dgroups=MaintainedByDiffblue,ContributionFromDiffblue
+        - -Dtest=${DIFFBLUE_TEST_FILE_REGEX}
       # To run a single test, apply this option
       named:
         - -Dtest=${DIFFBLUE_TEST_FILE}
@@ -341,25 +313,13 @@ phase:
       # By default, all tests are executed
       default: ~
       # To execute tests that Diffblue hasn't created (often referred to manual tests in Cover Reports), this is the
-      # pattern to use to match file names. This is the default Maven Surefire pattern with the negation of the
-      # Diffblue test file names. This does not execute tests tagged with "MaintainedByDiffblue" so it should only be
-      # used when running by tag is not possible.
+      # regular expression to use to match file names. This is the default maven regex with the negation of the
+      # Diffblue test file names.
       neverDiffblue:
-        - -Dtest=!${DIFFBLUE_TEST_FILE_GLOB_PATTERN},**/Test*.java,**/*Test.java,**/*Tests.java,**/*TestCase.java
-      # To execute tests that Diffblue hasn't created (often referred to manual tests in Cover Reports), this is the
-      # pattern to use to match file names. This is the default Maven Surefire pattern with the negation of the Diffblue
-      # test file names and excluded Tests tagged with "MaintainedByDiffblue" or "ContributionFromDiffblue".
-      neverDiffblueTag:
-        - -Dtest=!${DIFFBLUE_TEST_FILE_GLOB_PATTERN},**/Test*.java,**/*Test.java,**/*Tests.java,**/*TestCase.java
-        - -DexcludedGroups=MaintainedByDiffblue,ContributionFromDiffblue
-      # To execute only the Diffblue-created tests, then pass this pattern to match the file names
+        - -Dtest=!${DIFFBLUE_TEST_FILE_REGEX},**/Test*.java,**/*Test.java,**/*Tests.java,**/*TestCase.java
+      # To execute only the Diffblue created tests, then pass this regular expression to match the file names
       onlyDiffblue:
-        - -Dtest=${DIFFBLUE_TEST_FILE_GLOB_PATTERN}
-      # To execute Tests tagged with "MaintainedByDiffblue" or "ContributionFromDiffblue", in classes that do not
-      # match the Diffblue test file names
-      onlyDiffblueTag:
-        - -Dtest=!${DIFFBLUE_TEST_FILE_GLOB_PATTERN},**/Test*.java,**/*Test.java,**/*Tests.java,**/*TestCase.java
-        - -Dgroups=MaintainedByDiffblue,ContributionFromDiffblue
+        - -Dtest=${DIFFBLUE_TEST_FILE_REGEX}
       # To run a single test, apply this option
       named:
         - -Dtest=${DIFFBLUE_TEST_FILE}
