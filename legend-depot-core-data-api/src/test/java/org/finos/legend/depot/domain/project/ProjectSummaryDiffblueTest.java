@@ -21,13 +21,20 @@ class ProjectSummaryDiffblueTest {
   @MethodsUnderTest({"void ProjectSummary.<init>(String, String, String, long)"})
   void testNewProjectSummary() {
     // Arrange and Act
-    ProjectSummary actualProjectSummary = new ProjectSummary("myproject", "42", "42", 1L);
+    ProjectSummary actualProjectSummary =
+        new ProjectSummary(
+            "\"finos-legend-project-001\"",
+            "\"org.finos.legend.depot\"",
+            "\"legend-shared-runtime\"",
+            1L);
 
     // Assert
-    assertEquals("42", actualProjectSummary.artifactId);
-    assertEquals("42", actualProjectSummary.groupId);
-    assertEquals("42-42", actualProjectSummary.getMavenCoordinates());
-    assertEquals("myproject", actualProjectSummary.projectId);
+    assertEquals("\"finos-legend-project-001\"", actualProjectSummary.projectId);
+    assertEquals("\"legend-shared-runtime\"", actualProjectSummary.artifactId);
+    assertEquals("\"org.finos.legend.depot\"", actualProjectSummary.groupId);
+    assertEquals(
+        "\"org.finos.legend.depot\"-\"legend-shared-runtime\"",
+        actualProjectSummary.getMavenCoordinates());
     assertEquals(1L, actualProjectSummary.versions);
   }
 
@@ -43,10 +50,17 @@ class ProjectSummaryDiffblueTest {
   @MethodsUnderTest({"String ProjectSummary.getMavenCoordinates()"})
   void testGetMavenCoordinates() {
     // Arrange
-    ProjectSummary projectSummary = new ProjectSummary("myproject", "42", "42", 1L);
+    ProjectSummary projectSummary =
+        new ProjectSummary(
+            "\"finos-legend-project-001\"",
+            "\"org.finos.legend.depot\"",
+            "\"legend-shared-runtime\"",
+            1L);
 
     // Act and Assert
-    assertEquals("42-42", projectSummary.getMavenCoordinates());
+    assertEquals(
+        "\"org.finos.legend.depot\"-\"legend-shared-runtime\"",
+        projectSummary.getMavenCoordinates());
   }
 
   /**
@@ -65,8 +79,18 @@ class ProjectSummaryDiffblueTest {
   @MethodsUnderTest({"int ProjectSummary.compareTo(Object)"})
   void testCompareTo_thenReturnZero() {
     // Arrange
-    ProjectSummary projectSummary = new ProjectSummary("myproject", "42", "42", 1L);
-    ProjectSummary projectSummary2 = new ProjectSummary("myproject", "42", "42", 1L);
+    ProjectSummary projectSummary =
+        new ProjectSummary(
+            "\"finos-legend-project-001\"",
+            "\"org.finos.legend.depot\"",
+            "\"legend-shared-runtime\"",
+            1L);
+    ProjectSummary projectSummary2 =
+        new ProjectSummary(
+            "\"finos-legend-project-001\"",
+            "\"org.finos.legend.depot\"",
+            "\"legend-shared-runtime\"",
+            1L);
 
     // Act
     int actualCompareToResult = projectSummary.compareTo(projectSummary2);
@@ -97,8 +121,18 @@ class ProjectSummaryDiffblueTest {
   @MethodsUnderTest({"boolean ProjectSummary.equals(Object)", "int ProjectSummary.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    ProjectSummary projectSummary = new ProjectSummary("myproject", "42", "42", 1L);
-    ProjectSummary projectSummary2 = new ProjectSummary("myproject", "42", "42", 1L);
+    ProjectSummary projectSummary =
+        new ProjectSummary(
+            "\"finos-legend-project-001\"",
+            "\"org.finos.legend.depot\"",
+            "\"legend-shared-runtime\"",
+            1L);
+    ProjectSummary projectSummary2 =
+        new ProjectSummary(
+            "\"finos-legend-project-001\"",
+            "\"org.finos.legend.depot\"",
+            "\"legend-shared-runtime\"",
+            1L);
 
     // Act and Assert
     assertEquals(projectSummary, projectSummary2);
@@ -127,7 +161,12 @@ class ProjectSummaryDiffblueTest {
   @MethodsUnderTest({"boolean ProjectSummary.equals(Object)", "int ProjectSummary.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    ProjectSummary projectSummary = new ProjectSummary("myproject", "42", "42", 1L);
+    ProjectSummary projectSummary =
+        new ProjectSummary(
+            "\"finos-legend-project-001\"",
+            "\"org.finos.legend.depot\"",
+            "\"legend-shared-runtime\"",
+            1L);
 
     // Act and Assert
     assertEquals(projectSummary, projectSummary);
@@ -152,10 +191,21 @@ class ProjectSummaryDiffblueTest {
   @MethodsUnderTest({"boolean ProjectSummary.equals(Object)", "int ProjectSummary.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    ProjectSummary projectSummary = new ProjectSummary("myproject", "42", "42", 0L);
+    ProjectSummary projectSummary =
+        new ProjectSummary(
+            "\"finos-legend-project-001\"",
+            "\"org.finos.legend.depot\"",
+            "\"legend-shared-runtime\"",
+            0L);
 
     // Act and Assert
-    assertNotEquals(projectSummary, new ProjectSummary("myproject", "42", "42", 1L));
+    assertNotEquals(
+        projectSummary,
+        new ProjectSummary(
+            "\"finos-legend-project-001\"",
+            "\"org.finos.legend.depot\"",
+            "\"legend-shared-runtime\"",
+            1L));
   }
 
   /**
@@ -175,7 +225,13 @@ class ProjectSummaryDiffblueTest {
   @MethodsUnderTest({"boolean ProjectSummary.equals(Object)", "int ProjectSummary.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new ProjectSummary("myproject", "42", "42", 1L), null);
+    assertNotEquals(
+        new ProjectSummary(
+            "\"finos-legend-project-001\"",
+            "\"org.finos.legend.depot\"",
+            "\"legend-shared-runtime\"",
+            1L),
+        null);
   }
 
   /**
@@ -196,6 +252,11 @@ class ProjectSummaryDiffblueTest {
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(
-        new ProjectSummary("myproject", "42", "42", 1L), "Different type to ProjectSummary");
+        new ProjectSummary(
+            "\"finos-legend-project-001\"",
+            "\"org.finos.legend.depot\"",
+            "\"legend-shared-runtime\"",
+            1L),
+        "Different type to ProjectSummary");
   }
 }

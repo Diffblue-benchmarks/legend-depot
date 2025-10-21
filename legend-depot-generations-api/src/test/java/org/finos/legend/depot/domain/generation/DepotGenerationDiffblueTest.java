@@ -32,12 +32,16 @@ class DepotGenerationDiffblueTest {
   void testGettersAndSetters() {
     // Arrange and Act
     DepotGeneration actualDepotGeneration =
-        new DepotGeneration("Path", "Not all who wander are lost");
+        new DepotGeneration(
+            "\"meta::pure::generation::metamodel::GenerationConfiguration::TestGeneration\"",
+            "\"meta::pure::generation::metamodel::GenerationConfiguration\"");
     String actualContent = actualDepotGeneration.getContent();
 
     // Assert
-    assertEquals("Not all who wander are lost", actualContent);
-    assertEquals("Path", actualDepotGeneration.getPath());
+    assertEquals(
+        "\"meta::pure::generation::metamodel::GenerationConfiguration::TestGeneration\"",
+        actualDepotGeneration.getPath());
+    assertEquals("\"meta::pure::generation::metamodel::GenerationConfiguration\"", actualContent);
   }
 
   /**
@@ -62,8 +66,14 @@ class DepotGenerationDiffblueTest {
   @MethodsUnderTest({"boolean DepotGeneration.equals(Object)", "int DepotGeneration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    DepotGeneration depotGeneration = new DepotGeneration("Path", "Not all who wander are lost");
-    DepotGeneration depotGeneration2 = new DepotGeneration("Path", "Not all who wander are lost");
+    DepotGeneration depotGeneration =
+        new DepotGeneration(
+            "\"meta::pure::generation::metamodel::GenerationConfiguration::TestGeneration\"",
+            "\"meta::pure::generation::metamodel::GenerationConfiguration\"");
+    DepotGeneration depotGeneration2 =
+        new DepotGeneration(
+            "\"meta::pure::generation::metamodel::GenerationConfiguration::TestGeneration\"",
+            "\"meta::pure::generation::metamodel::GenerationConfiguration\"");
 
     // Act and Assert
     assertEquals(depotGeneration, depotGeneration2);
@@ -92,7 +102,10 @@ class DepotGenerationDiffblueTest {
   @MethodsUnderTest({"boolean DepotGeneration.equals(Object)", "int DepotGeneration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    DepotGeneration depotGeneration = new DepotGeneration("Path", "Not all who wander are lost");
+    DepotGeneration depotGeneration =
+        new DepotGeneration(
+            "\"meta::pure::generation::metamodel::GenerationConfiguration::TestGeneration\"",
+            "\"meta::pure::generation::metamodel::GenerationConfiguration\"");
 
     // Act and Assert
     assertEquals(depotGeneration, depotGeneration);
@@ -117,10 +130,16 @@ class DepotGenerationDiffblueTest {
   @MethodsUnderTest({"boolean DepotGeneration.equals(Object)", "int DepotGeneration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    DepotGeneration depotGeneration = new DepotGeneration("42", "Not all who wander are lost");
+    DepotGeneration depotGeneration =
+        new DepotGeneration(
+            "Path", "\"meta::pure::generation::metamodel::GenerationConfiguration\"");
 
     // Act and Assert
-    assertNotEquals(depotGeneration, new DepotGeneration("Path", "Not all who wander are lost"));
+    assertNotEquals(
+        depotGeneration,
+        new DepotGeneration(
+            "\"meta::pure::generation::metamodel::GenerationConfiguration::TestGeneration\"",
+            "\"meta::pure::generation::metamodel::GenerationConfiguration\""));
   }
 
   /**
@@ -140,7 +159,11 @@ class DepotGenerationDiffblueTest {
   @MethodsUnderTest({"boolean DepotGeneration.equals(Object)", "int DepotGeneration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new DepotGeneration("Path", "Not all who wander are lost"), null);
+    assertNotEquals(
+        new DepotGeneration(
+            "\"meta::pure::generation::metamodel::GenerationConfiguration::TestGeneration\"",
+            "\"meta::pure::generation::metamodel::GenerationConfiguration\""),
+        null);
   }
 
   /**
@@ -161,7 +184,9 @@ class DepotGenerationDiffblueTest {
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(
-        new DepotGeneration("Path", "Not all who wander are lost"),
+        new DepotGeneration(
+            "\"meta::pure::generation::metamodel::GenerationConfiguration::TestGeneration\"",
+            "\"meta::pure::generation::metamodel::GenerationConfiguration\""),
         "Different type to DepotGeneration");
   }
 }

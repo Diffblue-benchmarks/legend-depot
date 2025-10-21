@@ -49,8 +49,8 @@ class PropertyDiffblueTest {
    * Test getters and setters.
    *
    * <ul>
-   *   <li>When {@code Property Name}.
-   *   <li>Then return Value is {@code 42}.
+   *   <li>When {@code "projectVersion"}.
+   *   <li>Then return Value is {@code "ProjectVersion"}.
    * </ul>
    *
    * <p>Methods under test:
@@ -62,7 +62,8 @@ class PropertyDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters; when 'Property Name'; then return Value is '42'")
+  @DisplayName(
+      "Test getters and setters; when '\"projectVersion\"'; then return Value is '\"ProjectVersion\"'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
@@ -71,14 +72,14 @@ class PropertyDiffblueTest {
     "String Property.getPropertyName()",
     "String Property.getValue()"
   })
-  void testGettersAndSetters_whenPropertyName_thenReturnValueIs42() {
+  void testGettersAndSetters_whenProjectVersion_thenReturnValueIsProjectVersion() {
     // Arrange and Act
-    Property actualProperty = new Property("Property Name", "42");
+    Property actualProperty = new Property("\"projectVersion\"", "\"ProjectVersion\"");
     String actualPropertyName = actualProperty.getPropertyName();
 
     // Assert
-    assertEquals("42", actualProperty.getValue());
-    assertEquals("Property Name", actualPropertyName);
+    assertEquals("\"ProjectVersion\"", actualProperty.getValue());
+    assertEquals("\"projectVersion\"", actualPropertyName);
   }
 
   /**
@@ -103,8 +104,8 @@ class PropertyDiffblueTest {
   @MethodsUnderTest({"boolean Property.equals(Object)", "int Property.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    Property property = new Property("Property Name", "42");
-    Property property2 = new Property("Property Name", "42");
+    Property property = new Property("\"projectVersion\"", "\"ProjectVersion\"");
+    Property property2 = new Property("\"projectVersion\"", "\"ProjectVersion\"");
 
     // Act and Assert
     assertEquals(property, property2);
@@ -133,7 +134,7 @@ class PropertyDiffblueTest {
   @MethodsUnderTest({"boolean Property.equals(Object)", "int Property.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    Property property = new Property("Property Name", "42");
+    Property property = new Property("\"projectVersion\"", "\"ProjectVersion\"");
 
     // Act and Assert
     assertEquals(property, property);
@@ -158,10 +159,10 @@ class PropertyDiffblueTest {
   @MethodsUnderTest({"boolean Property.equals(Object)", "int Property.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    Property property = new Property("42", "42");
+    Property property = new Property("Property Name", "\"ProjectVersion\"");
 
     // Act and Assert
-    assertNotEquals(property, new Property("Property Name", "42"));
+    assertNotEquals(property, new Property("\"projectVersion\"", "\"ProjectVersion\""));
   }
 
   /**
@@ -181,7 +182,7 @@ class PropertyDiffblueTest {
   @MethodsUnderTest({"boolean Property.equals(Object)", "int Property.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new Property("Property Name", "42"), null);
+    assertNotEquals(new Property("\"projectVersion\"", "\"ProjectVersion\""), null);
   }
 
   /**
@@ -201,6 +202,7 @@ class PropertyDiffblueTest {
   @MethodsUnderTest({"boolean Property.equals(Object)", "int Property.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new Property("Property Name", "42"), "Different type to Property");
+    assertNotEquals(
+        new Property("\"projectVersion\"", "\"ProjectVersion\""), "Different type to Property");
   }
 }

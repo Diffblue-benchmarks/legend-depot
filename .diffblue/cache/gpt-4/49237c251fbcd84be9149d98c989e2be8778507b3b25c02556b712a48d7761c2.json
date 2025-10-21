@@ -1,0 +1,1 @@
+{"id":"chatcmpl-CT6AYIFwq5S17ZlfCMMBGlEFzR3yq","object":"chat.completion","created":1761051262,"model":"gpt-4-0613","choices":[{"message":{"role":"assistant","content":"\"America/New_York\""},"index":0,"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":221,"completion_tokens":6,"total_tokens":227}}

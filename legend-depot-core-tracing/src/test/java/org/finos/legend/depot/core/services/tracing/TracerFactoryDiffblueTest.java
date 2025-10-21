@@ -106,8 +106,8 @@ class TracerFactoryDiffblueTest {
    * Test {@link TracerFactory#addTags(Map, Span)} with {@code tags}, {@code span}.
    *
    * <ul>
-   *   <li>Given {@code 42}.
-   *   <li>When {@link HashMap#HashMap()} {@code 42} is {@code Value}.
+   *   <li>Given {@code Key}.
+   *   <li>When {@link HashMap#HashMap()} {@code Key} is {@code Value}.
    *   <li>Then calls {@link Span#setTag(String, String)}.
    * </ul>
    *
@@ -115,17 +115,17 @@ class TracerFactoryDiffblueTest {
    */
   @Test
   @DisplayName(
-      "Test addTags(Map, Span) with 'tags', 'span'; given '42'; when HashMap() '42' is 'Value'; then calls setTag(String, String)")
+      "Test addTags(Map, Span) with 'tags', 'span'; given 'Key'; when HashMap() 'Key' is 'Value'; then calls setTag(String, String)")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void TracerFactory.addTags(Map, Span)"})
-  void testAddTagsWithTagsSpan_given42_whenHashMap42IsValue_thenCallsSetTag() {
+  void testAddTagsWithTagsSpan_givenKey_whenHashMapKeyIsValue_thenCallsSetTag() {
     // Arrange
     TracerFactory getResult = TracerFactory.get();
 
     HashMap<String, Object> tags = new HashMap<>();
-    tags.put("42", "Value");
     tags.put("Key", "Value");
+    tags.put("\"TestHashMapKey\"", "Value");
 
     Span span = mock(Span.class);
     when(span.setTag(Mockito.<String>any(), Mockito.<String>any())).thenReturn(mock(Span.class));
@@ -159,7 +159,7 @@ class TracerFactoryDiffblueTest {
     TracerFactory getResult = TracerFactory.get();
 
     HashMap<String, Object> tags = new HashMap<>();
-    tags.put("Key", "Value");
+    tags.put("\"TestHashMapKey\"", "Value");
 
     Span span = mock(Span.class);
     when(span.setTag(Mockito.<String>any(), Mockito.<String>any())).thenReturn(mock(Span.class));
@@ -168,7 +168,7 @@ class TracerFactoryDiffblueTest {
     getResult.addTags(tags, span);
 
     // Assert
-    verify(span).setTag("Key", "Value");
+    verify(span).setTag("\"TestHashMapKey\"", "Value");
   }
 
   /**
@@ -211,18 +211,18 @@ class TracerFactoryDiffblueTest {
    *
    * <ul>
    *   <li>Given {@code Key}.
-   *   <li>When {@link HashMap#HashMap()} {@code Key} is {@code 42}.
+   *   <li>When {@link HashMap#HashMap()} {@code Key} is {@code Value}.
    * </ul>
    *
    * <p>Method under test: {@link TracerFactory#executeWithTrace(String, Supplier, Map)}
    */
   @Test
   @DisplayName(
-      "Test executeWithTrace(String, Supplier, Map) with 'label', 'supplier', 'tags'; given 'Key'; when HashMap() 'Key' is '42'")
+      "Test executeWithTrace(String, Supplier, Map) with 'label', 'supplier', 'tags'; given 'Key'; when HashMap() 'Key' is 'Value'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Object TracerFactory.executeWithTrace(String, Supplier, Map)"})
-  void testExecuteWithTraceWithLabelSupplierTags_givenKey_whenHashMapKeyIs42() {
+  void testExecuteWithTraceWithLabelSupplierTags_givenKey_whenHashMapKeyIsValue() {
     // Arrange
     TracerFactory getResult = TracerFactory.get();
 
@@ -230,7 +230,8 @@ class TracerFactoryDiffblueTest {
     when(supplier.get()).thenReturn("Get");
 
     HashMap<String, String> tags = new HashMap<>();
-    tags.put("Key", "42");
+    tags.put("Key", "Value");
+    tags.put("\"TestHashMapKey\"", "42");
 
     // Act
     Object actualExecuteWithTraceResult = getResult.executeWithTrace("Label", supplier, tags);
@@ -245,19 +246,18 @@ class TracerFactoryDiffblueTest {
    * supplier}, {@code tags}.
    *
    * <ul>
-   *   <li>Given {@code Value}.
-   *   <li>When {@link HashMap#HashMap()} {@code 42} is {@code Value}.
+   *   <li>Given {@code "TestHashMapKey"}.
    * </ul>
    *
    * <p>Method under test: {@link TracerFactory#executeWithTrace(String, Supplier, Map)}
    */
   @Test
   @DisplayName(
-      "Test executeWithTrace(String, Supplier, Map) with 'label', 'supplier', 'tags'; given 'Value'; when HashMap() '42' is 'Value'")
+      "Test executeWithTrace(String, Supplier, Map) with 'label', 'supplier', 'tags'; given '\"TestHashMapKey\"'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"Object TracerFactory.executeWithTrace(String, Supplier, Map)"})
-  void testExecuteWithTraceWithLabelSupplierTags_givenValue_whenHashMap42IsValue() {
+  void testExecuteWithTraceWithLabelSupplierTags_givenTestHashMapKey() {
     // Arrange
     TracerFactory getResult = TracerFactory.get();
 
@@ -265,8 +265,7 @@ class TracerFactoryDiffblueTest {
     when(supplier.get()).thenReturn("Get");
 
     HashMap<String, String> tags = new HashMap<>();
-    tags.put("42", "Value");
-    tags.put("Key", "42");
+    tags.put("\"TestHashMapKey\"", "42");
 
     // Act
     Object actualExecuteWithTraceResult = getResult.executeWithTrace("Label", supplier, tags);

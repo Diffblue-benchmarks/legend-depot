@@ -1,0 +1,1 @@
+{"id":"chatcmpl-CT5cCcegd8k4XhrTGim0OheovbcfW","object":"chat.completion","created":1761049132,"model":"gpt-4-0613","choices":[{"message":{"role":"assistant","content":"\"finos-legend-project-001\""},"index":0,"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":279,"completion_tokens":9,"total_tokens":288}}

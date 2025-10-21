@@ -23,8 +23,7 @@ class VersionValidatorDiffblueTest {
   void testBRANCH_SNAPSHOT() {
     // Arrange, Act and Assert
     assertEquals(
-        "janedoe/featurebranch-SNAPSHOT",
-        VersionValidator.BRANCH_SNAPSHOT("janedoe/featurebranch"));
+        "\"master-SNAPSHOT\"-SNAPSHOT", VersionValidator.BRANCH_SNAPSHOT("\"master-SNAPSHOT\""));
   }
 
   /**
@@ -51,26 +50,6 @@ class VersionValidatorDiffblueTest {
    * Test {@link VersionValidator#isValid(String)}.
    *
    * <ul>
-   *   <li>When {@code 1.0.2Version Id}.
-   *   <li>Then return {@code false}.
-   * </ul>
-   *
-   * <p>Method under test: {@link VersionValidator#isValid(String)}
-   */
-  @Test
-  @DisplayName("Test isValid(String); when '1.0.2Version Id'; then return 'false'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"boolean VersionValidator.isValid(String)"})
-  void testIsValid_when102VersionId_thenReturnFalse() {
-    // Arrange, Act and Assert
-    assertFalse(VersionValidator.isValid("1.0.2Version Id"));
-  }
-
-  /**
-   * Test {@link VersionValidator#isValid(String)}.
-   *
-   * <ul>
    *   <li>When {@code 1.0.2}.
    *   <li>Then return {@code true}.
    * </ul>
@@ -85,6 +64,26 @@ class VersionValidatorDiffblueTest {
   void testIsValid_when102_thenReturnTrue() {
     // Arrange, Act and Assert
     assertTrue(VersionValidator.isValid("1.0.2"));
+  }
+
+  /**
+   * Test {@link VersionValidator#isValid(String)}.
+   *
+   * <ul>
+   *   <li>When {@code "1.2.3-SNAPSHOT"}.
+   *   <li>Then return {@code false}.
+   * </ul>
+   *
+   * <p>Method under test: {@link VersionValidator#isValid(String)}
+   */
+  @Test
+  @DisplayName("Test isValid(String); when '\"1.2.3-SNAPSHOT\"'; then return 'false'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean VersionValidator.isValid(String)"})
+  void testIsValid_when123Snapshot_thenReturnFalse() {
+    // Arrange, Act and Assert
+    assertFalse(VersionValidator.isValid("\"1.2.3-SNAPSHOT\""));
   }
 
   /**
@@ -111,20 +110,40 @@ class VersionValidatorDiffblueTest {
    * Test {@link VersionValidator#isValid(String)}.
    *
    * <ul>
-   *   <li>When {@code 1.0.21.0.2}.
+   *   <li>When {@code 42"1.2.3-SNAPSHOT"}.
    *   <li>Then return {@code false}.
    * </ul>
    *
    * <p>Method under test: {@link VersionValidator#isValid(String)}
    */
   @Test
-  @DisplayName("Test isValid(String); when '1.0.21.0.2'; then return 'false'")
+  @DisplayName("Test isValid(String); when '42\"1.2.3-SNAPSHOT\"'; then return 'false'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean VersionValidator.isValid(String)"})
-  void testIsValid_when102102_thenReturnFalse() {
+  void testIsValid_when42123Snapshot_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse(VersionValidator.isValid("1.0.21.0.2"));
+    assertFalse(VersionValidator.isValid("42\"1.2.3-SNAPSHOT\""));
+  }
+
+  /**
+   * Test {@link VersionValidator#isValid(String)}.
+   *
+   * <ul>
+   *   <li>When {@code 1.0.2"1.2.3-SNAPSHOT"}.
+   *   <li>Then return {@code false}.
+   * </ul>
+   *
+   * <p>Method under test: {@link VersionValidator#isValid(String)}
+   */
+  @Test
+  @DisplayName("Test isValid(String); when '1.0.2\"1.2.3-SNAPSHOT\"'; then return 'false'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean VersionValidator.isValid(String)"})
+  void testIsValid_when102123Snapshot_thenReturnFalse() {
+    // Arrange, Act and Assert
+    assertFalse(VersionValidator.isValid("1.0.2\"1.2.3-SNAPSHOT\""));
   }
 
   /**
@@ -188,26 +207,6 @@ class VersionValidatorDiffblueTest {
   }
 
   /**
-   * Test {@link VersionValidator#isValid(String)}.
-   *
-   * <ul>
-   *   <li>When {@code Version Id1.0.2}.
-   *   <li>Then return {@code false}.
-   * </ul>
-   *
-   * <p>Method under test: {@link VersionValidator#isValid(String)}
-   */
-  @Test
-  @DisplayName("Test isValid(String); when 'Version Id1.0.2'; then return 'false'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"boolean VersionValidator.isValid(String)"})
-  void testIsValid_whenVersionId102_thenReturnFalse() {
-    // Arrange, Act and Assert
-    assertFalse(VersionValidator.isValid("Version Id1.0.2"));
-  }
-
-  /**
    * Test {@link VersionValidator#isValidReleaseVersion(String)}.
    *
    * <ul>
@@ -225,27 +224,6 @@ class VersionValidatorDiffblueTest {
   void testIsValidReleaseVersion_when42_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(VersionValidator.isValidReleaseVersion("42"));
-  }
-
-  /**
-   * Test {@link VersionValidator#isValidReleaseVersion(String)}.
-   *
-   * <ul>
-   *   <li>When {@code 1.0.2Invalid version string: "}.
-   *   <li>Then return {@code false}.
-   * </ul>
-   *
-   * <p>Method under test: {@link VersionValidator#isValidReleaseVersion(String)}
-   */
-  @Test
-  @DisplayName(
-      "Test isValidReleaseVersion(String); when '1.0.2Invalid version string: \"'; then return 'false'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"boolean VersionValidator.isValidReleaseVersion(String)"})
-  void testIsValidReleaseVersion_when102InvalidVersionString_thenReturnFalse() {
-    // Arrange, Act and Assert
-    assertFalse(VersionValidator.isValidReleaseVersion("1.0.2Invalid version string: \""));
   }
 
   /**
@@ -272,6 +250,26 @@ class VersionValidatorDiffblueTest {
    * Test {@link VersionValidator#isValidReleaseVersion(String)}.
    *
    * <ul>
+   *   <li>When {@code "1.2.3-SNAPSHOT"}.
+   *   <li>Then return {@code false}.
+   * </ul>
+   *
+   * <p>Method under test: {@link VersionValidator#isValidReleaseVersion(String)}
+   */
+  @Test
+  @DisplayName("Test isValidReleaseVersion(String); when '\"1.2.3-SNAPSHOT\"'; then return 'false'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean VersionValidator.isValidReleaseVersion(String)"})
+  void testIsValidReleaseVersion_when123Snapshot_thenReturnFalse() {
+    // Arrange, Act and Assert
+    assertFalse(VersionValidator.isValidReleaseVersion("\"1.2.3-SNAPSHOT\""));
+  }
+
+  /**
+   * Test {@link VersionValidator#isValidReleaseVersion(String)}.
+   *
+   * <ul>
    *   <li>When {@code 421.0.2}.
    *   <li>Then return {@code true}.
    * </ul>
@@ -292,27 +290,7 @@ class VersionValidatorDiffblueTest {
    * Test {@link VersionValidator#isValidReleaseVersion(String)}.
    *
    * <ul>
-   *   <li>When {@code 1.0.21.0.2}.
-   *   <li>Then return {@code false}.
-   * </ul>
-   *
-   * <p>Method under test: {@link VersionValidator#isValidReleaseVersion(String)}
-   */
-  @Test
-  @DisplayName("Test isValidReleaseVersion(String); when '1.0.21.0.2'; then return 'false'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"boolean VersionValidator.isValidReleaseVersion(String)"})
-  void testIsValidReleaseVersion_when102102_thenReturnFalse() {
-    // Arrange, Act and Assert
-    assertFalse(VersionValidator.isValidReleaseVersion("1.0.21.0.2"));
-  }
-
-  /**
-   * Test {@link VersionValidator#isValidReleaseVersion(String)}.
-   *
-   * <ul>
-   *   <li>When {@code Invalid version string: "1.0.2}.
+   *   <li>When {@code 42"1.2.3-SNAPSHOT"}.
    *   <li>Then return {@code false}.
    * </ul>
    *
@@ -320,13 +298,34 @@ class VersionValidatorDiffblueTest {
    */
   @Test
   @DisplayName(
-      "Test isValidReleaseVersion(String); when 'Invalid version string: \"1.0.2'; then return 'false'")
+      "Test isValidReleaseVersion(String); when '42\"1.2.3-SNAPSHOT\"'; then return 'false'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean VersionValidator.isValidReleaseVersion(String)"})
-  void testIsValidReleaseVersion_whenInvalidVersionString102_thenReturnFalse() {
+  void testIsValidReleaseVersion_when42123Snapshot_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse(VersionValidator.isValidReleaseVersion("Invalid version string: \"1.0.2"));
+    assertFalse(VersionValidator.isValidReleaseVersion("42\"1.2.3-SNAPSHOT\""));
+  }
+
+  /**
+   * Test {@link VersionValidator#isValidReleaseVersion(String)}.
+   *
+   * <ul>
+   *   <li>When {@code 1.0.2"1.2.3-SNAPSHOT"}.
+   *   <li>Then return {@code false}.
+   * </ul>
+   *
+   * <p>Method under test: {@link VersionValidator#isValidReleaseVersion(String)}
+   */
+  @Test
+  @DisplayName(
+      "Test isValidReleaseVersion(String); when '1.0.2\"1.2.3-SNAPSHOT\"'; then return 'false'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean VersionValidator.isValidReleaseVersion(String)"})
+  void testIsValidReleaseVersion_when102123Snapshot_thenReturnFalse() {
+    // Arrange, Act and Assert
+    assertFalse(VersionValidator.isValidReleaseVersion("1.0.2\"1.2.3-SNAPSHOT\""));
   }
 
   /**
@@ -353,20 +352,20 @@ class VersionValidatorDiffblueTest {
    * Test {@link VersionValidator#isSnapshotVersion(String)}.
    *
    * <ul>
-   *   <li>When {@code 42}.
+   *   <li>When {@code "1.0.0-SNAPSHOT"}.
    *   <li>Then return {@code false}.
    * </ul>
    *
    * <p>Method under test: {@link VersionValidator#isSnapshotVersion(String)}
    */
   @Test
-  @DisplayName("Test isSnapshotVersion(String); when '42'; then return 'false'")
+  @DisplayName("Test isSnapshotVersion(String); when '\"1.0.0-SNAPSHOT\"'; then return 'false'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"boolean VersionValidator.isSnapshotVersion(String)"})
-  void testIsSnapshotVersion_when42_thenReturnFalse() {
+  void testIsSnapshotVersion_when100Snapshot_thenReturnFalse() {
     // Arrange, Act and Assert
-    assertFalse(VersionValidator.isSnapshotVersion("42"));
+    assertFalse(VersionValidator.isSnapshotVersion("\"1.0.0-SNAPSHOT\""));
   }
 
   /**
@@ -401,6 +400,6 @@ class VersionValidatorDiffblueTest {
   @MethodsUnderTest({"boolean VersionValidator.isVersionAlias(String)"})
   void testIsVersionAlias() {
     // Arrange, Act and Assert
-    assertFalse(VersionValidator.isVersionAlias("42"));
+    assertFalse(VersionValidator.isVersionAlias("\"latest\""));
   }
 }

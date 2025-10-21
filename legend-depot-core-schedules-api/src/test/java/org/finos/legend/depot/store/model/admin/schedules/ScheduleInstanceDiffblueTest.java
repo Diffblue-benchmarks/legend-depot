@@ -47,14 +47,14 @@ class ScheduleInstanceDiffblueTest {
     Date expires =
         Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
     actualScheduleInstance.setExpires(expires);
-    actualScheduleInstance.setId("42");
-    actualScheduleInstance.setSchedule("Schedule");
+    actualScheduleInstance.setId("\"schedule_instance_123\"");
+    actualScheduleInstance.setSchedule("\"0 15 10 ? * MON-FRI\"");
     Date actualExpires = actualScheduleInstance.getExpires();
     String actualId = actualScheduleInstance.getId();
 
     // Assert
-    assertEquals("42", actualId);
-    assertEquals("Schedule", actualScheduleInstance.getSchedule());
+    assertEquals("\"0 15 10 ? * MON-FRI\"", actualScheduleInstance.getSchedule());
+    assertEquals("\"schedule_instance_123\"", actualId);
     assertSame(expires, actualExpires);
   }
 
@@ -62,7 +62,7 @@ class ScheduleInstanceDiffblueTest {
    * Test getters and setters.
    *
    * <ul>
-   *   <li>When {@code Name}.
+   *   <li>When {@code "DailyDataBackupSchedule"}.
    * </ul>
    *
    * <p>Methods under test:
@@ -78,7 +78,7 @@ class ScheduleInstanceDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters; when 'Name'")
+  @DisplayName("Test getters and setters; when '\"DailyDataBackupSchedule\"'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
@@ -91,24 +91,25 @@ class ScheduleInstanceDiffblueTest {
     "void ScheduleInstance.setId(String)",
     "void ScheduleInstance.setSchedule(String)"
   })
-  void testGettersAndSetters_whenName() {
+  void testGettersAndSetters_whenDailyDataBackupSchedule() {
     // Arrange
     Date expires =
         Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
 
     // Act
-    ScheduleInstance actualScheduleInstance = new ScheduleInstance("Name", expires);
+    ScheduleInstance actualScheduleInstance =
+        new ScheduleInstance("\"DailyDataBackupSchedule\"", expires);
     Date expires2 =
         Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
     actualScheduleInstance.setExpires(expires2);
-    actualScheduleInstance.setId("42");
-    actualScheduleInstance.setSchedule("Schedule");
+    actualScheduleInstance.setId("\"schedule_instance_123\"");
+    actualScheduleInstance.setSchedule("\"0 15 10 ? * MON-FRI\"");
     Date actualExpires = actualScheduleInstance.getExpires();
     String actualId = actualScheduleInstance.getId();
 
     // Assert
-    assertEquals("42", actualId);
-    assertEquals("Schedule", actualScheduleInstance.getSchedule());
+    assertEquals("\"0 15 10 ? * MON-FRI\"", actualScheduleInstance.getSchedule());
+    assertEquals("\"schedule_instance_123\"", actualId);
     assertSame(expires2, actualExpires);
   }
 }

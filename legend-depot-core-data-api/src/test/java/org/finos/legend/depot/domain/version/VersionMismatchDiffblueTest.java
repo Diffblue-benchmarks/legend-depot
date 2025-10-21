@@ -16,7 +16,7 @@ class VersionMismatchDiffblueTest {
    * Test {@link VersionMismatch#VersionMismatch(String, String, String, List, List)}.
    *
    * <ul>
-   *   <li>Given {@code 42}.
+   *   <li>Given {@code foo}.
    *   <li>Then return {@link VersionMismatch#versionsNotInRepository} is {@link
    *       ArrayList#ArrayList()}.
    * </ul>
@@ -26,21 +26,26 @@ class VersionMismatchDiffblueTest {
    */
   @Test
   @DisplayName(
-      "Test new VersionMismatch(String, String, String, List, List); given '42'; then return versionsNotInRepository is ArrayList()")
+      "Test new VersionMismatch(String, String, String, List, List); given 'foo'; then return versionsNotInRepository is ArrayList()")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void VersionMismatch.<init>(String, String, String, List, List)"})
-  void testNewVersionMismatch_given42_thenReturnVersionsNotInRepositoryIsArrayList() {
+  void testNewVersionMismatch_givenFoo_thenReturnVersionsNotInRepositoryIsArrayList() {
     // Arrange
     ArrayList<String> versionsNotInCache = new ArrayList<>();
 
     ArrayList<String> versionsNotInRepo = new ArrayList<>();
-    versionsNotInRepo.add("42");
     versionsNotInRepo.add("foo");
+    versionsNotInRepo.add("\"TestObjectForArrayListAddMethod\"");
 
     // Act
     VersionMismatch actualVersionMismatch =
-        new VersionMismatch("myproject", "42", "42", versionsNotInCache, versionsNotInRepo);
+        new VersionMismatch(
+            "\"finance-risk-modeling-project\"",
+            "\"org.finos.legend\"",
+            "\"legend-sdlc-server\"",
+            versionsNotInCache,
+            versionsNotInRepo);
 
     // Assert
     assertEquals(versionsNotInRepo, actualVersionMismatch.versionsNotInRepository);
@@ -50,7 +55,7 @@ class VersionMismatchDiffblueTest {
    * Test {@link VersionMismatch#VersionMismatch(String, String, String, List, List, List)}.
    *
    * <ul>
-   *   <li>Given {@code 42}.
+   *   <li>Given {@code foo}.
    *   <li>Then return {@link VersionMismatch#versionsNotInRepository} is {@link
    *       ArrayList#ArrayList()}.
    * </ul>
@@ -60,203 +65,30 @@ class VersionMismatchDiffblueTest {
    */
   @Test
   @DisplayName(
-      "Test new VersionMismatch(String, String, String, List, List, List); given '42'; then return versionsNotInRepository is ArrayList()")
+      "Test new VersionMismatch(String, String, String, List, List, List); given 'foo'; then return versionsNotInRepository is ArrayList()")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void VersionMismatch.<init>(String, String, String, List, List, List)"})
-  void testNewVersionMismatch_given42_thenReturnVersionsNotInRepositoryIsArrayList2() {
+  void testNewVersionMismatch_givenFoo_thenReturnVersionsNotInRepositoryIsArrayList2() {
     // Arrange
     ArrayList<String> versionsNotInCache = new ArrayList<>();
 
     ArrayList<String> versionsNotInRepo = new ArrayList<>();
-    versionsNotInRepo.add("42");
     versionsNotInRepo.add("foo");
+    versionsNotInRepo.add("\"TestObjectForArrayListAddMethod\"");
 
     // Act
     VersionMismatch actualVersionMismatch =
         new VersionMismatch(
-            "myproject", "42", "42", versionsNotInCache, versionsNotInRepo, new ArrayList<>());
+            "\"finance-risk-model-project\"",
+            "\"org.finos.legend\"",
+            "\"legend-depot-artifact-1\"",
+            versionsNotInCache,
+            versionsNotInRepo,
+            new ArrayList<>());
 
     // Assert
     assertEquals(versionsNotInRepo, actualVersionMismatch.versionsNotInRepository);
-  }
-
-  /**
-   * Test {@link VersionMismatch#VersionMismatch(String, String, String, List, List)}.
-   *
-   * <ul>
-   *   <li>Given {@code 42}.
-   *   <li>Then return {@link VersionMismatch#versionsNotInStore} is {@link ArrayList#ArrayList()}.
-   * </ul>
-   *
-   * <p>Method under test: {@link VersionMismatch#VersionMismatch(String, String, String, List,
-   * List)}
-   */
-  @Test
-  @DisplayName(
-      "Test new VersionMismatch(String, String, String, List, List); given '42'; then return versionsNotInStore is ArrayList()")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"void VersionMismatch.<init>(String, String, String, List, List)"})
-  void testNewVersionMismatch_given42_thenReturnVersionsNotInStoreIsArrayList() {
-    // Arrange
-    ArrayList<String> versionsNotInCache = new ArrayList<>();
-    versionsNotInCache.add("42");
-    versionsNotInCache.add("foo");
-
-    // Act
-    VersionMismatch actualVersionMismatch =
-        new VersionMismatch("myproject", "42", "42", versionsNotInCache, new ArrayList<>());
-
-    // Assert
-    assertEquals("42", actualVersionMismatch.artifactId);
-    assertEquals("42", actualVersionMismatch.groupId);
-    assertEquals("myproject", actualVersionMismatch.projectId);
-    assertTrue(actualVersionMismatch.errors.isEmpty());
-    assertTrue(actualVersionMismatch.versionsNotInRepository.isEmpty());
-    assertEquals(versionsNotInCache, actualVersionMismatch.versionsNotInStore);
-  }
-
-  /**
-   * Test {@link VersionMismatch#VersionMismatch(String, String, String, List, List, List)}.
-   *
-   * <ul>
-   *   <li>Given {@code 42}.
-   *   <li>Then return {@link VersionMismatch#versionsNotInStore} is {@link ArrayList#ArrayList()}.
-   * </ul>
-   *
-   * <p>Method under test: {@link VersionMismatch#VersionMismatch(String, String, String, List,
-   * List, List)}
-   */
-  @Test
-  @DisplayName(
-      "Test new VersionMismatch(String, String, String, List, List, List); given '42'; then return versionsNotInStore is ArrayList()")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"void VersionMismatch.<init>(String, String, String, List, List, List)"})
-  void testNewVersionMismatch_given42_thenReturnVersionsNotInStoreIsArrayList2() {
-    // Arrange
-    ArrayList<String> versionsNotInCache = new ArrayList<>();
-    versionsNotInCache.add("42");
-    versionsNotInCache.add("foo");
-    ArrayList<String> versionsNotInRepo = new ArrayList<>();
-
-    // Act
-    VersionMismatch actualVersionMismatch =
-        new VersionMismatch(
-            "myproject", "42", "42", versionsNotInCache, versionsNotInRepo, new ArrayList<>());
-
-    // Assert
-    assertEquals("42", actualVersionMismatch.artifactId);
-    assertEquals("42", actualVersionMismatch.groupId);
-    assertEquals("myproject", actualVersionMismatch.projectId);
-    assertEquals(versionsNotInCache, actualVersionMismatch.versionsNotInStore);
-  }
-
-  /**
-   * Test {@link VersionMismatch#VersionMismatch(String, String, String, List, List, List)}.
-   *
-   * <ul>
-   *   <li>Given {@code 42}.
-   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.
-   *   <li>Then return {@link VersionMismatch#errors} is {@link ArrayList#ArrayList()}.
-   * </ul>
-   *
-   * <p>Method under test: {@link VersionMismatch#VersionMismatch(String, String, String, List,
-   * List, List)}
-   */
-  @Test
-  @DisplayName(
-      "Test new VersionMismatch(String, String, String, List, List, List); given '42'; when ArrayList() add '42'; then return errors is ArrayList()")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"void VersionMismatch.<init>(String, String, String, List, List, List)"})
-  void testNewVersionMismatch_given42_whenArrayListAdd42_thenReturnErrorsIsArrayList() {
-    // Arrange
-    ArrayList<String> versionsNotInCache = new ArrayList<>();
-    ArrayList<String> versionsNotInRepo = new ArrayList<>();
-
-    ArrayList<String> errors = new ArrayList<>();
-    errors.add("42");
-    errors.add("foo");
-
-    // Act
-    VersionMismatch actualVersionMismatch =
-        new VersionMismatch("myproject", "42", "42", versionsNotInCache, versionsNotInRepo, errors);
-
-    // Assert
-    assertEquals(errors, actualVersionMismatch.errors);
-  }
-
-  /**
-   * Test {@link VersionMismatch#VersionMismatch(String, String, String, List, List)}.
-   *
-   * <ul>
-   *   <li>Given {@code foo}.
-   *   <li>Then return {@link VersionMismatch#versionsNotInRepository} size is one.
-   * </ul>
-   *
-   * <p>Method under test: {@link VersionMismatch#VersionMismatch(String, String, String, List,
-   * List)}
-   */
-  @Test
-  @DisplayName(
-      "Test new VersionMismatch(String, String, String, List, List); given 'foo'; then return versionsNotInRepository size is one")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"void VersionMismatch.<init>(String, String, String, List, List)"})
-  void testNewVersionMismatch_givenFoo_thenReturnVersionsNotInRepositorySizeIsOne() {
-    // Arrange
-    ArrayList<String> versionsNotInCache = new ArrayList<>();
-
-    ArrayList<String> versionsNotInRepo = new ArrayList<>();
-    versionsNotInRepo.add("foo");
-
-    // Act
-    VersionMismatch actualVersionMismatch =
-        new VersionMismatch("myproject", "42", "42", versionsNotInCache, versionsNotInRepo);
-
-    // Assert
-    List<String> stringList = actualVersionMismatch.versionsNotInRepository;
-    assertEquals(1, stringList.size());
-    assertEquals("foo", stringList.get(0));
-    assertTrue(actualVersionMismatch.versionsNotInStore.isEmpty());
-  }
-
-  /**
-   * Test {@link VersionMismatch#VersionMismatch(String, String, String, List, List, List)}.
-   *
-   * <ul>
-   *   <li>Given {@code foo}.
-   *   <li>Then return {@link VersionMismatch#versionsNotInRepository} size is one.
-   * </ul>
-   *
-   * <p>Method under test: {@link VersionMismatch#VersionMismatch(String, String, String, List,
-   * List, List)}
-   */
-  @Test
-  @DisplayName(
-      "Test new VersionMismatch(String, String, String, List, List, List); given 'foo'; then return versionsNotInRepository size is one")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"void VersionMismatch.<init>(String, String, String, List, List, List)"})
-  void testNewVersionMismatch_givenFoo_thenReturnVersionsNotInRepositorySizeIsOne2() {
-    // Arrange
-    ArrayList<String> versionsNotInCache = new ArrayList<>();
-
-    ArrayList<String> versionsNotInRepo = new ArrayList<>();
-    versionsNotInRepo.add("foo");
-
-    // Act
-    VersionMismatch actualVersionMismatch =
-        new VersionMismatch(
-            "myproject", "42", "42", versionsNotInCache, versionsNotInRepo, new ArrayList<>());
-
-    // Assert
-    List<String> stringList = actualVersionMismatch.versionsNotInRepository;
-    assertEquals(1, stringList.size());
-    assertEquals("foo", stringList.get(0));
-    assertTrue(actualVersionMismatch.versionsNotInStore.isEmpty());
   }
 
   /**
@@ -280,15 +112,21 @@ class VersionMismatchDiffblueTest {
     // Arrange
     ArrayList<String> versionsNotInCache = new ArrayList<>();
     versionsNotInCache.add("foo");
+    versionsNotInCache.add("\"TestObjectForArrayListAddMethod\"");
 
     // Act
     VersionMismatch actualVersionMismatch =
-        new VersionMismatch("myproject", "42", "42", versionsNotInCache, new ArrayList<>());
+        new VersionMismatch(
+            "\"finance-risk-modeling-project\"",
+            "\"org.finos.legend\"",
+            "\"legend-sdlc-server\"",
+            versionsNotInCache,
+            new ArrayList<>());
 
     // Assert
-    assertEquals("42", actualVersionMismatch.artifactId);
-    assertEquals("42", actualVersionMismatch.groupId);
-    assertEquals("myproject", actualVersionMismatch.projectId);
+    assertEquals("\"finance-risk-modeling-project\"", actualVersionMismatch.projectId);
+    assertEquals("\"legend-sdlc-server\"", actualVersionMismatch.artifactId);
+    assertEquals("\"org.finos.legend\"", actualVersionMismatch.groupId);
     assertTrue(actualVersionMismatch.errors.isEmpty());
     assertTrue(actualVersionMismatch.versionsNotInRepository.isEmpty());
     assertEquals(versionsNotInCache, actualVersionMismatch.versionsNotInStore);
@@ -315,17 +153,23 @@ class VersionMismatchDiffblueTest {
     // Arrange
     ArrayList<String> versionsNotInCache = new ArrayList<>();
     versionsNotInCache.add("foo");
+    versionsNotInCache.add("\"TestObjectForArrayListAddMethod\"");
     ArrayList<String> versionsNotInRepo = new ArrayList<>();
 
     // Act
     VersionMismatch actualVersionMismatch =
         new VersionMismatch(
-            "myproject", "42", "42", versionsNotInCache, versionsNotInRepo, new ArrayList<>());
+            "\"finance-risk-model-project\"",
+            "\"org.finos.legend\"",
+            "\"legend-depot-artifact-1\"",
+            versionsNotInCache,
+            versionsNotInRepo,
+            new ArrayList<>());
 
     // Assert
-    assertEquals("42", actualVersionMismatch.artifactId);
-    assertEquals("42", actualVersionMismatch.groupId);
-    assertEquals("myproject", actualVersionMismatch.projectId);
+    assertEquals("\"finance-risk-model-project\"", actualVersionMismatch.projectId);
+    assertEquals("\"legend-depot-artifact-1\"", actualVersionMismatch.artifactId);
+    assertEquals("\"org.finos.legend\"", actualVersionMismatch.groupId);
     assertEquals(versionsNotInCache, actualVersionMismatch.versionsNotInStore);
   }
 
@@ -335,6 +179,45 @@ class VersionMismatchDiffblueTest {
    * <ul>
    *   <li>Given {@code foo}.
    *   <li>When {@link ArrayList#ArrayList()} add {@code foo}.
+   *   <li>Then return {@link VersionMismatch#errors} is {@link ArrayList#ArrayList()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link VersionMismatch#VersionMismatch(String, String, String, List,
+   * List, List)}
+   */
+  @Test
+  @DisplayName(
+      "Test new VersionMismatch(String, String, String, List, List, List); given 'foo'; when ArrayList() add 'foo'; then return errors is ArrayList()")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void VersionMismatch.<init>(String, String, String, List, List, List)"})
+  void testNewVersionMismatch_givenFoo_whenArrayListAddFoo_thenReturnErrorsIsArrayList() {
+    // Arrange
+    ArrayList<String> versionsNotInCache = new ArrayList<>();
+    ArrayList<String> versionsNotInRepo = new ArrayList<>();
+
+    ArrayList<String> errors = new ArrayList<>();
+    errors.add("foo");
+    errors.add("\"TestObjectForArrayListAddMethod\"");
+
+    // Act
+    VersionMismatch actualVersionMismatch =
+        new VersionMismatch(
+            "\"finance-risk-model-project\"",
+            "\"org.finos.legend\"",
+            "\"legend-depot-artifact-1\"",
+            versionsNotInCache,
+            versionsNotInRepo,
+            errors);
+
+    // Assert
+    assertEquals(errors, actualVersionMismatch.errors);
+  }
+
+  /**
+   * Test {@link VersionMismatch#VersionMismatch(String, String, String, List, List, List)}.
+   *
+   * <ul>
    *   <li>Then return {@link VersionMismatch#errors} size is one.
    * </ul>
    *
@@ -343,26 +226,32 @@ class VersionMismatchDiffblueTest {
    */
   @Test
   @DisplayName(
-      "Test new VersionMismatch(String, String, String, List, List, List); given 'foo'; when ArrayList() add 'foo'; then return errors size is one")
+      "Test new VersionMismatch(String, String, String, List, List, List); then return errors size is one")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void VersionMismatch.<init>(String, String, String, List, List, List)"})
-  void testNewVersionMismatch_givenFoo_whenArrayListAddFoo_thenReturnErrorsSizeIsOne() {
+  void testNewVersionMismatch_thenReturnErrorsSizeIsOne() {
     // Arrange
     ArrayList<String> versionsNotInCache = new ArrayList<>();
     ArrayList<String> versionsNotInRepo = new ArrayList<>();
 
     ArrayList<String> errors = new ArrayList<>();
-    errors.add("foo");
+    errors.add("\"TestObjectForArrayListAddMethod\"");
 
     // Act
     VersionMismatch actualVersionMismatch =
-        new VersionMismatch("myproject", "42", "42", versionsNotInCache, versionsNotInRepo, errors);
+        new VersionMismatch(
+            "\"finance-risk-model-project\"",
+            "\"org.finos.legend\"",
+            "\"legend-depot-artifact-1\"",
+            versionsNotInCache,
+            versionsNotInRepo,
+            errors);
 
     // Assert
     List<String> stringList = actualVersionMismatch.errors;
     assertEquals(1, stringList.size());
-    assertEquals("foo", stringList.get(0));
+    assertEquals("\"TestObjectForArrayListAddMethod\"", stringList.get(0));
     assertTrue(actualVersionMismatch.versionsNotInStore.isEmpty());
   }
 
@@ -370,8 +259,7 @@ class VersionMismatchDiffblueTest {
    * Test {@link VersionMismatch#VersionMismatch(String, String, String, List, List, List)}.
    *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.
-   *   <li>Then return {@link VersionMismatch#artifactId} is {@code 42}.
+   *   <li>Then return {@link VersionMismatch#projectId} is {@code "finance-risk-model-project"}.
    * </ul>
    *
    * <p>Method under test: {@link VersionMismatch#VersionMismatch(String, String, String, List,
@@ -379,11 +267,11 @@ class VersionMismatchDiffblueTest {
    */
   @Test
   @DisplayName(
-      "Test new VersionMismatch(String, String, String, List, List, List); when ArrayList(); then return artifactId is '42'")
+      "Test new VersionMismatch(String, String, String, List, List, List); then return projectId is '\"finance-risk-model-project\"'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void VersionMismatch.<init>(String, String, String, List, List, List)"})
-  void testNewVersionMismatch_whenArrayList_thenReturnArtifactIdIs42() {
+  void testNewVersionMismatch_thenReturnProjectIdIsFinanceRiskModelProject() {
     // Arrange
     ArrayList<String> versionsNotInCache = new ArrayList<>();
     ArrayList<String> versionsNotInRepo = new ArrayList<>();
@@ -391,13 +279,175 @@ class VersionMismatchDiffblueTest {
     // Act
     VersionMismatch actualVersionMismatch =
         new VersionMismatch(
-            "myproject", "42", "42", versionsNotInCache, versionsNotInRepo, new ArrayList<>());
+            "\"finance-risk-model-project\"",
+            "\"org.finos.legend\"",
+            "\"legend-depot-artifact-1\"",
+            versionsNotInCache,
+            versionsNotInRepo,
+            new ArrayList<>());
 
     // Assert
-    assertEquals("42", actualVersionMismatch.artifactId);
-    assertEquals("42", actualVersionMismatch.groupId);
-    assertEquals("myproject", actualVersionMismatch.projectId);
+    assertEquals("\"finance-risk-model-project\"", actualVersionMismatch.projectId);
+    assertEquals("\"legend-depot-artifact-1\"", actualVersionMismatch.artifactId);
+    assertEquals("\"org.finos.legend\"", actualVersionMismatch.groupId);
     assertTrue(actualVersionMismatch.versionsNotInStore.isEmpty());
+  }
+
+  /**
+   * Test {@link VersionMismatch#VersionMismatch(String, String, String, List, List)}.
+   *
+   * <ul>
+   *   <li>Then return {@link VersionMismatch#versionsNotInRepository} size is one.
+   * </ul>
+   *
+   * <p>Method under test: {@link VersionMismatch#VersionMismatch(String, String, String, List,
+   * List)}
+   */
+  @Test
+  @DisplayName(
+      "Test new VersionMismatch(String, String, String, List, List); then return versionsNotInRepository size is one")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void VersionMismatch.<init>(String, String, String, List, List)"})
+  void testNewVersionMismatch_thenReturnVersionsNotInRepositorySizeIsOne() {
+    // Arrange
+    ArrayList<String> versionsNotInCache = new ArrayList<>();
+
+    ArrayList<String> versionsNotInRepo = new ArrayList<>();
+    versionsNotInRepo.add("\"TestObjectForArrayListAddMethod\"");
+
+    // Act
+    VersionMismatch actualVersionMismatch =
+        new VersionMismatch(
+            "\"finance-risk-modeling-project\"",
+            "\"org.finos.legend\"",
+            "\"legend-sdlc-server\"",
+            versionsNotInCache,
+            versionsNotInRepo);
+
+    // Assert
+    List<String> stringList = actualVersionMismatch.versionsNotInRepository;
+    assertEquals(1, stringList.size());
+    assertEquals("\"TestObjectForArrayListAddMethod\"", stringList.get(0));
+    assertTrue(actualVersionMismatch.versionsNotInStore.isEmpty());
+  }
+
+  /**
+   * Test {@link VersionMismatch#VersionMismatch(String, String, String, List, List, List)}.
+   *
+   * <ul>
+   *   <li>Then return {@link VersionMismatch#versionsNotInRepository} size is one.
+   * </ul>
+   *
+   * <p>Method under test: {@link VersionMismatch#VersionMismatch(String, String, String, List,
+   * List, List)}
+   */
+  @Test
+  @DisplayName(
+      "Test new VersionMismatch(String, String, String, List, List, List); then return versionsNotInRepository size is one")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void VersionMismatch.<init>(String, String, String, List, List, List)"})
+  void testNewVersionMismatch_thenReturnVersionsNotInRepositorySizeIsOne2() {
+    // Arrange
+    ArrayList<String> versionsNotInCache = new ArrayList<>();
+
+    ArrayList<String> versionsNotInRepo = new ArrayList<>();
+    versionsNotInRepo.add("\"TestObjectForArrayListAddMethod\"");
+
+    // Act
+    VersionMismatch actualVersionMismatch =
+        new VersionMismatch(
+            "\"finance-risk-model-project\"",
+            "\"org.finos.legend\"",
+            "\"legend-depot-artifact-1\"",
+            versionsNotInCache,
+            versionsNotInRepo,
+            new ArrayList<>());
+
+    // Assert
+    List<String> stringList = actualVersionMismatch.versionsNotInRepository;
+    assertEquals(1, stringList.size());
+    assertEquals("\"TestObjectForArrayListAddMethod\"", stringList.get(0));
+    assertTrue(actualVersionMismatch.versionsNotInStore.isEmpty());
+  }
+
+  /**
+   * Test {@link VersionMismatch#VersionMismatch(String, String, String, List, List)}.
+   *
+   * <ul>
+   *   <li>Then return {@link VersionMismatch#versionsNotInStore} is {@link ArrayList#ArrayList()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link VersionMismatch#VersionMismatch(String, String, String, List,
+   * List)}
+   */
+  @Test
+  @DisplayName(
+      "Test new VersionMismatch(String, String, String, List, List); then return versionsNotInStore is ArrayList()")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void VersionMismatch.<init>(String, String, String, List, List)"})
+  void testNewVersionMismatch_thenReturnVersionsNotInStoreIsArrayList() {
+    // Arrange
+    ArrayList<String> versionsNotInCache = new ArrayList<>();
+    versionsNotInCache.add("\"TestObjectForArrayListAddMethod\"");
+
+    // Act
+    VersionMismatch actualVersionMismatch =
+        new VersionMismatch(
+            "\"finance-risk-modeling-project\"",
+            "\"org.finos.legend\"",
+            "\"legend-sdlc-server\"",
+            versionsNotInCache,
+            new ArrayList<>());
+
+    // Assert
+    assertEquals("\"finance-risk-modeling-project\"", actualVersionMismatch.projectId);
+    assertEquals("\"legend-sdlc-server\"", actualVersionMismatch.artifactId);
+    assertEquals("\"org.finos.legend\"", actualVersionMismatch.groupId);
+    assertTrue(actualVersionMismatch.errors.isEmpty());
+    assertTrue(actualVersionMismatch.versionsNotInRepository.isEmpty());
+    assertEquals(versionsNotInCache, actualVersionMismatch.versionsNotInStore);
+  }
+
+  /**
+   * Test {@link VersionMismatch#VersionMismatch(String, String, String, List, List, List)}.
+   *
+   * <ul>
+   *   <li>Then return {@link VersionMismatch#versionsNotInStore} is {@link ArrayList#ArrayList()}.
+   * </ul>
+   *
+   * <p>Method under test: {@link VersionMismatch#VersionMismatch(String, String, String, List,
+   * List, List)}
+   */
+  @Test
+  @DisplayName(
+      "Test new VersionMismatch(String, String, String, List, List, List); then return versionsNotInStore is ArrayList()")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void VersionMismatch.<init>(String, String, String, List, List, List)"})
+  void testNewVersionMismatch_thenReturnVersionsNotInStoreIsArrayList2() {
+    // Arrange
+    ArrayList<String> versionsNotInCache = new ArrayList<>();
+    versionsNotInCache.add("\"TestObjectForArrayListAddMethod\"");
+    ArrayList<String> versionsNotInRepo = new ArrayList<>();
+
+    // Act
+    VersionMismatch actualVersionMismatch =
+        new VersionMismatch(
+            "\"finance-risk-model-project\"",
+            "\"org.finos.legend\"",
+            "\"legend-depot-artifact-1\"",
+            versionsNotInCache,
+            versionsNotInRepo,
+            new ArrayList<>());
+
+    // Assert
+    assertEquals("\"finance-risk-model-project\"", actualVersionMismatch.projectId);
+    assertEquals("\"legend-depot-artifact-1\"", actualVersionMismatch.artifactId);
+    assertEquals("\"org.finos.legend\"", actualVersionMismatch.groupId);
+    assertEquals(versionsNotInCache, actualVersionMismatch.versionsNotInStore);
   }
 
   /**
@@ -423,12 +473,17 @@ class VersionMismatchDiffblueTest {
 
     // Act
     VersionMismatch actualVersionMismatch =
-        new VersionMismatch("myproject", "42", "42", versionsNotInCache, new ArrayList<>());
+        new VersionMismatch(
+            "\"finance-risk-modeling-project\"",
+            "\"org.finos.legend\"",
+            "\"legend-sdlc-server\"",
+            versionsNotInCache,
+            new ArrayList<>());
 
     // Assert
-    assertEquals("42", actualVersionMismatch.artifactId);
-    assertEquals("42", actualVersionMismatch.groupId);
-    assertEquals("myproject", actualVersionMismatch.projectId);
+    assertEquals("\"finance-risk-modeling-project\"", actualVersionMismatch.projectId);
+    assertEquals("\"legend-sdlc-server\"", actualVersionMismatch.artifactId);
+    assertEquals("\"org.finos.legend\"", actualVersionMismatch.groupId);
     assertTrue(actualVersionMismatch.errors.isEmpty());
     assertTrue(actualVersionMismatch.versionsNotInRepository.isEmpty());
     assertTrue(actualVersionMismatch.versionsNotInStore.isEmpty());
@@ -458,10 +513,20 @@ class VersionMismatchDiffblueTest {
     // Arrange
     ArrayList<String> versionsNotInCache = new ArrayList<>();
     VersionMismatch versionMismatch =
-        new VersionMismatch("myproject", "42", "42", versionsNotInCache, new ArrayList<>());
+        new VersionMismatch(
+            "\"finance-risk-modeling-project\"",
+            "\"org.finos.legend\"",
+            "\"legend-sdlc-server\"",
+            versionsNotInCache,
+            new ArrayList<>());
     ArrayList<String> versionsNotInCache2 = new ArrayList<>();
     VersionMismatch versionMismatch2 =
-        new VersionMismatch("myproject", "42", "42", versionsNotInCache2, new ArrayList<>());
+        new VersionMismatch(
+            "\"finance-risk-modeling-project\"",
+            "\"org.finos.legend\"",
+            "\"legend-sdlc-server\"",
+            versionsNotInCache2,
+            new ArrayList<>());
 
     // Act and Assert
     assertEquals(versionMismatch, versionMismatch2);
@@ -492,7 +557,12 @@ class VersionMismatchDiffblueTest {
     // Arrange
     ArrayList<String> versionsNotInCache = new ArrayList<>();
     VersionMismatch versionMismatch =
-        new VersionMismatch("myproject", "42", "42", versionsNotInCache, new ArrayList<>());
+        new VersionMismatch(
+            "\"finance-risk-modeling-project\"",
+            "\"org.finos.legend\"",
+            "\"legend-sdlc-server\"",
+            versionsNotInCache,
+            new ArrayList<>());
 
     // Act and Assert
     assertEquals(versionMismatch, versionMismatch);
@@ -519,13 +589,23 @@ class VersionMismatchDiffblueTest {
     // Arrange
     ArrayList<String> versionsNotInCache = new ArrayList<>();
     VersionMismatch versionMismatch =
-        new VersionMismatch("42", "42", "42", versionsNotInCache, new ArrayList<>());
+        new VersionMismatch(
+            "myproject",
+            "\"org.finos.legend\"",
+            "\"legend-sdlc-server\"",
+            versionsNotInCache,
+            new ArrayList<>());
     ArrayList<String> versionsNotInCache2 = new ArrayList<>();
 
     // Act and Assert
     assertNotEquals(
         versionMismatch,
-        new VersionMismatch("myproject", "42", "42", versionsNotInCache2, new ArrayList<>()));
+        new VersionMismatch(
+            "\"finance-risk-modeling-project\"",
+            "\"org.finos.legend\"",
+            "\"legend-sdlc-server\"",
+            versionsNotInCache2,
+            new ArrayList<>()));
   }
 
   /**
@@ -549,7 +629,13 @@ class VersionMismatchDiffblueTest {
 
     // Act and Assert
     assertNotEquals(
-        new VersionMismatch("myproject", "42", "42", versionsNotInCache, new ArrayList<>()), null);
+        new VersionMismatch(
+            "\"finance-risk-modeling-project\"",
+            "\"org.finos.legend\"",
+            "\"legend-sdlc-server\"",
+            versionsNotInCache,
+            new ArrayList<>()),
+        null);
   }
 
   /**
@@ -573,7 +659,12 @@ class VersionMismatchDiffblueTest {
 
     // Act and Assert
     assertNotEquals(
-        new VersionMismatch("myproject", "42", "42", versionsNotInCache, new ArrayList<>()),
+        new VersionMismatch(
+            "\"finance-risk-modeling-project\"",
+            "\"org.finos.legend\"",
+            "\"legend-sdlc-server\"",
+            versionsNotInCache,
+            new ArrayList<>()),
         "Different type to VersionMismatch");
   }
 }

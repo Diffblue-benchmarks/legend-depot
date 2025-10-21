@@ -56,8 +56,8 @@ class ScheduleInfoDiffblueTest {
     actualScheduleInfo.setDisabled(true);
     actualScheduleInfo.setExternalTrigger(true);
     actualScheduleInfo.setFrequency(1L);
-    actualScheduleInfo.setId("42");
-    actualScheduleInfo.setName("Name");
+    actualScheduleInfo.setId("\"schedule-1234-daily-update\"");
+    actualScheduleInfo.setName("\"DailyDataUpdateSchedule\"");
     actualScheduleInfo.setSingleInstance(true);
     Boolean actualExternalTrigger = actualScheduleInfo.getExternalTrigger();
     Long actualFrequency = actualScheduleInfo.getFrequency();
@@ -67,8 +67,8 @@ class ScheduleInfoDiffblueTest {
     boolean actualIsDisabledResult = actualScheduleInfo.isDisabled();
 
     // Assert
-    assertEquals("42", actualId);
-    assertEquals("Name", actualName);
+    assertEquals("\"DailyDataUpdateSchedule\"", actualName);
+    assertEquals("\"schedule-1234-daily-update\"", actualId);
     assertEquals(1L, actualFrequency.longValue());
     assertTrue(actualExternalTrigger);
     assertTrue(actualSingleInstance);
@@ -79,7 +79,7 @@ class ScheduleInfoDiffblueTest {
    * Test getters and setters.
    *
    * <ul>
-   *   <li>When {@code Name}.
+   *   <li>When {@code "DailyDataBackupSchedule"}.
    * </ul>
    *
    * <p>Methods under test:
@@ -101,7 +101,7 @@ class ScheduleInfoDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters; when 'Name'")
+  @DisplayName("Test getters and setters; when '\"DailyDataBackupSchedule\"'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
@@ -120,14 +120,14 @@ class ScheduleInfoDiffblueTest {
     "void ScheduleInfo.setName(String)",
     "void ScheduleInfo.setSingleInstance(Boolean)"
   })
-  void testGettersAndSetters_whenName() {
+  void testGettersAndSetters_whenDailyDataBackupSchedule() {
     // Arrange and Act
-    ScheduleInfo actualScheduleInfo = new ScheduleInfo("Name");
+    ScheduleInfo actualScheduleInfo = new ScheduleInfo("\"DailyDataBackupSchedule\"");
     actualScheduleInfo.setDisabled(true);
     actualScheduleInfo.setExternalTrigger(true);
     actualScheduleInfo.setFrequency(1L);
-    actualScheduleInfo.setId("42");
-    actualScheduleInfo.setName("Name");
+    actualScheduleInfo.setId("\"schedule-1234-daily-update\"");
+    actualScheduleInfo.setName("\"DailyDataUpdateSchedule\"");
     actualScheduleInfo.setSingleInstance(true);
     Boolean actualExternalTrigger = actualScheduleInfo.getExternalTrigger();
     Long actualFrequency = actualScheduleInfo.getFrequency();
@@ -137,8 +137,8 @@ class ScheduleInfoDiffblueTest {
     boolean actualIsDisabledResult = actualScheduleInfo.isDisabled();
 
     // Assert
-    assertEquals("42", actualId);
-    assertEquals("Name", actualName);
+    assertEquals("\"DailyDataUpdateSchedule\"", actualName);
+    assertEquals("\"schedule-1234-daily-update\"", actualId);
     assertEquals(1L, actualFrequency.longValue());
     assertTrue(actualExternalTrigger);
     assertTrue(actualSingleInstance);

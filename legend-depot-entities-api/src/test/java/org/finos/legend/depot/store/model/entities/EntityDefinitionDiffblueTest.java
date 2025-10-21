@@ -43,14 +43,21 @@ class EntityDefinitionDiffblueTest {
 
     // Act
     EntityDefinition actualEntityDefinition =
-        new EntityDefinition("Path", "Classifier Path", content);
-    actualEntityDefinition.setClassifierPath("Path");
+        new EntityDefinition(
+            "\"org.finos.legend.depot.store.model.entities.EntityDefinition\"",
+            "\"org.finos.legend.sdlc.domain.model.entity.Entity\"",
+            content);
+    actualEntityDefinition.setClassifierPath(
+        "\"org.finos.legend.depot.store.model.entities.EntityDefinition\"");
     String actualClassifierPath = actualEntityDefinition.getClassifierPath();
     Map<String, ?> actualContent = actualEntityDefinition.getContent();
 
     // Assert
-    assertEquals("Path", actualClassifierPath);
-    assertEquals("Path", actualEntityDefinition.getPath());
+    assertEquals(
+        "\"org.finos.legend.depot.store.model.entities.EntityDefinition\"", actualClassifierPath);
+    assertEquals(
+        "\"org.finos.legend.depot.store.model.entities.EntityDefinition\"",
+        actualEntityDefinition.getPath());
     assertTrue(actualContent.isEmpty());
     assertSame(content, actualContent);
   }
@@ -78,9 +85,15 @@ class EntityDefinitionDiffblueTest {
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     EntityDefinition entityDefinition =
-        new EntityDefinition("Path", "Classifier Path", new HashMap<>());
+        new EntityDefinition(
+            "\"org.finos.legend.depot.store.model.entities.EntityDefinition\"",
+            "\"org.finos.legend.sdlc.domain.model.entity.Entity\"",
+            new HashMap<>());
     EntityDefinition entityDefinition2 =
-        new EntityDefinition("Path", "Classifier Path", new HashMap<>());
+        new EntityDefinition(
+            "\"org.finos.legend.depot.store.model.entities.EntityDefinition\"",
+            "\"org.finos.legend.sdlc.domain.model.entity.Entity\"",
+            new HashMap<>());
 
     // Act and Assert
     assertEquals(entityDefinition, entityDefinition2);
@@ -110,7 +123,10 @@ class EntityDefinitionDiffblueTest {
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     EntityDefinition entityDefinition =
-        new EntityDefinition("Path", "Classifier Path", new HashMap<>());
+        new EntityDefinition(
+            "\"org.finos.legend.depot.store.model.entities.EntityDefinition\"",
+            "\"org.finos.legend.sdlc.domain.model.entity.Entity\"",
+            new HashMap<>());
 
     // Act and Assert
     assertEquals(entityDefinition, entityDefinition);
@@ -136,11 +152,16 @@ class EntityDefinitionDiffblueTest {
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     EntityDefinition entityDefinition =
-        new EntityDefinition("42", "Classifier Path", new HashMap<>());
+        new EntityDefinition(
+            "Path", "\"org.finos.legend.sdlc.domain.model.entity.Entity\"", new HashMap<>());
 
     // Act and Assert
     assertNotEquals(
-        entityDefinition, new EntityDefinition("Path", "Classifier Path", new HashMap<>()));
+        entityDefinition,
+        new EntityDefinition(
+            "\"org.finos.legend.depot.store.model.entities.EntityDefinition\"",
+            "\"org.finos.legend.sdlc.domain.model.entity.Entity\"",
+            new HashMap<>()));
   }
 
   /**
@@ -160,7 +181,12 @@ class EntityDefinitionDiffblueTest {
   @MethodsUnderTest({"boolean EntityDefinition.equals(Object)", "int EntityDefinition.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(new EntityDefinition("Path", "Classifier Path", new HashMap<>()), null);
+    assertNotEquals(
+        new EntityDefinition(
+            "\"org.finos.legend.depot.store.model.entities.EntityDefinition\"",
+            "\"org.finos.legend.sdlc.domain.model.entity.Entity\"",
+            new HashMap<>()),
+        null);
   }
 
   /**
@@ -181,7 +207,10 @@ class EntityDefinitionDiffblueTest {
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(
-        new EntityDefinition("Path", "Classifier Path", new HashMap<>()),
+        new EntityDefinition(
+            "\"org.finos.legend.depot.store.model.entities.EntityDefinition\"",
+            "\"org.finos.legend.sdlc.domain.model.entity.Entity\"",
+            new HashMap<>()),
         "Different type to EntityDefinition");
   }
 }
