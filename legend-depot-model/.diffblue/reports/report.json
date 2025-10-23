@@ -3,19 +3,19 @@
     "reportVersion" : "2.8"
   },
   "run" : {
-    "version" : "2025.10.02-8f75ba9-licensed",
-    "creationTimestamp" : "2025-10-21T11:59:04.11423Z",
+    "version" : "2025.11.01-SNAPSHOT-d123506-licensed",
+    "creationTimestamp" : "2025-10-23T11:14:56.056293Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 82.424,
-    "environmentDetectionTime" : 1.086,
-    "indexingTime" : 0.363,
-    "entryPointsTime" : 1.052,
-    "generationTime" : 35.28,
-    "timeToFirstTest" : 37.289,
-    "timeToLastTest" : 59.248,
-    "indexQueryTime" : 3.853,
-    "verificationTime" : 3.323,
-    "validationTime" : 8.677
+    "totalTime" : 82.042,
+    "environmentDetectionTime" : 1.116,
+    "indexingTime" : 0.589,
+    "entryPointsTime" : 1.085,
+    "generationTime" : 31.906,
+    "timeToFirstTest" : 36.114,
+    "timeToLastTest" : 57.362,
+    "indexQueryTime" : 2.277,
+    "verificationTime" : 3.861,
+    "validationTime" : 9.488
   },
   "codes" : {
     "R000" : "Success",
@@ -33,9 +33,9 @@
   "summary" : {
     "classesCount" : 6,
     "methodsCount" : 34,
-    "cumulativeDiffblueTestCount" : 32,
+    "cumulativeDiffblueTestCount" : 34,
     "cumulativeManualTestCount" : 2,
-    "completeTestCount" : 32,
+    "completeTestCount" : 34,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 202,
@@ -60,10 +60,10 @@
       "T012" : 3
     },
     "perTestOutcome" : {
-      "R000" : 32
+      "R000" : 34
     },
     "perTestValidation" : {
-      "V000" : 32
+      "V000" : 34
     }
   },
   "classes" : {
@@ -146,7 +146,7 @@
     },
     "org.finos.legend.depot.domain.version.VersionValidator" : {
       "methodsCount" : 7,
-      "completeTestCount" : 20,
+      "completeTestCount" : 22,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 5,
@@ -159,7 +159,7 @@
         "T012" : 1
       },
       "perTestOutcome" : {
-        "R000" : 20
+        "R000" : 22
       }
     }
   },
@@ -481,24 +481,24 @@
       ]
     },
     "org.finos.legend.depot.domain.version.VersionValidator.isValid:(Ljava/lang/String;)Z" : {
-      "completeTestCount" : 9,
+      "completeTestCount" : 10,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 9
+        "R000" : 10
       },
       "lineNumbers" : [
         38
       ]
     },
     "org.finos.legend.depot.domain.version.VersionValidator.isValidReleaseVersion:(Ljava/lang/String;)Z" : {
-      "completeTestCount" : 7,
+      "completeTestCount" : 8,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 7
+        "R000" : 8
       },
       "lineNumbers" : [
         45,

@@ -23,13 +23,13 @@ class StoreExceptionDiffblueTest {
     // Arrange and Act
     StoreException actualStoreException =
         new StoreException(
-            "\"Failed to store the entity in the database due to a connection timeout. Please check the database"
-                + " connection and try again.\"");
+            "\"Failed to store the entity due to a database connection error. Please check the database connection"
+                + " and try again.\"");
 
     // Assert
     assertEquals(
-        "\"Failed to store the entity in the database due to a connection timeout. Please check the database"
-            + " connection and try again.\"",
+        "\"Failed to store the entity due to a database connection error. Please check the database connection"
+            + " and try again.\"",
         actualStoreException.getMessage());
     assertNull(actualStoreException.getCause());
     assertEquals(0, actualStoreException.getSuppressed().length);

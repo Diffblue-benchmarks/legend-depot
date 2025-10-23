@@ -42,8 +42,8 @@ class VersionMismatchDiffblueTest {
     VersionMismatch actualVersionMismatch =
         new VersionMismatch(
             "\"finance-risk-modeling-project\"",
-            "\"org.finos.legend\"",
-            "\"legend-sdlc-server\"",
+            "\"org.finos.legend.depot\"",
+            "\"legend-shared\"",
             versionsNotInCache,
             versionsNotInRepo);
 
@@ -80,9 +80,9 @@ class VersionMismatchDiffblueTest {
     // Act
     VersionMismatch actualVersionMismatch =
         new VersionMismatch(
-            "\"finance-risk-model-project\"",
-            "\"org.finos.legend\"",
-            "\"legend-depot-artifact-1\"",
+            "\"finance-risk-modeling-project\"",
+            "\"org.finos.legend.depot\"",
+            "\"finance-domain-model\"",
             versionsNotInCache,
             versionsNotInRepo,
             new ArrayList<>());
@@ -118,15 +118,15 @@ class VersionMismatchDiffblueTest {
     VersionMismatch actualVersionMismatch =
         new VersionMismatch(
             "\"finance-risk-modeling-project\"",
-            "\"org.finos.legend\"",
-            "\"legend-sdlc-server\"",
+            "\"org.finos.legend.depot\"",
+            "\"legend-shared\"",
             versionsNotInCache,
             new ArrayList<>());
 
     // Assert
     assertEquals("\"finance-risk-modeling-project\"", actualVersionMismatch.projectId);
-    assertEquals("\"legend-sdlc-server\"", actualVersionMismatch.artifactId);
-    assertEquals("\"org.finos.legend\"", actualVersionMismatch.groupId);
+    assertEquals("\"legend-shared\"", actualVersionMismatch.artifactId);
+    assertEquals("\"org.finos.legend.depot\"", actualVersionMismatch.groupId);
     assertTrue(actualVersionMismatch.errors.isEmpty());
     assertTrue(actualVersionMismatch.versionsNotInRepository.isEmpty());
     assertEquals(versionsNotInCache, actualVersionMismatch.versionsNotInStore);
@@ -159,17 +159,17 @@ class VersionMismatchDiffblueTest {
     // Act
     VersionMismatch actualVersionMismatch =
         new VersionMismatch(
-            "\"finance-risk-model-project\"",
-            "\"org.finos.legend\"",
-            "\"legend-depot-artifact-1\"",
+            "\"finance-risk-modeling-project\"",
+            "\"org.finos.legend.depot\"",
+            "\"finance-domain-model\"",
             versionsNotInCache,
             versionsNotInRepo,
             new ArrayList<>());
 
     // Assert
-    assertEquals("\"finance-risk-model-project\"", actualVersionMismatch.projectId);
-    assertEquals("\"legend-depot-artifact-1\"", actualVersionMismatch.artifactId);
-    assertEquals("\"org.finos.legend\"", actualVersionMismatch.groupId);
+    assertEquals("\"finance-domain-model\"", actualVersionMismatch.artifactId);
+    assertEquals("\"finance-risk-modeling-project\"", actualVersionMismatch.projectId);
+    assertEquals("\"org.finos.legend.depot\"", actualVersionMismatch.groupId);
     assertEquals(versionsNotInCache, actualVersionMismatch.versionsNotInStore);
   }
 
@@ -203,9 +203,9 @@ class VersionMismatchDiffblueTest {
     // Act
     VersionMismatch actualVersionMismatch =
         new VersionMismatch(
-            "\"finance-risk-model-project\"",
-            "\"org.finos.legend\"",
-            "\"legend-depot-artifact-1\"",
+            "\"finance-risk-modeling-project\"",
+            "\"org.finos.legend.depot\"",
+            "\"finance-domain-model\"",
             versionsNotInCache,
             versionsNotInRepo,
             errors);
@@ -241,9 +241,9 @@ class VersionMismatchDiffblueTest {
     // Act
     VersionMismatch actualVersionMismatch =
         new VersionMismatch(
-            "\"finance-risk-model-project\"",
-            "\"org.finos.legend\"",
-            "\"legend-depot-artifact-1\"",
+            "\"finance-risk-modeling-project\"",
+            "\"org.finos.legend.depot\"",
+            "\"finance-domain-model\"",
             versionsNotInCache,
             versionsNotInRepo,
             errors);
@@ -252,44 +252,6 @@ class VersionMismatchDiffblueTest {
     List<String> stringList = actualVersionMismatch.errors;
     assertEquals(1, stringList.size());
     assertEquals("\"TestObjectForArrayListAddMethod\"", stringList.get(0));
-    assertTrue(actualVersionMismatch.versionsNotInStore.isEmpty());
-  }
-
-  /**
-   * Test {@link VersionMismatch#VersionMismatch(String, String, String, List, List, List)}.
-   *
-   * <ul>
-   *   <li>Then return {@link VersionMismatch#projectId} is {@code "finance-risk-model-project"}.
-   * </ul>
-   *
-   * <p>Method under test: {@link VersionMismatch#VersionMismatch(String, String, String, List,
-   * List, List)}
-   */
-  @Test
-  @DisplayName(
-      "Test new VersionMismatch(String, String, String, List, List, List); then return projectId is '\"finance-risk-model-project\"'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"void VersionMismatch.<init>(String, String, String, List, List, List)"})
-  void testNewVersionMismatch_thenReturnProjectIdIsFinanceRiskModelProject() {
-    // Arrange
-    ArrayList<String> versionsNotInCache = new ArrayList<>();
-    ArrayList<String> versionsNotInRepo = new ArrayList<>();
-
-    // Act
-    VersionMismatch actualVersionMismatch =
-        new VersionMismatch(
-            "\"finance-risk-model-project\"",
-            "\"org.finos.legend\"",
-            "\"legend-depot-artifact-1\"",
-            versionsNotInCache,
-            versionsNotInRepo,
-            new ArrayList<>());
-
-    // Assert
-    assertEquals("\"finance-risk-model-project\"", actualVersionMismatch.projectId);
-    assertEquals("\"legend-depot-artifact-1\"", actualVersionMismatch.artifactId);
-    assertEquals("\"org.finos.legend\"", actualVersionMismatch.groupId);
     assertTrue(actualVersionMismatch.versionsNotInStore.isEmpty());
   }
 
@@ -320,8 +282,8 @@ class VersionMismatchDiffblueTest {
     VersionMismatch actualVersionMismatch =
         new VersionMismatch(
             "\"finance-risk-modeling-project\"",
-            "\"org.finos.legend\"",
-            "\"legend-sdlc-server\"",
+            "\"org.finos.legend.depot\"",
+            "\"legend-shared\"",
             versionsNotInCache,
             versionsNotInRepo);
 
@@ -358,9 +320,9 @@ class VersionMismatchDiffblueTest {
     // Act
     VersionMismatch actualVersionMismatch =
         new VersionMismatch(
-            "\"finance-risk-model-project\"",
-            "\"org.finos.legend\"",
-            "\"legend-depot-artifact-1\"",
+            "\"finance-risk-modeling-project\"",
+            "\"org.finos.legend.depot\"",
+            "\"finance-domain-model\"",
             versionsNotInCache,
             versionsNotInRepo,
             new ArrayList<>());
@@ -397,15 +359,15 @@ class VersionMismatchDiffblueTest {
     VersionMismatch actualVersionMismatch =
         new VersionMismatch(
             "\"finance-risk-modeling-project\"",
-            "\"org.finos.legend\"",
-            "\"legend-sdlc-server\"",
+            "\"org.finos.legend.depot\"",
+            "\"legend-shared\"",
             versionsNotInCache,
             new ArrayList<>());
 
     // Assert
     assertEquals("\"finance-risk-modeling-project\"", actualVersionMismatch.projectId);
-    assertEquals("\"legend-sdlc-server\"", actualVersionMismatch.artifactId);
-    assertEquals("\"org.finos.legend\"", actualVersionMismatch.groupId);
+    assertEquals("\"legend-shared\"", actualVersionMismatch.artifactId);
+    assertEquals("\"org.finos.legend.depot\"", actualVersionMismatch.groupId);
     assertTrue(actualVersionMismatch.errors.isEmpty());
     assertTrue(actualVersionMismatch.versionsNotInRepository.isEmpty());
     assertEquals(versionsNotInCache, actualVersionMismatch.versionsNotInStore);
@@ -436,18 +398,57 @@ class VersionMismatchDiffblueTest {
     // Act
     VersionMismatch actualVersionMismatch =
         new VersionMismatch(
-            "\"finance-risk-model-project\"",
-            "\"org.finos.legend\"",
-            "\"legend-depot-artifact-1\"",
+            "\"finance-risk-modeling-project\"",
+            "\"org.finos.legend.depot\"",
+            "\"finance-domain-model\"",
             versionsNotInCache,
             versionsNotInRepo,
             new ArrayList<>());
 
     // Assert
-    assertEquals("\"finance-risk-model-project\"", actualVersionMismatch.projectId);
-    assertEquals("\"legend-depot-artifact-1\"", actualVersionMismatch.artifactId);
-    assertEquals("\"org.finos.legend\"", actualVersionMismatch.groupId);
+    assertEquals("\"finance-domain-model\"", actualVersionMismatch.artifactId);
+    assertEquals("\"finance-risk-modeling-project\"", actualVersionMismatch.projectId);
+    assertEquals("\"org.finos.legend.depot\"", actualVersionMismatch.groupId);
     assertEquals(versionsNotInCache, actualVersionMismatch.versionsNotInStore);
+  }
+
+  /**
+   * Test {@link VersionMismatch#VersionMismatch(String, String, String, List, List, List)}.
+   *
+   * <ul>
+   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>Then return {@link VersionMismatch#artifactId} is {@code "finance-domain-model"}.
+   * </ul>
+   *
+   * <p>Method under test: {@link VersionMismatch#VersionMismatch(String, String, String, List,
+   * List, List)}
+   */
+  @Test
+  @DisplayName(
+      "Test new VersionMismatch(String, String, String, List, List, List); when ArrayList(); then return artifactId is '\"finance-domain-model\"'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"void VersionMismatch.<init>(String, String, String, List, List, List)"})
+  void testNewVersionMismatch_whenArrayList_thenReturnArtifactIdIsFinanceDomainModel() {
+    // Arrange
+    ArrayList<String> versionsNotInCache = new ArrayList<>();
+    ArrayList<String> versionsNotInRepo = new ArrayList<>();
+
+    // Act
+    VersionMismatch actualVersionMismatch =
+        new VersionMismatch(
+            "\"finance-risk-modeling-project\"",
+            "\"org.finos.legend.depot\"",
+            "\"finance-domain-model\"",
+            versionsNotInCache,
+            versionsNotInRepo,
+            new ArrayList<>());
+
+    // Assert
+    assertEquals("\"finance-domain-model\"", actualVersionMismatch.artifactId);
+    assertEquals("\"finance-risk-modeling-project\"", actualVersionMismatch.projectId);
+    assertEquals("\"org.finos.legend.depot\"", actualVersionMismatch.groupId);
+    assertTrue(actualVersionMismatch.versionsNotInStore.isEmpty());
   }
 
   /**
@@ -475,15 +476,15 @@ class VersionMismatchDiffblueTest {
     VersionMismatch actualVersionMismatch =
         new VersionMismatch(
             "\"finance-risk-modeling-project\"",
-            "\"org.finos.legend\"",
-            "\"legend-sdlc-server\"",
+            "\"org.finos.legend.depot\"",
+            "\"legend-shared\"",
             versionsNotInCache,
             new ArrayList<>());
 
     // Assert
     assertEquals("\"finance-risk-modeling-project\"", actualVersionMismatch.projectId);
-    assertEquals("\"legend-sdlc-server\"", actualVersionMismatch.artifactId);
-    assertEquals("\"org.finos.legend\"", actualVersionMismatch.groupId);
+    assertEquals("\"legend-shared\"", actualVersionMismatch.artifactId);
+    assertEquals("\"org.finos.legend.depot\"", actualVersionMismatch.groupId);
     assertTrue(actualVersionMismatch.errors.isEmpty());
     assertTrue(actualVersionMismatch.versionsNotInRepository.isEmpty());
     assertTrue(actualVersionMismatch.versionsNotInStore.isEmpty());
@@ -515,16 +516,16 @@ class VersionMismatchDiffblueTest {
     VersionMismatch versionMismatch =
         new VersionMismatch(
             "\"finance-risk-modeling-project\"",
-            "\"org.finos.legend\"",
-            "\"legend-sdlc-server\"",
+            "\"org.finos.legend.depot\"",
+            "\"legend-shared\"",
             versionsNotInCache,
             new ArrayList<>());
     ArrayList<String> versionsNotInCache2 = new ArrayList<>();
     VersionMismatch versionMismatch2 =
         new VersionMismatch(
             "\"finance-risk-modeling-project\"",
-            "\"org.finos.legend\"",
-            "\"legend-sdlc-server\"",
+            "\"org.finos.legend.depot\"",
+            "\"legend-shared\"",
             versionsNotInCache2,
             new ArrayList<>());
 
@@ -559,8 +560,8 @@ class VersionMismatchDiffblueTest {
     VersionMismatch versionMismatch =
         new VersionMismatch(
             "\"finance-risk-modeling-project\"",
-            "\"org.finos.legend\"",
-            "\"legend-sdlc-server\"",
+            "\"org.finos.legend.depot\"",
+            "\"legend-shared\"",
             versionsNotInCache,
             new ArrayList<>());
 
@@ -591,8 +592,8 @@ class VersionMismatchDiffblueTest {
     VersionMismatch versionMismatch =
         new VersionMismatch(
             "myproject",
-            "\"org.finos.legend\"",
-            "\"legend-sdlc-server\"",
+            "\"org.finos.legend.depot\"",
+            "\"legend-shared\"",
             versionsNotInCache,
             new ArrayList<>());
     ArrayList<String> versionsNotInCache2 = new ArrayList<>();
@@ -602,8 +603,8 @@ class VersionMismatchDiffblueTest {
         versionMismatch,
         new VersionMismatch(
             "\"finance-risk-modeling-project\"",
-            "\"org.finos.legend\"",
-            "\"legend-sdlc-server\"",
+            "\"org.finos.legend.depot\"",
+            "\"legend-shared\"",
             versionsNotInCache2,
             new ArrayList<>()));
   }
@@ -631,8 +632,8 @@ class VersionMismatchDiffblueTest {
     assertNotEquals(
         new VersionMismatch(
             "\"finance-risk-modeling-project\"",
-            "\"org.finos.legend\"",
-            "\"legend-sdlc-server\"",
+            "\"org.finos.legend.depot\"",
+            "\"legend-shared\"",
             versionsNotInCache,
             new ArrayList<>()),
         null);
@@ -661,8 +662,8 @@ class VersionMismatchDiffblueTest {
     assertNotEquals(
         new VersionMismatch(
             "\"finance-risk-modeling-project\"",
-            "\"org.finos.legend\"",
-            "\"legend-sdlc-server\"",
+            "\"org.finos.legend.depot\"",
+            "\"legend-shared\"",
             versionsNotInCache,
             new ArrayList<>()),
         "Different type to VersionMismatch");

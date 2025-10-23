@@ -25,15 +25,15 @@ class ProjectSummaryDiffblueTest {
         new ProjectSummary(
             "\"finos-legend-project-001\"",
             "\"org.finos.legend.depot\"",
-            "\"legend-shared-runtime\"",
+            "\"legend-depot-artifact\"",
             1L);
 
     // Assert
     assertEquals("\"finos-legend-project-001\"", actualProjectSummary.projectId);
-    assertEquals("\"legend-shared-runtime\"", actualProjectSummary.artifactId);
+    assertEquals("\"legend-depot-artifact\"", actualProjectSummary.artifactId);
     assertEquals("\"org.finos.legend.depot\"", actualProjectSummary.groupId);
     assertEquals(
-        "\"org.finos.legend.depot\"-\"legend-shared-runtime\"",
+        "\"org.finos.legend.depot\"-\"legend-depot-artifact\"",
         actualProjectSummary.getMavenCoordinates());
     assertEquals(1L, actualProjectSummary.versions);
   }
@@ -54,12 +54,12 @@ class ProjectSummaryDiffblueTest {
         new ProjectSummary(
             "\"finos-legend-project-001\"",
             "\"org.finos.legend.depot\"",
-            "\"legend-shared-runtime\"",
+            "\"legend-depot-artifact\"",
             1L);
 
     // Act and Assert
     assertEquals(
-        "\"org.finos.legend.depot\"-\"legend-shared-runtime\"",
+        "\"org.finos.legend.depot\"-\"legend-depot-artifact\"",
         projectSummary.getMavenCoordinates());
   }
 
@@ -83,13 +83,13 @@ class ProjectSummaryDiffblueTest {
         new ProjectSummary(
             "\"finos-legend-project-001\"",
             "\"org.finos.legend.depot\"",
-            "\"legend-shared-runtime\"",
+            "\"legend-depot-artifact\"",
             1L);
     ProjectSummary projectSummary2 =
         new ProjectSummary(
             "\"finos-legend-project-001\"",
             "\"org.finos.legend.depot\"",
-            "\"legend-shared-runtime\"",
+            "\"legend-depot-artifact\"",
             1L);
 
     // Act
@@ -125,13 +125,13 @@ class ProjectSummaryDiffblueTest {
         new ProjectSummary(
             "\"finos-legend-project-001\"",
             "\"org.finos.legend.depot\"",
-            "\"legend-shared-runtime\"",
+            "\"legend-depot-artifact\"",
             1L);
     ProjectSummary projectSummary2 =
         new ProjectSummary(
             "\"finos-legend-project-001\"",
             "\"org.finos.legend.depot\"",
-            "\"legend-shared-runtime\"",
+            "\"legend-depot-artifact\"",
             1L);
 
     // Act and Assert
@@ -165,7 +165,7 @@ class ProjectSummaryDiffblueTest {
         new ProjectSummary(
             "\"finos-legend-project-001\"",
             "\"org.finos.legend.depot\"",
-            "\"legend-shared-runtime\"",
+            "\"legend-depot-artifact\"",
             1L);
 
     // Act and Assert
@@ -195,7 +195,7 @@ class ProjectSummaryDiffblueTest {
         new ProjectSummary(
             "\"finos-legend-project-001\"",
             "\"org.finos.legend.depot\"",
-            "\"legend-shared-runtime\"",
+            "\"legend-depot-artifact\"",
             0L);
 
     // Act and Assert
@@ -204,7 +204,7 @@ class ProjectSummaryDiffblueTest {
         new ProjectSummary(
             "\"finos-legend-project-001\"",
             "\"org.finos.legend.depot\"",
-            "\"legend-shared-runtime\"",
+            "\"legend-depot-artifact\"",
             1L));
   }
 
@@ -229,7 +229,7 @@ class ProjectSummaryDiffblueTest {
         new ProjectSummary(
             "\"finos-legend-project-001\"",
             "\"org.finos.legend.depot\"",
-            "\"legend-shared-runtime\"",
+            "\"legend-depot-artifact\"",
             1L),
         null);
   }
@@ -255,7 +255,7 @@ class ProjectSummaryDiffblueTest {
         new ProjectSummary(
             "\"finos-legend-project-001\"",
             "\"org.finos.legend.depot\"",
-            "\"legend-shared-runtime\"",
+            "\"legend-depot-artifact\"",
             1L),
         "Different type to ProjectSummary");
   }

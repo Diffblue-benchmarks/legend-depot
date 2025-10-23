@@ -16,9 +16,9 @@ class MongoConfigurationDiffblueTest {
    *
    * <ul>
    *   <li>{@link MongoConfiguration#MongoConfiguration(String, String, boolean)}
-   *   <li>{@link MongoConfiguration#getDatabase()}
    *   <li>{@link MongoConfiguration#getUrl()}
    *   <li>{@link MongoConfiguration#isTracingEnabled()}
+   *   <li>{@link MongoConfiguration#getDatabase()}
    * </ul>
    */
   @Test
@@ -35,12 +35,12 @@ class MongoConfigurationDiffblueTest {
     // Arrange and Act
     MongoConfiguration actualMongoConfiguration =
         new MongoConfiguration("Database", "https://example.org/example", true);
-    String actualDatabase = actualMongoConfiguration.getDatabase();
     String actualUrl = actualMongoConfiguration.getUrl();
+    boolean actualIsTracingEnabledResult = actualMongoConfiguration.isTracingEnabled();
 
     // Assert
-    assertEquals("Database", actualDatabase);
+    assertEquals("Database", actualMongoConfiguration.getDatabase());
     assertEquals("https://example.org/example", actualUrl);
-    assertTrue(actualMongoConfiguration.isTracingEnabled());
+    assertTrue(actualIsTracingEnabledResult);
   }
 }

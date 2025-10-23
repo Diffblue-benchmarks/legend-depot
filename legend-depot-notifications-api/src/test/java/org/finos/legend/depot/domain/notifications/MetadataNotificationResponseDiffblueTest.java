@@ -17,6 +17,33 @@ class MetadataNotificationResponseDiffblueTest {
    * Test {@link MetadataNotificationResponse#getStatus()}.
    *
    * <ul>
+   *   <li>Given {@link MetadataNotificationResponse} (default constructor) addError a string.
+   *   <li>Then return {@code FAILED}.
+   * </ul>
+   *
+   * <p>Method under test: {@link MetadataNotificationResponse#getStatus()}
+   */
+  @Test
+  @DisplayName(
+      "Test getStatus(); given MetadataNotificationResponse (default constructor) addError a string; then return 'FAILED'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"MetadataNotificationStatus MetadataNotificationResponse.getStatus()"})
+  void testGetStatus_givenMetadataNotificationResponseAddErrorAString_thenReturnFailed() {
+    // Arrange
+    MetadataNotificationResponse metadataNotificationResponse = new MetadataNotificationResponse();
+    metadataNotificationResponse.addError(
+        "\"Failed to update metadata due to invalid schema version. Please ensure the schema version is compatible"
+            + " with the current system version.\"");
+
+    // Act and Assert
+    assertEquals(MetadataNotificationStatus.FAILED, metadataNotificationResponse.getStatus());
+  }
+
+  /**
+   * Test {@link MetadataNotificationResponse#getStatus()}.
+   *
+   * <ul>
    *   <li>Given {@link MetadataNotificationResponse} (default constructor).
    *   <li>Then return {@code SUCCESS}.
    * </ul>
@@ -36,30 +63,6 @@ class MetadataNotificationResponseDiffblueTest {
   }
 
   /**
-   * Test {@link MetadataNotificationResponse#getStatus()}.
-   *
-   * <ul>
-   *   <li>Then return {@code FAILED}.
-   * </ul>
-   *
-   * <p>Method under test: {@link MetadataNotificationResponse#getStatus()}
-   */
-  @Test
-  @DisplayName("Test getStatus(); then return 'FAILED'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"MetadataNotificationStatus MetadataNotificationResponse.getStatus()"})
-  void testGetStatus_thenReturnFailed() {
-    // Arrange
-    MetadataNotificationResponse metadataNotificationResponse = new MetadataNotificationResponse();
-    metadataNotificationResponse.addError(
-        "\"Failed to update metadata due to invalid schema. Please verify the schema and try again.\"");
-
-    // Act and Assert
-    assertEquals(MetadataNotificationStatus.FAILED, metadataNotificationResponse.getStatus());
-  }
-
-  /**
    * Test {@link MetadataNotificationResponse#addError(String)}.
    *
    * <p>Method under test: {@link MetadataNotificationResponse#addError(String)}
@@ -76,7 +79,8 @@ class MetadataNotificationResponseDiffblueTest {
     // Act
     MetadataNotificationResponse actualAddErrorResult =
         metadataNotificationResponse.addError(
-            "\"Failed to update metadata due to invalid schema. Please verify the schema and try again.\"");
+            "\"Failed to update metadata due to invalid schema version. Please ensure the schema version is compatible"
+                + " with the current system version.\"");
 
     // Assert
     assertEquals(MetadataNotificationStatus.FAILED, metadataNotificationResponse.getStatus());
@@ -104,7 +108,7 @@ class MetadataNotificationResponseDiffblueTest {
     MetadataNotificationResponse actualAddMessageResult =
         metadataNotificationResponse.addMessage(
             "\"Metadata update successful: Version 1.2.3 of the project has been successfully updated in the"
-                + " depot.\"");
+                + " repository.\"");
 
     // Assert
     assertSame(metadataNotificationResponse, actualAddMessageResult);
@@ -212,17 +216,44 @@ class MetadataNotificationResponseDiffblueTest {
 
     // Act
     metadataNotificationResponse.logError(
-        "\"Failed to process metadata update: Invalid schema detected in the incoming metadata. Please verify"
-            + " the source and retry.\"");
+        "\"Failed to update metadata due to database connection error. Please check the database server status"
+            + " and connection parameters.\"");
 
     // Assert
     List<String> errors = metadataNotificationResponse.getErrors();
     assertEquals(1, errors.size());
     assertEquals(
-        "\"Failed to process metadata update: Invalid schema detected in the incoming metadata. Please verify"
-            + " the source and retry.\"",
+        "\"Failed to update metadata due to database connection error. Please check the database server status"
+            + " and connection parameters.\"",
         errors.get(0));
     assertEquals(MetadataNotificationStatus.FAILED, metadataNotificationResponse.getStatus());
+    assertTrue(metadataNotificationResponse.hasErrors());
+  }
+
+  /**
+   * Test {@link MetadataNotificationResponse#hasErrors()}.
+   *
+   * <ul>
+   *   <li>Given {@link MetadataNotificationResponse} (default constructor) addError a string.
+   *   <li>Then return {@code true}.
+   * </ul>
+   *
+   * <p>Method under test: {@link MetadataNotificationResponse#hasErrors()}
+   */
+  @Test
+  @DisplayName(
+      "Test hasErrors(); given MetadataNotificationResponse (default constructor) addError a string; then return 'true'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean MetadataNotificationResponse.hasErrors()"})
+  void testHasErrors_givenMetadataNotificationResponseAddErrorAString_thenReturnTrue() {
+    // Arrange
+    MetadataNotificationResponse metadataNotificationResponse = new MetadataNotificationResponse();
+    metadataNotificationResponse.addError(
+        "\"Failed to update metadata due to invalid schema version. Please ensure the schema version is compatible"
+            + " with the current system version.\"");
+
+    // Act and Assert
     assertTrue(metadataNotificationResponse.hasErrors());
   }
 
@@ -245,30 +276,6 @@ class MetadataNotificationResponseDiffblueTest {
   void testHasErrors_givenMetadataNotificationResponse_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(new MetadataNotificationResponse().hasErrors());
-  }
-
-  /**
-   * Test {@link MetadataNotificationResponse#hasErrors()}.
-   *
-   * <ul>
-   *   <li>Then return {@code true}.
-   * </ul>
-   *
-   * <p>Method under test: {@link MetadataNotificationResponse#hasErrors()}
-   */
-  @Test
-  @DisplayName("Test hasErrors(); then return 'true'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"boolean MetadataNotificationResponse.hasErrors()"})
-  void testHasErrors_thenReturnTrue() {
-    // Arrange
-    MetadataNotificationResponse metadataNotificationResponse = new MetadataNotificationResponse();
-    metadataNotificationResponse.addError(
-        "\"Failed to update metadata due to invalid schema. Please verify the schema and try again.\"");
-
-    // Act and Assert
-    assertTrue(metadataNotificationResponse.hasErrors());
   }
 
   /**

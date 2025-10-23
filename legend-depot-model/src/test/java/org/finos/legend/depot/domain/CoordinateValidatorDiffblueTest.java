@@ -53,6 +53,27 @@ class CoordinateValidatorDiffblueTest {
    * Test {@link CoordinateValidator#isValidArtifactId(String)}.
    *
    * <ul>
+   *   <li>When {@code "my_valid-artifact_id123"}.
+   *   <li>Then return {@code false}.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoordinateValidator#isValidArtifactId(String)}
+   */
+  @Test
+  @DisplayName(
+      "Test isValidArtifactId(String); when '\"my_valid-artifact_id123\"'; then return 'false'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean CoordinateValidator.isValidArtifactId(String)"})
+  void testIsValidArtifactId_whenMyValidArtifactId123_thenReturnFalse() {
+    // Arrange, Act and Assert
+    assertFalse(CoordinateValidator.isValidArtifactId("\"my_valid-artifact_id123\""));
+  }
+
+  /**
+   * Test {@link CoordinateValidator#isValidArtifactId(String)}.
+   *
+   * <ul>
    *   <li>When {@code null}.
    *   <li>Then return {@code false}.
    * </ul>
@@ -67,27 +88,6 @@ class CoordinateValidatorDiffblueTest {
   void testIsValidArtifactId_whenNull_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(CoordinateValidator.isValidArtifactId(null));
-  }
-
-  /**
-   * Test {@link CoordinateValidator#isValidArtifactId(String)}.
-   *
-   * <ul>
-   *   <li>When {@code "valid-artifact-id_123"}.
-   *   <li>Then return {@code false}.
-   * </ul>
-   *
-   * <p>Method under test: {@link CoordinateValidator#isValidArtifactId(String)}
-   */
-  @Test
-  @DisplayName(
-      "Test isValidArtifactId(String); when '\"valid-artifact-id_123\"'; then return 'false'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"boolean CoordinateValidator.isValidArtifactId(String)"})
-  void testIsValidArtifactId_whenValidArtifactId123_thenReturnFalse() {
-    // Arrange, Act and Assert
-    assertFalse(CoordinateValidator.isValidArtifactId("\"valid-artifact-id_123\""));
   }
 
   /**

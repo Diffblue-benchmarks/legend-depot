@@ -62,7 +62,7 @@ class ScheduleInstanceDiffblueTest {
    * Test getters and setters.
    *
    * <ul>
-   *   <li>When {@code "DailyDataBackupSchedule"}.
+   *   <li>When {@code "DailyBackupSchedule"}.
    * </ul>
    *
    * <p>Methods under test:
@@ -78,7 +78,7 @@ class ScheduleInstanceDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters; when '\"DailyDataBackupSchedule\"'")
+  @DisplayName("Test getters and setters; when '\"DailyBackupSchedule\"'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
@@ -91,14 +91,14 @@ class ScheduleInstanceDiffblueTest {
     "void ScheduleInstance.setId(String)",
     "void ScheduleInstance.setSchedule(String)"
   })
-  void testGettersAndSetters_whenDailyDataBackupSchedule() {
+  void testGettersAndSetters_whenDailyBackupSchedule() {
     // Arrange
     Date expires =
         Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
 
     // Act
     ScheduleInstance actualScheduleInstance =
-        new ScheduleInstance("\"DailyDataBackupSchedule\"", expires);
+        new ScheduleInstance("\"DailyBackupSchedule\"", expires);
     Date expires2 =
         Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
     actualScheduleInstance.setExpires(expires2);

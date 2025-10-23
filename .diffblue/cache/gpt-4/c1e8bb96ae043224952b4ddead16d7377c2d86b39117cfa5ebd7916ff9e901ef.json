@@ -1,0 +1,1 @@
+{"id":"chatcmpl-CTnhclRIyhfDeKAXKYCgBm5vWVcCz","object":"chat.completion","created":1761218604,"model":"gpt-4-0613","choices":[{"message":{"role":"assistant","content":"\"schedule-1234-daily-update\""},"index":0,"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":284,"completion_tokens":9,"total_tokens":293}}
