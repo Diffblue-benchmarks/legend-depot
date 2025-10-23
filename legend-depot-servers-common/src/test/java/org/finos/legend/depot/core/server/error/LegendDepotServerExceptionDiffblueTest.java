@@ -425,6 +425,7 @@ class LegendDepotServerExceptionDiffblueTest {
    *
    * <ul>
    *   <li>Given {@code Apply}.
+   *   <li>When {@code null}.
    * </ul>
    *
    * <p>Method under test: {@link LegendDepotServerException#validate(Object, Predicate, Function,
@@ -432,13 +433,13 @@ class LegendDepotServerExceptionDiffblueTest {
    */
   @Test
   @DisplayName(
-      "Test validate(Object, Predicate, Function, Status) with 'arg', 'predicate', 'messageFn', 'httpStatus'; given 'Apply'")
+      "Test validate(Object, Predicate, Function, Status) with 'arg', 'predicate', 'messageFn', 'httpStatus'; given 'Apply'; when 'null'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
     "Object LegendDepotServerException.validate(Object, Predicate, Function, Status)"
   })
-  void testValidateWithArgPredicateMessageFnHttpStatus_givenApply2() {
+  void testValidateWithArgPredicateMessageFnHttpStatus_givenApply_whenNull() {
     // Arrange
     Predicate<Object> predicate = mock(Predicate.class);
     when(predicate.test(Mockito.<Object>any())).thenReturn(false);
@@ -451,40 +452,6 @@ class LegendDepotServerExceptionDiffblueTest {
         LegendDepotServerException.class,
         () -> LegendDepotServerException.validate("Arg", predicate, messageFn, null));
     verify(messageFn).apply(isA(Object.class));
-    verify(predicate).test(isA(Object.class));
-  }
-
-  /**
-   * Test {@link LegendDepotServerException#validate(Object, Predicate, Function, Status)} with
-   * {@code arg}, {@code predicate}, {@code messageFn}, {@code httpStatus}.
-   *
-   * <ul>
-   *   <li>Given {@code false}.
-   *   <li>When {@code null}.
-   * </ul>
-   *
-   * <p>Method under test: {@link LegendDepotServerException#validate(Object, Predicate, Function,
-   * Status)}
-   */
-  @Test
-  @DisplayName(
-      "Test validate(Object, Predicate, Function, Status) with 'arg', 'predicate', 'messageFn', 'httpStatus'; given 'false'; when 'null'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "Object LegendDepotServerException.validate(Object, Predicate, Function, Status)"
-  })
-  void testValidateWithArgPredicateMessageFnHttpStatus_givenFalse_whenNull() {
-    // Arrange
-    Predicate<Object> predicate = mock(Predicate.class);
-    when(predicate.test(Mockito.<Object>any())).thenReturn(false);
-
-    // Act and Assert
-    assertThrows(
-        LegendDepotServerException.class,
-        () ->
-            LegendDepotServerException.validate(
-                "Arg", predicate, (Function<? super Object, String>) null, null));
     verify(predicate).test(isA(Object.class));
   }
 

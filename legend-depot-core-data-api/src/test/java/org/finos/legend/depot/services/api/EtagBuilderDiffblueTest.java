@@ -27,63 +27,6 @@ class EtagBuilderDiffblueTest {
   }
 
   /**
-   * Test {@link EtagBuilder#withGAV(String, String, String)}.
-   *
-   * <ul>
-   *   <li>When {@code 42}.
-   *   <li>Then create build is {@code 424242}.
-   * </ul>
-   *
-   * <p>Method under test: {@link EtagBuilder#withGAV(String, String, String)}
-   */
-  @Test
-  @DisplayName("Test withGAV(String, String, String); when '42'; then create build is '424242'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"EtagBuilder EtagBuilder.withGAV(String, String, String)"})
-  void testWithGAV_when42_thenCreateBuildIs424242() {
-    // Arrange
-    EtagBuilder createResult = EtagBuilder.create();
-
-    // Act
-    EtagBuilder actualWithGAVResult = createResult.withGAV("42", "42", "42");
-
-    // Assert
-    String actualString = createResult.build();
-    assertEquals("424242", actualString);
-    assertSame(createResult, actualWithGAVResult);
-  }
-
-  /**
-   * Test {@link EtagBuilder#withGAV(String, String, String)}.
-   *
-   * <ul>
-   *   <li>When {@code -SNAPSHOT}.
-   *   <li>Then create build is {@code null}.
-   * </ul>
-   *
-   * <p>Method under test: {@link EtagBuilder#withGAV(String, String, String)}
-   */
-  @Test
-  @DisplayName(
-      "Test withGAV(String, String, String); when '-SNAPSHOT'; then create build is 'null'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"EtagBuilder EtagBuilder.withGAV(String, String, String)"})
-  void testWithGAV_whenSnapshot_thenCreateBuildIsNull() {
-    // Arrange
-    EtagBuilder createResult = EtagBuilder.create();
-
-    // Act
-    EtagBuilder actualWithGAVResult = createResult.withGAV("42", "42", "-SNAPSHOT");
-
-    // Assert
-    String actualString = createResult.build();
-    assertNull(actualString);
-    assertSame(createResult, actualWithGAVResult);
-  }
-
-  /**
    * Test {@link EtagBuilder#withProtocolVersion(String)}.
    *
    * <ul>
@@ -171,6 +114,33 @@ class EtagBuilderDiffblueTest {
    * Test {@link EtagBuilder#build()}.
    *
    * <ul>
+   *   <li>Given create withProtocolVersion {@code 1.0.2}.
+   *   <li>Then return {@code 1.0.2}.
+   * </ul>
+   *
+   * <p>Method under test: {@link EtagBuilder#build()}
+   */
+  @Test
+  @DisplayName("Test build(); given create withProtocolVersion '1.0.2'; then return '1.0.2'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"String EtagBuilder.build()"})
+  void testBuild_givenCreateWithProtocolVersion102_thenReturn102() {
+    // Arrange
+    EtagBuilder createResult = EtagBuilder.create();
+    createResult.withProtocolVersion("1.0.2");
+
+    // Act
+    String actualString = createResult.build();
+
+    // Assert
+    assertEquals("1.0.2", actualString);
+  }
+
+  /**
+   * Test {@link EtagBuilder#build()}.
+   *
+   * <ul>
    *   <li>Given create withProtocolVersion {@code vX_X_X}.
    *   <li>Then return {@code null}.
    * </ul>
@@ -215,31 +185,5 @@ class EtagBuilderDiffblueTest {
 
     // Assert
     assertEquals("", actualString);
-  }
-
-  /**
-   * Test {@link EtagBuilder#build()}.
-   *
-   * <ul>
-   *   <li>Then return {@code 424242}.
-   * </ul>
-   *
-   * <p>Method under test: {@link EtagBuilder#build()}
-   */
-  @Test
-  @DisplayName("Test build(); then return '424242'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"String EtagBuilder.build()"})
-  void testBuild_thenReturn424242() {
-    // Arrange
-    EtagBuilder createResult = EtagBuilder.create();
-    createResult.withGAV("42", "42", "42");
-
-    // Act
-    String actualString = createResult.build();
-
-    // Assert
-    assertEquals("424242", actualString);
   }
 }

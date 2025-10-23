@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.isA;
-import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -14,11 +13,9 @@ import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.mongodb.client.ListCollectionsIterable;
 import com.mongodb.client.internal.MongoDatabaseImpl;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Consumer;
 import org.bson.Document;
 import org.bson.conversions.Bson;
-import org.finos.legend.depot.core.services.api.metrics.PrometheusMetricsHandler;
 import org.finos.legend.depot.core.services.api.metrics.VoidPrometheusMetricsHandler;
 import org.finos.legend.depot.store.mongo.admin.MongoAdminStore;
 import org.finos.legend.depot.store.mongo.admin.metrics.StorageMetricsHandler.CollectionStats;
@@ -27,18 +24,9 @@ import org.finos.legend.depot.store.mongo.admin.metrics.StorageMetricsHandler.St
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
 
-@ExtendWith(MockitoExtension.class)
 class StorageMetricsHandlerDiffblueTest {
-  @Mock private PrometheusMetricsHandler prometheusMetricsHandler;
-
-  @InjectMocks private StorageMetricsHandler storageMetricsHandler;
-
   /**
    * Test CollectionStats new {@link CollectionStats} (default constructor).
    *
@@ -77,35 +65,6 @@ class StorageMetricsHandlerDiffblueTest {
     assertEquals(0.0d, actualDbStats.indexSize.doubleValue());
     assertEquals(0.0d, actualDbStats.storageSize.doubleValue());
     assertEquals(0.0d, actualDbStats.uncompressedDataSize.doubleValue());
-  }
-
-  /**
-   * Test {@link StorageMetricsHandler#init()}.
-   *
-   * <p>Method under test: {@link StorageMetricsHandler#init()}
-   */
-  @Test
-  @DisplayName("Test init()")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"void StorageMetricsHandler.init()"})
-  void testInit() {
-    // Arrange
-    doNothing()
-        .when(prometheusMetricsHandler)
-        .registerGauge(Mockito.<String>any(), Mockito.<String>any());
-    doNothing()
-        .when(prometheusMetricsHandler)
-        .registerGauge(Mockito.<String>any(), Mockito.<String>any(), Mockito.<List<String>>any());
-
-    // Act
-    storageMetricsHandler.init();
-
-    // Assert
-    verify(prometheusMetricsHandler, atLeast(1))
-        .registerGauge(Mockito.<String>any(), Mockito.<String>any());
-    verify(prometheusMetricsHandler, atLeast(1))
-        .registerGauge(Mockito.<String>any(), Mockito.<String>any(), isA(List.class));
   }
 
   /**

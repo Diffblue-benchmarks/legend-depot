@@ -1,5 +1,6 @@
 package org.finos.legend.depot.core.services.tracing;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.eq;
@@ -22,6 +23,34 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 class TracerFactoryDiffblueTest {
+  /**
+   * Test {@link TracerFactory#configure(OpenTracingConfiguration)}.
+   *
+   * <ul>
+   *   <li>Given {@code false}.
+   *   <li>When {@link OpenTracingConfiguration} (default constructor) Enabled is {@code false}.
+   * </ul>
+   *
+   * <p>Method under test: {@link TracerFactory#configure(OpenTracingConfiguration)}
+   */
+  @Test
+  @DisplayName(
+      "Test configure(OpenTracingConfiguration); given 'false'; when OpenTracingConfiguration (default constructor) Enabled is 'false'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"TracerFactory TracerFactory.configure(OpenTracingConfiguration)"})
+  void testConfigure_givenFalse_whenOpenTracingConfigurationEnabledIsFalse() {
+    // Arrange
+    OpenTracingConfiguration openTracingConfiguration = new OpenTracingConfiguration();
+    openTracingConfiguration.setOpenTracingUri("Open Tracing Uri");
+    openTracingConfiguration.setServiceName("Service Name");
+    openTracingConfiguration.setEnabled(false);
+    openTracingConfiguration.setTracerProvider(mock(TracerProvider.class));
+
+    // Act
+    assertDoesNotThrow(() -> TracerFactory.configure(openTracingConfiguration));
+  }
+
   /**
    * Test {@link TracerFactory#configure(OpenTracingConfiguration)}.
    *
@@ -54,11 +83,31 @@ class TracerFactoryDiffblueTest {
   }
 
   /**
+   * Test {@link TracerFactory#configure(OpenTracingConfiguration)}.
+   *
+   * <ul>
+   *   <li>When {@code null}.
+   *   <li>Then does not throw.
+   * </ul>
+   *
+   * <p>Method under test: {@link TracerFactory#configure(OpenTracingConfiguration)}
+   */
+  @Test
+  @DisplayName("Test configure(OpenTracingConfiguration); when 'null'; then does not throw")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"TracerFactory TracerFactory.configure(OpenTracingConfiguration)"})
+  void testConfigure_whenNull_thenDoesNotThrow() {
+    // Arrange, Act and Assert
+    assertDoesNotThrow(() -> TracerFactory.configure(null));
+  }
+
+  /**
    * Test {@link TracerFactory#addTags(Map, Span)} with {@code tags}, {@code span}.
    *
    * <ul>
-   *   <li>Given {@link Span}.
-   *   <li>When {@link HashMap#HashMap()} {@code 42} is {@code 42}.
+   *   <li>Given {@code 42}.
+   *   <li>When {@link HashMap#HashMap()} {@code 42} is {@code Value}.
    *   <li>Then calls {@link Span#setTag(String, String)}.
    * </ul>
    *
@@ -66,17 +115,17 @@ class TracerFactoryDiffblueTest {
    */
   @Test
   @DisplayName(
-      "Test addTags(Map, Span) with 'tags', 'span'; given Span; when HashMap() '42' is '42'; then calls setTag(String, String)")
+      "Test addTags(Map, Span) with 'tags', 'span'; given '42'; when HashMap() '42' is 'Value'; then calls setTag(String, String)")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void TracerFactory.addTags(Map, Span)"})
-  void testAddTagsWithTagsSpan_givenSpan_whenHashMap42Is42_thenCallsSetTag() {
+  void testAddTagsWithTagsSpan_given42_whenHashMap42IsValue_thenCallsSetTag() {
     // Arrange
     TracerFactory getResult = TracerFactory.get();
 
     HashMap<String, Object> tags = new HashMap<>();
-    tags.put("42", "42");
-    tags.put("foo", "42");
+    tags.put("42", "Value");
+    tags.put("Key", "Value");
 
     Span span = mock(Span.class);
     when(span.setTag(Mockito.<String>any(), Mockito.<String>any())).thenReturn(mock(Span.class));
@@ -85,7 +134,7 @@ class TracerFactoryDiffblueTest {
     getResult.addTags(tags, span);
 
     // Assert
-    verify(span, atLeast(1)).setTag(Mockito.<String>any(), eq("42"));
+    verify(span, atLeast(1)).setTag(Mockito.<String>any(), eq("Value"));
   }
 
   /**
@@ -110,7 +159,7 @@ class TracerFactoryDiffblueTest {
     TracerFactory getResult = TracerFactory.get();
 
     HashMap<String, Object> tags = new HashMap<>();
-    tags.put("foo", "42");
+    tags.put("Key", "Value");
 
     Span span = mock(Span.class);
     when(span.setTag(Mockito.<String>any(), Mockito.<String>any())).thenReturn(mock(Span.class));
@@ -119,78 +168,7 @@ class TracerFactoryDiffblueTest {
     getResult.addTags(tags, span);
 
     // Assert
-    verify(span).setTag("foo", "42");
-  }
-
-  /**
-   * Test {@link TracerFactory#executeWithTrace(String, Supplier, Map)} with {@code label}, {@code
-   * supplier}, {@code tags}.
-   *
-   * <ul>
-   *   <li>Given {@code 42}.
-   *   <li>When {@link HashMap#HashMap()} {@code 42} is {@code 42}.
-   * </ul>
-   *
-   * <p>Method under test: {@link TracerFactory#executeWithTrace(String, Supplier, Map)}
-   */
-  @Test
-  @DisplayName(
-      "Test executeWithTrace(String, Supplier, Map) with 'label', 'supplier', 'tags'; given '42'; when HashMap() '42' is '42'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"Object TracerFactory.executeWithTrace(String, Supplier, Map)"})
-  void testExecuteWithTraceWithLabelSupplierTags_given42_whenHashMap42Is42() {
-    // Arrange
-    TracerFactory getResult = TracerFactory.get();
-
-    Supplier<Object> supplier = mock(Supplier.class);
-    when(supplier.get()).thenReturn("Get");
-
-    HashMap<String, String> tags = new HashMap<>();
-    tags.put("42", "42");
-    tags.put("foo", "foo");
-
-    // Act
-    Object actualExecuteWithTraceResult = getResult.executeWithTrace("Label", supplier, tags);
-
-    // Assert
-    verify(supplier).get();
-    assertEquals("Get", actualExecuteWithTraceResult);
-  }
-
-  /**
-   * Test {@link TracerFactory#executeWithTrace(String, Supplier, Map)} with {@code label}, {@code
-   * supplier}, {@code tags}.
-   *
-   * <ul>
-   *   <li>Given {@code foo}.
-   *   <li>When {@link HashMap#HashMap()} {@code foo} is {@code foo}.
-   * </ul>
-   *
-   * <p>Method under test: {@link TracerFactory#executeWithTrace(String, Supplier, Map)}
-   */
-  @Test
-  @DisplayName(
-      "Test executeWithTrace(String, Supplier, Map) with 'label', 'supplier', 'tags'; given 'foo'; when HashMap() 'foo' is 'foo'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"Object TracerFactory.executeWithTrace(String, Supplier, Map)"})
-  void testExecuteWithTraceWithLabelSupplierTags_givenFoo_whenHashMapFooIsFoo() {
-    // Arrange
-    TracerFactory getResult = TracerFactory.get();
-
-    Supplier<Object> supplier = mock(Supplier.class);
-    when(supplier.get()).thenReturn("Get");
-
-    HashMap<String, String> tags = new HashMap<>();
-    tags.put("foo", "foo");
-
-    // Act
-    Object actualExecuteWithTraceResult = getResult.executeWithTrace("Label", supplier, tags);
-
-    // Assert
-    verify(supplier).get();
-    assertEquals("Get", actualExecuteWithTraceResult);
+    verify(span).setTag("Key", "Value");
   }
 
   /**
@@ -221,6 +199,77 @@ class TracerFactoryDiffblueTest {
     // Act
     Object actualExecuteWithTraceResult =
         getResult.executeWithTrace("Label", supplier, new HashMap<>());
+
+    // Assert
+    verify(supplier).get();
+    assertEquals("Get", actualExecuteWithTraceResult);
+  }
+
+  /**
+   * Test {@link TracerFactory#executeWithTrace(String, Supplier, Map)} with {@code label}, {@code
+   * supplier}, {@code tags}.
+   *
+   * <ul>
+   *   <li>Given {@code Key}.
+   *   <li>When {@link HashMap#HashMap()} {@code Key} is {@code 42}.
+   * </ul>
+   *
+   * <p>Method under test: {@link TracerFactory#executeWithTrace(String, Supplier, Map)}
+   */
+  @Test
+  @DisplayName(
+      "Test executeWithTrace(String, Supplier, Map) with 'label', 'supplier', 'tags'; given 'Key'; when HashMap() 'Key' is '42'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"Object TracerFactory.executeWithTrace(String, Supplier, Map)"})
+  void testExecuteWithTraceWithLabelSupplierTags_givenKey_whenHashMapKeyIs42() {
+    // Arrange
+    TracerFactory getResult = TracerFactory.get();
+
+    Supplier<Object> supplier = mock(Supplier.class);
+    when(supplier.get()).thenReturn("Get");
+
+    HashMap<String, String> tags = new HashMap<>();
+    tags.put("Key", "42");
+
+    // Act
+    Object actualExecuteWithTraceResult = getResult.executeWithTrace("Label", supplier, tags);
+
+    // Assert
+    verify(supplier).get();
+    assertEquals("Get", actualExecuteWithTraceResult);
+  }
+
+  /**
+   * Test {@link TracerFactory#executeWithTrace(String, Supplier, Map)} with {@code label}, {@code
+   * supplier}, {@code tags}.
+   *
+   * <ul>
+   *   <li>Given {@code Value}.
+   *   <li>When {@link HashMap#HashMap()} {@code 42} is {@code Value}.
+   * </ul>
+   *
+   * <p>Method under test: {@link TracerFactory#executeWithTrace(String, Supplier, Map)}
+   */
+  @Test
+  @DisplayName(
+      "Test executeWithTrace(String, Supplier, Map) with 'label', 'supplier', 'tags'; given 'Value'; when HashMap() '42' is 'Value'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"Object TracerFactory.executeWithTrace(String, Supplier, Map)"})
+  void testExecuteWithTraceWithLabelSupplierTags_givenValue_whenHashMap42IsValue() {
+    // Arrange
+    TracerFactory getResult = TracerFactory.get();
+
+    Supplier<Object> supplier = mock(Supplier.class);
+    when(supplier.get()).thenReturn("Get");
+
+    HashMap<String, String> tags = new HashMap<>();
+    tags.put("42", "Value");
+    tags.put("Key", "42");
+
+    // Act
+    Object actualExecuteWithTraceResult = getResult.executeWithTrace("Label", supplier, tags);
 
     // Assert
     verify(supplier).get();

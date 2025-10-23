@@ -22,7 +22,7 @@ class MongoNonTracingConnectionFactoryDiffblueTest {
   @MethodsUnderTest({"void MongoNonTracingConnectionFactory.<init>(String, MongoConfiguration)"})
   void testNewMongoNonTracingConnectionFactory() {
     // Arrange
-    MongoConfiguration mongoConfiguration = new MongoConfiguration(null, null, true);
+    MongoConfiguration mongoConfiguration = new MongoConfiguration("", "", true);
 
     // Act and Assert
     assertThrows(
@@ -44,7 +44,7 @@ class MongoNonTracingConnectionFactoryDiffblueTest {
   @MethodsUnderTest({"void MongoNonTracingConnectionFactory.<init>(String, MongoConfiguration)"})
   void testNewMongoNonTracingConnectionFactory2() {
     // Arrange
-    MongoConfiguration mongoConfiguration = new MongoConfiguration("", null, true);
+    MongoConfiguration mongoConfiguration = new MongoConfiguration(null, "", true);
 
     // Act and Assert
     assertThrows(
@@ -66,7 +66,7 @@ class MongoNonTracingConnectionFactoryDiffblueTest {
   @MethodsUnderTest({"void MongoNonTracingConnectionFactory.<init>(String, MongoConfiguration)"})
   void testNewMongoNonTracingConnectionFactory3() {
     // Arrange
-    MongoConfiguration mongoConfiguration = new MongoConfiguration("Database", null, true);
+    MongoConfiguration mongoConfiguration = new MongoConfiguration("Database", "", true);
 
     // Act and Assert
     assertThrows(
