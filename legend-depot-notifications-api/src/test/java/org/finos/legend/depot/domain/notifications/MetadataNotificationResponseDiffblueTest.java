@@ -17,6 +17,33 @@ class MetadataNotificationResponseDiffblueTest {
    * Test {@link MetadataNotificationResponse#getStatus()}.
    *
    * <ul>
+   *   <li>Given {@link MetadataNotificationResponse} (default constructor) addError a string.
+   *   <li>Then return {@code FAILED}.
+   * </ul>
+   *
+   * <p>Method under test: {@link MetadataNotificationResponse#getStatus()}
+   */
+  @Test
+  @DisplayName(
+      "Test getStatus(); given MetadataNotificationResponse (default constructor) addError a string; then return 'FAILED'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"MetadataNotificationStatus MetadataNotificationResponse.getStatus()"})
+  void testGetStatus_givenMetadataNotificationResponseAddErrorAString_thenReturnFailed() {
+    // Arrange
+    MetadataNotificationResponse metadataNotificationResponse = new MetadataNotificationResponse();
+    metadataNotificationResponse.addError(
+        "\"Failed to update metadata due to invalid version format. Expected format: 'major.minor.patch', received:"
+            + " '1.2'.\"");
+
+    // Act and Assert
+    assertEquals(MetadataNotificationStatus.FAILED, metadataNotificationResponse.getStatus());
+  }
+
+  /**
+   * Test {@link MetadataNotificationResponse#getStatus()}.
+   *
+   * <ul>
    *   <li>Given {@link MetadataNotificationResponse} (default constructor).
    *   <li>Then return {@code SUCCESS}.
    * </ul>
@@ -36,29 +63,6 @@ class MetadataNotificationResponseDiffblueTest {
   }
 
   /**
-   * Test {@link MetadataNotificationResponse#getStatus()}.
-   *
-   * <ul>
-   *   <li>Then return {@code FAILED}.
-   * </ul>
-   *
-   * <p>Method under test: {@link MetadataNotificationResponse#getStatus()}
-   */
-  @Test
-  @DisplayName("Test getStatus(); then return 'FAILED'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"MetadataNotificationStatus MetadataNotificationResponse.getStatus()"})
-  void testGetStatus_thenReturnFailed() {
-    // Arrange
-    MetadataNotificationResponse metadataNotificationResponse = new MetadataNotificationResponse();
-    metadataNotificationResponse.addError("Not all who wander are lost");
-
-    // Act and Assert
-    assertEquals(MetadataNotificationStatus.FAILED, metadataNotificationResponse.getStatus());
-  }
-
-  /**
    * Test {@link MetadataNotificationResponse#addError(String)}.
    *
    * <p>Method under test: {@link MetadataNotificationResponse#addError(String)}
@@ -74,7 +78,9 @@ class MetadataNotificationResponseDiffblueTest {
 
     // Act
     MetadataNotificationResponse actualAddErrorResult =
-        metadataNotificationResponse.addError("Not all who wander are lost");
+        metadataNotificationResponse.addError(
+            "\"Failed to update metadata due to invalid version format. Expected format: 'major.minor.patch', received:"
+                + " '1.2'.\"");
 
     // Assert
     assertEquals(MetadataNotificationStatus.FAILED, metadataNotificationResponse.getStatus());
@@ -100,41 +106,11 @@ class MetadataNotificationResponseDiffblueTest {
 
     // Act
     MetadataNotificationResponse actualAddMessageResult =
-        metadataNotificationResponse.addMessage("Not all who wander are lost");
+        metadataNotificationResponse.addMessage(
+            "\"Metadata update failed due to incorrect schema. Please verify the schema and try again.\"");
 
     // Assert
     assertSame(metadataNotificationResponse, actualAddMessageResult);
-  }
-
-  /**
-   * Test {@link MetadataNotificationResponse#addMessages(List)}.
-   *
-   * <ul>
-   *   <li>Given {@code 42}.
-   *   <li>When {@link ArrayList#ArrayList()} add {@code 42}.
-   * </ul>
-   *
-   * <p>Method under test: {@link MetadataNotificationResponse#addMessages(List)}
-   */
-  @Test
-  @DisplayName("Test addMessages(List); given '42'; when ArrayList() add '42'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"MetadataNotificationResponse MetadataNotificationResponse.addMessages(List)"})
-  void testAddMessages_given42_whenArrayListAdd42() {
-    // Arrange
-    MetadataNotificationResponse metadataNotificationResponse = new MetadataNotificationResponse();
-
-    ArrayList<String> messages = new ArrayList<>();
-    messages.add("42");
-    messages.add("foo");
-
-    // Act
-    MetadataNotificationResponse actualAddMessagesResult =
-        metadataNotificationResponse.addMessages(messages);
-
-    // Assert
-    assertSame(metadataNotificationResponse, actualAddMessagesResult);
   }
 
   /**
@@ -158,6 +134,36 @@ class MetadataNotificationResponseDiffblueTest {
 
     ArrayList<String> messages = new ArrayList<>();
     messages.add("foo");
+    messages.add("\"TestObjectForArrayListAddMethod\"");
+
+    // Act
+    MetadataNotificationResponse actualAddMessagesResult =
+        metadataNotificationResponse.addMessages(messages);
+
+    // Assert
+    assertSame(metadataNotificationResponse, actualAddMessagesResult);
+  }
+
+  /**
+   * Test {@link MetadataNotificationResponse#addMessages(List)}.
+   *
+   * <ul>
+   *   <li>Given {@code "TestObjectForArrayListAddMethod"}.
+   * </ul>
+   *
+   * <p>Method under test: {@link MetadataNotificationResponse#addMessages(List)}
+   */
+  @Test
+  @DisplayName("Test addMessages(List); given '\"TestObjectForArrayListAddMethod\"'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"MetadataNotificationResponse MetadataNotificationResponse.addMessages(List)"})
+  void testAddMessages_givenTestObjectForArrayListAddMethod() {
+    // Arrange
+    MetadataNotificationResponse metadataNotificationResponse = new MetadataNotificationResponse();
+
+    ArrayList<String> messages = new ArrayList<>();
+    messages.add("\"TestObjectForArrayListAddMethod\"");
 
     // Act
     MetadataNotificationResponse actualAddMessagesResult =
@@ -208,13 +214,45 @@ class MetadataNotificationResponseDiffblueTest {
     MetadataNotificationResponse metadataNotificationResponse = new MetadataNotificationResponse();
 
     // Act
-    metadataNotificationResponse.logError("An error occurred");
+    metadataNotificationResponse.logError(
+        "\"Failed to process metadata update: Invalid schema detected in the metadata file. Please verify the"
+            + " file and retry the operation.\"");
 
     // Assert
     List<String> errors = metadataNotificationResponse.getErrors();
     assertEquals(1, errors.size());
-    assertEquals("An error occurred", errors.get(0));
+    assertEquals(
+        "\"Failed to process metadata update: Invalid schema detected in the metadata file. Please verify the"
+            + " file and retry the operation.\"",
+        errors.get(0));
     assertEquals(MetadataNotificationStatus.FAILED, metadataNotificationResponse.getStatus());
+    assertTrue(metadataNotificationResponse.hasErrors());
+  }
+
+  /**
+   * Test {@link MetadataNotificationResponse#hasErrors()}.
+   *
+   * <ul>
+   *   <li>Given {@link MetadataNotificationResponse} (default constructor) addError a string.
+   *   <li>Then return {@code true}.
+   * </ul>
+   *
+   * <p>Method under test: {@link MetadataNotificationResponse#hasErrors()}
+   */
+  @Test
+  @DisplayName(
+      "Test hasErrors(); given MetadataNotificationResponse (default constructor) addError a string; then return 'true'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean MetadataNotificationResponse.hasErrors()"})
+  void testHasErrors_givenMetadataNotificationResponseAddErrorAString_thenReturnTrue() {
+    // Arrange
+    MetadataNotificationResponse metadataNotificationResponse = new MetadataNotificationResponse();
+    metadataNotificationResponse.addError(
+        "\"Failed to update metadata due to invalid version format. Expected format: 'major.minor.patch', received:"
+            + " '1.2'.\"");
+
+    // Act and Assert
     assertTrue(metadataNotificationResponse.hasErrors());
   }
 
@@ -237,29 +275,6 @@ class MetadataNotificationResponseDiffblueTest {
   void testHasErrors_givenMetadataNotificationResponse_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(new MetadataNotificationResponse().hasErrors());
-  }
-
-  /**
-   * Test {@link MetadataNotificationResponse#hasErrors()}.
-   *
-   * <ul>
-   *   <li>Then return {@code true}.
-   * </ul>
-   *
-   * <p>Method under test: {@link MetadataNotificationResponse#hasErrors()}
-   */
-  @Test
-  @DisplayName("Test hasErrors(); then return 'true'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"boolean MetadataNotificationResponse.hasErrors()"})
-  void testHasErrors_thenReturnTrue() {
-    // Arrange
-    MetadataNotificationResponse metadataNotificationResponse = new MetadataNotificationResponse();
-    metadataNotificationResponse.addError("Not all who wander are lost");
-
-    // Act and Assert
-    assertTrue(metadataNotificationResponse.hasErrors());
   }
 
   /**

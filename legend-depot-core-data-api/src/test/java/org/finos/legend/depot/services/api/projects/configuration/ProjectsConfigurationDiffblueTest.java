@@ -28,8 +28,6 @@ class ProjectsConfigurationDiffblueTest {
   })
   void testGettersAndSetters() {
     // Arrange, Act and Assert
-    assertEquals(
-        "janedoe/featurebranch",
-        new ProjectsConfiguration("janedoe/featurebranch").getDefaultBranch());
+    assertEquals("\"master\"", new ProjectsConfiguration("\"master\"").getDefaultBranch());
   }
 }

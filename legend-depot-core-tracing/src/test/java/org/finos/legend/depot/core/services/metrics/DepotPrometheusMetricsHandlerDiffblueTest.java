@@ -2127,6 +2127,7 @@ class DepotPrometheusMetricsHandlerDiffblueTest {
 
     ArrayList<String> labelValues = new ArrayList<>();
     labelValues.add(" ");
+    labelValues.add("\"TestObjectForArrayListAddMethod\"");
 
     // Act and Assert
     assertThrows(
@@ -2139,25 +2140,24 @@ class DepotPrometheusMetricsHandlerDiffblueTest {
    * gaugeName}, {@code value}, {@code labelValues}.
    *
    * <ul>
-   *   <li>Given {@code _}.
+   *   <li>Given {@code "TestObjectForArrayListAddMethod"}.
    * </ul>
    *
    * <p>Method under test: {@link DepotPrometheusMetricsHandler#setGauge(String, double, List)}
    */
   @Test
   @DisplayName(
-      "Test setGauge(String, double, List) with 'gaugeName', 'value', 'labelValues'; given '_'")
+      "Test setGauge(String, double, List) with 'gaugeName', 'value', 'labelValues'; given '\"TestObjectForArrayListAddMethod\"'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void DepotPrometheusMetricsHandler.setGauge(String, double, List)"})
-  void testSetGaugeWithGaugeNameValueLabelValues_givenUnderscore() {
+  void testSetGaugeWithGaugeNameValueLabelValues_givenTestObjectForArrayListAddMethod() {
     // Arrange
     DepotPrometheusMetricsHandler depotPrometheusMetricsHandler =
         new DepotPrometheusMetricsHandler("Prefix");
 
     ArrayList<String> labelValues = new ArrayList<>();
-    labelValues.add("_");
-    labelValues.add(" ");
+    labelValues.add("\"TestObjectForArrayListAddMethod\"");
 
     // Act and Assert
     assertThrows(

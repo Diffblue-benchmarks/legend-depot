@@ -21,10 +21,16 @@ class StoreExceptionDiffblueTest {
   @MethodsUnderTest({"void StoreException.<init>(String)"})
   void testNewStoreException() {
     // Arrange and Act
-    StoreException actualStoreException = new StoreException("An error occurred");
+    StoreException actualStoreException =
+        new StoreException(
+            "\"Failed to store the entity due to a database connection error. Please check the database connection"
+                + " and try again.\"");
 
     // Assert
-    assertEquals("An error occurred", actualStoreException.getMessage());
+    assertEquals(
+        "\"Failed to store the entity due to a database connection error. Please check the database connection"
+            + " and try again.\"",
+        actualStoreException.getMessage());
     assertNull(actualStoreException.getCause());
     assertEquals(0, actualStoreException.getSuppressed().length);
   }

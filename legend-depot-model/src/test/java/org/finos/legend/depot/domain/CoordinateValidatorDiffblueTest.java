@@ -13,26 +13,6 @@ class CoordinateValidatorDiffblueTest {
    * Test {@link CoordinateValidator#isValidArtifactId(String)}.
    *
    * <ul>
-   *   <li>When {@code 42}.
-   *   <li>Then return {@code false}.
-   * </ul>
-   *
-   * <p>Method under test: {@link CoordinateValidator#isValidArtifactId(String)}
-   */
-  @Test
-  @DisplayName("Test isValidArtifactId(String); when '42'; then return 'false'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"boolean CoordinateValidator.isValidArtifactId(String)"})
-  void testIsValidArtifactId_when42_thenReturnFalse() {
-    // Arrange, Act and Assert
-    assertFalse(CoordinateValidator.isValidArtifactId("42"));
-  }
-
-  /**
-   * Test {@link CoordinateValidator#isValidArtifactId(String)}.
-   *
-   * <ul>
    *   <li>When empty string.
    *   <li>Then return {@code false}.
    * </ul>
@@ -73,6 +53,27 @@ class CoordinateValidatorDiffblueTest {
    * Test {@link CoordinateValidator#isValidArtifactId(String)}.
    *
    * <ul>
+   *   <li>When {@code "my_valid-artifact_id123"}.
+   *   <li>Then return {@code false}.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoordinateValidator#isValidArtifactId(String)}
+   */
+  @Test
+  @DisplayName(
+      "Test isValidArtifactId(String); when '\"my_valid-artifact_id123\"'; then return 'false'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean CoordinateValidator.isValidArtifactId(String)"})
+  void testIsValidArtifactId_whenMyValidArtifactId123_thenReturnFalse() {
+    // Arrange, Act and Assert
+    assertFalse(CoordinateValidator.isValidArtifactId("\"my_valid-artifact_id123\""));
+  }
+
+  /**
+   * Test {@link CoordinateValidator#isValidArtifactId(String)}.
+   *
+   * <ul>
    *   <li>When {@code null}.
    *   <li>Then return {@code false}.
    * </ul>
@@ -87,25 +88,6 @@ class CoordinateValidatorDiffblueTest {
   void testIsValidArtifactId_whenNull_thenReturnFalse() {
     // Arrange, Act and Assert
     assertFalse(CoordinateValidator.isValidArtifactId(null));
-  }
-
-  /**
-   * Test {@link CoordinateValidator#isValidGroupId(String)}.
-   *
-   * <ul>
-   *   <li>When {@code 42}.
-   * </ul>
-   *
-   * <p>Method under test: {@link CoordinateValidator#isValidGroupId(String)}
-   */
-  @Test
-  @DisplayName("Test isValidGroupId(String); when '42'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"boolean CoordinateValidator.isValidGroupId(String)"})
-  void testIsValidGroupId_when42() {
-    // Arrange, Act and Assert
-    assertFalse(CoordinateValidator.isValidGroupId("42"));
   }
 
   /**
@@ -144,5 +126,24 @@ class CoordinateValidatorDiffblueTest {
   void testIsValidGroupId_whenNull() {
     // Arrange, Act and Assert
     assertFalse(CoordinateValidator.isValidGroupId(null));
+  }
+
+  /**
+   * Test {@link CoordinateValidator#isValidGroupId(String)}.
+   *
+   * <ul>
+   *   <li>When {@code "org.finos.legend.depot"}.
+   * </ul>
+   *
+   * <p>Method under test: {@link CoordinateValidator#isValidGroupId(String)}
+   */
+  @Test
+  @DisplayName("Test isValidGroupId(String); when '\"org.finos.legend.depot\"'")
+  @Tag("ContributionFromDiffblue")
+  @ManagedByDiffblue
+  @MethodsUnderTest({"boolean CoordinateValidator.isValidGroupId(String)"})
+  void testIsValidGroupId_whenOrgFinosLegendDepot() {
+    // Arrange, Act and Assert
+    assertFalse(CoordinateValidator.isValidGroupId("\"org.finos.legend.depot\""));
   }
 }

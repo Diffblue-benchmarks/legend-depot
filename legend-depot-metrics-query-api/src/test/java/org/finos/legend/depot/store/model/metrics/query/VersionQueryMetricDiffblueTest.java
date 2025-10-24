@@ -50,7 +50,8 @@ class VersionQueryMetricDiffblueTest {
 
     // Act
     VersionQueryMetric actualVersionQueryMetric =
-        new VersionQueryMetric("42", "42", "42", lastQueryTime);
+        new VersionQueryMetric(
+            "\"org.finos.legend.depot\"", "\"com.finos.legend.depot\"", "\"1.0.0\"", lastQueryTime);
     Date time =
         Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
     actualVersionQueryMetric.setLastQueryTime(time);
@@ -61,9 +62,9 @@ class VersionQueryMetricDiffblueTest {
 
     // Assert
     assertEquals("", actualId);
-    assertEquals("42", actualArtifactId);
-    assertEquals("42", actualGroupId);
-    assertEquals("42", actualVersionQueryMetric.getVersionId());
+    assertEquals("\"1.0.0\"", actualVersionQueryMetric.getVersionId());
+    assertEquals("\"com.finos.legend.depot\"", actualArtifactId);
+    assertEquals("\"org.finos.legend.depot\"", actualGroupId);
     assertSame(time, actualLastQueryTime);
   }
 
@@ -124,8 +125,8 @@ class VersionQueryMetricDiffblueTest {
    * Test getters and setters.
    *
    * <ul>
-   *   <li>When {@code 42}.
-   *   <li>Then return ArtifactId is {@code 42}.
+   *   <li>When {@code "org.finos.legend.depot"}.
+   *   <li>Then return VersionId is {@code "1.0.0"}.
    * </ul>
    *
    * <p>Methods under test:
@@ -141,7 +142,8 @@ class VersionQueryMetricDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters; when '42'; then return ArtifactId is '42'")
+  @DisplayName(
+      "Test getters and setters; when '\"org.finos.legend.depot\"'; then return VersionId is '\"1.0.0\"'")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({
@@ -155,9 +157,11 @@ class VersionQueryMetricDiffblueTest {
     "String VersionQueryMetric.getVersionId()",
     "void VersionQueryMetric.setLastQueryTime(Date)"
   })
-  void testGettersAndSetters_when42_thenReturnArtifactIdIs42() {
+  void testGettersAndSetters_whenOrgFinosLegendDepot_thenReturnVersionIdIs100() {
     // Arrange and Act
-    VersionQueryMetric actualVersionQueryMetric = new VersionQueryMetric("42", "42", "42");
+    VersionQueryMetric actualVersionQueryMetric =
+        new VersionQueryMetric(
+            "\"org.finos.legend.depot\"", "\"com.finos.legend.depot\"", "\"1.0.0\"");
     Date time =
         Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
     actualVersionQueryMetric.setLastQueryTime(time);
@@ -168,9 +172,9 @@ class VersionQueryMetricDiffblueTest {
 
     // Assert
     assertEquals("", actualId);
-    assertEquals("42", actualArtifactId);
-    assertEquals("42", actualGroupId);
-    assertEquals("42", actualVersionQueryMetric.getVersionId());
+    assertEquals("\"1.0.0\"", actualVersionQueryMetric.getVersionId());
+    assertEquals("\"com.finos.legend.depot\"", actualArtifactId);
+    assertEquals("\"org.finos.legend.depot\"", actualGroupId);
     assertSame(time, actualLastQueryTime);
   }
 }
