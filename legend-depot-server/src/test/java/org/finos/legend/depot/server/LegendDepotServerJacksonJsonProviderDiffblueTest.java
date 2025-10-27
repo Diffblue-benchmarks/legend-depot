@@ -4,8 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
-import com.diffblue.cover.annotations.ContributionFromDiffblue;
-import com.diffblue.cover.annotations.ManagedByDiffblue;
+import com.diffblue.cover.annotations.MaintainedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.Version;
@@ -22,21 +21,17 @@ import org.junit.experimental.categories.Category;
 public class LegendDepotServerJacksonJsonProviderDiffblueTest {
   /**
    * Test new {@link LegendDepotServerJacksonJsonProvider} (default constructor).
-   *
-   * <p>Method under test: default or parameterless constructor of {@link
-   * LegendDepotServerJacksonJsonProvider}
+   * <p>
+   * Method under test: default or parameterless constructor of {@link LegendDepotServerJacksonJsonProvider}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
-  @ManagedByDiffblue
+  @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"void LegendDepotServerJacksonJsonProvider.<init>()"})
   public void testNewLegendDepotServerJacksonJsonProvider() {
     // Arrange, Act and Assert
-    Version versionResult = new LegendDepotServerJacksonJsonProvider().version();
+    Version versionResult = (new LegendDepotServerJacksonJsonProvider()).version();
     assertEquals("com.fasterxml.jackson.jaxrs", versionResult.getGroupId());
-    assertEquals(
-        "com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.10.5",
-        versionResult.toFullString());
+    assertEquals("com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.10.5", versionResult.toFullString());
     assertEquals("jackson-jaxrs-json-provider", versionResult.getArtifactId());
     assertEquals(10, versionResult.getMinorVersion());
     assertEquals(2, versionResult.getMajorVersion());
@@ -48,17 +43,15 @@ public class LegendDepotServerJacksonJsonProviderDiffblueTest {
 
   /**
    * Test {@link LegendDepotServerJacksonJsonProvider#getContext(Class)}.
-   *
-   * <p>Method under test: {@link LegendDepotServerJacksonJsonProvider#getContext(Class)}
+   * <p>
+   * Method under test: {@link LegendDepotServerJacksonJsonProvider#getContext(Class)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
-  @ManagedByDiffblue
+  @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"ObjectMapper LegendDepotServerJacksonJsonProvider.getContext(Class)"})
   public void testGetContext() {
     // Arrange
-    LegendDepotServerJacksonJsonProvider legendDepotServerJacksonJsonProvider =
-        new LegendDepotServerJacksonJsonProvider();
+    LegendDepotServerJacksonJsonProvider legendDepotServerJacksonJsonProvider = new LegendDepotServerJacksonJsonProvider();
     Class<PureModelContextData> type = PureModelContextData.class;
 
     // Act
@@ -68,30 +61,26 @@ public class LegendDepotServerJacksonJsonProviderDiffblueTest {
     JsonFactory factory = actualContext.getFactory();
     assertTrue(factory instanceof MappingJsonFactory);
     assertTrue(actualContext.getDeserializationContext() instanceof Impl);
-    assertTrue(
-        actualContext.getSerializerProviderInstance() instanceof DefaultSerializerProvider.Impl);
+    assertTrue(actualContext.getSerializerProviderInstance() instanceof DefaultSerializerProvider.Impl);
     assertTrue(actualContext.getDateFormat() instanceof StdDateFormat);
     assertSame(factory, actualContext.getJsonFactory());
   }
 
   /**
    * Test {@link LegendDepotServerJacksonJsonProvider#getContext(Class)}.
-   *
    * <ul>
-   *   <li>When {@code Object}.
-   *   <li>Then Factory return {@link MappingJsonFactory}.
+   *   <li>When {@code Object}.</li>
+   *   <li>Then Factory return {@link MappingJsonFactory}.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link LegendDepotServerJacksonJsonProvider#getContext(Class)}
+   * <p>
+   * Method under test: {@link LegendDepotServerJacksonJsonProvider#getContext(Class)}
    */
   @Test
-  @Category(ContributionFromDiffblue.class)
-  @ManagedByDiffblue
+  @Category(MaintainedByDiffblue.class)
   @MethodsUnderTest({"ObjectMapper LegendDepotServerJacksonJsonProvider.getContext(Class)"})
   public void testGetContext_whenJavaLangObject_thenFactoryReturnMappingJsonFactory() {
     // Arrange
-    LegendDepotServerJacksonJsonProvider legendDepotServerJacksonJsonProvider =
-        new LegendDepotServerJacksonJsonProvider();
+    LegendDepotServerJacksonJsonProvider legendDepotServerJacksonJsonProvider = new LegendDepotServerJacksonJsonProvider();
     Class<Object> type = Object.class;
 
     // Act
@@ -101,8 +90,7 @@ public class LegendDepotServerJacksonJsonProviderDiffblueTest {
     JsonFactory factory = actualContext.getFactory();
     assertTrue(factory instanceof MappingJsonFactory);
     assertTrue(actualContext.getDeserializationContext() instanceof Impl);
-    assertTrue(
-        actualContext.getSerializerProviderInstance() instanceof DefaultSerializerProvider.Impl);
+    assertTrue(actualContext.getSerializerProviderInstance() instanceof DefaultSerializerProvider.Impl);
     assertTrue(actualContext.getDateFormat() instanceof StdDateFormat);
     assertSame(factory, actualContext.getJsonFactory());
   }

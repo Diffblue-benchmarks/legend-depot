@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -14,13 +13,11 @@ import org.junit.jupiter.api.Test;
 class StoreProjectDataDiffblueTest {
   /**
    * Test getters and setters.
-   *
    * <ul>
-   *   <li>Then return ArtifactId is {@code null}.
+   *   <li>Then return ArtifactId is {@code null}.</li>
    * </ul>
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link StoreProjectData#StoreProjectData()}
    *   <li>{@link StoreProjectData#setDefaultBranch(String)}
@@ -33,19 +30,12 @@ class StoreProjectDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; then return ArtifactId is 'null'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "void StoreProjectData.<init>()",
-    "void StoreProjectData.<init>(String, String, String)",
-    "void StoreProjectData.<init>(String, String, String, String, String)",
-    "String StoreProjectData.getDefaultBranch()",
-    "String StoreProjectData.getId()",
-    "String StoreProjectData.getLatestVersion()",
-    "String StoreProjectData.getProjectId()",
-    "void StoreProjectData.setDefaultBranch(String)",
-    "void StoreProjectData.setLatestVersion(String)"
-  })
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void StoreProjectData.<init>()", "void StoreProjectData.<init>(String, String, String)",
+      "void StoreProjectData.<init>(String, String, String, String, String)",
+      "String StoreProjectData.getDefaultBranch()", "String StoreProjectData.getId()",
+      "String StoreProjectData.getLatestVersion()", "String StoreProjectData.getProjectId()",
+      "void StoreProjectData.setDefaultBranch(String)", "void StoreProjectData.setLatestVersion(String)"})
   void testGettersAndSetters_thenReturnArtifactIdIsNull() {
     // Arrange and Act
     StoreProjectData actualStoreProjectData = new StoreProjectData();
@@ -67,14 +57,12 @@ class StoreProjectDataDiffblueTest {
 
   /**
    * Test getters and setters.
-   *
    * <ul>
-   *   <li>When {@code janedoe/featurebranch}.
-   *   <li>Then return ArtifactId is {@code 42}.
+   *   <li>When {@code janedoe/featurebranch}.</li>
+   *   <li>Then return ArtifactId is {@code 42}.</li>
    * </ul>
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link StoreProjectData#StoreProjectData(String, String, String, String, String)}
    *   <li>{@link StoreProjectData#setDefaultBranch(String)}
@@ -86,25 +74,17 @@ class StoreProjectDataDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName(
-      "Test getters and setters; when 'janedoe/featurebranch'; then return ArtifactId is '42'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "void StoreProjectData.<init>()",
-    "void StoreProjectData.<init>(String, String, String)",
-    "void StoreProjectData.<init>(String, String, String, String, String)",
-    "String StoreProjectData.getDefaultBranch()",
-    "String StoreProjectData.getId()",
-    "String StoreProjectData.getLatestVersion()",
-    "String StoreProjectData.getProjectId()",
-    "void StoreProjectData.setDefaultBranch(String)",
-    "void StoreProjectData.setLatestVersion(String)"
-  })
+  @DisplayName("Test getters and setters; when 'janedoe/featurebranch'; then return ArtifactId is '42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void StoreProjectData.<init>()", "void StoreProjectData.<init>(String, String, String)",
+      "void StoreProjectData.<init>(String, String, String, String, String)",
+      "String StoreProjectData.getDefaultBranch()", "String StoreProjectData.getId()",
+      "String StoreProjectData.getLatestVersion()", "String StoreProjectData.getProjectId()",
+      "void StoreProjectData.setDefaultBranch(String)", "void StoreProjectData.setLatestVersion(String)"})
   void testGettersAndSetters_whenJanedoeFeaturebranch_thenReturnArtifactIdIs42() {
     // Arrange and Act
-    StoreProjectData actualStoreProjectData =
-        new StoreProjectData("myproject", "42", "42", "janedoe/featurebranch", "1.0.2");
+    StoreProjectData actualStoreProjectData = new StoreProjectData("myproject", "42", "42", "janedoe/featurebranch",
+        "1.0.2");
     actualStoreProjectData.setDefaultBranch("janedoe/featurebranch");
     actualStoreProjectData.setLatestVersion("1.0.2");
     String actualDefaultBranch = actualStoreProjectData.getDefaultBranch();
@@ -123,14 +103,12 @@ class StoreProjectDataDiffblueTest {
 
   /**
    * Test getters and setters.
-   *
    * <ul>
-   *   <li>When {@code myproject}.
-   *   <li>Then return ArtifactId is {@code 42}.
+   *   <li>When {@code myproject}.</li>
+   *   <li>Then return ArtifactId is {@code 42}.</li>
    * </ul>
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link StoreProjectData#StoreProjectData(String, String, String)}
    *   <li>{@link StoreProjectData#setDefaultBranch(String)}
@@ -143,19 +121,12 @@ class StoreProjectDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when 'myproject'; then return ArtifactId is '42'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "void StoreProjectData.<init>()",
-    "void StoreProjectData.<init>(String, String, String)",
-    "void StoreProjectData.<init>(String, String, String, String, String)",
-    "String StoreProjectData.getDefaultBranch()",
-    "String StoreProjectData.getId()",
-    "String StoreProjectData.getLatestVersion()",
-    "String StoreProjectData.getProjectId()",
-    "void StoreProjectData.setDefaultBranch(String)",
-    "void StoreProjectData.setLatestVersion(String)"
-  })
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void StoreProjectData.<init>()", "void StoreProjectData.<init>(String, String, String)",
+      "void StoreProjectData.<init>(String, String, String, String, String)",
+      "String StoreProjectData.getDefaultBranch()", "String StoreProjectData.getId()",
+      "String StoreProjectData.getLatestVersion()", "String StoreProjectData.getProjectId()",
+      "void StoreProjectData.setDefaultBranch(String)", "void StoreProjectData.setLatestVersion(String)"})
   void testGettersAndSetters_whenMyproject_thenReturnArtifactIdIs42() {
     // Arrange and Act
     StoreProjectData actualStoreProjectData = new StoreProjectData("myproject", "42", "42");
@@ -177,21 +148,19 @@ class StoreProjectDataDiffblueTest {
 
   /**
    * Test {@link StoreProjectData#evaluateLatestVersionAndUpdate(String)}.
-   *
-   * <p>Method under test: {@link StoreProjectData#evaluateLatestVersionAndUpdate(String)}
+   * <p>
+   * Method under test: {@link StoreProjectData#evaluateLatestVersionAndUpdate(String)}
    */
   @Test
   @DisplayName("Test evaluateLatestVersionAndUpdate(String)")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean StoreProjectData.evaluateLatestVersionAndUpdate(String)"})
   void testEvaluateLatestVersionAndUpdate() {
     // Arrange
     StoreProjectData storeProjectData = new StoreProjectData("myproject", "42", "42");
 
     // Act
-    boolean actualEvaluateLatestVersionAndUpdateResult =
-        storeProjectData.evaluateLatestVersionAndUpdate("2020-03-01");
+    boolean actualEvaluateLatestVersionAndUpdateResult = storeProjectData.evaluateLatestVersionAndUpdate("2020-03-01");
 
     // Assert
     assertEquals("2020-03-01", storeProjectData.getLatestVersion());
@@ -200,13 +169,12 @@ class StoreProjectDataDiffblueTest {
 
   /**
    * Test {@link StoreProjectData#evaluateLatestVersionAndUpdate(String)}.
-   *
-   * <p>Method under test: {@link StoreProjectData#evaluateLatestVersionAndUpdate(String)}
+   * <p>
+   * Method under test: {@link StoreProjectData#evaluateLatestVersionAndUpdate(String)}
    */
   @Test
   @DisplayName("Test evaluateLatestVersionAndUpdate(String)")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean StoreProjectData.evaluateLatestVersionAndUpdate(String)"})
   void testEvaluateLatestVersionAndUpdate2() {
     // Arrange
@@ -214,8 +182,7 @@ class StoreProjectDataDiffblueTest {
     storeProjectData.setLatestVersion(null);
 
     // Act
-    boolean actualEvaluateLatestVersionAndUpdateResult =
-        storeProjectData.evaluateLatestVersionAndUpdate("-SNAPSHOT");
+    boolean actualEvaluateLatestVersionAndUpdateResult = storeProjectData.evaluateLatestVersionAndUpdate("-SNAPSHOT");
 
     // Assert
     assertNull(storeProjectData.getLatestVersion());
@@ -224,13 +191,12 @@ class StoreProjectDataDiffblueTest {
 
   /**
    * Test {@link StoreProjectData#evaluateLatestVersionAndUpdate(String)}.
-   *
-   * <p>Method under test: {@link StoreProjectData#evaluateLatestVersionAndUpdate(String)}
+   * <p>
+   * Method under test: {@link StoreProjectData#evaluateLatestVersionAndUpdate(String)}
    */
   @Test
   @DisplayName("Test evaluateLatestVersionAndUpdate(String)")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean StoreProjectData.evaluateLatestVersionAndUpdate(String)"})
   void testEvaluateLatestVersionAndUpdate3() {
     // Arrange
@@ -238,8 +204,7 @@ class StoreProjectDataDiffblueTest {
     storeProjectData.setLatestVersion("1.0.2");
 
     // Act
-    boolean actualEvaluateLatestVersionAndUpdateResult =
-        storeProjectData.evaluateLatestVersionAndUpdate("1.0.2");
+    boolean actualEvaluateLatestVersionAndUpdateResult = storeProjectData.evaluateLatestVersionAndUpdate("1.0.2");
 
     // Assert
     assertEquals("1.0.2", storeProjectData.getLatestVersion());
@@ -248,13 +213,12 @@ class StoreProjectDataDiffblueTest {
 
   /**
    * Test {@link StoreProjectData#evaluateLatestVersionAndUpdate(String)}.
-   *
-   * <p>Method under test: {@link StoreProjectData#evaluateLatestVersionAndUpdate(String)}
+   * <p>
+   * Method under test: {@link StoreProjectData#evaluateLatestVersionAndUpdate(String)}
    */
   @Test
   @DisplayName("Test evaluateLatestVersionAndUpdate(String)")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean StoreProjectData.evaluateLatestVersionAndUpdate(String)"})
   void testEvaluateLatestVersionAndUpdate4() {
     // Arrange
@@ -262,8 +226,7 @@ class StoreProjectDataDiffblueTest {
     storeProjectData.setLatestVersion("1.0.242");
 
     // Act
-    boolean actualEvaluateLatestVersionAndUpdateResult =
-        storeProjectData.evaluateLatestVersionAndUpdate("1.0.2");
+    boolean actualEvaluateLatestVersionAndUpdateResult = storeProjectData.evaluateLatestVersionAndUpdate("1.0.2");
 
     // Assert
     assertEquals("1.0.242", storeProjectData.getLatestVersion());
@@ -272,14 +235,12 @@ class StoreProjectDataDiffblueTest {
 
   /**
    * Test {@link StoreProjectData#equals(Object)}, and {@link StoreProjectData#hashCode()}.
-   *
    * <ul>
-   *   <li>When other is equal.
-   *   <li>Then return equal.
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
    * </ul>
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link StoreProjectData#equals(Object)}
    *   <li>{@link StoreProjectData#hashCode()}
@@ -287,8 +248,7 @@ class StoreProjectDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean StoreProjectData.equals(Object)", "int StoreProjectData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
@@ -297,19 +257,18 @@ class StoreProjectDataDiffblueTest {
 
     // Act and Assert
     assertEquals(storeProjectData, storeProjectData2);
-    assertEquals(storeProjectData.hashCode(), storeProjectData2.hashCode());
+    int expectedHashCodeResult = storeProjectData.hashCode();
+    assertEquals(expectedHashCodeResult, storeProjectData2.hashCode());
   }
 
   /**
    * Test {@link StoreProjectData#equals(Object)}, and {@link StoreProjectData#hashCode()}.
-   *
    * <ul>
-   *   <li>When other is same.
-   *   <li>Then return equal.
+   *   <li>When other is same.</li>
+   *   <li>Then return equal.</li>
    * </ul>
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link StoreProjectData#equals(Object)}
    *   <li>{@link StoreProjectData#hashCode()}
@@ -317,8 +276,7 @@ class StoreProjectDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean StoreProjectData.equals(Object)", "int StoreProjectData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
@@ -332,18 +290,16 @@ class StoreProjectDataDiffblueTest {
 
   /**
    * Test {@link StoreProjectData#equals(Object)}.
-   *
    * <ul>
-   *   <li>When other is different.
-   *   <li>Then return not equal.
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link StoreProjectData#equals(Object)}
+   * <p>
+   * Method under test: {@link StoreProjectData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean StoreProjectData.equals(Object)", "int StoreProjectData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
@@ -355,18 +311,16 @@ class StoreProjectDataDiffblueTest {
 
   /**
    * Test {@link StoreProjectData#equals(Object)}.
-   *
    * <ul>
-   *   <li>When other is {@code null}.
-   *   <li>Then return not equal.
+   *   <li>When other is {@code null}.</li>
+   *   <li>Then return not equal.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link StoreProjectData#equals(Object)}
+   * <p>
+   * Method under test: {@link StoreProjectData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean StoreProjectData.equals(Object)", "int StoreProjectData.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
@@ -375,22 +329,19 @@ class StoreProjectDataDiffblueTest {
 
   /**
    * Test {@link StoreProjectData#equals(Object)}.
-   *
    * <ul>
-   *   <li>When other is wrong type.
-   *   <li>Then return not equal.
+   *   <li>When other is wrong type.</li>
+   *   <li>Then return not equal.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link StoreProjectData#equals(Object)}
+   * <p>
+   * Method under test: {@link StoreProjectData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean StoreProjectData.equals(Object)", "int StoreProjectData.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(
-        new StoreProjectData("myproject", "42", "42"), "Different type to StoreProjectData");
+    assertNotEquals(new StoreProjectData("myproject", "42", "42"), "Different type to StoreProjectData");
   }
 }

@@ -1,21 +1,21 @@
 {
   "meta" : {
-    "reportVersion" : "2.7"
+    "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2025.09.01-44e352d-licensed",
-    "creationTimestamp" : "2025-10-16T18:38:22.071754Z",
+    "version" : "2025.02.02-08b2a5a-licensed",
+    "creationTimestamp" : "2025-10-27T13:21:36.334842Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 64.77,
-    "environmentDetectionTime" : 0.042,
-    "indexingTime" : 0.422,
-    "entryPointsTime" : 0.03,
-    "generationTime" : 447.224,
-    "timeToFirstTest" : 1034.157,
-    "timeToLastTest" : 795.175,
-    "indexQueryTime" : 2.972,
-    "verificationTime" : 41.428,
-    "validationTime" : 8.912
+    "totalTime" : 59.2,
+    "environmentDetectionTime" : 0.231,
+    "indexingTime" : 0.312,
+    "entryPointsTime" : 0.227,
+    "generationTime" : 2181.959,
+    "timeToFirstTest" : 2668.939,
+    "timeToLastTest" : 2525.777,
+    "indexQueryTime" : 2.775,
+    "verificationTime" : 158.504,
+    "validationTime" : 9.851
   },
   "codes" : {
     "R005" : "Unable to load class",
@@ -24,14 +24,12 @@
     "T005" : "Trivial constructor",
     "T012" : "Synthetic method",
     "T021" : "Empty method body",
-    "T023" : "Testability unknown",
-    "V000" : "Validated successfully",
-    "V003" : "Tests discarded during validation"
+    "V000" : "Validated successfully"
   },
   "summary" : {
     "classesCount" : 5,
     "methodsCount" : 31,
-    "cumulativeDiffblueTestCount" : 0,
+    "cumulativeDiffblueTestCount" : 4,
     "cumulativeManualTestCount" : 8,
     "completeTestCount" : 0,
     "incompleteTestCount" : 0,
@@ -41,19 +39,16 @@
       "T000" : 15,
       "T003" : 1,
       "T005" : 5,
-      "T012" : 7,
-      "T021" : 2,
-      "T023" : 1
+      "T012" : 8,
+      "T021" : 2
     },
     "perMethodOutcome" : {
       "R005" : 22,
       "T003" : 1,
-      "T012" : 7,
-      "T023" : 1
+      "T012" : 8
     },
     "perTestValidation" : {
-      "V000" : 4,
-      "V003" : 25
+      "V000" : 4
     }
   },
   "classes" : {
@@ -119,14 +114,12 @@
         "T000" : 9,
         "T003" : 1,
         "T005" : 1,
-        "T012" : 5,
-        "T023" : 1
+        "T012" : 6
       },
       "perMethodOutcome" : {
         "R005" : 10,
         "T003" : 1,
-        "T012" : 5,
-        "T023" : 1
+        "T012" : 6
       }
     }
   },
@@ -271,8 +264,11 @@
     "org.finos.legend.depot.services.metrics.query.QueryMetricsServiceImpl.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        35
+      ]
     },
     "org.finos.legend.depot.services.metrics.query.QueryMetricsServiceImpl.<init>:(Lorg/finos/legend/depot/store/api/metrics/query/QueryMetrics;)V" : {
       "completeTestCount" : 0,
@@ -446,6 +442,5 @@
         94
       ]
     }
-  },
-  "validationMetrics" : { }
+  }
 }

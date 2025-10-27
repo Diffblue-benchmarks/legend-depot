@@ -1,21 +1,21 @@
 {
   "meta" : {
-    "reportVersion" : "2.7"
+    "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2025.09.01-44e352d-licensed",
-    "creationTimestamp" : "2025-10-16T18:38:22.071754Z",
+    "version" : "2025.02.02-08b2a5a-licensed",
+    "creationTimestamp" : "2025-10-27T13:21:36.334842Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 110.135,
-    "environmentDetectionTime" : 0.038,
-    "indexingTime" : 0.499,
-    "entryPointsTime" : 0.033,
-    "generationTime" : 1098.668,
-    "timeToFirstTest" : 2979.035,
-    "timeToLastTest" : 2137.496,
-    "indexQueryTime" : 4.738,
-    "verificationTime" : 82.819,
-    "validationTime" : 11.231
+    "totalTime" : 102.944,
+    "environmentDetectionTime" : 0.276,
+    "indexingTime" : 0.377,
+    "entryPointsTime" : 0.272,
+    "generationTime" : 2843.65,
+    "timeToFirstTest" : 4519.219,
+    "timeToLastTest" : 3861.565,
+    "indexQueryTime" : 5.082,
+    "verificationTime" : 198.405,
+    "validationTime" : 12.396
   },
   "codes" : {
     "R000" : "Success",
@@ -29,17 +29,15 @@
     "T009" : "No implementation for abstract class",
     "T010" : "Abstract or interface method",
     "T012" : "Synthetic method",
-    "T023" : "Testability unknown",
     "V000" : "Validated successfully",
-    "V003" : "Tests discarded during validation",
-    "W002" : "Test compiled, but did not pass"
+    "V003" : "Tests discarded during validation"
   },
   "summary" : {
     "classesCount" : 13,
     "methodsCount" : 65,
-    "cumulativeDiffblueTestCount" : 29,
+    "cumulativeDiffblueTestCount" : 32,
     "cumulativeManualTestCount" : 0,
-    "completeTestCount" : 29,
+    "completeTestCount" : 32,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 368,
@@ -51,30 +49,24 @@
       "T005" : 9,
       "T009" : 10,
       "T010" : 12,
-      "T012" : 5,
-      "T023" : 2
+      "T012" : 7
     },
     "perMethodOutcome" : {
-      "R000" : 27,
+      "R000" : 28,
       "R002" : 4,
       "R005" : 2,
       "T003" : 1,
       "T004" : 1,
       "T009" : 10,
       "T010" : 12,
-      "T012" : 5,
-      "T023" : 2,
-      "W002" : 1
+      "T012" : 7
     },
     "perTestOutcome" : {
-      "R000" : 29
+      "R000" : 32
     },
     "perTestValidation" : {
-      "V000" : 29,
-      "V003" : 1
-    },
-    "warnings" : {
-      "W002" : 1
+      "V000" : 32,
+      "V003" : 2
     }
   },
   "classes" : {
@@ -101,14 +93,12 @@
       "perMethodTestability" : {
         "T001" : 1,
         "T003" : 1,
-        "T012" : 2,
-        "T023" : 1
+        "T012" : 3
       },
       "perMethodOutcome" : {
         "R000" : 1,
         "T003" : 1,
-        "T012" : 2,
-        "T023" : 1
+        "T012" : 3
       },
       "perTestOutcome" : {
         "R000" : 1
@@ -229,13 +219,13 @@
       "perMethodTestability" : {
         "T000" : 2,
         "T005" : 1,
-        "T023" : 1
+        "T012" : 1
       },
       "perMethodOutcome" : {
         "R000" : 1,
         "R002" : 1,
         "R005" : 1,
-        "T023" : 1
+        "T012" : 1
       },
       "perTestOutcome" : {
         "R000" : 2
@@ -243,7 +233,7 @@
     },
     "org.finos.legend.depot.store.resources.artifacts.repository.RepositoryResource" : {
       "methodsCount" : 6,
-      "completeTestCount" : 2,
+      "completeTestCount" : 5,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 2,
@@ -251,16 +241,12 @@
         "T012" : 3
       },
       "perMethodOutcome" : {
-        "R000" : 1,
+        "R000" : 2,
         "R002" : 1,
-        "T012" : 3,
-        "W002" : 1
+        "T012" : 3
       },
       "perTestOutcome" : {
-        "R000" : 2
-      },
-      "warnings" : {
-        "W002" : 1
+        "R000" : 5
       }
     },
     "org.finos.legend.depot.store.resources.guice.RepositoryResourcesModule" : {
@@ -357,8 +343,12 @@
     "org.finos.legend.depot.domain.artifacts.repository.ArtifactType.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        20,
+        18
+      ]
     },
     "org.finos.legend.depot.domain.artifacts.repository.ArtifactType.<init>:(Ljava/lang/String;ILjava/lang/String;)V" : {
       "completeTestCount" : 0,
@@ -812,8 +802,11 @@
     "org.finos.legend.depot.services.guice.RepositoryModule.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        28
+      ]
     },
     "org.finos.legend.depot.services.guice.RepositoryModule.<init>:()V" : {
       "completeTestCount" : 0,
@@ -876,12 +869,12 @@
       ]
     },
     "org.finos.legend.depot.store.resources.artifacts.repository.RepositoryResource.getRepositoryVersions:(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;" : {
-      "completeTestCount" : 0,
+      "completeTestCount" : 3,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "W002",
-      "warnings" : {
-        "W002" : 1
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
       },
       "lineNumbers" : [
         56
@@ -938,6 +931,5 @@
         29
       ]
     }
-  },
-  "validationMetrics" : { }
+  }
 }

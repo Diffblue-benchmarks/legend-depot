@@ -2,7 +2,6 @@ package org.finos.legend.depot.domain.generation;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -11,9 +10,8 @@ import org.junit.jupiter.api.Test;
 class DepotGenerationDiffblueTest {
   /**
    * Test getters and setters.
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link DepotGeneration#DepotGeneration(String, String)}
    *   <li>{@link DepotGeneration#getContent()}
@@ -22,17 +20,12 @@ class DepotGenerationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "void DepotGeneration.<init>(String, String)",
-    "String DepotGeneration.getContent()",
-    "String DepotGeneration.getPath()"
-  })
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void DepotGeneration.<init>(String, String)", "String DepotGeneration.getContent()",
+      "String DepotGeneration.getPath()"})
   void testGettersAndSetters() {
     // Arrange and Act
-    DepotGeneration actualDepotGeneration =
-        new DepotGeneration("Path", "Not all who wander are lost");
+    DepotGeneration actualDepotGeneration = new DepotGeneration("Path", "Not all who wander are lost");
     String actualContent = actualDepotGeneration.getContent();
 
     // Assert
@@ -42,14 +35,12 @@ class DepotGenerationDiffblueTest {
 
   /**
    * Test {@link DepotGeneration#equals(Object)}, and {@link DepotGeneration#hashCode()}.
-   *
    * <ul>
-   *   <li>When other is equal.
-   *   <li>Then return equal.
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
    * </ul>
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link DepotGeneration#equals(Object)}
    *   <li>{@link DepotGeneration#hashCode()}
@@ -57,8 +48,7 @@ class DepotGenerationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DepotGeneration.equals(Object)", "int DepotGeneration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
@@ -67,19 +57,18 @@ class DepotGenerationDiffblueTest {
 
     // Act and Assert
     assertEquals(depotGeneration, depotGeneration2);
-    assertEquals(depotGeneration.hashCode(), depotGeneration2.hashCode());
+    int expectedHashCodeResult = depotGeneration.hashCode();
+    assertEquals(expectedHashCodeResult, depotGeneration2.hashCode());
   }
 
   /**
    * Test {@link DepotGeneration#equals(Object)}, and {@link DepotGeneration#hashCode()}.
-   *
    * <ul>
-   *   <li>When other is same.
-   *   <li>Then return equal.
+   *   <li>When other is same.</li>
+   *   <li>Then return equal.</li>
    * </ul>
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link DepotGeneration#equals(Object)}
    *   <li>{@link DepotGeneration#hashCode()}
@@ -87,8 +76,7 @@ class DepotGenerationDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DepotGeneration.equals(Object)", "int DepotGeneration.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
@@ -102,18 +90,16 @@ class DepotGenerationDiffblueTest {
 
   /**
    * Test {@link DepotGeneration#equals(Object)}.
-   *
    * <ul>
-   *   <li>When other is different.
-   *   <li>Then return not equal.
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link DepotGeneration#equals(Object)}
+   * <p>
+   * Method under test: {@link DepotGeneration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DepotGeneration.equals(Object)", "int DepotGeneration.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
@@ -125,18 +111,16 @@ class DepotGenerationDiffblueTest {
 
   /**
    * Test {@link DepotGeneration#equals(Object)}.
-   *
    * <ul>
-   *   <li>When other is {@code null}.
-   *   <li>Then return not equal.
+   *   <li>When other is {@code null}.</li>
+   *   <li>Then return not equal.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link DepotGeneration#equals(Object)}
+   * <p>
+   * Method under test: {@link DepotGeneration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DepotGeneration.equals(Object)", "int DepotGeneration.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
@@ -145,23 +129,19 @@ class DepotGenerationDiffblueTest {
 
   /**
    * Test {@link DepotGeneration#equals(Object)}.
-   *
    * <ul>
-   *   <li>When other is wrong type.
-   *   <li>Then return not equal.
+   *   <li>When other is wrong type.</li>
+   *   <li>Then return not equal.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link DepotGeneration#equals(Object)}
+   * <p>
+   * Method under test: {@link DepotGeneration#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean DepotGeneration.equals(Object)", "int DepotGeneration.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(
-        new DepotGeneration("Path", "Not all who wander are lost"),
-        "Different type to DepotGeneration");
+    assertNotEquals(new DepotGeneration("Path", "Not all who wander are lost"), "Different type to DepotGeneration");
   }
 }

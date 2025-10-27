@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.net.URI;
 import java.nio.file.Paths;
@@ -32,18 +31,16 @@ import org.junit.jupiter.api.Test;
 class TracingResourceDiffblueTest {
   /**
    * Test {@link TracingResource#handle(String, Supplier)} with {@code label}, {@code supplier}.
-   *
-   * <p>Method under test: {@link TracingResource#handle(String, Supplier)}
+   * <p>
+   * Method under test: {@link TracingResource#handle(String, Supplier)}
    */
   @Test
   @DisplayName("Test handle(String, Supplier) with 'label', 'supplier'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object TracingResource.handle(String, Supplier)"})
   void testHandleWithLabelSupplier() {
     // Arrange
     TracingResource tracingResource = new TracingResource();
-
     Supplier<Object> supplier = mock(Supplier.class);
     when(supplier.get()).thenReturn("Get");
 
@@ -56,36 +53,29 @@ class TracingResourceDiffblueTest {
   }
 
   /**
-   * Test {@link TracingResource#handle(String, Supplier, Request, Supplier)} with {@code label},
-   * {@code supplier}, {@code request}, {@code entityTagSupplier}.
-   *
-   * <p>Method under test: {@link TracingResource#handle(String, Supplier, Request, Supplier)}
+   * Test {@link TracingResource#handle(String, Supplier, Request, Supplier)} with {@code label}, {@code supplier}, {@code request}, {@code entityTagSupplier}.
+   * <p>
+   * Method under test: {@link TracingResource#handle(String, Supplier, Request, Supplier)}
    */
   @Test
-  @DisplayName(
-      "Test handle(String, Supplier, Request, Supplier) with 'label', 'supplier', 'request', 'entityTagSupplier'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @DisplayName("Test handle(String, Supplier, Request, Supplier) with 'label', 'supplier', 'request', 'entityTagSupplier'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Response TracingResource.handle(String, Supplier, Request, Supplier)"})
   void testHandleWithLabelSupplierRequestEntityTagSupplier() {
     // Arrange
     TracingResource tracingResource = new TracingResource();
-
     Supplier<Object> supplier = mock(Supplier.class);
     when(supplier.get()).thenReturn("Get");
     URI baseUri = Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
     URI requestUri = Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
-
-    ContainerRequest request =
-        new ContainerRequest(
-            baseUri, requestUri, "https://example.org/example", null, new MapPropertiesDelegate());
+    ContainerRequest request = new ContainerRequest(baseUri, requestUri, "https://example.org/example", null,
+        new MapPropertiesDelegate());
 
     Supplier<String> entityTagSupplier = mock(Supplier.class);
     when(entityTagSupplier.get()).thenReturn("Get");
 
     // Act
-    Response actualHandleResult =
-        tracingResource.handle("Label", supplier, request, entityTagSupplier);
+    Response actualHandleResult = tracingResource.handle("Label", supplier, request, entityTagSupplier);
 
     // Assert
     verify(supplier).get();
@@ -103,32 +93,26 @@ class TracingResourceDiffblueTest {
   }
 
   /**
-   * Test {@link TracingResource#handle(String, Supplier, Request, Supplier)} with {@code label},
-   * {@code supplier}, {@code request}, {@code entityTagSupplier}.
-   *
-   * <p>Method under test: {@link TracingResource#handle(String, Supplier, Request, Supplier)}
+   * Test {@link TracingResource#handle(String, Supplier, Request, Supplier)} with {@code label}, {@code supplier}, {@code request}, {@code entityTagSupplier}.
+   * <p>
+   * Method under test: {@link TracingResource#handle(String, Supplier, Request, Supplier)}
    */
   @Test
-  @DisplayName(
-      "Test handle(String, Supplier, Request, Supplier) with 'label', 'supplier', 'request', 'entityTagSupplier'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @DisplayName("Test handle(String, Supplier, Request, Supplier) with 'label', 'supplier', 'request', 'entityTagSupplier'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Response TracingResource.handle(String, Supplier, Request, Supplier)"})
   void testHandleWithLabelSupplierRequestEntityTagSupplier2() {
     // Arrange
     TracingResource tracingResource = new TracingResource();
-
     Supplier<Object> supplier = mock(Supplier.class);
     when(supplier.get()).thenReturn("Get");
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
     Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
-
     Supplier<String> entityTagSupplier = mock(Supplier.class);
     when(entityTagSupplier.get()).thenReturn("Get");
 
     // Act
-    Response actualHandleResult =
-        tracingResource.handle("Label", supplier, null, entityTagSupplier);
+    Response actualHandleResult = tracingResource.handle("Label", supplier, null, entityTagSupplier);
 
     // Assert
     verify(supplier).get();
@@ -145,40 +129,32 @@ class TracingResourceDiffblueTest {
   }
 
   /**
-   * Test {@link TracingResource#handle(String, Supplier, Request, Supplier)} with {@code label},
-   * {@code supplier}, {@code request}, {@code entityTagSupplier}.
-   *
+   * Test {@link TracingResource#handle(String, Supplier, Request, Supplier)} with {@code label}, {@code supplier}, {@code request}, {@code entityTagSupplier}.
    * <ul>
-   *   <li>Then return Headers size is one.
+   *   <li>Then return Headers size is one.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link TracingResource#handle(String, Supplier, Request, Supplier)}
+   * <p>
+   * Method under test: {@link TracingResource#handle(String, Supplier, Request, Supplier)}
    */
   @Test
-  @DisplayName(
-      "Test handle(String, Supplier, Request, Supplier) with 'label', 'supplier', 'request', 'entityTagSupplier'; then return Headers size is one")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @DisplayName("Test handle(String, Supplier, Request, Supplier) with 'label', 'supplier', 'request', 'entityTagSupplier'; then return Headers size is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Response TracingResource.handle(String, Supplier, Request, Supplier)"})
   void testHandleWithLabelSupplierRequestEntityTagSupplier_thenReturnHeadersSizeIsOne() {
     // Arrange
     TracingResource tracingResource = new TracingResource();
-
     Supplier<Object> supplier = mock(Supplier.class);
     when(supplier.get()).thenReturn("Get");
     URI baseUri = Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
     URI requestUri = Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
-
-    ContainerRequest request =
-        new ContainerRequest(
-            baseUri, requestUri, "https://example.org/example", null, new MapPropertiesDelegate());
+    ContainerRequest request = new ContainerRequest(baseUri, requestUri, "https://example.org/example", null,
+        new MapPropertiesDelegate());
 
     Supplier<String> entityTagSupplier = mock(Supplier.class);
     when(entityTagSupplier.get()).thenReturn(null);
 
     // Act
-    Response actualHandleResult =
-        tracingResource.handle("Label", supplier, request, entityTagSupplier);
+    Response actualHandleResult = tracingResource.handle("Label", supplier, request, entityTagSupplier);
 
     // Assert
     verify(supplier).get();
@@ -207,27 +183,22 @@ class TracingResourceDiffblueTest {
   }
 
   /**
-   * Test {@link TracingResource#handle(String, String, Supplier)} with {@code
-   * resourceAPIMetricName}, {@code label}, {@code supplier}.
-   *
-   * <p>Method under test: {@link TracingResource#handle(String, String, Supplier)}
+   * Test {@link TracingResource#handle(String, String, Supplier)} with {@code resourceAPIMetricName}, {@code label}, {@code supplier}.
+   * <p>
+   * Method under test: {@link TracingResource#handle(String, String, Supplier)}
    */
   @Test
-  @DisplayName(
-      "Test handle(String, String, Supplier) with 'resourceAPIMetricName', 'label', 'supplier'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @DisplayName("Test handle(String, String, Supplier) with 'resourceAPIMetricName', 'label', 'supplier'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object TracingResource.handle(String, String, Supplier)"})
   void testHandleWithResourceAPIMetricNameLabelSupplier() {
     // Arrange
     TracingResource tracingResource = new TracingResource();
-
     Supplier<Object> supplier = mock(Supplier.class);
     when(supplier.get()).thenReturn("Get");
 
     // Act
-    Object actualHandleResult =
-        tracingResource.handle("Resource APIMetric Name", "Label", supplier);
+    Object actualHandleResult = tracingResource.handle("Resource APIMetric Name", "Label", supplier);
 
     // Assert
     verify(supplier).get();
@@ -235,39 +206,30 @@ class TracingResourceDiffblueTest {
   }
 
   /**
-   * Test {@link TracingResource#handle(String, String, Supplier, Request, Supplier)} with {@code
-   * resourceAPIMetricName}, {@code label}, {@code supplier}, {@code request}, {@code etagSupplier}.
-   *
-   * <p>Method under test: {@link TracingResource#handle(String, String, Supplier, Request,
-   * Supplier)}
+   * Test {@link TracingResource#handle(String, String, Supplier, Request, Supplier)} with {@code resourceAPIMetricName}, {@code label}, {@code supplier}, {@code request}, {@code etagSupplier}.
+   * <p>
+   * Method under test: {@link TracingResource#handle(String, String, Supplier, Request, Supplier)}
    */
   @Test
-  @DisplayName(
-      "Test handle(String, String, Supplier, Request, Supplier) with 'resourceAPIMetricName', 'label', 'supplier', 'request', 'etagSupplier'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "Response TracingResource.handle(String, String, Supplier, Request, Supplier)"
-  })
+  @DisplayName("Test handle(String, String, Supplier, Request, Supplier) with 'resourceAPIMetricName', 'label', 'supplier', 'request', 'etagSupplier'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Response TracingResource.handle(String, String, Supplier, Request, Supplier)"})
   void testHandleWithResourceAPIMetricNameLabelSupplierRequestEtagSupplier() {
     // Arrange
     TracingResource tracingResource = new TracingResource();
-
     Supplier<Object> supplier = mock(Supplier.class);
     when(supplier.get()).thenReturn("Get");
     URI baseUri = Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
     URI requestUri = Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
-
-    ContainerRequest request =
-        new ContainerRequest(
-            baseUri, requestUri, "https://example.org/example", null, new MapPropertiesDelegate());
+    ContainerRequest request = new ContainerRequest(baseUri, requestUri, "https://example.org/example", null,
+        new MapPropertiesDelegate());
 
     Supplier<String> etagSupplier = mock(Supplier.class);
     when(etagSupplier.get()).thenReturn("Get");
 
     // Act
-    Response actualHandleResult =
-        tracingResource.handle("Resource APIMetric Name", "Label", supplier, request, etagSupplier);
+    Response actualHandleResult = tracingResource.handle("Resource APIMetric Name", "Label", supplier, request,
+        etagSupplier);
 
     // Assert
     verify(supplier).get();
@@ -285,39 +247,67 @@ class TracingResourceDiffblueTest {
   }
 
   /**
-   * Test {@link TracingResource#handle(String, String, Supplier, Request, Supplier)} with {@code
-   * resourceAPIMetricName}, {@code label}, {@code supplier}, {@code request}, {@code etagSupplier}.
-   *
-   * <p>Method under test: {@link TracingResource#handle(String, String, Supplier, Request,
-   * Supplier)}
+   * Test {@link TracingResource#handle(String, String, Supplier, Request, Supplier)} with {@code resourceAPIMetricName}, {@code label}, {@code supplier}, {@code request}, {@code etagSupplier}.
+   * <p>
+   * Method under test: {@link TracingResource#handle(String, String, Supplier, Request, Supplier)}
    */
   @Test
-  @DisplayName(
-      "Test handle(String, String, Supplier, Request, Supplier) with 'resourceAPIMetricName', 'label', 'supplier', 'request', 'etagSupplier'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "Response TracingResource.handle(String, String, Supplier, Request, Supplier)"
-  })
+  @DisplayName("Test handle(String, String, Supplier, Request, Supplier) with 'resourceAPIMetricName', 'label', 'supplier', 'request', 'etagSupplier'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Response TracingResource.handle(String, String, Supplier, Request, Supplier)"})
   void testHandleWithResourceAPIMetricNameLabelSupplierRequestEtagSupplier2() {
     // Arrange
     TracingResource tracingResource = new TracingResource();
+    Supplier<Object> supplier = mock(Supplier.class);
+    when(supplier.get()).thenReturn("Get");
+    Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
+    Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
+    Supplier<String> etagSupplier = mock(Supplier.class);
+    when(etagSupplier.get()).thenReturn("Get");
 
+    // Act
+    Response actualHandleResult = tracingResource.handle("Resource APIMetric Name", "Label", supplier, null,
+        etagSupplier);
+
+    // Assert
+    verify(supplier).get();
+    verify(etagSupplier).get();
+    assertTrue(actualHandleResult instanceof OutboundJaxrsResponse);
+    MultivaluedMap<String, Object> headers = actualHandleResult.getHeaders();
+    assertEquals(2, headers.size());
+    assertEquals(1, headers.get("ETag").size());
+    OutboundMessageContext context = ((OutboundJaxrsResponse) actualHandleResult).getContext();
+    assertEquals(1, context.getAcceptableLanguages().size());
+    assertTrue(headers.containsKey("Cache-Control"));
+    assertSame(headers, actualHandleResult.getMetadata());
+    assertSame(headers, context.getHeaders());
+  }
+
+  /**
+   * Test {@link TracingResource#handle(String, String, Supplier, Request, Supplier)} with {@code resourceAPIMetricName}, {@code label}, {@code supplier}, {@code request}, {@code etagSupplier}.
+   * <p>
+   * Method under test: {@link TracingResource#handle(String, String, Supplier, Request, Supplier)}
+   */
+  @Test
+  @DisplayName("Test handle(String, String, Supplier, Request, Supplier) with 'resourceAPIMetricName', 'label', 'supplier', 'request', 'etagSupplier'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Response TracingResource.handle(String, String, Supplier, Request, Supplier)"})
+  void testHandleWithResourceAPIMetricNameLabelSupplierRequestEtagSupplier3() {
+    // Arrange
+    TracingResource tracingResource = new TracingResource();
     Supplier<Object> supplier = mock(Supplier.class);
     when(supplier.get()).thenReturn("Get");
     URI baseUri = Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
     URI requestUri = Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
-
-    ContainerRequest request =
-        new ContainerRequest(
-            baseUri, requestUri, "https://example.org/example", null, new MapPropertiesDelegate());
+    ContainerRequest request = new ContainerRequest(baseUri, requestUri, "https://example.org/example", null,
+        new MapPropertiesDelegate());
 
     Supplier<String> etagSupplier = mock(Supplier.class);
     when(etagSupplier.get()).thenReturn(null);
 
     // Act
-    Response actualHandleResult =
-        tracingResource.handle("Resource APIMetric Name", "Label", supplier, request, etagSupplier);
+    Response actualHandleResult = tracingResource.handle("Resource APIMetric Name", "Label", supplier, request,
+        etagSupplier);
 
     // Assert
     verify(supplier).get();
@@ -346,65 +336,17 @@ class TracingResourceDiffblueTest {
   }
 
   /**
-   * Test {@link TracingResource#handle(String, String, Supplier, Request, Supplier)} with {@code
-   * resourceAPIMetricName}, {@code label}, {@code supplier}, {@code request}, {@code etagSupplier}.
-   *
-   * <p>Method under test: {@link TracingResource#handle(String, String, Supplier, Request,
-   * Supplier)}
-   */
-  @Test
-  @DisplayName(
-      "Test handle(String, String, Supplier, Request, Supplier) with 'resourceAPIMetricName', 'label', 'supplier', 'request', 'etagSupplier'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "Response TracingResource.handle(String, String, Supplier, Request, Supplier)"
-  })
-  void testHandleWithResourceAPIMetricNameLabelSupplierRequestEtagSupplier3() {
-    // Arrange
-    TracingResource tracingResource = new TracingResource();
-
-    Supplier<Object> supplier = mock(Supplier.class);
-    when(supplier.get()).thenReturn("Get");
-    Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
-    Paths.get(System.getProperty("java.io.tmpdir"), "test.txt").toUri();
-
-    Supplier<String> etagSupplier = mock(Supplier.class);
-    when(etagSupplier.get()).thenReturn("Get");
-
-    // Act
-    Response actualHandleResult =
-        tracingResource.handle("Resource APIMetric Name", "Label", supplier, null, etagSupplier);
-
-    // Assert
-    verify(supplier).get();
-    verify(etagSupplier).get();
-    assertTrue(actualHandleResult instanceof OutboundJaxrsResponse);
-    MultivaluedMap<String, Object> headers = actualHandleResult.getHeaders();
-    assertEquals(2, headers.size());
-    assertEquals(1, headers.get("ETag").size());
-    OutboundMessageContext context = ((OutboundJaxrsResponse) actualHandleResult).getContext();
-    assertEquals(1, context.getAcceptableLanguages().size());
-    assertTrue(headers.containsKey("Cache-Control"));
-    assertSame(headers, actualHandleResult.getMetadata());
-    assertSame(headers, context.getHeaders());
-  }
-
-  /**
-   * Test {@link TracingResource#handleResponse(String, Supplier)} with {@code label}, {@code
-   * supplier}.
-   *
-   * <p>Method under test: {@link TracingResource#handleResponse(String, Supplier)}
+   * Test {@link TracingResource#handleResponse(String, Supplier)} with {@code label}, {@code supplier}.
+   * <p>
+   * Method under test: {@link TracingResource#handleResponse(String, Supplier)}
    */
   @Test
   @DisplayName("Test handleResponse(String, Supplier) with 'label', 'supplier'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Response TracingResource.handleResponse(String, Supplier)"})
   void testHandleResponseWithLabelSupplier() {
     // Arrange
     TracingResource tracingResource = new TracingResource();
-
     Supplier<Object> supplier = mock(Supplier.class);
     when(supplier.get()).thenReturn("Get");
 
@@ -440,27 +382,22 @@ class TracingResourceDiffblueTest {
   }
 
   /**
-   * Test {@link TracingResource#handleResponse(String, String, Supplier)} with {@code
-   * resourceAPIMetricName}, {@code label}, {@code supplier}.
-   *
-   * <p>Method under test: {@link TracingResource#handleResponse(String, String, Supplier)}
+   * Test {@link TracingResource#handleResponse(String, String, Supplier)} with {@code resourceAPIMetricName}, {@code label}, {@code supplier}.
+   * <p>
+   * Method under test: {@link TracingResource#handleResponse(String, String, Supplier)}
    */
   @Test
-  @DisplayName(
-      "Test handleResponse(String, String, Supplier) with 'resourceAPIMetricName', 'label', 'supplier'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @DisplayName("Test handleResponse(String, String, Supplier) with 'resourceAPIMetricName', 'label', 'supplier'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Response TracingResource.handleResponse(String, String, Supplier)"})
   void testHandleResponseWithResourceAPIMetricNameLabelSupplier() {
     // Arrange
     TracingResource tracingResource = new TracingResource();
-
     Supplier<Object> supplier = mock(Supplier.class);
     when(supplier.get()).thenReturn("Get");
 
     // Act
-    Response actualHandleResponseResult =
-        tracingResource.handleResponse("Resource APIMetric Name", "Label", supplier);
+    Response actualHandleResponseResult = tracingResource.handleResponse("Resource APIMetric Name", "Label", supplier);
 
     // Assert
     verify(supplier).get();

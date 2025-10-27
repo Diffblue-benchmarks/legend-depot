@@ -3,7 +3,6 @@ package org.finos.legend.depot.domain.project;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,9 +15,8 @@ import org.junit.jupiter.api.Test;
 class ProjectVersionDataDiffblueTest {
   /**
    * Test getters and setters.
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link ProjectVersionData#ProjectVersionData()}
    *   <li>{@link ProjectVersionData#setDependencies(List)}
@@ -37,25 +35,15 @@ class ProjectVersionDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "void ProjectVersionData.<init>()",
-    "void ProjectVersionData.<init>(List, List)",
-    "void ProjectVersionData.<init>(List, List, boolean, boolean)",
-    "List ProjectVersionData.getDependencies()",
-    "String ProjectVersionData.getExclusionReason()",
-    "Map ProjectVersionData.getManifestProperties()",
-    "List ProjectVersionData.getProperties()",
-    "boolean ProjectVersionData.isDeprecated()",
-    "boolean ProjectVersionData.isExcluded()",
-    "void ProjectVersionData.setDependencies(List)",
-    "void ProjectVersionData.setDeprecated(boolean)",
-    "void ProjectVersionData.setExcluded(boolean)",
-    "void ProjectVersionData.setExclusionReason(String)",
-    "void ProjectVersionData.setManifestProperties(Map)",
-    "void ProjectVersionData.setProperties(List)"
-  })
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ProjectVersionData.<init>()", "void ProjectVersionData.<init>(List, List)",
+      "void ProjectVersionData.<init>(List, List, boolean, boolean)", "List ProjectVersionData.getDependencies()",
+      "String ProjectVersionData.getExclusionReason()", "Map ProjectVersionData.getManifestProperties()",
+      "List ProjectVersionData.getProperties()", "boolean ProjectVersionData.isDeprecated()",
+      "boolean ProjectVersionData.isExcluded()", "void ProjectVersionData.setDependencies(List)",
+      "void ProjectVersionData.setDeprecated(boolean)", "void ProjectVersionData.setExcluded(boolean)",
+      "void ProjectVersionData.setExclusionReason(String)", "void ProjectVersionData.setManifestProperties(Map)",
+      "void ProjectVersionData.setProperties(List)"})
   void testGettersAndSetters() {
     // Arrange and Act
     ProjectVersionData actualProjectVersionData = new ProjectVersionData();
@@ -89,13 +77,11 @@ class ProjectVersionDataDiffblueTest {
 
   /**
    * Test getters and setters.
-   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.
+   *   <li>When {@link ArrayList#ArrayList()}.</li>
    * </ul>
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link ProjectVersionData#ProjectVersionData(List, List)}
    *   <li>{@link ProjectVersionData#setDependencies(List)}
@@ -114,32 +100,21 @@ class ProjectVersionDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when ArrayList()")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "void ProjectVersionData.<init>()",
-    "void ProjectVersionData.<init>(List, List)",
-    "void ProjectVersionData.<init>(List, List, boolean, boolean)",
-    "List ProjectVersionData.getDependencies()",
-    "String ProjectVersionData.getExclusionReason()",
-    "Map ProjectVersionData.getManifestProperties()",
-    "List ProjectVersionData.getProperties()",
-    "boolean ProjectVersionData.isDeprecated()",
-    "boolean ProjectVersionData.isExcluded()",
-    "void ProjectVersionData.setDependencies(List)",
-    "void ProjectVersionData.setDeprecated(boolean)",
-    "void ProjectVersionData.setExcluded(boolean)",
-    "void ProjectVersionData.setExclusionReason(String)",
-    "void ProjectVersionData.setManifestProperties(Map)",
-    "void ProjectVersionData.setProperties(List)"
-  })
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ProjectVersionData.<init>()", "void ProjectVersionData.<init>(List, List)",
+      "void ProjectVersionData.<init>(List, List, boolean, boolean)", "List ProjectVersionData.getDependencies()",
+      "String ProjectVersionData.getExclusionReason()", "Map ProjectVersionData.getManifestProperties()",
+      "List ProjectVersionData.getProperties()", "boolean ProjectVersionData.isDeprecated()",
+      "boolean ProjectVersionData.isExcluded()", "void ProjectVersionData.setDependencies(List)",
+      "void ProjectVersionData.setDeprecated(boolean)", "void ProjectVersionData.setExcluded(boolean)",
+      "void ProjectVersionData.setExclusionReason(String)", "void ProjectVersionData.setManifestProperties(Map)",
+      "void ProjectVersionData.setProperties(List)"})
   void testGettersAndSetters_whenArrayList() {
     // Arrange
     ArrayList<ProjectVersion> dependencies = new ArrayList<>();
 
     // Act
-    ProjectVersionData actualProjectVersionData =
-        new ProjectVersionData(dependencies, new ArrayList<>());
+    ProjectVersionData actualProjectVersionData = new ProjectVersionData(dependencies, new ArrayList<>());
     ArrayList<ProjectVersion> dependencies2 = new ArrayList<>();
     actualProjectVersionData.setDependencies(dependencies2);
     actualProjectVersionData.setDeprecated(true);
@@ -170,13 +145,11 @@ class ProjectVersionDataDiffblueTest {
 
   /**
    * Test getters and setters.
-   *
    * <ul>
-   *   <li>When {@code true}.
+   *   <li>When {@code true}.</li>
    * </ul>
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link ProjectVersionData#ProjectVersionData(List, List, boolean, boolean)}
    *   <li>{@link ProjectVersionData#setDependencies(List)}
@@ -195,32 +168,21 @@ class ProjectVersionDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when 'true'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "void ProjectVersionData.<init>()",
-    "void ProjectVersionData.<init>(List, List)",
-    "void ProjectVersionData.<init>(List, List, boolean, boolean)",
-    "List ProjectVersionData.getDependencies()",
-    "String ProjectVersionData.getExclusionReason()",
-    "Map ProjectVersionData.getManifestProperties()",
-    "List ProjectVersionData.getProperties()",
-    "boolean ProjectVersionData.isDeprecated()",
-    "boolean ProjectVersionData.isExcluded()",
-    "void ProjectVersionData.setDependencies(List)",
-    "void ProjectVersionData.setDeprecated(boolean)",
-    "void ProjectVersionData.setExcluded(boolean)",
-    "void ProjectVersionData.setExclusionReason(String)",
-    "void ProjectVersionData.setManifestProperties(Map)",
-    "void ProjectVersionData.setProperties(List)"
-  })
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ProjectVersionData.<init>()", "void ProjectVersionData.<init>(List, List)",
+      "void ProjectVersionData.<init>(List, List, boolean, boolean)", "List ProjectVersionData.getDependencies()",
+      "String ProjectVersionData.getExclusionReason()", "Map ProjectVersionData.getManifestProperties()",
+      "List ProjectVersionData.getProperties()", "boolean ProjectVersionData.isDeprecated()",
+      "boolean ProjectVersionData.isExcluded()", "void ProjectVersionData.setDependencies(List)",
+      "void ProjectVersionData.setDeprecated(boolean)", "void ProjectVersionData.setExcluded(boolean)",
+      "void ProjectVersionData.setExclusionReason(String)", "void ProjectVersionData.setManifestProperties(Map)",
+      "void ProjectVersionData.setProperties(List)"})
   void testGettersAndSetters_whenTrue() {
     // Arrange
     ArrayList<ProjectVersion> dependencies = new ArrayList<>();
 
     // Act
-    ProjectVersionData actualProjectVersionData =
-        new ProjectVersionData(dependencies, new ArrayList<>(), true, true);
+    ProjectVersionData actualProjectVersionData = new ProjectVersionData(dependencies, new ArrayList<>(), true, true);
     ArrayList<ProjectVersion> dependencies2 = new ArrayList<>();
     actualProjectVersionData.setDependencies(dependencies2);
     actualProjectVersionData.setDeprecated(true);
@@ -251,28 +213,23 @@ class ProjectVersionDataDiffblueTest {
 
   /**
    * Test {@link ProjectVersionData#addDependencies(List)}.
-   *
    * <ul>
-   *   <li>Then {@link ProjectVersionData#ProjectVersionData()} Dependencies is {@link
-   *       ArrayList#ArrayList()}.
+   *   <li>Then {@link ProjectVersionData#ProjectVersionData()} Dependencies is {@link ArrayList#ArrayList()}.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link ProjectVersionData#addDependencies(List)}
+   * <p>
+   * Method under test: {@link ProjectVersionData#addDependencies(List)}
    */
   @Test
   @DisplayName("Test addDependencies(List); then ProjectVersionData() Dependencies is ArrayList()")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ProjectVersionData.addDependencies(List)"})
   void testAddDependencies_thenProjectVersionDataDependenciesIsArrayList() {
     // Arrange
     ProjectVersionData projectVersionData = new ProjectVersionData();
 
     ArrayList<ProjectVersion> dependencies = new ArrayList<>();
-    ProjectVersion projectVersion = new ProjectVersion("42", "42", "42");
-    dependencies.add(projectVersion);
-    ProjectVersion projectVersion2 = new ProjectVersion("42", "42", "42");
-    dependencies.add(projectVersion2);
+    dependencies.add(new ProjectVersion("42", "42", "42"));
+    dependencies.add(new ProjectVersion("42", "42", "42"));
 
     // Act
     projectVersionData.addDependencies(dependencies);
@@ -283,17 +240,15 @@ class ProjectVersionDataDiffblueTest {
 
   /**
    * Test {@link ProjectVersionData#addDependencies(List)}.
-   *
    * <ul>
-   *   <li>Then {@link ProjectVersionData#ProjectVersionData()} Dependencies size is one.
+   *   <li>Then {@link ProjectVersionData#ProjectVersionData()} Dependencies size is one.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link ProjectVersionData#addDependencies(List)}
+   * <p>
+   * Method under test: {@link ProjectVersionData#addDependencies(List)}
    */
   @Test
   @DisplayName("Test addDependencies(List); then ProjectVersionData() Dependencies size is one")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ProjectVersionData.addDependencies(List)"})
   void testAddDependencies_thenProjectVersionDataDependenciesSizeIsOne() {
     // Arrange
@@ -301,6 +256,7 @@ class ProjectVersionDataDiffblueTest {
 
     ArrayList<ProjectVersion> dependencies = new ArrayList<>();
     ProjectVersion projectVersion = new ProjectVersion("42", "42", "42");
+
     dependencies.add(projectVersion);
 
     // Act
@@ -314,19 +270,16 @@ class ProjectVersionDataDiffblueTest {
 
   /**
    * Test {@link ProjectVersionData#addDependencies(List)}.
-   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.
-   *   <li>Then {@link ProjectVersionData#ProjectVersionData()} Dependencies Empty.
+   *   <li>When {@link ArrayList#ArrayList()}.</li>
+   *   <li>Then {@link ProjectVersionData#ProjectVersionData()} Dependencies Empty.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link ProjectVersionData#addDependencies(List)}
+   * <p>
+   * Method under test: {@link ProjectVersionData#addDependencies(List)}
    */
   @Test
-  @DisplayName(
-      "Test addDependencies(List); when ArrayList(); then ProjectVersionData() Dependencies Empty")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @DisplayName("Test addDependencies(List); when ArrayList(); then ProjectVersionData() Dependencies Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ProjectVersionData.addDependencies(List)"})
   void testAddDependencies_whenArrayList_thenProjectVersionDataDependenciesEmpty() {
     // Arrange
@@ -341,23 +294,22 @@ class ProjectVersionDataDiffblueTest {
 
   /**
    * Test {@link ProjectVersionData#addDependency(ProjectVersion)}.
-   *
-   * <p>Method under test: {@link ProjectVersionData#addDependency(ProjectVersion)}
+   * <p>
+   * Method under test: {@link ProjectVersionData#addDependency(ProjectVersion)}
    */
   @Test
   @DisplayName("Test addDependency(ProjectVersion)")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ProjectVersionData.addDependency(ProjectVersion)"})
   void testAddDependency() {
     // Arrange
     ProjectVersionData projectVersionData = new ProjectVersionData();
     ProjectVersion dependency = new ProjectVersion("42", "42", "42");
+
     projectVersionData.addDependency(dependency);
-    ProjectVersion dependency2 = new ProjectVersion("42", "42", "42");
 
     // Act
-    projectVersionData.addDependency(dependency2);
+    projectVersionData.addDependency(new ProjectVersion("42", "42", "42"));
 
     // Assert that nothing has changed
     List<ProjectVersion> dependencies = projectVersionData.getDependencies();
@@ -367,17 +319,15 @@ class ProjectVersionDataDiffblueTest {
 
   /**
    * Test {@link ProjectVersionData#addDependency(ProjectVersion)}.
-   *
    * <ul>
-   *   <li>Given {@link ProjectVersionData#ProjectVersionData()}.
+   *   <li>Given {@link ProjectVersionData#ProjectVersionData()}.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link ProjectVersionData#addDependency(ProjectVersion)}
+   * <p>
+   * Method under test: {@link ProjectVersionData#addDependency(ProjectVersion)}
    */
   @Test
   @DisplayName("Test addDependency(ProjectVersion); given ProjectVersionData()")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ProjectVersionData.addDependency(ProjectVersion)"})
   void testAddDependency_givenProjectVersionData() {
     // Arrange
@@ -395,17 +345,15 @@ class ProjectVersionDataDiffblueTest {
 
   /**
    * Test {@link ProjectVersionData#addProperties(List)}.
-   *
    * <ul>
-   *   <li>Then {@link ProjectVersionData#ProjectVersionData()} Properties size is one.
+   *   <li>Then {@link ProjectVersionData#ProjectVersionData()} Properties size is one.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link ProjectVersionData#addProperties(List)}
+   * <p>
+   * Method under test: {@link ProjectVersionData#addProperties(List)}
    */
   @Test
   @DisplayName("Test addProperties(List); then ProjectVersionData() Properties size is one")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ProjectVersionData.addProperties(List)"})
   void testAddProperties_thenProjectVersionDataPropertiesSizeIsOne() {
     // Arrange
@@ -413,6 +361,7 @@ class ProjectVersionDataDiffblueTest {
 
     ArrayList<Property> propertyList = new ArrayList<>();
     Property property = new Property("Property Name", "42");
+
     propertyList.add(property);
 
     // Act
@@ -426,17 +375,15 @@ class ProjectVersionDataDiffblueTest {
 
   /**
    * Test {@link ProjectVersionData#addProperties(List)}.
-   *
    * <ul>
-   *   <li>Then {@link ProjectVersionData#ProjectVersionData()} Properties size is one.
+   *   <li>Then {@link ProjectVersionData#ProjectVersionData()} Properties size is one.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link ProjectVersionData#addProperties(List)}
+   * <p>
+   * Method under test: {@link ProjectVersionData#addProperties(List)}
    */
   @Test
   @DisplayName("Test addProperties(List); then ProjectVersionData() Properties size is one")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ProjectVersionData.addProperties(List)"})
   void testAddProperties_thenProjectVersionDataPropertiesSizeIsOne2() {
     // Arrange
@@ -444,6 +391,7 @@ class ProjectVersionDataDiffblueTest {
 
     ArrayList<Property> propertyList = new ArrayList<>();
     Property property = new Property("Property Name", "42");
+
     propertyList.add(property);
     propertyList.add(new Property("Property Name", "42"));
 
@@ -458,19 +406,16 @@ class ProjectVersionDataDiffblueTest {
 
   /**
    * Test {@link ProjectVersionData#addProperties(List)}.
-   *
    * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.
-   *   <li>Then {@link ProjectVersionData#ProjectVersionData()} Properties Empty.
+   *   <li>When {@link ArrayList#ArrayList()}.</li>
+   *   <li>Then {@link ProjectVersionData#ProjectVersionData()} Properties Empty.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link ProjectVersionData#addProperties(List)}
+   * <p>
+   * Method under test: {@link ProjectVersionData#addProperties(List)}
    */
   @Test
-  @DisplayName(
-      "Test addProperties(List); when ArrayList(); then ProjectVersionData() Properties Empty")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @DisplayName("Test addProperties(List); when ArrayList(); then ProjectVersionData() Properties Empty")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ProjectVersionData.addProperties(List)"})
   void testAddProperties_whenArrayList_thenProjectVersionDataPropertiesEmpty() {
     // Arrange

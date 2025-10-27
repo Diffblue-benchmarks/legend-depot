@@ -1,7 +1,6 @@
 package org.finos.legend.depot.services.api.artifacts.configuration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -9,30 +8,21 @@ import org.junit.jupiter.api.Test;
 
 class ArtifactsRetentionPolicyConfigurationDiffblueTest {
   /**
-   * Test {@link
-   * ArtifactsRetentionPolicyConfiguration#ArtifactsRetentionPolicyConfiguration(Integer, Integer,
-   * Integer)}.
-   *
+   * Test {@link ArtifactsRetentionPolicyConfiguration#ArtifactsRetentionPolicyConfiguration(Integer, Integer, Integer)}.
    * <ul>
-   *   <li>Then return TtlForSnapshots is one.
+   *   <li>Then return TtlForSnapshots is one.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link
-   * ArtifactsRetentionPolicyConfiguration#ArtifactsRetentionPolicyConfiguration(Integer, Integer,
-   * Integer)}
+   * <p>
+   * Method under test: {@link ArtifactsRetentionPolicyConfiguration#ArtifactsRetentionPolicyConfiguration(Integer, Integer, Integer)}
    */
   @Test
-  @DisplayName(
-      "Test new ArtifactsRetentionPolicyConfiguration(Integer, Integer, Integer); then return TtlForSnapshots is one")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "void ArtifactsRetentionPolicyConfiguration.<init>(Integer, Integer, Integer)"
-  })
+  @DisplayName("Test new ArtifactsRetentionPolicyConfiguration(Integer, Integer, Integer); then return TtlForSnapshots is one")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ArtifactsRetentionPolicyConfiguration.<init>(Integer, Integer, Integer)"})
   void testNewArtifactsRetentionPolicyConfiguration_thenReturnTtlForSnapshotsIsOne() {
     // Arrange and Act
-    ArtifactsRetentionPolicyConfiguration actualArtifactsRetentionPolicyConfiguration =
-        new ArtifactsRetentionPolicyConfiguration(3, 1, 1);
+    ArtifactsRetentionPolicyConfiguration actualArtifactsRetentionPolicyConfiguration = new ArtifactsRetentionPolicyConfiguration(
+        3, 1, 1);
 
     // Assert
     assertEquals(1, actualArtifactsRetentionPolicyConfiguration.getTtlForSnapshots());
@@ -41,30 +31,21 @@ class ArtifactsRetentionPolicyConfigurationDiffblueTest {
   }
 
   /**
-   * Test {@link
-   * ArtifactsRetentionPolicyConfiguration#ArtifactsRetentionPolicyConfiguration(Integer, Integer,
-   * Integer)}.
-   *
+   * Test {@link ArtifactsRetentionPolicyConfiguration#ArtifactsRetentionPolicyConfiguration(Integer, Integer, Integer)}.
    * <ul>
-   *   <li>Then return TtlForSnapshots is thirty.
+   *   <li>Then return TtlForSnapshots is thirty.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link
-   * ArtifactsRetentionPolicyConfiguration#ArtifactsRetentionPolicyConfiguration(Integer, Integer,
-   * Integer)}
+   * <p>
+   * Method under test: {@link ArtifactsRetentionPolicyConfiguration#ArtifactsRetentionPolicyConfiguration(Integer, Integer, Integer)}
    */
   @Test
-  @DisplayName(
-      "Test new ArtifactsRetentionPolicyConfiguration(Integer, Integer, Integer); then return TtlForSnapshots is thirty")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "void ArtifactsRetentionPolicyConfiguration.<init>(Integer, Integer, Integer)"
-  })
+  @DisplayName("Test new ArtifactsRetentionPolicyConfiguration(Integer, Integer, Integer); then return TtlForSnapshots is thirty")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ArtifactsRetentionPolicyConfiguration.<init>(Integer, Integer, Integer)"})
   void testNewArtifactsRetentionPolicyConfiguration_thenReturnTtlForSnapshotsIsThirty() {
     // Arrange and Act
-    ArtifactsRetentionPolicyConfiguration actualArtifactsRetentionPolicyConfiguration =
-        new ArtifactsRetentionPolicyConfiguration(null, null, null);
+    ArtifactsRetentionPolicyConfiguration actualArtifactsRetentionPolicyConfiguration = new ArtifactsRetentionPolicyConfiguration(
+        null, null, null);
 
     // Assert
     assertEquals(30, actualArtifactsRetentionPolicyConfiguration.getTtlForSnapshots());
@@ -74,9 +55,8 @@ class ArtifactsRetentionPolicyConfigurationDiffblueTest {
 
   /**
    * Test getters and setters.
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link ArtifactsRetentionPolicyConfiguration#getMaximumSnapshotsAllowed()}
    *   <li>{@link ArtifactsRetentionPolicyConfiguration#getTtlForSnapshots()}
@@ -85,21 +65,17 @@ class ArtifactsRetentionPolicyConfigurationDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "int ArtifactsRetentionPolicyConfiguration.getMaximumSnapshotsAllowed()",
-    "int ArtifactsRetentionPolicyConfiguration.getTtlForSnapshots()",
-    "int ArtifactsRetentionPolicyConfiguration.getTtlForVersions()"
-  })
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"int ArtifactsRetentionPolicyConfiguration.getMaximumSnapshotsAllowed()",
+      "int ArtifactsRetentionPolicyConfiguration.getTtlForSnapshots()",
+      "int ArtifactsRetentionPolicyConfiguration.getTtlForVersions()"})
   void testGettersAndSetters() {
     // Arrange
-    ArtifactsRetentionPolicyConfiguration artifactsRetentionPolicyConfiguration =
-        new ArtifactsRetentionPolicyConfiguration(3, 1, 1);
+    ArtifactsRetentionPolicyConfiguration artifactsRetentionPolicyConfiguration = new ArtifactsRetentionPolicyConfiguration(
+        3, 1, 1);
 
     // Act
-    int actualMaximumSnapshotsAllowed =
-        artifactsRetentionPolicyConfiguration.getMaximumSnapshotsAllowed();
+    int actualMaximumSnapshotsAllowed = artifactsRetentionPolicyConfiguration.getMaximumSnapshotsAllowed();
     int actualTtlForSnapshots = artifactsRetentionPolicyConfiguration.getTtlForSnapshots();
 
     // Assert

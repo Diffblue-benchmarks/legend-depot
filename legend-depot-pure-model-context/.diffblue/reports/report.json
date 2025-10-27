@@ -1,25 +1,26 @@
 {
   "meta" : {
-    "reportVersion" : "2.7"
+    "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2025.09.01-44e352d-licensed",
-    "creationTimestamp" : "2025-10-16T18:38:22.071754Z",
+    "version" : "2025.02.02-08b2a5a-licensed",
+    "creationTimestamp" : "2025-10-27T13:21:36.334842Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 276.074,
-    "environmentDetectionTime" : 0.161,
-    "indexingTime" : 0.399,
-    "entryPointsTime" : 0.143,
-    "generationTime" : 177.983,
-    "timeToFirstTest" : 365.828,
-    "timeToLastTest" : 330.124,
-    "indexQueryTime" : 24.937,
-    "verificationTime" : 23.984,
-    "validationTime" : 18.252
+    "totalTime" : 233.129,
+    "environmentDetectionTime" : 0.929,
+    "indexingTime" : 0.29,
+    "entryPointsTime" : 0.907,
+    "generationTime" : 148.836,
+    "timeToFirstTest" : 320.806,
+    "timeToLastTest" : 296.49,
+    "indexQueryTime" : 26.092000000000002,
+    "verificationTime" : 21.773,
+    "validationTime" : 17.511
   },
   "codes" : {
     "R000" : "Success",
     "R002" : "Missing observers",
+    "R004" : "No meaningful assertions found",
     "R013" : "No inputs found that don't throw a trivial exception",
     "R081" : "Exception in arrange section",
     "T000" : "Method eligible for test creation",
@@ -27,9 +28,7 @@
     "T005" : "Trivial constructor",
     "T010" : "Abstract or interface method",
     "T012" : "Synthetic method",
-    "T023" : "Testability unknown",
-    "V000" : "Validated successfully",
-    "W002" : "Test compiled, but did not pass"
+    "V000" : "Validated successfully"
   },
   "summary" : {
     "classesCount" : 7,
@@ -45,28 +44,23 @@
       "T003" : 6,
       "T005" : 3,
       "T010" : 2,
-      "T012" : 6,
-      "T023" : 1
+      "T012" : 7
     },
     "perMethodOutcome" : {
-      "R000" : 9,
+      "R000" : 10,
       "R002" : 2,
-      "R013" : 3,
+      "R004" : 1,
+      "R013" : 2,
       "R081" : 1,
       "T003" : 6,
       "T010" : 2,
-      "T012" : 6,
-      "T023" : 1,
-      "W002" : 1
+      "T012" : 7
     },
     "perTestOutcome" : {
       "R000" : 50
     },
     "perTestValidation" : {
       "V000" : 50
-    },
-    "warnings" : {
-      "W002" : 3
     }
   },
   "classes" : {
@@ -89,7 +83,7 @@
     },
     "org.finos.legend.depot.server.resources.pure.model.context.PureModelContextResource" : {
       "methodsCount" : 6,
-      "completeTestCount" : 3,
+      "completeTestCount" : 6,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 2,
@@ -97,16 +91,12 @@
         "T012" : 3
       },
       "perMethodOutcome" : {
-        "R000" : 1,
+        "R000" : 2,
         "R081" : 1,
-        "T012" : 3,
-        "W002" : 1
+        "T012" : 3
       },
       "perTestOutcome" : {
-        "R000" : 3
-      },
-      "warnings" : {
-        "W002" : 3
+        "R000" : 6
       }
     },
     "org.finos.legend.depot.services.api.pure.model.context.PureModelContextService" : {
@@ -122,21 +112,19 @@
     },
     "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl" : {
       "methodsCount" : 12,
-      "completeTestCount" : 46,
+      "completeTestCount" : 43,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 8,
-        "T012" : 3,
-        "T023" : 1
+        "T012" : 4
       },
       "perMethodOutcome" : {
         "R000" : 7,
-        "R013" : 1,
-        "T012" : 3,
-        "T023" : 1
+        "R004" : 1,
+        "T012" : 4
       },
       "perTestOutcome" : {
-        "R000" : 46
+        "R000" : 43
       }
     },
     "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl$EntityToRawPureConverter" : {
@@ -233,12 +221,12 @@
       ]
     },
     "org.finos.legend.depot.server.resources.pure.model.context.PureModelContextResource.getPureModelContextData:(Ljava/util/List;Ljava/lang/String;ZZLjavax/ws/rs/core/Request;)Ljavax/ws/rs/core/Response;" : {
-      "completeTestCount" : 0,
+      "completeTestCount" : 3,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "W002",
-      "warnings" : {
-        "W002" : 3
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
       },
       "lineNumbers" : [
         97
@@ -344,14 +332,17 @@
     "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        48
+      ]
     },
     "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl.<init>:(Lorg/finos/legend/depot/services/api/entities/EntitiesService;Lorg/finos/legend/depot/services/api/projects/ProjectsService;)V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013",
+      "perMethodOutcome" : "R004",
       "lineNumbers" : [
         56,
         51,
@@ -423,12 +414,12 @@
       ]
     },
     "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl.getPureModelContextData:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;" : {
-      "completeTestCount" : 14,
+      "completeTestCount" : 12,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 14
+        "R000" : 12
       },
       "lineNumbers" : [
         64,
@@ -442,12 +433,12 @@
       ]
     },
     "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl.getPureModelContextData:(Ljava/util/List;Ljava/lang/String;ZZ)Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;" : {
-      "completeTestCount" : 11,
+      "completeTestCount" : 10,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 11
+        "R000" : 10
       },
       "lineNumbers" : [
         87,
@@ -517,6 +508,5 @@
         29
       ]
     }
-  },
-  "validationMetrics" : { }
+  }
 }

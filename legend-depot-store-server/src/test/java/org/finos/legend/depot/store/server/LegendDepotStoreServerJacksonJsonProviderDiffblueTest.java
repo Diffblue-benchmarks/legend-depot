@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.Version;
@@ -27,22 +26,18 @@ import org.junit.jupiter.api.Test;
 class LegendDepotStoreServerJacksonJsonProviderDiffblueTest {
   /**
    * Test new {@link LegendDepotStoreServerJacksonJsonProvider} (default constructor).
-   *
-   * <p>Method under test: default or parameterless constructor of {@link
-   * LegendDepotStoreServerJacksonJsonProvider}
+   * <p>
+   * Method under test: default or parameterless constructor of {@link LegendDepotStoreServerJacksonJsonProvider}
    */
   @Test
   @DisplayName("Test new LegendDepotStoreServerJacksonJsonProvider (default constructor)")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void LegendDepotStoreServerJacksonJsonProvider.<init>()"})
   void testNewLegendDepotStoreServerJacksonJsonProvider() {
     // Arrange, Act and Assert
-    Version versionResult = new LegendDepotStoreServerJacksonJsonProvider().version();
+    Version versionResult = (new LegendDepotStoreServerJacksonJsonProvider()).version();
     assertEquals("com.fasterxml.jackson.jaxrs", versionResult.getGroupId());
-    assertEquals(
-        "com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.10.5",
-        versionResult.toFullString());
+    assertEquals("com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.10.5", versionResult.toFullString());
     assertEquals("jackson-jaxrs-json-provider", versionResult.getArtifactId());
     assertEquals(10, versionResult.getMinorVersion());
     assertEquals(2, versionResult.getMajorVersion());
@@ -54,18 +49,16 @@ class LegendDepotStoreServerJacksonJsonProviderDiffblueTest {
 
   /**
    * Test {@link LegendDepotStoreServerJacksonJsonProvider#getContext(Class)}.
-   *
-   * <p>Method under test: {@link LegendDepotStoreServerJacksonJsonProvider#getContext(Class)}
+   * <p>
+   * Method under test: {@link LegendDepotStoreServerJacksonJsonProvider#getContext(Class)}
    */
   @Test
   @DisplayName("Test getContext(Class)")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"ObjectMapper LegendDepotStoreServerJacksonJsonProvider.getContext(Class)"})
   void testGetContext() {
     // Arrange
-    LegendDepotStoreServerJacksonJsonProvider legendDepotStoreServerJacksonJsonProvider =
-        new LegendDepotStoreServerJacksonJsonProvider();
+    LegendDepotStoreServerJacksonJsonProvider legendDepotStoreServerJacksonJsonProvider = new LegendDepotStoreServerJacksonJsonProvider();
     Class<Object> type = Object.class;
 
     // Act
@@ -74,8 +67,7 @@ class LegendDepotStoreServerJacksonJsonProviderDiffblueTest {
     // Assert
     JsonFactory factory = actualContext.getFactory();
     assertTrue(factory instanceof MappingJsonFactory);
-    assertTrue(
-        actualContext.getDeserializationContext() instanceof DefaultDeserializationContext.Impl);
+    assertTrue(actualContext.getDeserializationContext() instanceof DefaultDeserializationContext.Impl);
     assertTrue(actualContext.getVisibilityChecker() instanceof Std);
     assertTrue(actualContext.getPolymorphicTypeValidator() instanceof LaissezFaireSubTypeValidator);
     assertTrue(actualContext.getSubtypeResolver() instanceof StdSubtypeResolver);

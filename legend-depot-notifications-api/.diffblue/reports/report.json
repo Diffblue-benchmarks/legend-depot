@@ -1,21 +1,21 @@
 {
   "meta" : {
-    "reportVersion" : "2.7"
+    "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2025.09.01-44e352d-licensed",
-    "creationTimestamp" : "2025-10-16T18:38:22.071754Z",
+    "version" : "2025.02.02-08b2a5a-licensed",
+    "creationTimestamp" : "2025-10-27T13:21:36.334842Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 106.633,
-    "environmentDetectionTime" : 0.093,
-    "indexingTime" : 0.43,
-    "entryPointsTime" : 0.084,
-    "generationTime" : 525.178,
-    "timeToFirstTest" : 1206.419,
-    "timeToLastTest" : 931.793,
-    "indexQueryTime" : 2.118,
-    "verificationTime" : 43.599,
-    "validationTime" : 8.833
+    "totalTime" : 87.971,
+    "environmentDetectionTime" : 0.379,
+    "indexingTime" : 0.318,
+    "entryPointsTime" : 0.375,
+    "generationTime" : 2242.218,
+    "timeToFirstTest" : 2816.395,
+    "timeToLastTest" : 2643.292,
+    "indexQueryTime" : 2.315,
+    "verificationTime" : 160.656,
+    "validationTime" : 10.482
   },
   "codes" : {
     "R000" : "Success",
@@ -27,9 +27,7 @@
     "T010" : "Abstract or interface method",
     "T012" : "Synthetic method",
     "T020" : "Other trivial method",
-    "T023" : "Testability unknown",
-    "V000" : "Validated successfully",
-    "V003" : "Tests discarded during validation"
+    "V000" : "Validated successfully"
   },
   "summary" : {
     "classesCount" : 10,
@@ -47,23 +45,20 @@
       "T003" : 3,
       "T005" : 4,
       "T010" : 17,
-      "T012" : 4,
-      "T020" : 1,
-      "T023" : 2
+      "T012" : 6,
+      "T020" : 1
     },
     "perMethodOutcome" : {
       "R000" : 67,
       "T003" : 3,
       "T010" : 17,
-      "T012" : 4,
-      "T023" : 2
+      "T012" : 6
     },
     "perTestOutcome" : {
       "R000" : 50
     },
     "perTestValidation" : {
-      "V000" : 50,
-      "V003" : 25
+      "V000" : 50
     }
   },
   "classes" : {
@@ -109,13 +104,11 @@
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T003" : 1,
-        "T012" : 2,
-        "T023" : 1
+        "T012" : 3
       },
       "perMethodOutcome" : {
         "T003" : 1,
-        "T012" : 2,
-        "T023" : 1
+        "T012" : 3
       }
     },
     "org.finos.legend.depot.domain.notifications.Priority" : {
@@ -124,13 +117,11 @@
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T003" : 1,
-        "T012" : 2,
-        "T023" : 1
+        "T012" : 3
       },
       "perMethodOutcome" : {
         "T003" : 1,
-        "T012" : 2,
-        "T023" : 1
+        "T012" : 3
       }
     },
     "org.finos.legend.depot.services.api.notifications.NotificationHandler" : {
@@ -895,8 +886,13 @@
     "org.finos.legend.depot.domain.notifications.MetadataNotificationStatus.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        20,
+        21,
+        18
+      ]
     },
     "org.finos.legend.depot.domain.notifications.MetadataNotificationStatus.<init>:(Ljava/lang/String;I)V" : {
       "completeTestCount" : 0,
@@ -928,8 +924,13 @@
     "org.finos.legend.depot.domain.notifications.Priority.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        20,
+        21,
+        18
+      ]
     },
     "org.finos.legend.depot.domain.notifications.Priority.<init>:(Ljava/lang/String;I)V" : {
       "completeTestCount" : 0,
@@ -1247,6 +1248,5 @@
       "perMethodTestability" : "T010",
       "perMethodOutcome" : "T010"
     }
-  },
-  "validationMetrics" : { }
+  }
 }

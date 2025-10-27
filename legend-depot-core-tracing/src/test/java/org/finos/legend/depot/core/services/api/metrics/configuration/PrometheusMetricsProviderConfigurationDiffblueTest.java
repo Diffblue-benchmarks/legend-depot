@@ -3,7 +3,6 @@ package org.finos.legend.depot.core.services.api.metrics.configuration;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.deser.DefaultDeserializationContext;
@@ -23,38 +22,26 @@ import org.junit.jupiter.api.Test;
 class PrometheusMetricsProviderConfigurationDiffblueTest {
   /**
    * Test {@link PrometheusMetricsProviderConfiguration#configureObjectMapper(ObjectMapper)}.
-   *
-   * <p>Method under test: {@link
-   * PrometheusMetricsProviderConfiguration#configureObjectMapper(ObjectMapper)}
+   * <p>
+   * Method under test: {@link PrometheusMetricsProviderConfiguration#configureObjectMapper(ObjectMapper)}
    */
   @Test
   @DisplayName("Test configureObjectMapper(ObjectMapper)")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "ObjectMapper PrometheusMetricsProviderConfiguration.configureObjectMapper(ObjectMapper)"
-  })
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"ObjectMapper PrometheusMetricsProviderConfiguration.configureObjectMapper(ObjectMapper)"})
   void testConfigureObjectMapper() {
-    // Arrange
-    JsonMapper objectMapper = JsonMapper.builder().findAndAddModules().build();
-
-    // Act
-    ObjectMapper actualConfigureObjectMapperResult =
-        PrometheusMetricsProviderConfiguration.configureObjectMapper(objectMapper);
+    // Arrange and Act
+    ObjectMapper actualConfigureObjectMapperResult = PrometheusMetricsProviderConfiguration
+        .configureObjectMapper(JsonMapper.builder().findAndAddModules().build());
 
     // Assert
     assertTrue(
-        actualConfigureObjectMapperResult.getDeserializationContext()
-            instanceof DefaultDeserializationContext.Impl);
+        actualConfigureObjectMapperResult.getDeserializationContext() instanceof DefaultDeserializationContext.Impl);
     assertTrue(actualConfigureObjectMapperResult.getVisibilityChecker() instanceof Std);
     assertTrue(actualConfigureObjectMapperResult instanceof JsonMapper);
-    assertTrue(
-        actualConfigureObjectMapperResult.getPolymorphicTypeValidator()
-            instanceof LaissezFaireSubTypeValidator);
-    assertTrue(
-        actualConfigureObjectMapperResult.getSubtypeResolver() instanceof StdSubtypeResolver);
-    assertTrue(
-        actualConfigureObjectMapperResult.getSerializerFactory() instanceof BeanSerializerFactory);
+    assertTrue(actualConfigureObjectMapperResult.getPolymorphicTypeValidator() instanceof LaissezFaireSubTypeValidator);
+    assertTrue(actualConfigureObjectMapperResult.getSubtypeResolver() instanceof StdSubtypeResolver);
+    assertTrue(actualConfigureObjectMapperResult.getSerializerFactory() instanceof BeanSerializerFactory);
     assertTrue(actualConfigureObjectMapperResult.getSerializerProvider() instanceof Impl);
     assertTrue(actualConfigureObjectMapperResult.getSerializerProviderInstance() instanceof Impl);
     assertTrue(actualConfigureObjectMapperResult.getDateFormat() instanceof StdDateFormat);

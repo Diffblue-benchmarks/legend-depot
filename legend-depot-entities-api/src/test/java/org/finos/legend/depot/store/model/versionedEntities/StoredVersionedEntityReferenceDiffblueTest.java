@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,33 +15,27 @@ import org.junit.jupiter.api.Test;
 class StoredVersionedEntityReferenceDiffblueTest {
   /**
    * Test getters and setters.
-   *
    * <ul>
-   *   <li>When {@code 42}.
-   *   <li>Then return Reference is {@code null}.
+   *   <li>When {@code 42}.</li>
+   *   <li>Then return Reference is {@code null}.</li>
    * </ul>
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
-   *   <li>{@link StoredVersionedEntityReference#StoredVersionedEntityReference(String, String,
-   *       String)}
+   *   <li>{@link StoredVersionedEntityReference#StoredVersionedEntityReference(String, String, String)}
    *   <li>{@link StoredVersionedEntityReference#getReference()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters; when '42'; then return Reference is 'null'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "void StoredVersionedEntityReference.<init>(String, String, String)",
-    "void StoredVersionedEntityReference.<init>(String, String, String, String, Map)",
-    "String StoredVersionedEntityReference.getReference()"
-  })
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void StoredVersionedEntityReference.<init>(String, String, String)",
+      "void StoredVersionedEntityReference.<init>(String, String, String, String, Map)",
+      "String StoredVersionedEntityReference.getReference()"})
   void testGettersAndSetters_when42_thenReturnReferenceIsNull() {
     // Arrange and Act
-    StoredVersionedEntityReference actualStoredVersionedEntityReference =
-        new StoredVersionedEntityReference("42", "42", "42");
+    StoredVersionedEntityReference actualStoredVersionedEntityReference = new StoredVersionedEntityReference("42", "42",
+        "42");
     String actualReference = actualStoredVersionedEntityReference.getReference();
 
     // Assert
@@ -55,36 +48,30 @@ class StoredVersionedEntityReferenceDiffblueTest {
 
   /**
    * Test getters and setters.
-   *
    * <ul>
-   *   <li>When {@code Reference}.
-   *   <li>Then return {@code Reference}.
+   *   <li>When {@code Reference}.</li>
+   *   <li>Then return {@code Reference}.</li>
    * </ul>
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
-   *   <li>{@link StoredVersionedEntityReference#StoredVersionedEntityReference(String, String,
-   *       String, String, Map)}
+   *   <li>{@link StoredVersionedEntityReference#StoredVersionedEntityReference(String, String, String, String, Map)}
    *   <li>{@link StoredVersionedEntityReference#getReference()}
    * </ul>
    */
   @Test
   @DisplayName("Test getters and setters; when 'Reference'; then return 'Reference'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "void StoredVersionedEntityReference.<init>(String, String, String)",
-    "void StoredVersionedEntityReference.<init>(String, String, String, String, Map)",
-    "String StoredVersionedEntityReference.getReference()"
-  })
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void StoredVersionedEntityReference.<init>(String, String, String)",
+      "void StoredVersionedEntityReference.<init>(String, String, String, String, Map)",
+      "String StoredVersionedEntityReference.getReference()"})
   void testGettersAndSetters_whenReference_thenReturnReference() {
     // Arrange
     HashMap<String, Object> entityAttributes = new HashMap<>();
 
     // Act
-    StoredVersionedEntityReference actualStoredVersionedEntityReference =
-        new StoredVersionedEntityReference("42", "42", "42", "Reference", entityAttributes);
+    StoredVersionedEntityReference actualStoredVersionedEntityReference = new StoredVersionedEntityReference("42", "42",
+        "42", "Reference", entityAttributes);
     String actualReference = actualStoredVersionedEntityReference.getReference();
 
     // Assert
@@ -98,16 +85,13 @@ class StoredVersionedEntityReferenceDiffblueTest {
   }
 
   /**
-   * Test {@link StoredVersionedEntityReference#equals(Object)}, and {@link
-   * StoredVersionedEntityReference#hashCode()}.
-   *
+   * Test {@link StoredVersionedEntityReference#equals(Object)}, and {@link StoredVersionedEntityReference#hashCode()}.
    * <ul>
-   *   <li>When other is equal.
-   *   <li>Then return equal.
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
    * </ul>
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link StoredVersionedEntityReference#equals(Object)}
    *   <li>{@link StoredVersionedEntityReference#hashCode()}
@@ -115,36 +99,30 @@ class StoredVersionedEntityReferenceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "boolean StoredVersionedEntityReference.equals(Object)",
-    "int StoredVersionedEntityReference.hashCode()"
-  })
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StoredVersionedEntityReference.equals(Object)",
+      "int StoredVersionedEntityReference.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
-    StoredVersionedEntityReference storedVersionedEntityReference =
-        new StoredVersionedEntityReference("42", "42", "42");
-    StoredVersionedEntityReference storedVersionedEntityReference2 =
-        new StoredVersionedEntityReference("42", "42", "42");
+    StoredVersionedEntityReference storedVersionedEntityReference = new StoredVersionedEntityReference("42", "42",
+        "42");
+    StoredVersionedEntityReference storedVersionedEntityReference2 = new StoredVersionedEntityReference("42", "42",
+        "42");
 
     // Act and Assert
     assertEquals(storedVersionedEntityReference, storedVersionedEntityReference2);
-    assertEquals(
-        storedVersionedEntityReference.hashCode(), storedVersionedEntityReference2.hashCode());
+    int expectedHashCodeResult = storedVersionedEntityReference.hashCode();
+    assertEquals(expectedHashCodeResult, storedVersionedEntityReference2.hashCode());
   }
 
   /**
-   * Test {@link StoredVersionedEntityReference#equals(Object)}, and {@link
-   * StoredVersionedEntityReference#hashCode()}.
-   *
+   * Test {@link StoredVersionedEntityReference#equals(Object)}, and {@link StoredVersionedEntityReference#hashCode()}.
    * <ul>
-   *   <li>When other is same.
-   *   <li>Then return equal.
+   *   <li>When other is same.</li>
+   *   <li>Then return equal.</li>
    * </ul>
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link StoredVersionedEntityReference#equals(Object)}
    *   <li>{@link StoredVersionedEntityReference#hashCode()}
@@ -152,16 +130,13 @@ class StoredVersionedEntityReferenceDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "boolean StoredVersionedEntityReference.equals(Object)",
-    "int StoredVersionedEntityReference.hashCode()"
-  })
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StoredVersionedEntityReference.equals(Object)",
+      "int StoredVersionedEntityReference.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
-    StoredVersionedEntityReference storedVersionedEntityReference =
-        new StoredVersionedEntityReference("42", "42", "42");
+    StoredVersionedEntityReference storedVersionedEntityReference = new StoredVersionedEntityReference("42", "42",
+        "42");
 
     // Act and Assert
     assertEquals(storedVersionedEntityReference, storedVersionedEntityReference);
@@ -171,50 +146,41 @@ class StoredVersionedEntityReferenceDiffblueTest {
 
   /**
    * Test {@link StoredVersionedEntityReference#equals(Object)}.
-   *
    * <ul>
-   *   <li>When other is different.
-   *   <li>Then return not equal.
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link StoredVersionedEntityReference#equals(Object)}
+   * <p>
+   * Method under test: {@link StoredVersionedEntityReference#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "boolean StoredVersionedEntityReference.equals(Object)",
-    "int StoredVersionedEntityReference.hashCode()"
-  })
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StoredVersionedEntityReference.equals(Object)",
+      "int StoredVersionedEntityReference.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
-    StoredVersionedEntityReference storedVersionedEntityReference =
-        new StoredVersionedEntityReference("Group Id", "42", "42");
+    StoredVersionedEntityReference storedVersionedEntityReference = new StoredVersionedEntityReference("Group Id", "42",
+        "42");
 
     // Act and Assert
-    assertNotEquals(
-        storedVersionedEntityReference, new StoredVersionedEntityReference("42", "42", "42"));
+    assertNotEquals(storedVersionedEntityReference, new StoredVersionedEntityReference("42", "42", "42"));
   }
 
   /**
    * Test {@link StoredVersionedEntityReference#equals(Object)}.
-   *
    * <ul>
-   *   <li>When other is {@code null}.
-   *   <li>Then return not equal.
+   *   <li>When other is {@code null}.</li>
+   *   <li>Then return not equal.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link StoredVersionedEntityReference#equals(Object)}
+   * <p>
+   * Method under test: {@link StoredVersionedEntityReference#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "boolean StoredVersionedEntityReference.equals(Object)",
-    "int StoredVersionedEntityReference.hashCode()"
-  })
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StoredVersionedEntityReference.equals(Object)",
+      "int StoredVersionedEntityReference.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new StoredVersionedEntityReference("42", "42", "42"), null);
@@ -222,26 +188,21 @@ class StoredVersionedEntityReferenceDiffblueTest {
 
   /**
    * Test {@link StoredVersionedEntityReference#equals(Object)}.
-   *
    * <ul>
-   *   <li>When other is wrong type.
-   *   <li>Then return not equal.
+   *   <li>When other is wrong type.</li>
+   *   <li>Then return not equal.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link StoredVersionedEntityReference#equals(Object)}
+   * <p>
+   * Method under test: {@link StoredVersionedEntityReference#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "boolean StoredVersionedEntityReference.equals(Object)",
-    "int StoredVersionedEntityReference.hashCode()"
-  })
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StoredVersionedEntityReference.equals(Object)",
+      "int StoredVersionedEntityReference.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
-    assertNotEquals(
-        new StoredVersionedEntityReference("42", "42", "42"),
+    assertNotEquals(new StoredVersionedEntityReference("42", "42", "42"),
         "Different type to StoredVersionedEntityReference");
   }
 }

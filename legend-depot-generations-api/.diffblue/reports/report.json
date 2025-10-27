@@ -1,21 +1,21 @@
 {
   "meta" : {
-    "reportVersion" : "2.7"
+    "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2025.09.01-44e352d-licensed",
-    "creationTimestamp" : "2025-10-16T18:38:22.071754Z",
+    "version" : "2025.02.02-08b2a5a-licensed",
+    "creationTimestamp" : "2025-10-27T13:21:36.334842Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 78.937,
-    "environmentDetectionTime" : 0.025,
-    "indexingTime" : 0.471,
-    "entryPointsTime" : 0.019,
-    "generationTime" : 792.901,
-    "timeToFirstTest" : 2142.613,
-    "timeToLastTest" : 1532.339,
-    "indexQueryTime" : 2.586,
-    "verificationTime" : 58.262,
-    "validationTime" : 14.712
+    "totalTime" : 125.102,
+    "environmentDetectionTime" : 0.227,
+    "indexingTime" : 0.351,
+    "entryPointsTime" : 0.225,
+    "generationTime" : 2539.633,
+    "timeToFirstTest" : 3717.447,
+    "timeToLastTest" : 3263.374,
+    "indexQueryTime" : 2.602,
+    "verificationTime" : 174.831,
+    "validationTime" : 15.583
   },
   "codes" : {
     "R000" : "Success",
@@ -28,7 +28,6 @@
     "T009" : "No implementation for abstract class",
     "T010" : "Abstract or interface method",
     "T012" : "Synthetic method",
-    "T023" : "Testability unknown",
     "V000" : "Validated successfully",
     "V003" : "Tests discarded during validation"
   },
@@ -37,7 +36,7 @@
     "methodsCount" : 51,
     "cumulativeDiffblueTestCount" : 15,
     "cumulativeManualTestCount" : 1,
-    "completeTestCount" : 16,
+    "completeTestCount" : 17,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 344,
@@ -49,8 +48,7 @@
       "T008" : 2,
       "T009" : 2,
       "T010" : 15,
-      "T012" : 2,
-      "T023" : 1
+      "T012" : 3
     },
     "perMethodOutcome" : {
       "R000" : 15,
@@ -59,15 +57,14 @@
       "T008" : 2,
       "T009" : 2,
       "T010" : 15,
-      "T012" : 2,
-      "T023" : 1
+      "T012" : 3
     },
     "perTestOutcome" : {
-      "R000" : 16
+      "R000" : 17
     },
     "perTestValidation" : {
       "V000" : 15,
-      "V003" : 1
+      "V003" : 2
     }
   },
   "classes" : {
@@ -115,23 +112,21 @@
     },
     "org.finos.legend.depot.services.generations.loader.FileGenerationLoader" : {
       "methodsCount" : 12,
-      "completeTestCount" : 4,
+      "completeTestCount" : 5,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 4,
         "T003" : 6,
-        "T012" : 1,
-        "T023" : 1
+        "T012" : 2
       },
       "perMethodOutcome" : {
         "R000" : 3,
         "R004" : 1,
         "T003" : 6,
-        "T012" : 1,
-        "T023" : 1
+        "T012" : 2
       },
       "perTestOutcome" : {
-        "R000" : 4
+        "R000" : 5
       }
     },
     "org.finos.legend.depot.services.generations.loader.FileGenerationLoader$DirectoryEntityFileSearch" : {
@@ -429,8 +424,11 @@
     "org.finos.legend.depot.services.generations.loader.FileGenerationLoader.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        45
+      ]
     },
     "org.finos.legend.depot.services.generations.loader.FileGenerationLoader.<init>:(Ljava/util/List;)V" : {
       "completeTestCount" : 0,
@@ -536,12 +534,12 @@
       ]
     },
     "org.finos.legend.depot.services.generations.loader.FileGenerationLoader.newFileGenerationsLoader:(Ljava/nio/file/Path;)Lorg/finos/legend/depot/services/generations/loader/FileGenerationLoader;" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       },
       "lineNumbers" : [
         56,
@@ -720,6 +718,5 @@
         83
       ]
     }
-  },
-  "validationMetrics" : { }
+  }
 }

@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,13 +15,11 @@ import org.junit.jupiter.api.Test;
 class StoredEntityDataDiffblueTest {
   /**
    * Test getters and setters.
-   *
    * <ul>
-   *   <li>Then return EntityAttributes Empty.
+   *   <li>Then return EntityAttributes Empty.</li>
    * </ul>
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link StoredEntityData#StoredEntityData(String, String, String, EntityDefinition, Map)}
    *   <li>{@link StoredEntityData#getEntity()}
@@ -31,22 +28,18 @@ class StoredEntityDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; then return EntityAttributes Empty")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "void StoredEntityData.<init>(String, String, String)",
-    "void StoredEntityData.<init>(String, String, String, EntityDefinition, Map)",
-    "EntityDefinition StoredEntityData.getEntity()",
-    "String StoredEntityData.getId()"
-  })
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void StoredEntityData.<init>(String, String, String)",
+      "void StoredEntityData.<init>(String, String, String, EntityDefinition, Map)",
+      "EntityDefinition StoredEntityData.getEntity()", "String StoredEntityData.getId()"})
   void testGettersAndSetters_thenReturnEntityAttributesEmpty() {
     // Arrange
     EntityDefinition entity = new EntityDefinition("Path", "Classifier Path", new HashMap<>());
+
     HashMap<String, Object> entityAttributes = new HashMap<>();
 
     // Act
-    StoredEntityData actualStoredEntityData =
-        new StoredEntityData("42", "42", "42", entity, entityAttributes);
+    StoredEntityData actualStoredEntityData = new StoredEntityData("42", "42", "42", entity, entityAttributes);
     EntityDefinition actualEntity = actualStoredEntityData.getEntity();
 
     // Assert
@@ -62,14 +55,12 @@ class StoredEntityDataDiffblueTest {
 
   /**
    * Test getters and setters.
-   *
    * <ul>
-   *   <li>When {@code 42}.
-   *   <li>Then return EntityAttributes is {@code null}.
+   *   <li>When {@code 42}.</li>
+   *   <li>Then return EntityAttributes is {@code null}.</li>
    * </ul>
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link StoredEntityData#StoredEntityData(String, String, String)}
    *   <li>{@link StoredEntityData#getEntity()}
@@ -78,14 +69,10 @@ class StoredEntityDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters; when '42'; then return EntityAttributes is 'null'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "void StoredEntityData.<init>(String, String, String)",
-    "void StoredEntityData.<init>(String, String, String, EntityDefinition, Map)",
-    "EntityDefinition StoredEntityData.getEntity()",
-    "String StoredEntityData.getId()"
-  })
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void StoredEntityData.<init>(String, String, String)",
+      "void StoredEntityData.<init>(String, String, String, EntityDefinition, Map)",
+      "EntityDefinition StoredEntityData.getEntity()", "String StoredEntityData.getId()"})
   void testGettersAndSetters_when42_thenReturnEntityAttributesIsNull() {
     // Arrange and Act
     StoredEntityData actualStoredEntityData = new StoredEntityData("42", "42", "42");
@@ -102,14 +89,12 @@ class StoredEntityDataDiffblueTest {
 
   /**
    * Test {@link StoredEntityData#equals(Object)}, and {@link StoredEntityData#hashCode()}.
-   *
    * <ul>
-   *   <li>When other is equal.
-   *   <li>Then return equal.
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
    * </ul>
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link StoredEntityData#equals(Object)}
    *   <li>{@link StoredEntityData#hashCode()}
@@ -117,8 +102,7 @@ class StoredEntityDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean StoredEntityData.equals(Object)", "int StoredEntityData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
@@ -127,19 +111,18 @@ class StoredEntityDataDiffblueTest {
 
     // Act and Assert
     assertEquals(storedEntityData, storedEntityData2);
-    assertEquals(storedEntityData.hashCode(), storedEntityData2.hashCode());
+    int expectedHashCodeResult = storedEntityData.hashCode();
+    assertEquals(expectedHashCodeResult, storedEntityData2.hashCode());
   }
 
   /**
    * Test {@link StoredEntityData#equals(Object)}, and {@link StoredEntityData#hashCode()}.
-   *
    * <ul>
-   *   <li>When other is same.
-   *   <li>Then return equal.
+   *   <li>When other is same.</li>
+   *   <li>Then return equal.</li>
    * </ul>
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link StoredEntityData#equals(Object)}
    *   <li>{@link StoredEntityData#hashCode()}
@@ -147,8 +130,7 @@ class StoredEntityDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean StoredEntityData.equals(Object)", "int StoredEntityData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
@@ -162,18 +144,16 @@ class StoredEntityDataDiffblueTest {
 
   /**
    * Test {@link StoredEntityData#equals(Object)}.
-   *
    * <ul>
-   *   <li>When other is different.
-   *   <li>Then return not equal.
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link StoredEntityData#equals(Object)}
+   * <p>
+   * Method under test: {@link StoredEntityData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean StoredEntityData.equals(Object)", "int StoredEntityData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
@@ -185,18 +165,16 @@ class StoredEntityDataDiffblueTest {
 
   /**
    * Test {@link StoredEntityData#equals(Object)}.
-   *
    * <ul>
-   *   <li>When other is {@code null}.
-   *   <li>Then return not equal.
+   *   <li>When other is {@code null}.</li>
+   *   <li>Then return not equal.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link StoredEntityData#equals(Object)}
+   * <p>
+   * Method under test: {@link StoredEntityData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean StoredEntityData.equals(Object)", "int StoredEntityData.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
@@ -205,18 +183,16 @@ class StoredEntityDataDiffblueTest {
 
   /**
    * Test {@link StoredEntityData#equals(Object)}.
-   *
    * <ul>
-   *   <li>When other is wrong type.
-   *   <li>Then return not equal.
+   *   <li>When other is wrong type.</li>
+   *   <li>Then return not equal.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link StoredEntityData#equals(Object)}
+   * <p>
+   * Method under test: {@link StoredEntityData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean StoredEntityData.equals(Object)", "int StoredEntityData.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert

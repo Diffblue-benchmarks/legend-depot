@@ -1,21 +1,21 @@
 {
   "meta" : {
-    "reportVersion" : "2.7"
+    "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2025.09.01-44e352d-licensed",
-    "creationTimestamp" : "2025-10-16T18:38:22.071754Z",
+    "version" : "2025.02.02-08b2a5a-licensed",
+    "creationTimestamp" : "2025-10-27T13:21:36.334842Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 110.228,
-    "environmentDetectionTime" : 0.123,
-    "indexingTime" : 0.496,
-    "entryPointsTime" : 0.117,
-    "generationTime" : 1051.913,
-    "timeToFirstTest" : 2867.442,
-    "timeToLastTest" : 2052.81,
-    "indexQueryTime" : 6.353,
-    "verificationTime" : 78.009,
-    "validationTime" : 20.748
+    "totalTime" : 102.108,
+    "environmentDetectionTime" : 0.33,
+    "indexingTime" : 0.373,
+    "entryPointsTime" : 0.327,
+    "generationTime" : 2799.794,
+    "timeToFirstTest" : 4414.85,
+    "timeToLastTest" : 3781.239,
+    "indexQueryTime" : 7.179,
+    "verificationTime" : 194.028,
+    "validationTime" : 19.108
   },
   "codes" : {
     "R000" : "Success",
@@ -28,7 +28,6 @@
     "T010" : "Abstract or interface method",
     "T012" : "Synthetic method",
     "T021" : "Empty method body",
-    "T023" : "Testability unknown",
     "V000" : "Validated successfully",
     "V003" : "Tests discarded during validation"
   },
@@ -47,9 +46,8 @@
       "T003" : 27,
       "T005" : 18,
       "T010" : 1,
-      "T012" : 83,
-      "T021" : 3,
-      "T023" : 8
+      "T012" : 91,
+      "T021" : 3
     },
     "perMethodOutcome" : {
       "R000" : 1,
@@ -57,15 +55,14 @@
       "R005" : 92,
       "T003" : 27,
       "T010" : 1,
-      "T012" : 83,
-      "T023" : 8
+      "T012" : 91
     },
     "perTestOutcome" : {
       "R000" : 2
     },
     "perTestValidation" : {
       "V000" : 2,
-      "V003" : 1
+      "V003" : 2
     }
   },
   "classes" : {
@@ -76,13 +73,13 @@
       "perMethodTestability" : {
         "T000" : 1,
         "T005" : 1,
-        "T021" : 1,
-        "T023" : 1
+        "T012" : 1,
+        "T021" : 1
       },
       "perMethodOutcome" : {
         "R000" : 1,
         "R002" : 2,
-        "T023" : 1
+        "T012" : 1
       },
       "perTestOutcome" : {
         "R000" : 2
@@ -96,13 +93,13 @@
         "T000" : 4,
         "T003" : 2,
         "T010" : 1,
-        "T023" : 1
+        "T012" : 1
       },
       "perMethodOutcome" : {
         "R005" : 4,
         "T003" : 2,
         "T010" : 1,
-        "T023" : 1
+        "T012" : 1
       }
     },
     "org.finos.legend.depot.services.artifacts.handlers.entities.EntitiesHandlerImpl" : {
@@ -164,14 +161,12 @@
         "T000" : 3,
         "T003" : 3,
         "T005" : 1,
-        "T012" : 8,
-        "T023" : 1
+        "T012" : 9
       },
       "perMethodOutcome" : {
         "R005" : 4,
         "T003" : 3,
-        "T012" : 8,
-        "T023" : 1
+        "T012" : 9
       }
     },
     "org.finos.legend.depot.services.artifacts.handlers.generations.FileGenerationsProvider" : {
@@ -198,14 +193,12 @@
         "T001" : 1,
         "T003" : 3,
         "T005" : 1,
-        "T012" : 19,
-        "T023" : 1
+        "T012" : 20
       },
       "perMethodOutcome" : {
         "R005" : 10,
         "T003" : 3,
-        "T012" : 19,
-        "T023" : 1
+        "T012" : 20
       }
     },
     "org.finos.legend.depot.services.artifacts.reconciliation.VersionsReconciliationServiceImpl" : {
@@ -215,13 +208,11 @@
       "perMethodTestability" : {
         "T000" : 2,
         "T005" : 1,
-        "T012" : 13,
-        "T023" : 1
+        "T012" : 14
       },
       "perMethodOutcome" : {
         "R005" : 3,
-        "T012" : 13,
-        "T023" : 1
+        "T012" : 14
       }
     },
     "org.finos.legend.depot.services.artifacts.refresh.ArtifactsRefreshServiceImpl" : {
@@ -232,14 +223,12 @@
         "T000" : 5,
         "T003" : 5,
         "T005" : 1,
-        "T012" : 11,
-        "T023" : 1
+        "T012" : 12
       },
       "perMethodOutcome" : {
         "R005" : 6,
         "T003" : 5,
-        "T012" : 11,
-        "T023" : 1
+        "T012" : 12
       }
     },
     "org.finos.legend.depot.services.artifacts.refresh.ProjectVersionRefreshHandler" : {
@@ -249,14 +238,12 @@
       "perMethodTestability" : {
         "T000" : 5,
         "T003" : 12,
-        "T012" : 10,
-        "T023" : 1
+        "T012" : 11
       },
       "perMethodOutcome" : {
         "R005" : 5,
         "T003" : 12,
-        "T012" : 10,
-        "T023" : 1
+        "T012" : 11
       }
     },
     "org.finos.legend.depot.services.artifacts.refresh.RefreshDependenciesServiceImpl" : {
@@ -267,14 +254,12 @@
         "T000" : 4,
         "T003" : 2,
         "T005" : 1,
-        "T012" : 5,
-        "T023" : 1
+        "T012" : 6
       },
       "perMethodOutcome" : {
         "R005" : 5,
         "T003" : 2,
-        "T012" : 5,
-        "T023" : 1
+        "T012" : 6
       }
     },
     "org.finos.legend.depot.services.guice.ArtifactsSchedulesModule" : {
@@ -395,8 +380,11 @@
     "org.finos.legend.depot.services.artifacts.handlers.ManifestLoader.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        29
+      ]
     },
     "org.finos.legend.depot.services.artifacts.handlers.ManifestLoader.<init>:()V" : {
       "completeTestCount" : 0,
@@ -441,8 +429,11 @@
     "org.finos.legend.depot.services.artifacts.handlers.entities.AbstractEntityRefreshHandlerImpl.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        31
+      ]
     },
     "org.finos.legend.depot.services.artifacts.handlers.entities.AbstractEntityRefreshHandlerImpl.<init>:(Lorg/finos/legend/depot/services/api/entities/ManageEntitiesService;Lorg/finos/legend/depot/services/api/artifacts/handlers/entties/EntityArtifactsProvider;)V" : {
       "completeTestCount" : 0,
@@ -668,8 +659,11 @@
     "org.finos.legend.depot.services.artifacts.handlers.generations.FileGenerationHandlerImpl.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        58
+      ]
     },
     "org.finos.legend.depot.services.artifacts.handlers.generations.FileGenerationHandlerImpl.<init>:(Lorg/finos/legend/depot/services/api/artifacts/repository/ArtifactRepository;Lorg/finos/legend/depot/services/api/artifacts/handlers/generations/FileGenerationsArtifactsProvider;Lorg/finos/legend/depot/services/api/generations/ManageFileGenerationsService;)V" : {
       "completeTestCount" : 0,
@@ -926,8 +920,11 @@
     "org.finos.legend.depot.services.artifacts.purge.ArtifactsPurgeServiceImpl.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        57
+      ]
     },
     "org.finos.legend.depot.services.artifacts.purge.ArtifactsPurgeServiceImpl.<init>:(Lorg/finos/legend/depot/services/api/projects/ManageProjectsService;Lorg/finos/legend/depot/services/api/artifacts/reconciliation/VersionsReconciliationService;Lorg/finos/legend/depot/services/api/metrics/query/QueryMetricsService;Lorg/finos/legend/depot/services/api/projects/configuration/ProjectsConfiguration;)V" : {
       "completeTestCount" : 0,
@@ -1334,8 +1331,11 @@
     "org.finos.legend.depot.services.artifacts.reconciliation.VersionsReconciliationServiceImpl.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        42
+      ]
     },
     "org.finos.legend.depot.services.artifacts.reconciliation.VersionsReconciliationServiceImpl.<init>:(Lorg/finos/legend/depot/services/api/artifacts/repository/ArtifactRepository;Lorg/finos/legend/depot/services/api/projects/ManageProjectsService;)V" : {
       "completeTestCount" : 0,
@@ -1554,8 +1554,11 @@
     "org.finos.legend.depot.services.artifacts.refresh.ArtifactsRefreshServiceImpl.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        49
+      ]
     },
     "org.finos.legend.depot.services.artifacts.refresh.ArtifactsRefreshServiceImpl.<init>:(Lorg/finos/legend/depot/services/api/projects/ProjectsService;Lorg/finos/legend/depot/services/api/artifacts/repository/ArtifactRepository;Lorg/finos/legend/depot/services/api/notifications/queue/Queue;)V" : {
       "completeTestCount" : 0,
@@ -1826,8 +1829,11 @@
     "org.finos.legend.depot.services.artifacts.refresh.ProjectVersionRefreshHandler.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        67
+      ]
     },
     "org.finos.legend.depot.services.artifacts.refresh.ProjectVersionRefreshHandler.<init>:(Lorg/finos/legend/depot/services/api/projects/ManageProjectsService;Lorg/finos/legend/depot/services/api/artifacts/repository/ArtifactRepository;Lorg/finos/legend/depot/services/api/notifications/queue/Queue;Lorg/finos/legend/depot/store/api/admin/artifacts/ArtifactsFilesStore;Lorg/finos/legend/depot/services/api/artifacts/configuration/IncludeProjectPropertiesConfiguration;Lorg/finos/legend/depot/services/api/artifacts/refresh/RefreshDependenciesService;I)V" : {
       "completeTestCount" : 0,
@@ -2258,8 +2264,11 @@
     "org.finos.legend.depot.services.artifacts.refresh.RefreshDependenciesServiceImpl.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        41
+      ]
     },
     "org.finos.legend.depot.services.artifacts.refresh.RefreshDependenciesServiceImpl.<init>:(Lorg/finos/legend/depot/services/api/projects/ManageProjectsService;Lorg/finos/legend/depot/services/api/artifacts/repository/ArtifactRepository;Lorg/finos/legend/depot/services/api/dependencies/DependencyOverride;)V" : {
       "completeTestCount" : 0,
@@ -2980,6 +2989,5 @@
         39
       ]
     }
-  },
-  "validationMetrics" : { }
+  }
 }

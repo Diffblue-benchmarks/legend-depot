@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
@@ -20,13 +19,12 @@ import org.junit.jupiter.api.Test;
 class StoreProjectVersionDataDiffblueTest {
   /**
    * Test {@link StoreProjectVersionData#StoreProjectVersionData()}.
-   *
-   * <p>Method under test: {@link StoreProjectVersionData#StoreProjectVersionData()}
+   * <p>
+   * Method under test: {@link StoreProjectVersionData#StoreProjectVersionData()}
    */
   @Test
   @DisplayName("Test new StoreProjectVersionData()")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void StoreProjectVersionData.<init>()"})
   void testNewStoreProjectVersionData() {
     // Arrange and Act
@@ -47,27 +45,24 @@ class StoreProjectVersionDataDiffblueTest {
     assertFalse(actualStoreProjectVersionData.isEvicted());
     assertTrue(versionData.getDependencies().isEmpty());
     assertTrue(versionData.getProperties().isEmpty());
-    VersionDependencyReport transitiveDependenciesReport =
-        actualStoreProjectVersionData.getTransitiveDependenciesReport();
+    VersionDependencyReport transitiveDependenciesReport = actualStoreProjectVersionData
+        .getTransitiveDependenciesReport();
     assertTrue(transitiveDependenciesReport.getTransitiveDependencies().isEmpty());
     assertTrue(transitiveDependenciesReport.isValid());
   }
 
   /**
    * Test {@link StoreProjectVersionData#StoreProjectVersionData(String, String, String)}.
-   *
-   * <p>Method under test: {@link StoreProjectVersionData#StoreProjectVersionData(String, String,
-   * String)}
+   * <p>
+   * Method under test: {@link StoreProjectVersionData#StoreProjectVersionData(String, String, String)}
    */
   @Test
   @DisplayName("Test new StoreProjectVersionData(String, String, String)")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void StoreProjectVersionData.<init>(String, String, String)"})
   void testNewStoreProjectVersionData2() {
     // Arrange and Act
-    StoreProjectVersionData actualStoreProjectVersionData =
-        new StoreProjectVersionData("42", "42", "42");
+    StoreProjectVersionData actualStoreProjectVersionData = new StoreProjectVersionData("42", "42", "42");
 
     // Assert
     assertEquals("", actualStoreProjectVersionData.getId());
@@ -83,34 +78,28 @@ class StoreProjectVersionDataDiffblueTest {
     assertFalse(actualStoreProjectVersionData.isEvicted());
     assertTrue(versionData.getDependencies().isEmpty());
     assertTrue(versionData.getProperties().isEmpty());
-    VersionDependencyReport transitiveDependenciesReport =
-        actualStoreProjectVersionData.getTransitiveDependenciesReport();
+    VersionDependencyReport transitiveDependenciesReport = actualStoreProjectVersionData
+        .getTransitiveDependenciesReport();
     assertTrue(transitiveDependenciesReport.getTransitiveDependencies().isEmpty());
     assertTrue(transitiveDependenciesReport.isValid());
   }
 
   /**
-   * Test {@link StoreProjectVersionData#StoreProjectVersionData(String, String, String, boolean,
-   * ProjectVersionData)}.
-   *
-   * <p>Method under test: {@link StoreProjectVersionData#StoreProjectVersionData(String, String,
-   * String, boolean, ProjectVersionData)}
+   * Test {@link StoreProjectVersionData#StoreProjectVersionData(String, String, String, boolean, ProjectVersionData)}.
+   * <p>
+   * Method under test: {@link StoreProjectVersionData#StoreProjectVersionData(String, String, String, boolean, ProjectVersionData)}
    */
   @Test
-  @DisplayName(
-      "Test new StoreProjectVersionData(String, String, String, boolean, ProjectVersionData)")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "void StoreProjectVersionData.<init>(String, String, String, boolean, ProjectVersionData)"
-  })
+  @DisplayName("Test new StoreProjectVersionData(String, String, String, boolean, ProjectVersionData)")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void StoreProjectVersionData.<init>(String, String, String, boolean, ProjectVersionData)"})
   void testNewStoreProjectVersionData3() {
     // Arrange
     ProjectVersionData versionData = new ProjectVersionData();
 
     // Act
-    StoreProjectVersionData actualStoreProjectVersionData =
-        new StoreProjectVersionData("42", "42", "42", true, versionData);
+    StoreProjectVersionData actualStoreProjectVersionData = new StoreProjectVersionData("42", "42", "42", true,
+        versionData);
 
     // Assert
     assertEquals("", actualStoreProjectVersionData.getId());
@@ -124,9 +113,8 @@ class StoreProjectVersionDataDiffblueTest {
 
   /**
    * Test getters and setters.
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link StoreProjectVersionData#setCreated(Date)}
    *   <li>{@link StoreProjectVersionData#setEvicted(boolean)}
@@ -143,41 +131,33 @@ class StoreProjectVersionDataDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "Date StoreProjectVersionData.getCreated()",
-    "String StoreProjectVersionData.getId()",
-    "VersionDependencyReport StoreProjectVersionData.getTransitiveDependenciesReport()",
-    "Date StoreProjectVersionData.getUpdated()",
-    "ProjectVersionData StoreProjectVersionData.getVersionData()",
-    "boolean StoreProjectVersionData.isEvicted()",
-    "void StoreProjectVersionData.setCreated(Date)",
-    "void StoreProjectVersionData.setEvicted(boolean)",
-    "void StoreProjectVersionData.setTransitiveDependenciesReport(VersionDependencyReport)",
-    "void StoreProjectVersionData.setUpdated(Date)",
-    "void StoreProjectVersionData.setVersionData(ProjectVersionData)"
-  })
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"Date StoreProjectVersionData.getCreated()", "String StoreProjectVersionData.getId()",
+      "VersionDependencyReport StoreProjectVersionData.getTransitiveDependenciesReport()",
+      "Date StoreProjectVersionData.getUpdated()", "ProjectVersionData StoreProjectVersionData.getVersionData()",
+      "boolean StoreProjectVersionData.isEvicted()", "void StoreProjectVersionData.setCreated(Date)",
+      "void StoreProjectVersionData.setEvicted(boolean)",
+      "void StoreProjectVersionData.setTransitiveDependenciesReport(VersionDependencyReport)",
+      "void StoreProjectVersionData.setUpdated(Date)",
+      "void StoreProjectVersionData.setVersionData(ProjectVersionData)"})
   void testGettersAndSetters() {
     // Arrange
     StoreProjectVersionData storeProjectVersionData = new StoreProjectVersionData();
-    Date created =
-        Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
+    Date created = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
 
     // Act
     storeProjectVersionData.setCreated(created);
     storeProjectVersionData.setEvicted(true);
     VersionDependencyReport transitiveDependenciesReport = new VersionDependencyReport();
     storeProjectVersionData.setTransitiveDependenciesReport(transitiveDependenciesReport);
-    Date updated =
-        Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
+    Date updated = Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant());
     storeProjectVersionData.setUpdated(updated);
     ProjectVersionData versionData = new ProjectVersionData();
     storeProjectVersionData.setVersionData(versionData);
     Date actualCreated = storeProjectVersionData.getCreated();
     String actualId = storeProjectVersionData.getId();
-    VersionDependencyReport actualTransitiveDependenciesReport =
-        storeProjectVersionData.getTransitiveDependenciesReport();
+    VersionDependencyReport actualTransitiveDependenciesReport = storeProjectVersionData
+        .getTransitiveDependenciesReport();
     Date actualUpdated = storeProjectVersionData.getUpdated();
     ProjectVersionData actualVersionData = storeProjectVersionData.getVersionData();
 
@@ -191,16 +171,13 @@ class StoreProjectVersionDataDiffblueTest {
   }
 
   /**
-   * Test {@link StoreProjectVersionData#equals(Object)}, and {@link
-   * StoreProjectVersionData#hashCode()}.
-   *
+   * Test {@link StoreProjectVersionData#equals(Object)}, and {@link StoreProjectVersionData#hashCode()}.
    * <ul>
-   *   <li>When other is same.
-   *   <li>Then return equal.
+   *   <li>When other is same.</li>
+   *   <li>Then return equal.</li>
    * </ul>
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link StoreProjectVersionData#equals(Object)}
    *   <li>{@link StoreProjectVersionData#hashCode()}
@@ -208,12 +185,8 @@ class StoreProjectVersionDataDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "boolean StoreProjectVersionData.equals(Object)",
-    "int StoreProjectVersionData.hashCode()"
-  })
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StoreProjectVersionData.equals(Object)", "int StoreProjectVersionData.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     StoreProjectVersionData storeProjectVersionData = new StoreProjectVersionData();
@@ -226,22 +199,17 @@ class StoreProjectVersionDataDiffblueTest {
 
   /**
    * Test {@link StoreProjectVersionData#equals(Object)}.
-   *
    * <ul>
-   *   <li>When other is different.
-   *   <li>Then return not equal.
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link StoreProjectVersionData#equals(Object)}
+   * <p>
+   * Method under test: {@link StoreProjectVersionData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "boolean StoreProjectVersionData.equals(Object)",
-    "int StoreProjectVersionData.hashCode()"
-  })
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StoreProjectVersionData.equals(Object)", "int StoreProjectVersionData.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     StoreProjectVersionData storeProjectVersionData = new StoreProjectVersionData();
@@ -252,22 +220,17 @@ class StoreProjectVersionDataDiffblueTest {
 
   /**
    * Test {@link StoreProjectVersionData#equals(Object)}.
-   *
    * <ul>
-   *   <li>When other is {@code null}.
-   *   <li>Then return not equal.
+   *   <li>When other is {@code null}.</li>
+   *   <li>Then return not equal.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link StoreProjectVersionData#equals(Object)}
+   * <p>
+   * Method under test: {@link StoreProjectVersionData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "boolean StoreProjectVersionData.equals(Object)",
-    "int StoreProjectVersionData.hashCode()"
-  })
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StoreProjectVersionData.equals(Object)", "int StoreProjectVersionData.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new StoreProjectVersionData(), null);
@@ -275,22 +238,17 @@ class StoreProjectVersionDataDiffblueTest {
 
   /**
    * Test {@link StoreProjectVersionData#equals(Object)}.
-   *
    * <ul>
-   *   <li>When other is wrong type.
-   *   <li>Then return not equal.
+   *   <li>When other is wrong type.</li>
+   *   <li>Then return not equal.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link StoreProjectVersionData#equals(Object)}
+   * <p>
+   * Method under test: {@link StoreProjectVersionData#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "boolean StoreProjectVersionData.equals(Object)",
-    "int StoreProjectVersionData.hashCode()"
-  })
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"boolean StoreProjectVersionData.equals(Object)", "int StoreProjectVersionData.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new StoreProjectVersionData(), "Different type to StoreProjectVersionData");

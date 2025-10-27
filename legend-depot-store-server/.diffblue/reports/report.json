@@ -1,21 +1,21 @@
 {
   "meta" : {
-    "reportVersion" : "2.7"
+    "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2025.09.01-44e352d-licensed",
-    "creationTimestamp" : "2025-10-16T18:38:22.071754Z",
+    "version" : "2025.02.02-08b2a5a-licensed",
+    "creationTimestamp" : "2025-10-27T13:21:36.334842Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 105.629,
-    "environmentDetectionTime" : 0.041,
-    "indexingTime" : 0.513,
-    "entryPointsTime" : 0.035,
-    "generationTime" : 1366.13,
-    "timeToFirstTest" : 3517.259,
-    "timeToLastTest" : 2563.769,
-    "indexQueryTime" : 8.578,
-    "verificationTime" : 94.319,
-    "validationTime" : 13.69
+    "totalTime" : 103.93,
+    "environmentDetectionTime" : 0.219,
+    "indexingTime" : 0.39,
+    "entryPointsTime" : 0.216,
+    "generationTime" : 3049.803,
+    "timeToFirstTest" : 4967.449,
+    "timeToLastTest" : 4220.099,
+    "indexQueryTime" : 11.25,
+    "verificationTime" : 209.509,
+    "validationTime" : 12.587
   },
   "codes" : {
     "R000" : "Success",
@@ -26,7 +26,7 @@
     "T003" : "Private method",
     "T005" : "Trivial constructor",
     "T006" : "Main method",
-    "T023" : "Testability unknown",
+    "T012" : "Synthetic method",
     "V000" : "Validated successfully",
     "V003" : "Tests discarded during validation"
   },
@@ -46,21 +46,21 @@
       "T003" : 5,
       "T005" : 3,
       "T006" : 1,
-      "T023" : 1
+      "T012" : 1
     },
     "perMethodOutcome" : {
       "R000" : 2,
       "R005" : 16,
       "T003" : 5,
       "T006" : 1,
-      "T023" : 1
+      "T012" : 1
     },
     "perTestOutcome" : {
       "R000" : 2
     },
     "perTestValidation" : {
       "V000" : 2,
-      "V003" : 1
+      "V003" : 2
     }
   },
   "classes" : {
@@ -84,11 +84,11 @@
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 2,
-        "T023" : 1
+        "T012" : 1
       },
       "perMethodOutcome" : {
         "R000" : 2,
-        "T023" : 1
+        "T012" : 1
       },
       "perTestOutcome" : {
         "R000" : 2
@@ -192,8 +192,11 @@
     "org.finos.legend.depot.store.server.LegendDepotStoreServerJacksonJsonProvider.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        27
+      ]
     },
     "org.finos.legend.depot.store.server.LegendDepotStoreServerJacksonJsonProvider.<init>:()V" : {
       "completeTestCount" : 1,
@@ -378,6 +381,5 @@
         58
       ]
     }
-  },
-  "validationMetrics" : { }
+  }
 }

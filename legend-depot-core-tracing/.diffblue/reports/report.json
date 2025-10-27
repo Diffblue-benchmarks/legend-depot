@@ -1,21 +1,21 @@
 {
   "meta" : {
-    "reportVersion" : "2.7"
+    "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2025.09.01-44e352d-licensed",
-    "creationTimestamp" : "2025-10-16T18:38:22.071754Z",
+    "version" : "2025.02.02-08b2a5a-licensed",
+    "creationTimestamp" : "2025-10-27T13:21:36.334842Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 219.575,
-    "environmentDetectionTime" : 0.085,
-    "indexingTime" : 0.481,
-    "entryPointsTime" : 0.078,
-    "generationTime" : 972.008,
-    "timeToFirstTest" : 2523.427,
-    "timeToLastTest" : 1827.631,
-    "indexQueryTime" : 5.978,
-    "verificationTime" : 73.956,
-    "validationTime" : 12.255
+    "totalTime" : 225.919,
+    "environmentDetectionTime" : 0.374,
+    "indexingTime" : 0.361,
+    "entryPointsTime" : 0.369,
+    "generationTime" : 2718.865,
+    "timeToFirstTest" : 4092.595,
+    "timeToLastTest" : 3558.022,
+    "indexQueryTime" : 8.25,
+    "verificationTime" : 190.218,
+    "validationTime" : 23.887
   },
   "codes" : {
     "R000" : "Success",
@@ -34,7 +34,6 @@
     "T010" : "Abstract or interface method",
     "T012" : "Synthetic method",
     "T021" : "Empty method body",
-    "T023" : "Testability unknown",
     "V000" : "Validated successfully",
     "V003" : "Tests discarded during validation",
     "W002" : "Test compiled, but did not pass"
@@ -42,9 +41,9 @@
   "summary" : {
     "classesCount" : 17,
     "methodsCount" : 133,
-    "cumulativeDiffblueTestCount" : 141,
+    "cumulativeDiffblueTestCount" : 140,
     "cumulativeManualTestCount" : 6,
-    "completeTestCount" : 141,
+    "completeTestCount" : 142,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 833,
@@ -57,31 +56,29 @@
       "T005" : 9,
       "T008" : 1,
       "T010" : 17,
-      "T012" : 19,
-      "T021" : 16,
-      "T023" : 1
+      "T012" : 20,
+      "T021" : 16
     },
     "perMethodOutcome" : {
-      "R000" : 34,
+      "R000" : 35,
       "R002" : 21,
       "R004" : 3,
       "R005" : 1,
       "R011" : 11,
-      "R013" : 6,
+      "R013" : 5,
       "T003" : 16,
       "T004" : 2,
       "T005" : 1,
       "T008" : 1,
       "T010" : 17,
-      "T012" : 19,
-      "T023" : 1
+      "T012" : 20
     },
     "perTestOutcome" : {
-      "R000" : 141
+      "R000" : 142
     },
     "perTestValidation" : {
-      "V000" : 141,
-      "V003" : 1
+      "V000" : 140,
+      "V003" : 2
     },
     "warnings" : {
       "W002" : 1
@@ -221,20 +218,19 @@
     },
     "org.finos.legend.depot.core.services.guice.MonitoringModule" : {
       "methodsCount" : 4,
-      "completeTestCount" : 4,
+      "completeTestCount" : 6,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 3,
         "T005" : 1
       },
       "perMethodOutcome" : {
-        "R000" : 1,
+        "R000" : 2,
         "R002" : 1,
-        "R005" : 1,
-        "R013" : 1
+        "R005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 4
+        "R000" : 6
       }
     },
     "org.finos.legend.depot.core.services.metrics.DepotPrometheusMetricsHandler" : {
@@ -303,24 +299,22 @@
     },
     "org.finos.legend.depot.core.services.tracing.TracerFactory" : {
       "methodsCount" : 13,
-      "completeTestCount" : 10,
+      "completeTestCount" : 9,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 8,
         "T003" : 3,
-        "T012" : 1,
-        "T023" : 1
+        "T012" : 2
       },
       "perMethodOutcome" : {
         "R000" : 4,
         "R004" : 3,
         "R013" : 1,
         "T003" : 3,
-        "T012" : 1,
-        "T023" : 1
+        "T012" : 2
       },
       "perTestOutcome" : {
-        "R000" : 10
+        "R000" : 9
       },
       "warnings" : {
         "W002" : 1
@@ -893,10 +887,13 @@
       ]
     },
     "org.finos.legend.depot.core.services.guice.MonitoringModule.initTracerFactory:(Lorg/finos/legend/depot/core/services/api/tracing/configuration/OpenTracingConfiguration;)Lorg/finos/legend/depot/core/services/tracing/TracerFactory;" : {
-      "completeTestCount" : 0,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
       "lineNumbers" : [
         41
       ]
@@ -1014,7 +1011,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R011",
+      "perMethodOutcome" : "R013",
       "lineNumbers" : [
         189,
         190
@@ -1024,7 +1021,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013",
+      "perMethodOutcome" : "R011",
       "lineNumbers" : [
         116,
         117
@@ -1431,8 +1428,11 @@
     "org.finos.legend.depot.core.services.tracing.TracerFactory.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        37
+      ]
     },
     "org.finos.legend.depot.core.services.tracing.TracerFactory.<init>:(Lio/opentracing/Tracer;)V" : {
       "completeTestCount" : 0,
@@ -1470,12 +1470,12 @@
       ]
     },
     "org.finos.legend.depot.core.services.tracing.TracerFactory.configure:(Lorg/finos/legend/depot/core/services/api/tracing/configuration/OpenTracingConfiguration;)Lorg/finos/legend/depot/core/services/tracing/TracerFactory;" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       },
       "warnings" : {
         "W002" : 1
@@ -1492,24 +1492,24 @@
       ]
     },
     "org.finos.legend.depot.core.services.tracing.TracerFactory.executeWithTrace:(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/Object;" : {
-      "completeTestCount" : 3,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 3
+        "R000" : 2
       },
       "lineNumbers" : [
         132
       ]
     },
     "org.finos.legend.depot.core.services.tracing.TracerFactory.executeWithTrace:(Ljava/lang/String;Ljava/util/function/Supplier;Ljava/util/Map;)Ljava/lang/Object;" : {
-      "completeTestCount" : 4,
+      "completeTestCount" : 3,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 4
+        "R000" : 3
       },
       "lineNumbers" : [
         137,
@@ -1769,6 +1769,5 @@
         134
       ]
     }
-  },
-  "validationMetrics" : { }
+  }
 }

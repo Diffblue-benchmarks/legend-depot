@@ -1,21 +1,21 @@
 {
   "meta" : {
-    "reportVersion" : "2.7"
+    "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2025.09.01-44e352d-licensed",
-    "creationTimestamp" : "2025-10-16T18:38:22.071754Z",
+    "version" : "2025.02.02-08b2a5a-licensed",
+    "creationTimestamp" : "2025-10-27T13:21:36.334842Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 79.62,
-    "environmentDetectionTime" : 0.157,
-    "indexingTime" : 0.466,
-    "entryPointsTime" : 0.149,
-    "generationTime" : 770.302,
-    "timeToFirstTest" : 2062.474,
-    "timeToLastTest" : 1483.12,
-    "indexQueryTime" : 5.904,
-    "verificationTime" : 56.823,
-    "validationTime" : 46.665
+    "totalTime" : 69.227,
+    "environmentDetectionTime" : 0.343,
+    "indexingTime" : 0.348,
+    "entryPointsTime" : 0.34,
+    "generationTime" : 2465.038,
+    "timeToFirstTest" : 3591.26,
+    "timeToLastTest" : 3163.753,
+    "indexQueryTime" : 7.473,
+    "verificationTime" : 173.605,
+    "validationTime" : 45.76
   },
   "codes" : {
     "R002" : "Missing observers",
@@ -26,39 +26,34 @@
     "T005" : "Trivial constructor",
     "T010" : "Abstract or interface method",
     "T012" : "Synthetic method",
-    "T023" : "Testability unknown",
-    "V000" : "Validated successfully",
-    "V003" : "Tests discarded during validation"
+    "V000" : "Validated successfully"
   },
   "summary" : {
-    "classesCount" : 9,
-    "methodsCount" : 92,
-    "cumulativeDiffblueTestCount" : 0,
+    "classesCount" : 8,
+    "methodsCount" : 85,
+    "cumulativeDiffblueTestCount" : 4,
     "cumulativeManualTestCount" : 27,
     "completeTestCount" : 0,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 809,
     "perMethodTestability" : {
-      "T000" : 53,
+      "T000" : 49,
       "T001" : 1,
       "T003" : 2,
-      "T005" : 9,
+      "T005" : 8,
       "T010" : 4,
-      "T012" : 20,
-      "T023" : 3
+      "T012" : 21
     },
     "perMethodOutcome" : {
       "R002" : 2,
-      "R005" : 61,
+      "R005" : 56,
       "T003" : 2,
       "T010" : 4,
-      "T012" : 20,
-      "T023" : 3
+      "T012" : 21
     },
     "perTestValidation" : {
-      "V000" : 1,
-      "V003" : 25
+      "V000" : 1
     }
   },
   "classes" : {
@@ -70,14 +65,12 @@
         "T000" : 2,
         "T003" : 1,
         "T005" : 1,
-        "T012" : 3,
-        "T023" : 1
+        "T012" : 4
       },
       "perMethodOutcome" : {
         "R005" : 3,
         "T003" : 1,
-        "T012" : 3,
-        "T023" : 1
+        "T012" : 4
       }
     },
     "org.finos.legend.depot.store.mongo.admin.migrations.MongoEntitiesMigrations" : {
@@ -100,15 +93,13 @@
         "T000" : 21,
         "T003" : 1,
         "T010" : 4,
-        "T012" : 7,
-        "T023" : 1
+        "T012" : 8
       },
       "perMethodOutcome" : {
         "R005" : 21,
         "T003" : 1,
         "T010" : 4,
-        "T012" : 7,
-        "T023" : 1
+        "T012" : 8
       }
     },
     "org.finos.legend.depot.store.mongo.entities.EntitiesMongo" : {
@@ -118,13 +109,11 @@
       "perMethodTestability" : {
         "T000" : 18,
         "T005" : 2,
-        "T012" : 6,
-        "T023" : 1
+        "T012" : 7
       },
       "perMethodOutcome" : {
         "R005" : 20,
-        "T012" : 6,
-        "T023" : 1
+        "T012" : 7
       }
     },
     "org.finos.legend.depot.store.mongo.guice.EntitiesMigrationsStoreMongoModule" : {
@@ -165,20 +154,6 @@
         "R005" : 3
       }
     },
-    "org.finos.legend.depot.store.mongo.versionedEntities.VersionedEntitiesMongo" : {
-      "methodsCount" : 7,
-      "completeTestCount" : 0,
-      "incompleteTestCount" : 0,
-      "perMethodTestability" : {
-        "T000" : 4,
-        "T005" : 1,
-        "T012" : 2
-      },
-      "perMethodOutcome" : {
-        "R005" : 5,
-        "T012" : 2
-      }
-    },
     "org.finos.legend.depot.store.resources.entities.EntitiesMigrationResource" : {
       "methodsCount" : 6,
       "completeTestCount" : 0,
@@ -199,8 +174,11 @@
     "org.finos.legend.depot.store.mongo.admin.migrations.EntitiesMigration.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        61
+      ]
     },
     "org.finos.legend.depot.store.mongo.admin.migrations.EntitiesMigration.<init>:(Lcom/mongodb/client/MongoDatabase;)V" : {
       "completeTestCount" : 0,
@@ -352,8 +330,11 @@
     "org.finos.legend.depot.store.mongo.entities.AbstractEntitiesMongo.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        77
+      ]
     },
     "org.finos.legend.depot.store.mongo.entities.AbstractEntitiesMongo.<init>:(Lcom/mongodb/client/MongoDatabase;Ljava/lang/Class;)V" : {
       "completeTestCount" : 0,
@@ -707,8 +688,11 @@
     "org.finos.legend.depot.store.mongo.entities.EntitiesMongo.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        57
+      ]
     },
     "org.finos.legend.depot.store.mongo.entities.EntitiesMongo.<init>:(Lcom/mongodb/client/MongoDatabase;)V" : {
       "completeTestCount" : 0,
@@ -1073,85 +1057,6 @@
         50
       ]
     },
-    "org.finos.legend.depot.store.mongo.versionedEntities.VersionedEntitiesMongo.<init>:(Lcom/mongodb/client/MongoDatabase;)V" : {
-      "completeTestCount" : 0,
-      "incompleteTestCount" : 0,
-      "perMethodTestability" : "T005",
-      "perMethodOutcome" : "R005",
-      "lineNumbers" : [
-        45,
-        46
-      ]
-    },
-    "org.finos.legend.depot.store.mongo.versionedEntities.VersionedEntitiesMongo.buildIndexes:()Ljava/util/List;" : {
-      "completeTestCount" : 0,
-      "incompleteTestCount" : 0,
-      "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R005",
-      "lineNumbers" : [
-        50,
-        51,
-        52,
-        53,
-        50
-      ]
-    },
-    "org.finos.legend.depot.store.mongo.versionedEntities.VersionedEntitiesMongo.createOrUpdate:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Ljava/util/List;" : {
-      "completeTestCount" : 0,
-      "incompleteTestCount" : 0,
-      "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R005",
-      "lineNumbers" : [
-        66,
-        67,
-        73
-      ]
-    },
-    "org.finos.legend.depot.store.mongo.versionedEntities.VersionedEntitiesMongo.getCollection:()Lcom/mongodb/client/MongoCollection;" : {
-      "completeTestCount" : 0,
-      "incompleteTestCount" : 0,
-      "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R005",
-      "lineNumbers" : [
-        60
-      ]
-    },
-    "org.finos.legend.depot.store.mongo.versionedEntities.VersionedEntitiesMongo.lambda$createOrUpdate$0:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lorg/finos/legend/sdlc/domain/model/entity/Entity;)V" : {
-      "completeTestCount" : 0,
-      "incompleteTestCount" : 0,
-      "perMethodTestability" : "T012",
-      "perMethodOutcome" : "T012",
-      "lineNumbers" : [
-        69,
-        70,
-        71,
-        72
-      ]
-    },
-    "org.finos.legend.depot.store.mongo.versionedEntities.VersionedEntitiesMongo.resolvedToEntityDefinition:(Lorg/finos/legend/depot/store/model/entities/StoredEntity;)Lorg/finos/legend/sdlc/domain/model/entity/Entity;" : {
-      "completeTestCount" : 0,
-      "incompleteTestCount" : 0,
-      "perMethodTestability" : "T012",
-      "perMethodOutcome" : "T012",
-      "lineNumbers" : [
-        38
-      ]
-    },
-    "org.finos.legend.depot.store.mongo.versionedEntities.VersionedEntitiesMongo.resolvedToEntityDefinition:(Lorg/finos/legend/depot/store/model/versionedEntities/StoredVersionedEntity;)Lorg/finos/legend/sdlc/domain/model/entity/Entity;" : {
-      "completeTestCount" : 0,
-      "incompleteTestCount" : 0,
-      "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R005",
-      "lineNumbers" : [
-        79,
-        81,
-        83,
-        87,
-        89,
-        91,
-        96
-      ]
-    },
     "org.finos.legend.depot.store.resources.entities.EntitiesMigrationResource.<init>:(Lorg/finos/legend/depot/store/mongo/admin/migrations/MongoEntitiesMigrations;Lorg/finos/legend/depot/core/services/api/authorisation/AuthorisationProvider;Ljavax/inject/Provider;)V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
@@ -1212,6 +1117,5 @@
         80
       ]
     }
-  },
-  "validationMetrics" : { }
+  }
 }

@@ -3,7 +3,6 @@ package org.finos.legend.depot.domain.project;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -12,21 +11,16 @@ import org.junit.jupiter.api.Test;
 class ProjectVersionDiffblueTest {
   /**
    * Test {@link ProjectVersion#ProjectVersion()}.
-   *
    * <ul>
-   *   <li>Then return ArtifactId is {@code null}.
+   *   <li>Then return ArtifactId is {@code null}.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link ProjectVersion#ProjectVersion()}
+   * <p>
+   * Method under test: {@link ProjectVersion#ProjectVersion()}
    */
   @Test
   @DisplayName("Test new ProjectVersion(); then return ArtifactId is 'null'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "void ProjectVersion.<init>()",
-    "void ProjectVersion.<init>(String, String, String)"
-  })
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ProjectVersion.<init>()", "void ProjectVersion.<init>(String, String, String)"})
   void testNewProjectVersion_thenReturnArtifactIdIsNull() {
     // Arrange and Act
     ProjectVersion actualProjectVersion = new ProjectVersion();
@@ -39,23 +33,17 @@ class ProjectVersionDiffblueTest {
 
   /**
    * Test {@link ProjectVersion#ProjectVersion(String, String, String)}.
-   *
    * <ul>
-   *   <li>When {@code 42}.
-   *   <li>Then return ArtifactId is {@code 42}.
+   *   <li>When {@code 42}.</li>
+   *   <li>Then return ArtifactId is {@code 42}.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link ProjectVersion#ProjectVersion(String, String, String)}
+   * <p>
+   * Method under test: {@link ProjectVersion#ProjectVersion(String, String, String)}
    */
   @Test
-  @DisplayName(
-      "Test new ProjectVersion(String, String, String); when '42'; then return ArtifactId is '42'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "void ProjectVersion.<init>()",
-    "void ProjectVersion.<init>(String, String, String)"
-  })
+  @DisplayName("Test new ProjectVersion(String, String, String); when '42'; then return ArtifactId is '42'")
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"void ProjectVersion.<init>()", "void ProjectVersion.<init>(String, String, String)"})
   void testNewProjectVersion_when42_thenReturnArtifactIdIs42() {
     // Arrange and Act
     ProjectVersion actualProjectVersion = new ProjectVersion("42", "42", "42");
@@ -68,14 +56,12 @@ class ProjectVersionDiffblueTest {
 
   /**
    * Test {@link ProjectVersion#equals(Object)}, and {@link ProjectVersion#hashCode()}.
-   *
    * <ul>
-   *   <li>When other is equal.
-   *   <li>Then return equal.
+   *   <li>When other is equal.</li>
+   *   <li>Then return equal.</li>
    * </ul>
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link ProjectVersion#equals(Object)}
    *   <li>{@link ProjectVersion#hashCode()}
@@ -83,8 +69,7 @@ class ProjectVersionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ProjectVersion.equals(Object)", "int ProjectVersion.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
@@ -93,19 +78,18 @@ class ProjectVersionDiffblueTest {
 
     // Act and Assert
     assertEquals(projectVersion, projectVersion2);
-    assertEquals(projectVersion.hashCode(), projectVersion2.hashCode());
+    int expectedHashCodeResult = projectVersion.hashCode();
+    assertEquals(expectedHashCodeResult, projectVersion2.hashCode());
   }
 
   /**
    * Test {@link ProjectVersion#equals(Object)}, and {@link ProjectVersion#hashCode()}.
-   *
    * <ul>
-   *   <li>When other is same.
-   *   <li>Then return equal.
+   *   <li>When other is same.</li>
+   *   <li>Then return equal.</li>
    * </ul>
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link ProjectVersion#equals(Object)}
    *   <li>{@link ProjectVersion#hashCode()}
@@ -113,8 +97,7 @@ class ProjectVersionDiffblueTest {
    */
   @Test
   @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ProjectVersion.equals(Object)", "int ProjectVersion.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
@@ -128,18 +111,16 @@ class ProjectVersionDiffblueTest {
 
   /**
    * Test {@link ProjectVersion#equals(Object)}.
-   *
    * <ul>
-   *   <li>When other is different.
-   *   <li>Then return not equal.
+   *   <li>When other is different.</li>
+   *   <li>Then return not equal.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link ProjectVersion#equals(Object)}
+   * <p>
+   * Method under test: {@link ProjectVersion#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ProjectVersion.equals(Object)", "int ProjectVersion.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
@@ -151,18 +132,16 @@ class ProjectVersionDiffblueTest {
 
   /**
    * Test {@link ProjectVersion#equals(Object)}.
-   *
    * <ul>
-   *   <li>When other is {@code null}.
-   *   <li>Then return not equal.
+   *   <li>When other is {@code null}.</li>
+   *   <li>Then return not equal.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link ProjectVersion#equals(Object)}
+   * <p>
+   * Method under test: {@link ProjectVersion#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ProjectVersion.equals(Object)", "int ProjectVersion.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
@@ -171,18 +150,16 @@ class ProjectVersionDiffblueTest {
 
   /**
    * Test {@link ProjectVersion#equals(Object)}.
-   *
    * <ul>
-   *   <li>When other is wrong type.
-   *   <li>Then return not equal.
+   *   <li>When other is wrong type.</li>
+   *   <li>Then return not equal.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link ProjectVersion#equals(Object)}
+   * <p>
+   * Method under test: {@link ProjectVersion#equals(Object)}
    */
   @Test
   @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"boolean ProjectVersion.equals(Object)", "int ProjectVersion.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
@@ -191,19 +168,15 @@ class ProjectVersionDiffblueTest {
 
   /**
    * Test {@link ProjectVersion#getGav()}.
-   *
-   * <p>Method under test: {@link ProjectVersion#getGav()}
+   * <p>
+   * Method under test: {@link ProjectVersion#getGav()}
    */
   @Test
   @DisplayName("Test getGav()")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String ProjectVersion.getGav()"})
   void testGetGav() {
-    // Arrange
-    ProjectVersion projectVersion = new ProjectVersion("42", "42", "42");
-
-    // Act and Assert
-    assertEquals("42:42:42", projectVersion.getGav());
+    // Arrange, Act and Assert
+    assertEquals("42:42:42", (new ProjectVersion("42", "42", "42")).getGav());
   }
 }

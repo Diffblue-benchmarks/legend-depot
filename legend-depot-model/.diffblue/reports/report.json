@@ -1,21 +1,21 @@
 {
   "meta" : {
-    "reportVersion" : "2.7"
+    "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2025.09.01-44e352d-licensed",
-    "creationTimestamp" : "2025-10-16T18:38:22.071754Z",
+    "version" : "2025.02.02-08b2a5a-licensed",
+    "creationTimestamp" : "2025-10-27T13:21:36.334842Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 120.911,
-    "environmentDetectionTime" : 0.131,
-    "indexingTime" : 0.395,
-    "entryPointsTime" : 0.106,
-    "generationTime" : 18.094,
-    "timeToFirstTest" : 89.722,
-    "timeToLastTest" : 97.946,
-    "indexQueryTime" : 3.249,
-    "verificationTime" : 3.399,
-    "validationTime" : 8.497
+    "totalTime" : 121.079,
+    "environmentDetectionTime" : 0.624,
+    "indexingTime" : 0.287,
+    "entryPointsTime" : 0.606,
+    "generationTime" : 21.645,
+    "timeToFirstTest" : 87.655,
+    "timeToLastTest" : 100.608,
+    "indexQueryTime" : 3.681,
+    "verificationTime" : 3.624,
+    "validationTime" : 10.614
   },
   "codes" : {
     "R000" : "Success",
@@ -28,8 +28,8 @@
     "T009" : "No implementation for abstract class",
     "T010" : "Abstract or interface method",
     "T012" : "Synthetic method",
-    "T023" : "Testability unknown",
-    "V000" : "Validated successfully"
+    "V000" : "Validated successfully",
+    "W002" : "Test compiled, but did not pass"
   },
   "summary" : {
     "classesCount" : 6,
@@ -48,8 +48,7 @@
       "T008" : 1,
       "T009" : 9,
       "T010" : 4,
-      "T012" : 3,
-      "T023" : 3
+      "T012" : 6
     },
     "perMethodOutcome" : {
       "R000" : 13,
@@ -59,14 +58,16 @@
       "T008" : 1,
       "T009" : 9,
       "T010" : 4,
-      "T012" : 3,
-      "T023" : 3
+      "T012" : 6
     },
     "perTestOutcome" : {
       "R000" : 32
     },
     "perTestValidation" : {
       "V000" : 32
+    },
+    "warnings" : {
+      "W002" : 1
     }
   },
   "classes" : {
@@ -90,12 +91,12 @@
       "perMethodTestability" : {
         "T000" : 2,
         "T008" : 1,
-        "T023" : 1
+        "T012" : 1
       },
       "perMethodOutcome" : {
         "R000" : 2,
         "T008" : 1,
-        "T023" : 1
+        "T012" : 1
       },
       "perTestOutcome" : {
         "R000" : 7
@@ -108,16 +109,19 @@
       "perMethodTestability" : {
         "T000" : 5,
         "T005" : 1,
-        "T023" : 1
+        "T012" : 1
       },
       "perMethodOutcome" : {
         "R000" : 4,
         "R031" : 1,
         "T005" : 1,
-        "T023" : 1
+        "T012" : 1
       },
       "perTestOutcome" : {
         "R000" : 4
+      },
+      "warnings" : {
+        "W002" : 1
       }
     },
     "org.finos.legend.depot.domain.VersionedData" : {
@@ -140,14 +144,12 @@
       "perMethodTestability" : {
         "T001" : 2,
         "T003" : 1,
-        "T012" : 2,
-        "T023" : 1
+        "T012" : 3
       },
       "perMethodOutcome" : {
         "R000" : 2,
         "T003" : 1,
-        "T012" : 2,
-        "T023" : 1
+        "T012" : 3
       },
       "perTestOutcome" : {
         "R000" : 1
@@ -244,8 +246,11 @@
     "org.finos.legend.depot.domain.CoordinateValidator.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        24
+      ]
     },
     "org.finos.legend.depot.domain.CoordinateValidator.<init>:()V" : {
       "completeTestCount" : 0,
@@ -284,8 +289,11 @@
     "org.finos.legend.depot.domain.DatesHandler.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        27
+      ]
     },
     "org.finos.legend.depot.domain.DatesHandler.<init>:()V" : {
       "completeTestCount" : 0,
@@ -338,6 +346,9 @@
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
         "R000" : 1
+      },
+      "warnings" : {
+        "W002" : 1
       },
       "lineNumbers" : [
         36
@@ -416,8 +427,13 @@
     "org.finos.legend.depot.domain.version.VersionAlias.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        20,
+        21,
+        18
+      ]
     },
     "org.finos.legend.depot.domain.version.VersionAlias.<init>:(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V" : {
       "completeTestCount" : 0,
@@ -555,6 +571,5 @@
         61
       ]
     }
-  },
-  "validationMetrics" : { }
+  }
 }

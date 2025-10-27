@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashSet;
 import java.util.List;
@@ -19,13 +18,12 @@ import org.junit.jupiter.api.Test;
 class ProjectDependencyReportDiffblueTest {
   /**
    * Test new {@link ProjectDependencyReport} (default constructor).
-   *
-   * <p>Method under test: default or parameterless constructor of {@link ProjectDependencyReport}
+   * <p>
+   * Method under test: default or parameterless constructor of {@link ProjectDependencyReport}
    */
   @Test
   @DisplayName("Test new ProjectDependencyReport (default constructor)")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ProjectDependencyReport.<init>()"})
   void testNewProjectDependencyReport() {
     // Arrange and Act
@@ -40,18 +38,16 @@ class ProjectDependencyReportDiffblueTest {
 
   /**
    * Test {@link ProjectDependencyReport#addConflict(String, String, Set)}.
-   *
    * <ul>
-   *   <li>Given {@code 42}.
-   *   <li>When {@link HashSet#HashSet()} add {@code 42}.
+   *   <li>Given {@code 42}.</li>
+   *   <li>When {@link HashSet#HashSet()} add {@code 42}.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link ProjectDependencyReport#addConflict(String, String, Set)}
+   * <p>
+   * Method under test: {@link ProjectDependencyReport#addConflict(String, String, Set)}
    */
   @Test
   @DisplayName("Test addConflict(String, String, Set); given '42'; when HashSet() add '42'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ProjectDependencyReport.addConflict(String, String, Set)"})
   void testAddConflict_given42_whenHashSetAdd42() {
     // Arrange
@@ -75,18 +71,15 @@ class ProjectDependencyReportDiffblueTest {
 
   /**
    * Test {@link ProjectDependencyReport#addConflict(String, String, Set)}.
-   *
    * <ul>
-   *   <li>Then {@link ProjectDependencyReport} (default constructor) Conflicts size is one.
+   *   <li>Then {@link ProjectDependencyReport} (default constructor) Conflicts size is one.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link ProjectDependencyReport#addConflict(String, String, Set)}
+   * <p>
+   * Method under test: {@link ProjectDependencyReport#addConflict(String, String, Set)}
    */
   @Test
-  @DisplayName(
-      "Test addConflict(String, String, Set); then ProjectDependencyReport (default constructor) Conflicts size is one")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @DisplayName("Test addConflict(String, String, Set); then ProjectDependencyReport (default constructor) Conflicts size is one")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ProjectDependencyReport.addConflict(String, String, Set)"})
   void testAddConflict_thenProjectDependencyReportConflictsSizeIsOne() {
     // Arrange
@@ -109,35 +102,30 @@ class ProjectDependencyReportDiffblueTest {
 
   /**
    * Test {@link ProjectDependencyReport#addConflict(String, String, Set)}.
-   *
    * <ul>
-   *   <li>When {@link HashSet#HashSet()}.
-   *   <li>Then throw {@link UnsupportedOperationException}.
+   *   <li>When {@link HashSet#HashSet()}.</li>
+   *   <li>Then throw {@link UnsupportedOperationException}.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link ProjectDependencyReport#addConflict(String, String, Set)}
+   * <p>
+   * Method under test: {@link ProjectDependencyReport#addConflict(String, String, Set)}
    */
   @Test
-  @DisplayName(
-      "Test addConflict(String, String, Set); when HashSet(); then throw UnsupportedOperationException")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @DisplayName("Test addConflict(String, String, Set); when HashSet(); then throw UnsupportedOperationException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void ProjectDependencyReport.addConflict(String, String, Set)"})
   void testAddConflict_whenHashSet_thenThrowUnsupportedOperationException() {
     // Arrange
     ProjectDependencyReport projectDependencyReport = new ProjectDependencyReport();
 
     // Act and Assert
-    assertThrows(
-        UnsupportedOperationException.class,
+    assertThrows(UnsupportedOperationException.class,
         () -> projectDependencyReport.addConflict("42", "42", new HashSet<>()));
   }
 
   /**
    * Test getters and setters.
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link ProjectDependencyReport#getConflicts()}
    *   <li>{@link ProjectDependencyReport#getGraph()}
@@ -145,12 +133,9 @@ class ProjectDependencyReportDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({
-    "List ProjectDependencyReport.getConflicts()",
-    "SerializedGraph ProjectDependencyReport.getGraph()"
-  })
+  @Tag("MaintainedByDiffblue")
+  @MethodsUnderTest({"List ProjectDependencyReport.getConflicts()",
+      "SerializedGraph ProjectDependencyReport.getGraph()"})
   void testGettersAndSetters() {
     // Arrange
     ProjectDependencyReport projectDependencyReport = new ProjectDependencyReport();
@@ -166,9 +151,8 @@ class ProjectDependencyReportDiffblueTest {
 
   /**
    * Test SerializedGraph getters and setters.
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link SerializedGraph#getNodes()}
    *   <li>{@link SerializedGraph#getRootNodes()}
@@ -176,8 +160,7 @@ class ProjectDependencyReportDiffblueTest {
    */
   @Test
   @DisplayName("Test SerializedGraph getters and setters")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"MutableMap SerializedGraph.getNodes()", "Set SerializedGraph.getRootNodes()"})
   void testSerializedGraphGettersAndSetters() {
     // Arrange
@@ -194,13 +177,12 @@ class ProjectDependencyReportDiffblueTest {
 
   /**
    * Test SerializedGraph new {@link SerializedGraph} (default constructor).
-   *
-   * <p>Method under test: default or parameterless constructor of {@link SerializedGraph}
+   * <p>
+   * Method under test: default or parameterless constructor of {@link SerializedGraph}
    */
   @Test
   @DisplayName("Test SerializedGraph new SerializedGraph (default constructor)")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void SerializedGraph.<init>()"})
   void testSerializedGraphNewSerializedGraph() {
     // Arrange and Act

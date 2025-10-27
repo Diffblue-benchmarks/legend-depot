@@ -1,7 +1,6 @@
 package org.finos.legend.depot.domain.version;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -10,9 +9,8 @@ import org.junit.jupiter.api.Test;
 class VersionAliasDiffblueTest {
   /**
    * Test getters and setters.
-   *
-   * <p>Methods under test:
-   *
+   * <p>
+   * Methods under test:
    * <ul>
    *   <li>{@link VersionAlias#getDescription()}
    *   <li>{@link VersionAlias#getName()}
@@ -20,8 +18,7 @@ class VersionAliasDiffblueTest {
    */
   @Test
   @DisplayName("Test getters and setters")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"String VersionAlias.getDescription()", "String VersionAlias.getName()"})
   void testGettersAndSetters() {
     // Arrange
@@ -32,8 +29,6 @@ class VersionAliasDiffblueTest {
 
     // Assert
     assertEquals("latest", valueOfResult.getName());
-    String expectedDescription =
-        String.join("", "last ", System.getProperty("jdk.debug"), "d version");
-    assertEquals(expectedDescription, actualDescription);
+    assertEquals(String.join("", "last ", System.getProperty("jdk.debug"), "d version"), actualDescription);
   }
 }

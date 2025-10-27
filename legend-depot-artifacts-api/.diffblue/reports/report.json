@@ -1,26 +1,25 @@
 {
   "meta" : {
-    "reportVersion" : "2.7"
+    "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2025.09.01-44e352d-licensed",
-    "creationTimestamp" : "2025-10-16T18:38:22.071754Z",
+    "version" : "2025.02.02-08b2a5a-licensed",
+    "creationTimestamp" : "2025-10-27T13:21:36.334842Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 81.99,
-    "environmentDetectionTime" : 0.034,
-    "indexingTime" : 0.489,
-    "entryPointsTime" : 0.028,
-    "generationTime" : 1021.463,
-    "timeToFirstTest" : 2697.099,
-    "timeToLastTest" : 1947.486,
-    "indexQueryTime" : 4.102,
-    "verificationTime" : 77.273,
-    "validationTime" : 10.362
+    "totalTime" : 80.517,
+    "environmentDetectionTime" : 0.193,
+    "indexingTime" : 0.367,
+    "entryPointsTime" : 0.189,
+    "generationTime" : 2770.127,
+    "timeToFirstTest" : 4258.852,
+    "timeToLastTest" : 3677.383,
+    "indexQueryTime" : 3.797,
+    "verificationTime" : 193.376,
+    "validationTime" : 10.941
   },
   "codes" : {
     "F009" : "Internal error",
     "R000" : "Success",
-    "R005" : "Unable to load class",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
     "T002" : "Trivial setter",
@@ -29,16 +28,15 @@
     "T009" : "No implementation for abstract class",
     "T010" : "Abstract or interface method",
     "T012" : "Synthetic method",
-    "T023" : "Testability unknown",
     "V000" : "Validated successfully",
     "V003" : "Tests discarded during validation"
   },
   "summary" : {
     "classesCount" : 14,
     "methodsCount" : 56,
-    "cumulativeDiffblueTestCount" : 13,
+    "cumulativeDiffblueTestCount" : 14,
     "cumulativeManualTestCount" : 0,
-    "completeTestCount" : 13,
+    "completeTestCount" : 14,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 310,
@@ -50,25 +48,22 @@
       "T005" : 4,
       "T009" : 2,
       "T010" : 25,
-      "T012" : 3,
-      "T023" : 2
+      "T012" : 5
     },
     "perMethodOutcome" : {
       "F009" : 1,
-      "R000" : 20,
-      "R005" : 1,
+      "R000" : 21,
       "T003" : 2,
       "T009" : 2,
       "T010" : 25,
-      "T012" : 3,
-      "T023" : 2
+      "T012" : 5
     },
     "perTestOutcome" : {
-      "R000" : 13
+      "R000" : 14
     },
     "perTestValidation" : {
-      "V000" : 13,
-      "V003" : 1
+      "V000" : 14,
+      "V003" : 2
     }
   },
   "classes" : {
@@ -148,22 +143,21 @@
     },
     "org.finos.legend.depot.services.api.artifacts.handlers.ProjectArtifactHandlerFactory" : {
       "methodsCount" : 5,
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 3,
         "T003" : 1,
-        "T023" : 1
+        "T012" : 1
       },
       "perMethodOutcome" : {
         "F009" : 1,
-        "R000" : 1,
-        "R005" : 1,
+        "R000" : 2,
         "T003" : 1,
-        "T023" : 1
+        "T012" : 1
       },
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       }
     },
     "org.finos.legend.depot.services.api.artifacts.handlers.ProjectArtifactsHandler" : {
@@ -219,14 +213,12 @@
       "perMethodTestability" : {
         "T000" : 1,
         "T003" : 1,
-        "T012" : 2,
-        "T023" : 1
+        "T012" : 3
       },
       "perMethodOutcome" : {
         "R000" : 1,
         "T003" : 1,
-        "T012" : 2,
-        "T023" : 1
+        "T012" : 3
       },
       "perTestOutcome" : {
         "R000" : 2
@@ -462,8 +454,11 @@
     "org.finos.legend.depot.services.api.artifacts.handlers.ProjectArtifactHandlerFactory.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        27
+      ]
     },
     "org.finos.legend.depot.services.api.artifacts.handlers.ProjectArtifactHandlerFactory.<init>:()V" : {
       "completeTestCount" : 0,
@@ -477,10 +472,13 @@
       ]
     },
     "org.finos.legend.depot.services.api.artifacts.handlers.ProjectArtifactHandlerFactory.getArtifactHandler:(Lorg/finos/legend/depot/domain/artifacts/repository/ArtifactType;)Lorg/finos/legend/depot/services/api/artifacts/handlers/ProjectArtifactsHandler;" : {
-      "completeTestCount" : 0,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R005",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
       "lineNumbers" : [
         41
       ]
@@ -615,8 +613,16 @@
     "org.finos.legend.depot.services.api.artifacts.refresh.ParentEvent.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        20,
+        21,
+        22,
+        23,
+        24,
+        18
+      ]
     },
     "org.finos.legend.depot.services.api.artifacts.refresh.ParentEvent.<init>:(Ljava/lang/String;I)V" : {
       "completeTestCount" : 0,
@@ -783,6 +789,5 @@
         64
       ]
     }
-  },
-  "validationMetrics" : { }
+  }
 }

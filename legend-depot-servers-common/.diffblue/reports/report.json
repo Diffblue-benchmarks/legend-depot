@@ -1,29 +1,29 @@
 {
   "meta" : {
-    "reportVersion" : "2.7"
+    "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2025.09.01-44e352d-licensed",
-    "creationTimestamp" : "2025-10-16T18:38:22.071754Z",
+    "version" : "2025.02.02-08b2a5a-licensed",
+    "creationTimestamp" : "2025-10-27T13:21:36.334842Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 219.975,
-    "environmentDetectionTime" : 0.066,
-    "indexingTime" : 0.506,
-    "entryPointsTime" : 0.06,
-    "generationTime" : 1256.733,
-    "timeToFirstTest" : 3259.819,
-    "timeToLastTest" : 2372.895,
-    "indexQueryTime" : 7.971,
-    "verificationTime" : 89.901,
-    "validationTime" : 11.641
+    "totalTime" : 146.623,
+    "environmentDetectionTime" : 0.268,
+    "indexingTime" : 0.383,
+    "entryPointsTime" : 0.264,
+    "generationTime" : 2931.859,
+    "timeToFirstTest" : 4719.822,
+    "timeToLastTest" : 4025.831,
+    "indexQueryTime" : 12.579,
+    "verificationTime" : 205.643,
+    "validationTime" : 12.251
   },
   "codes" : {
     "R000" : "Success",
     "R002" : "Missing observers",
     "R005" : "Unable to load class",
     "R006" : "Static initializer failed",
-    "R011" : "Sandboxing policy violation",
     "R013" : "No inputs found that don't throw a trivial exception",
+    "R024" : "Analysis service shutdown unexpectedly",
     "R081" : "Exception in arrange section",
     "R083" : "Can't find a suitable constructor",
     "T000" : "Method eligible for test creation",
@@ -36,7 +36,6 @@
     "T009" : "No implementation for abstract class",
     "T010" : "Abstract or interface method",
     "T012" : "Synthetic method",
-    "T023" : "Testability unknown",
     "V000" : "Validated successfully",
     "V003" : "Tests discarded during validation",
     "W002" : "Test compiled, but did not pass"
@@ -44,9 +43,9 @@
   "summary" : {
     "classesCount" : 23,
     "methodsCount" : 124,
-    "cumulativeDiffblueTestCount" : 47,
+    "cumulativeDiffblueTestCount" : 37,
     "cumulativeManualTestCount" : 0,
-    "completeTestCount" : 47,
+    "completeTestCount" : 37,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 869,
@@ -60,36 +59,34 @@
       "T008" : 3,
       "T009" : 8,
       "T010" : 6,
-      "T012" : 6,
-      "T023" : 6
+      "T012" : 12
     },
     "perMethodOutcome" : {
-      "R000" : 29,
+      "R000" : 27,
       "R002" : 1,
       "R005" : 18,
       "R006" : 1,
-      "R011" : 2,
       "R013" : 3,
-      "R081" : 2,
+      "R024" : 1,
+      "R081" : 1,
       "R083" : 6,
       "T003" : 19,
       "T004" : 13,
       "T008" : 3,
       "T009" : 8,
       "T010" : 6,
-      "T012" : 6,
-      "T023" : 6,
-      "W002" : 1
+      "T012" : 12,
+      "W002" : 4
     },
     "perTestOutcome" : {
-      "R000" : 47
+      "R000" : 37
     },
     "perTestValidation" : {
-      "V000" : 47,
-      "V003" : 1
+      "V000" : 37,
+      "V003" : 2
     },
     "warnings" : {
-      "W002" : 5
+      "W002" : 19
     }
   },
   "classes" : {
@@ -101,15 +98,13 @@
         "T003" : 3,
         "T009" : 4,
         "T010" : 4,
-        "T012" : 1,
-        "T023" : 1
+        "T012" : 2
       },
       "perMethodOutcome" : {
         "T003" : 3,
         "T009" : 4,
         "T010" : 4,
-        "T012" : 1,
-        "T023" : 1
+        "T012" : 2
       }
     },
     "org.finos.legend.depot.core.server.BaseServer$1" : {
@@ -167,12 +162,12 @@
       "perMethodTestability" : {
         "T000" : 2,
         "T010" : 1,
-        "T023" : 1
+        "T012" : 1
       },
       "perMethodOutcome" : {
         "R013" : 2,
         "T010" : 1,
-        "T023" : 1
+        "T012" : 1
       }
     },
     "org.finos.legend.depot.core.server.error.CatchAllExceptionMapper" : {
@@ -201,14 +196,12 @@
         "T000" : 1,
         "T003" : 1,
         "T005" : 2,
-        "T012" : 1,
-        "T023" : 1
+        "T012" : 2
       },
       "perMethodOutcome" : {
         "R000" : 2,
         "T003" : 1,
-        "T012" : 1,
-        "T023" : 1,
+        "T012" : 2,
         "W002" : 1
       },
       "perTestOutcome" : {
@@ -223,15 +216,15 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
-        "T023" : 1
+        "T012" : 1
       },
       "perMethodOutcome" : {
-        "T023" : 1
+        "T012" : 1
       }
     },
     "org.finos.legend.depot.core.server.error.ExtendedErrorMessage" : {
       "methodsCount" : 13,
-      "completeTestCount" : 13,
+      "completeTestCount" : 6,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 6,
@@ -244,27 +237,27 @@
         "T003" : 5
       },
       "perTestOutcome" : {
-        "R000" : 13
+        "R000" : 6
       },
       "warnings" : {
-        "W002" : 4
+        "W002" : 15
       }
     },
     "org.finos.legend.depot.core.server.error.LegendDepotServerException" : {
       "methodsCount" : 12,
-      "completeTestCount" : 26,
+      "completeTestCount" : 25,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 10,
         "T001" : 1,
-        "T023" : 1
+        "T012" : 1
       },
       "perMethodOutcome" : {
         "R000" : 11,
-        "T023" : 1
+        "T012" : 1
       },
       "perTestOutcome" : {
-        "R000" : 26
+        "R000" : 25
       }
     },
     "org.finos.legend.depot.core.server.error.configuration.ExceptionMapperConfiguration" : {
@@ -348,7 +341,10 @@
       "perMethodOutcome" : {
         "R002" : 1,
         "R005" : 1,
-        "R011" : 1
+        "W002" : 1
+      },
+      "warnings" : {
+        "W002" : 1
       }
     },
     "org.finos.legend.depot.core.server.info.InfoService" : {
@@ -359,15 +355,15 @@
         "T000" : 1,
         "T001" : 1,
         "T003" : 3,
-        "T012" : 2,
-        "T023" : 1
+        "T012" : 3
       },
       "perMethodOutcome" : {
-        "R011" : 1,
-        "R081" : 1,
         "T003" : 3,
-        "T012" : 2,
-        "T023" : 1
+        "T012" : 3,
+        "W002" : 2
+      },
+      "warnings" : {
+        "W002" : 2
       }
     },
     "org.finos.legend.depot.core.server.info.InfoService$PlatformVersionInfo" : {
@@ -421,19 +417,16 @@
       }
     },
     "org.finos.legend.depot.core.server.resources.info.InfoResource" : {
-      "methodsCount" : 3,
-      "completeTestCount" : 2,
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 2,
         "T005" : 1
       },
       "perMethodOutcome" : {
-        "R000" : 2,
+        "R024" : 1,
         "R081" : 1
-      },
-      "perTestOutcome" : {
-        "R000" : 2
       }
     }
   },
@@ -548,8 +541,11 @@
     "org.finos.legend.depot.core.server.BaseServer.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        57
+      ]
     },
     "org.finos.legend.depot.core.server.BaseServer.<init>:()V" : {
       "completeTestCount" : 0,
@@ -844,8 +840,11 @@
     "org.finos.legend.depot.core.server.error.BaseExceptionMapper.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        27
+      ]
     },
     "org.finos.legend.depot.core.server.error.BaseExceptionMapper.<init>:(Z)V" : {
       "completeTestCount" : 0,
@@ -946,14 +945,20 @@
     "org.finos.legend.depot.core.server.error.DepotServerExceptionMapper$1.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        43
+      ]
     },
     "org.finos.legend.depot.core.server.error.DepotServerExceptionMapper.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        27
+      ]
     },
     "org.finos.legend.depot.core.server.error.DepotServerExceptionMapper.<init>:()V" : {
       "completeTestCount" : 2,
@@ -1044,30 +1049,30 @@
       ]
     },
     "org.finos.legend.depot.core.server.error.ExtendedErrorMessage.fromLegendDepotServerException:(Lorg/finos/legend/depot/core/server/error/LegendDepotServerException;Z)Lorg/finos/legend/depot/core/server/error/ExtendedErrorMessage;" : {
-      "completeTestCount" : 2,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 1
       },
       "warnings" : {
-        "W002" : 1
+        "W002" : 3
       },
       "lineNumbers" : [
         77
       ]
     },
     "org.finos.legend.depot.core.server.error.ExtendedErrorMessage.fromThrowable:(Ljava/lang/Throwable;ILjava/lang/String;Ljava/lang/String;Z)Lorg/finos/legend/depot/core/server/error/ExtendedErrorMessage;" : {
-      "completeTestCount" : 3,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 3
+        "R000" : 1
       },
       "warnings" : {
-        "W002" : 1
+        "W002" : 4
       },
       "lineNumbers" : [
         92,
@@ -1075,30 +1080,30 @@
       ]
     },
     "org.finos.legend.depot.core.server.error.ExtendedErrorMessage.fromThrowable:(Ljava/lang/Throwable;Ljavax/ws/rs/core/Response$Status;Ljava/lang/String;Ljava/lang/String;Z)Lorg/finos/legend/depot/core/server/error/ExtendedErrorMessage;" : {
-      "completeTestCount" : 3,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 3
+        "R000" : 1
       },
       "warnings" : {
-        "W002" : 1
+        "W002" : 5
       },
       "lineNumbers" : [
         87
       ]
     },
     "org.finos.legend.depot.core.server.error.ExtendedErrorMessage.fromThrowable:(Ljava/lang/Throwable;Z)Lorg/finos/legend/depot/core/server/error/ExtendedErrorMessage;" : {
-      "completeTestCount" : 3,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 3
+        "R000" : 1
       },
       "warnings" : {
-        "W002" : 1
+        "W002" : 3
       },
       "lineNumbers" : [
         64,
@@ -1202,8 +1207,11 @@
     "org.finos.legend.depot.core.server.error.LegendDepotServerException.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        26
+      ]
     },
     "org.finos.legend.depot.core.server.error.LegendDepotServerException.<init>:(Ljava/lang/String;)V" : {
       "completeTestCount" : 1,
@@ -1298,12 +1306,12 @@
       ]
     },
     "org.finos.legend.depot.core.server.error.LegendDepotServerException.validate:(Ljava/lang/Object;Ljava/util/function/Predicate;Ljava/util/function/Function;)Ljava/lang/Object;" : {
-      "completeTestCount" : 4,
+      "completeTestCount" : 3,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 4
+        "R000" : 3
       },
       "lineNumbers" : [
         83
@@ -1560,7 +1568,10 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R011",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
       "lineNumbers" : [
         38
       ]
@@ -1674,14 +1685,21 @@
     "org.finos.legend.depot.core.server.info.InfoService.<clinit>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
-      "perMethodTestability" : "T023",
-      "perMethodOutcome" : "T023"
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        32,
+        34
+      ]
     },
     "org.finos.legend.depot.core.server.info.InfoService.<init>:()V" : {
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R011",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
       "lineNumbers" : [
         40,
         41,
@@ -1713,7 +1731,10 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T001",
-      "perMethodOutcome" : "R081",
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 1
+      },
       "lineNumbers" : [
         156
       ]
@@ -1761,29 +1782,22 @@
       ]
     },
     "org.finos.legend.depot.core.server.resources.info.InfoResource.getServerConfig:()Ljava/lang/String;" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R000",
-      "perTestOutcome" : {
-        "R000" : 1
-      },
+      "perMethodOutcome" : "R024",
       "lineNumbers" : [
         61
       ]
     },
     "org.finos.legend.depot.core.server.resources.info.InfoResource.getServerInfo:()Lorg/finos/legend/depot/core/server/info/InfoService$ServerInfo;" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R000",
-      "perTestOutcome" : {
-        "R000" : 1
-      },
+      "perMethodOutcome" : "F009",
       "lineNumbers" : [
         52
       ]
     }
-  },
-  "validationMetrics" : { }
+  }
 }

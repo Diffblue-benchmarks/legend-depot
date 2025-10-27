@@ -8,9 +8,9 @@ import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.ManagedByDiffblue;
 import com.diffblue.cover.annotations.MethodsUnderTest;
 import io.opentracing.Span;
+import io.opentracing.Tracer;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
@@ -19,28 +19,32 @@ import org.finos.legend.depot.core.services.api.tracing.configuration.TracerProv
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+@ExtendWith(MockitoExtension.class)
 class TracerFactoryDiffblueTest {
+  @InjectMocks
+  private TracerFactory tracerFactory;
+
   /**
    * Test {@link TracerFactory#configure(OpenTracingConfiguration)}.
-   *
    * <ul>
-   *   <li>Then throw {@link RuntimeException}.
+   *   <li>When {@link OpenTracingConfiguration} (default constructor) TracerProvider is {@link TracerProvider}.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link TracerFactory#configure(OpenTracingConfiguration)}
+   * <p>
+   * Method under test: {@link TracerFactory#configure(OpenTracingConfiguration)}
    */
   @Test
-  @DisplayName("Test configure(OpenTracingConfiguration); then throw RuntimeException")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @DisplayName("Test configure(OpenTracingConfiguration); when OpenTracingConfiguration (default constructor) TracerProvider is TracerProvider")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"TracerFactory TracerFactory.configure(OpenTracingConfiguration)"})
-  void testConfigure_thenThrowRuntimeException() {
+  void testConfigure_whenOpenTracingConfigurationTracerProviderIsTracerProvider() {
     // Arrange
     TracerProvider tracerProvider = mock(TracerProvider.class);
-    when(tracerProvider.create(Mockito.<OpenTracingConfiguration>any()))
-        .thenThrow(new RuntimeException());
+    when(tracerProvider.create(Mockito.<OpenTracingConfiguration>any())).thenReturn(mock(Tracer.class));
 
     OpenTracingConfiguration openTracingConfiguration = new OpenTracingConfiguration();
     openTracingConfiguration.setEnabled(true);
@@ -48,41 +52,37 @@ class TracerFactoryDiffblueTest {
     openTracingConfiguration.setServiceName("Service Name");
     openTracingConfiguration.setTracerProvider(tracerProvider);
 
-    // Act and Assert
-    assertThrows(RuntimeException.class, () -> TracerFactory.configure(openTracingConfiguration));
+    // Act
+    TracerFactory.configure(openTracingConfiguration);
+
+    // Assert
     verify(tracerProvider).create(isA(OpenTracingConfiguration.class));
   }
 
   /**
    * Test {@link TracerFactory#addTags(Map, Span)} with {@code tags}, {@code span}.
-   *
    * <ul>
-   *   <li>Given {@link Span}.
-   *   <li>When {@link HashMap#HashMap()} {@code 42} is {@code 42}.
-   *   <li>Then calls {@link Span#setTag(String, String)}.
+   *   <li>Given {@link Span}.</li>
+   *   <li>When {@link HashMap#HashMap()} {@code 42} is {@code 42}.</li>
+   *   <li>Then calls {@link Span#setTag(String, String)}.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link TracerFactory#addTags(Map, Span)}
+   * <p>
+   * Method under test: {@link TracerFactory#addTags(Map, Span)}
    */
   @Test
-  @DisplayName(
-      "Test addTags(Map, Span) with 'tags', 'span'; given Span; when HashMap() '42' is '42'; then calls setTag(String, String)")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @DisplayName("Test addTags(Map, Span) with 'tags', 'span'; given Span; when HashMap() '42' is '42'; then calls setTag(String, String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TracerFactory.addTags(Map, Span)"})
   void testAddTagsWithTagsSpan_givenSpan_whenHashMap42Is42_thenCallsSetTag() {
     // Arrange
-    TracerFactory getResult = TracerFactory.get();
-
     HashMap<String, Object> tags = new HashMap<>();
     tags.put("42", "42");
     tags.put("foo", "42");
-
     Span span = mock(Span.class);
     when(span.setTag(Mockito.<String>any(), Mockito.<String>any())).thenReturn(mock(Span.class));
 
     // Act
-    getResult.addTags(tags, span);
+    tracerFactory.addTags(tags, span);
 
     // Assert
     verify(span, atLeast(1)).setTag(Mockito.<String>any(), eq("42"));
@@ -90,95 +90,47 @@ class TracerFactoryDiffblueTest {
 
   /**
    * Test {@link TracerFactory#addTags(Map, Span)} with {@code tags}, {@code span}.
-   *
    * <ul>
-   *   <li>Given {@link Span}.
-   *   <li>When {@link Span} {@link Span#setTag(String, String)} return {@link Span}.
-   *   <li>Then calls {@link Span#setTag(String, String)}.
+   *   <li>Given {@link Span}.</li>
+   *   <li>When {@link Span} {@link Span#setTag(String, String)} return {@link Span}.</li>
+   *   <li>Then calls {@link Span#setTag(String, String)}.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link TracerFactory#addTags(Map, Span)}
+   * <p>
+   * Method under test: {@link TracerFactory#addTags(Map, Span)}
    */
   @Test
-  @DisplayName(
-      "Test addTags(Map, Span) with 'tags', 'span'; given Span; when Span setTag(String, String) return Span; then calls setTag(String, String)")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @DisplayName("Test addTags(Map, Span) with 'tags', 'span'; given Span; when Span setTag(String, String) return Span; then calls setTag(String, String)")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"void TracerFactory.addTags(Map, Span)"})
   void testAddTagsWithTagsSpan_givenSpan_whenSpanSetTagReturnSpan_thenCallsSetTag() {
     // Arrange
-    TracerFactory getResult = TracerFactory.get();
-
     HashMap<String, Object> tags = new HashMap<>();
     tags.put("foo", "42");
-
     Span span = mock(Span.class);
     when(span.setTag(Mockito.<String>any(), Mockito.<String>any())).thenReturn(mock(Span.class));
 
     // Act
-    getResult.addTags(tags, span);
+    tracerFactory.addTags(tags, span);
 
     // Assert
-    verify(span).setTag("foo", "42");
+    verify(span).setTag(eq("foo"), eq("42"));
   }
 
   /**
-   * Test {@link TracerFactory#executeWithTrace(String, Supplier, Map)} with {@code label}, {@code
-   * supplier}, {@code tags}.
-   *
+   * Test {@link TracerFactory#executeWithTrace(String, Supplier, Map)} with {@code label}, {@code supplier}, {@code tags}.
    * <ul>
-   *   <li>Given {@code 42}.
-   *   <li>When {@link HashMap#HashMap()} {@code 42} is {@code 42}.
+   *   <li>Given {@code foo}.</li>
+   *   <li>When {@link HashMap#HashMap()} {@code foo} is {@code foo}.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link TracerFactory#executeWithTrace(String, Supplier, Map)}
+   * <p>
+   * Method under test: {@link TracerFactory#executeWithTrace(String, Supplier, Map)}
    */
   @Test
-  @DisplayName(
-      "Test executeWithTrace(String, Supplier, Map) with 'label', 'supplier', 'tags'; given '42'; when HashMap() '42' is '42'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"Object TracerFactory.executeWithTrace(String, Supplier, Map)"})
-  void testExecuteWithTraceWithLabelSupplierTags_given42_whenHashMap42Is42() {
-    // Arrange
-    TracerFactory getResult = TracerFactory.get();
-
-    Supplier<Object> supplier = mock(Supplier.class);
-    when(supplier.get()).thenReturn("Get");
-
-    HashMap<String, String> tags = new HashMap<>();
-    tags.put("42", "42");
-    tags.put("foo", "foo");
-
-    // Act
-    Object actualExecuteWithTraceResult = getResult.executeWithTrace("Label", supplier, tags);
-
-    // Assert
-    verify(supplier).get();
-    assertEquals("Get", actualExecuteWithTraceResult);
-  }
-
-  /**
-   * Test {@link TracerFactory#executeWithTrace(String, Supplier, Map)} with {@code label}, {@code
-   * supplier}, {@code tags}.
-   *
-   * <ul>
-   *   <li>Given {@code foo}.
-   *   <li>When {@link HashMap#HashMap()} {@code foo} is {@code foo}.
-   * </ul>
-   *
-   * <p>Method under test: {@link TracerFactory#executeWithTrace(String, Supplier, Map)}
-   */
-  @Test
-  @DisplayName(
-      "Test executeWithTrace(String, Supplier, Map) with 'label', 'supplier', 'tags'; given 'foo'; when HashMap() 'foo' is 'foo'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @DisplayName("Test executeWithTrace(String, Supplier, Map) with 'label', 'supplier', 'tags'; given 'foo'; when HashMap() 'foo' is 'foo'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object TracerFactory.executeWithTrace(String, Supplier, Map)"})
   void testExecuteWithTraceWithLabelSupplierTags_givenFoo_whenHashMapFooIsFoo() {
     // Arrange
-    TracerFactory getResult = TracerFactory.get();
-
     Supplier<Object> supplier = mock(Supplier.class);
     when(supplier.get()).thenReturn("Get");
 
@@ -186,7 +138,7 @@ class TracerFactoryDiffblueTest {
     tags.put("foo", "foo");
 
     // Act
-    Object actualExecuteWithTraceResult = getResult.executeWithTrace("Label", supplier, tags);
+    Object actualExecuteWithTraceResult = tracerFactory.executeWithTrace("Label", supplier, tags);
 
     // Assert
     verify(supplier).get();
@@ -194,124 +146,47 @@ class TracerFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link TracerFactory#executeWithTrace(String, Supplier, Map)} with {@code label}, {@code
-   * supplier}, {@code tags}.
-   *
+   * Test {@link TracerFactory#executeWithTrace(String, Supplier, Map)} with {@code label}, {@code supplier}, {@code tags}.
    * <ul>
-   *   <li>Given {@code Get}.
-   *   <li>When {@link HashMap#HashMap()}.
-   *   <li>Then return {@code Get}.
+   *   <li>Then throw {@link RuntimeException}.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link TracerFactory#executeWithTrace(String, Supplier, Map)}
+   * <p>
+   * Method under test: {@link TracerFactory#executeWithTrace(String, Supplier, Map)}
    */
   @Test
-  @DisplayName(
-      "Test executeWithTrace(String, Supplier, Map) with 'label', 'supplier', 'tags'; given 'Get'; when HashMap(); then return 'Get'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"Object TracerFactory.executeWithTrace(String, Supplier, Map)"})
-  void testExecuteWithTraceWithLabelSupplierTags_givenGet_whenHashMap_thenReturnGet() {
-    // Arrange
-    TracerFactory getResult = TracerFactory.get();
-
-    Supplier<Object> supplier = mock(Supplier.class);
-    when(supplier.get()).thenReturn("Get");
-
-    // Act
-    Object actualExecuteWithTraceResult =
-        getResult.executeWithTrace("Label", supplier, new HashMap<>());
-
-    // Assert
-    verify(supplier).get();
-    assertEquals("Get", actualExecuteWithTraceResult);
-  }
-
-  /**
-   * Test {@link TracerFactory#executeWithTrace(String, Supplier, Map)} with {@code label}, {@code
-   * supplier}, {@code tags}.
-   *
-   * <ul>
-   *   <li>Then throw {@link RuntimeException}.
-   * </ul>
-   *
-   * <p>Method under test: {@link TracerFactory#executeWithTrace(String, Supplier, Map)}
-   */
-  @Test
-  @DisplayName(
-      "Test executeWithTrace(String, Supplier, Map) with 'label', 'supplier', 'tags'; then throw RuntimeException")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @DisplayName("Test executeWithTrace(String, Supplier, Map) with 'label', 'supplier', 'tags'; then throw RuntimeException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object TracerFactory.executeWithTrace(String, Supplier, Map)"})
   void testExecuteWithTraceWithLabelSupplierTags_thenThrowRuntimeException() {
     // Arrange
-    TracerFactory getResult = TracerFactory.get();
-
     Supplier<Object> supplier = mock(Supplier.class);
-    when(supplier.get()).thenThrow(new RuntimeException());
+    when(supplier.get()).thenThrow(new RuntimeException("foo"));
 
     // Act and Assert
-    assertThrows(
-        RuntimeException.class,
-        () -> getResult.executeWithTrace("Label", supplier, new HashMap<>()));
+    assertThrows(RuntimeException.class, () -> tracerFactory.executeWithTrace("Label", supplier, new HashMap<>()));
     verify(supplier).get();
   }
 
   /**
-   * Test {@link TracerFactory#executeWithTrace(String, Supplier)} with {@code label}, {@code
-   * supplier}.
-   *
+   * Test {@link TracerFactory#executeWithTrace(String, Supplier)} with {@code label}, {@code supplier}.
    * <ul>
-   *   <li>Given {@link TracerFactory#get()} addTags {@link HashMap#HashMap()}.
+   *   <li>Given {@code Get}.</li>
+   *   <li>Then return {@code Get}.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link TracerFactory#executeWithTrace(String, Supplier)}
+   * <p>
+   * Method under test: {@link TracerFactory#executeWithTrace(String, Supplier)}
    */
   @Test
-  @DisplayName(
-      "Test executeWithTrace(String, Supplier) with 'label', 'supplier'; given get() addTags HashMap()")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"Object TracerFactory.executeWithTrace(String, Supplier)"})
-  void testExecuteWithTraceWithLabelSupplier_givenGetAddTagsHashMap() {
-    // Arrange
-    TracerFactory getResult = TracerFactory.get();
-    getResult.addTags(new HashMap<>());
-
-    Supplier<Object> supplier = mock(Supplier.class);
-    when(supplier.get()).thenThrow(new RuntimeException());
-
-    // Act and Assert
-    assertThrows(RuntimeException.class, () -> getResult.executeWithTrace("Label", supplier));
-    verify(supplier).get();
-  }
-
-  /**
-   * Test {@link TracerFactory#executeWithTrace(String, Supplier)} with {@code label}, {@code
-   * supplier}.
-   *
-   * <ul>
-   *   <li>Given {@code Get}.
-   *   <li>Then return {@code Get}.
-   * </ul>
-   *
-   * <p>Method under test: {@link TracerFactory#executeWithTrace(String, Supplier)}
-   */
-  @Test
-  @DisplayName(
-      "Test executeWithTrace(String, Supplier) with 'label', 'supplier'; given 'Get'; then return 'Get'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @DisplayName("Test executeWithTrace(String, Supplier) with 'label', 'supplier'; given 'Get'; then return 'Get'")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object TracerFactory.executeWithTrace(String, Supplier)"})
   void testExecuteWithTraceWithLabelSupplier_givenGet_thenReturnGet() {
     // Arrange
-    TracerFactory getResult = TracerFactory.get();
-
     Supplier<Object> supplier = mock(Supplier.class);
     when(supplier.get()).thenReturn("Get");
 
     // Act
-    Object actualExecuteWithTraceResult = getResult.executeWithTrace("Label", supplier);
+    Object actualExecuteWithTraceResult = tracerFactory.executeWithTrace("Label", supplier);
 
     // Assert
     verify(supplier).get();
@@ -319,31 +194,24 @@ class TracerFactoryDiffblueTest {
   }
 
   /**
-   * Test {@link TracerFactory#executeWithTrace(String, Supplier)} with {@code label}, {@code
-   * supplier}.
-   *
+   * Test {@link TracerFactory#executeWithTrace(String, Supplier)} with {@code label}, {@code supplier}.
    * <ul>
-   *   <li>Given {@link TracerFactory#get()}.
-   *   <li>Then throw {@link RuntimeException}.
+   *   <li>Then throw {@link RuntimeException}.</li>
    * </ul>
-   *
-   * <p>Method under test: {@link TracerFactory#executeWithTrace(String, Supplier)}
+   * <p>
+   * Method under test: {@link TracerFactory#executeWithTrace(String, Supplier)}
    */
   @Test
-  @DisplayName(
-      "Test executeWithTrace(String, Supplier) with 'label', 'supplier'; given get(); then throw RuntimeException")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
+  @DisplayName("Test executeWithTrace(String, Supplier) with 'label', 'supplier'; then throw RuntimeException")
+  @Tag("MaintainedByDiffblue")
   @MethodsUnderTest({"Object TracerFactory.executeWithTrace(String, Supplier)"})
-  void testExecuteWithTraceWithLabelSupplier_givenGet_thenThrowRuntimeException() {
+  void testExecuteWithTraceWithLabelSupplier_thenThrowRuntimeException() {
     // Arrange
-    TracerFactory getResult = TracerFactory.get();
-
     Supplier<Object> supplier = mock(Supplier.class);
-    when(supplier.get()).thenThrow(new RuntimeException());
+    when(supplier.get()).thenThrow(new RuntimeException("foo"));
 
     // Act and Assert
-    assertThrows(RuntimeException.class, () -> getResult.executeWithTrace("Label", supplier));
+    assertThrows(RuntimeException.class, () -> tracerFactory.executeWithTrace("Label", supplier));
     verify(supplier).get();
   }
 }
