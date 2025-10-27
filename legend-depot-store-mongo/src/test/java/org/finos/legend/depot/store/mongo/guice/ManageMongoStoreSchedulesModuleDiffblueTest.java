@@ -7,7 +7,6 @@ import static org.mockito.Mockito.anyLong;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
-import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.mongodb.ReadConcern;
 import com.mongodb.ReadConcernLevel;
 import com.mongodb.ReadPreference;
@@ -21,8 +20,6 @@ import org.finos.legend.depot.core.services.api.metrics.VoidPrometheusMetricsHan
 import org.finos.legend.depot.services.api.schedules.SchedulesFactory;
 import org.finos.legend.depot.store.mongo.admin.MongoAdminStore;
 import org.finos.legend.depot.store.mongo.admin.metrics.StorageMetricsHandler;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -35,50 +32,11 @@ class ManageMongoStoreSchedulesModuleDiffblueTest {
   private ManageMongoStoreSchedulesModule manageMongoStoreSchedulesModule;
 
   /**
-   * Test {@link ManageMongoStoreSchedulesModule#scheduleStorageMetrics(SchedulesFactory, StorageMetricsHandler)}.
-   * <ul>
-   *   <li>Then calls {@link StorageMetricsHandler#init()}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ManageMongoStoreSchedulesModule#scheduleStorageMetrics(SchedulesFactory, StorageMetricsHandler)}
+   * Method under test:
+   * {@link ManageMongoStoreSchedulesModule#scheduleStorageMetrics(SchedulesFactory, StorageMetricsHandler)}
    */
   @Test
-  @DisplayName("Test scheduleStorageMetrics(SchedulesFactory, StorageMetricsHandler); then calls init()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-      "boolean ManageMongoStoreSchedulesModule.scheduleStorageMetrics(SchedulesFactory, StorageMetricsHandler)"})
-  void testScheduleStorageMetrics_thenCallsInit() {
-    // Arrange
-    SchedulesFactory schedulesFactory = mock(SchedulesFactory.class);
-    doNothing().when(schedulesFactory)
-        .register(Mockito.<String>any(), anyLong(), anyLong(), Mockito.<Supplier<Object>>any());
-    StorageMetricsHandler storageMetrics = mock(StorageMetricsHandler.class);
-    doNothing().when(storageMetrics).init();
-
-    // Act
-    boolean actualScheduleStorageMetricsResult = manageMongoStoreSchedulesModule
-        .scheduleStorageMetrics(schedulesFactory, storageMetrics);
-
-    // Assert
-    verify(schedulesFactory).register(eq("storage-metrics"), eq(30000L), eq(30000L), isA(Supplier.class));
-    verify(storageMetrics).init();
-    assertTrue(actualScheduleStorageMetricsResult);
-  }
-
-  /**
-   * Test {@link ManageMongoStoreSchedulesModule#scheduleStorageMetrics(SchedulesFactory, StorageMetricsHandler)}.
-   * <ul>
-   *   <li>Then return {@code true}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ManageMongoStoreSchedulesModule#scheduleStorageMetrics(SchedulesFactory, StorageMetricsHandler)}
-   */
-  @Test
-  @DisplayName("Test scheduleStorageMetrics(SchedulesFactory, StorageMetricsHandler); then return 'true'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({
-      "boolean ManageMongoStoreSchedulesModule.scheduleStorageMetrics(SchedulesFactory, StorageMetricsHandler)"})
-  void testScheduleStorageMetrics_thenReturnTrue() {
+  void testScheduleStorageMetrics() {
     // Arrange
     SchedulesFactory schedulesFactory = mock(SchedulesFactory.class);
     doNothing().when(schedulesFactory)
@@ -96,6 +54,29 @@ class ManageMongoStoreSchedulesModuleDiffblueTest {
 
     // Assert
     verify(schedulesFactory).register(eq("storage-metrics"), eq(30000L), eq(30000L), isA(Supplier.class));
+    assertTrue(actualScheduleStorageMetricsResult);
+  }
+
+  /**
+   * Method under test:
+   * {@link ManageMongoStoreSchedulesModule#scheduleStorageMetrics(SchedulesFactory, StorageMetricsHandler)}
+   */
+  @Test
+  void testScheduleStorageMetrics2() {
+    // Arrange
+    SchedulesFactory schedulesFactory = mock(SchedulesFactory.class);
+    doNothing().when(schedulesFactory)
+        .register(Mockito.<String>any(), anyLong(), anyLong(), Mockito.<Supplier<Object>>any());
+    StorageMetricsHandler storageMetrics = mock(StorageMetricsHandler.class);
+    doNothing().when(storageMetrics).init();
+
+    // Act
+    boolean actualScheduleStorageMetricsResult = manageMongoStoreSchedulesModule
+        .scheduleStorageMetrics(schedulesFactory, storageMetrics);
+
+    // Assert
+    verify(schedulesFactory).register(eq("storage-metrics"), eq(30000L), eq(30000L), isA(Supplier.class));
+    verify(storageMetrics).init();
     assertTrue(actualScheduleStorageMetricsResult);
   }
 }

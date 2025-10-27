@@ -3,23 +3,22 @@
     "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2025.02.02-08b2a5a-licensed",
-    "creationTimestamp" : "2025-10-27T13:21:36.334842Z",
+    "version" : "2024.10.01-2ee2e3d-licensed",
+    "creationTimestamp" : "2025-10-27T17:54:04.113781Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 55.435,
-    "environmentDetectionTime" : 0.167,
-    "indexingTime" : 0.298,
-    "entryPointsTime" : 0.164,
-    "generationTime" : 2120.216,
-    "timeToFirstTest" : 2402.67,
-    "timeToLastTest" : 2332.107,
-    "indexQueryTime" : 1.957,
-    "verificationTime" : 29.69,
-    "validationTime" : 9.78
+    "totalTime" : 2504.124,
+    "environmentDetectionTime" : 0.163,
+    "indexingTime" : 0.391,
+    "entryPointsTime" : 0.159,
+    "generationTime" : 2127.135,
+    "timeToFirstTest" : 144.257,
+    "timeToLastTest" : 155.682,
+    "indexQueryTime" : 1.953,
+    "verificationTime" : 29.861,
+    "validationTime" : 10.62
   },
   "codes" : {
     "R000" : "Success",
-    "R013" : "No inputs found that don't throw a trivial exception",
     "T000" : "Method eligible for test creation",
     "T001" : "Trivial getter",
     "T002" : "Trivial setter",
@@ -30,9 +29,9 @@
   "summary" : {
     "classesCount" : 5,
     "methodsCount" : 40,
-    "cumulativeDiffblueTestCount" : 4,
+    "cumulativeDiffblueTestCount" : 6,
     "cumulativeManualTestCount" : 0,
-    "completeTestCount" : 4,
+    "completeTestCount" : 6,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 165,
@@ -44,15 +43,14 @@
       "T010" : 17
     },
     "perMethodOutcome" : {
-      "R000" : 22,
-      "R013" : 1,
+      "R000" : 23,
       "T010" : 17
     },
     "perTestOutcome" : {
-      "R000" : 4
+      "R000" : 6
     },
     "perTestValidation" : {
-      "V000" : 4
+      "V000" : 6
     }
   },
   "classes" : {
@@ -107,7 +105,7 @@
     },
     "org.finos.legend.depot.store.model.admin.schedules.ScheduleInstance" : {
       "methodsCount" : 9,
-      "completeTestCount" : 2,
+      "completeTestCount" : 4,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 1,
@@ -116,11 +114,10 @@
         "T005" : 2
       },
       "perMethodOutcome" : {
-        "R000" : 8,
-        "R013" : 1
+        "R000" : 9
       },
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 4
       }
     }
   },
@@ -471,10 +468,13 @@
       ]
     },
     "org.finos.legend.depot.store.model.admin.schedules.ScheduleInstance.isExpired:()Z" : {
-      "completeTestCount" : 0,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 2
+      },
       "lineNumbers" : [
         79
       ]

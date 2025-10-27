@@ -3,19 +3,19 @@
     "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2025.02.02-08b2a5a-licensed",
-    "creationTimestamp" : "2025-10-27T13:21:36.334842Z",
+    "version" : "2024.10.01-2ee2e3d-licensed",
+    "creationTimestamp" : "2025-10-27T17:54:04.113781Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 103.93,
-    "environmentDetectionTime" : 0.219,
-    "indexingTime" : 0.39,
-    "entryPointsTime" : 0.216,
-    "generationTime" : 3049.803,
-    "timeToFirstTest" : 4967.449,
-    "timeToLastTest" : 4220.099,
-    "indexQueryTime" : 11.25,
-    "verificationTime" : 209.509,
-    "validationTime" : 12.587
+    "totalTime" : 5179.441,
+    "environmentDetectionTime" : 0.216,
+    "indexingTime" : 0.481,
+    "entryPointsTime" : 0.212,
+    "generationTime" : 3161.662,
+    "timeToFirstTest" : 144.257,
+    "timeToLastTest" : 155.682,
+    "indexQueryTime" : 11.392,
+    "verificationTime" : 96.024,
+    "validationTime" : 12.013
   },
   "codes" : {
     "R000" : "Success",
@@ -28,14 +28,15 @@
     "T006" : "Main method",
     "T012" : "Synthetic method",
     "V000" : "Validated successfully",
-    "V003" : "Tests discarded during validation"
+    "V003" : "Tests discarded during validation",
+    "W002" : "Test compiled, but did not pass"
   },
   "summary" : {
     "classesCount" : 4,
     "methodsCount" : 25,
-    "cumulativeDiffblueTestCount" : 2,
+    "cumulativeDiffblueTestCount" : 1,
     "cumulativeManualTestCount" : 0,
-    "completeTestCount" : 2,
+    "completeTestCount" : 1,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 242,
@@ -49,18 +50,22 @@
       "T012" : 1
     },
     "perMethodOutcome" : {
-      "R000" : 2,
+      "R000" : 1,
       "R005" : 16,
       "T003" : 5,
       "T006" : 1,
-      "T012" : 1
+      "T012" : 1,
+      "W002" : 1
     },
     "perTestOutcome" : {
-      "R000" : 2
+      "R000" : 1
     },
     "perTestValidation" : {
-      "V000" : 2,
-      "V003" : 2
+      "V000" : 1,
+      "V003" : 1
+    },
+    "warnings" : {
+      "W002" : 2
     }
   },
   "classes" : {
@@ -80,18 +85,22 @@
     },
     "org.finos.legend.depot.store.server.LegendDepotStoreServerJacksonJsonProvider" : {
       "methodsCount" : 3,
-      "completeTestCount" : 2,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 2,
         "T012" : 1
       },
       "perMethodOutcome" : {
-        "R000" : 2,
-        "T012" : 1
+        "R000" : 1,
+        "T012" : 1,
+        "W002" : 1
       },
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 1
+      },
+      "warnings" : {
+        "W002" : 2
       }
     },
     "org.finos.legend.depot.store.server.configuration.DepotStoreServerConfiguration" : {
@@ -215,12 +224,12 @@
       ]
     },
     "org.finos.legend.depot.store.server.LegendDepotStoreServerJacksonJsonProvider.getContext:(Ljava/lang/Class;)Lcom/fasterxml/jackson/databind/ObjectMapper;" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R000",
-      "perTestOutcome" : {
-        "R000" : 1
+      "perMethodOutcome" : "W002",
+      "warnings" : {
+        "W002" : 2
       },
       "lineNumbers" : [
         41

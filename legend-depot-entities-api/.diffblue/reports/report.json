@@ -3,19 +3,19 @@
     "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2025.02.02-08b2a5a-licensed",
-    "creationTimestamp" : "2025-10-27T13:21:36.334842Z",
+    "version" : "2024.10.01-2ee2e3d-licensed",
+    "creationTimestamp" : "2025-10-27T17:54:04.113781Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 76.619,
-    "environmentDetectionTime" : 0.182,
-    "indexingTime" : 0.341,
-    "entryPointsTime" : 0.18,
-    "generationTime" : 2420.436,
-    "timeToFirstTest" : 3368.969,
-    "timeToLastTest" : 3050.027,
-    "indexQueryTime" : 2.6270000000000002,
-    "verificationTime" : 173.22,
-    "validationTime" : 10.375
+    "totalTime" : 3544.596,
+    "environmentDetectionTime" : 0.183,
+    "indexingTime" : 0.432,
+    "entryPointsTime" : 0.181,
+    "generationTime" : 2490.961,
+    "timeToFirstTest" : 144.257,
+    "timeToLastTest" : 155.682,
+    "indexQueryTime" : 2.653,
+    "verificationTime" : 58.818,
+    "validationTime" : 10.811
   },
   "codes" : {
     "R000" : "Success",
@@ -31,9 +31,9 @@
   "summary" : {
     "classesCount" : 18,
     "methodsCount" : 105,
-    "cumulativeDiffblueTestCount" : 71,
+    "cumulativeDiffblueTestCount" : 76,
     "cumulativeManualTestCount" : 0,
-    "completeTestCount" : 71,
+    "completeTestCount" : 76,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 635,
@@ -53,16 +53,16 @@
       "T010" : 42
     },
     "perTestOutcome" : {
-      "R000" : 71
+      "R000" : 76
     },
     "perTestValidation" : {
-      "V000" : 71
+      "V000" : 76
     }
   },
   "classes" : {
     "org.finos.legend.depot.domain.entity.DepotEntity" : {
       "methodsCount" : 7,
-      "completeTestCount" : 8,
+      "completeTestCount" : 9,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 2,
@@ -73,7 +73,7 @@
         "R000" : 7
       },
       "perTestOutcome" : {
-        "R000" : 8
+        "R000" : 9
       }
     },
     "org.finos.legend.depot.domain.entity.DepotEntityOverview" : {
@@ -105,7 +105,7 @@
     },
     "org.finos.legend.depot.domain.entity.ProjectVersionEntities" : {
       "methodsCount" : 6,
-      "completeTestCount" : 7,
+      "completeTestCount" : 8,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 2,
@@ -116,7 +116,7 @@
         "R000" : 6
       },
       "perTestOutcome" : {
-        "R000" : 7
+        "R000" : 8
       }
     },
     "org.finos.legend.depot.services.api.entities.EntitiesService" : {
@@ -180,7 +180,7 @@
     },
     "org.finos.legend.depot.store.model.entities.EntityDefinition" : {
       "methodsCount" : 7,
-      "completeTestCount" : 6,
+      "completeTestCount" : 7,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 2,
@@ -192,12 +192,12 @@
         "R000" : 7
       },
       "perTestOutcome" : {
-        "R000" : 6
+        "R000" : 7
       }
     },
     "org.finos.legend.depot.store.model.entities.StoredEntity" : {
       "methodsCount" : 4,
-      "completeTestCount" : 2,
+      "completeTestCount" : 4,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 2,
@@ -208,7 +208,7 @@
         "T010" : 2
       },
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 4
       }
     },
     "org.finos.legend.depot.store.model.entities.StoredEntityData" : {
@@ -362,12 +362,12 @@
       ]
     },
     "org.finos.legend.depot.domain.entity.DepotEntity.equals:(Ljava/lang/Object;)Z" : {
-      "completeTestCount" : 5,
+      "completeTestCount" : 6,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 5
+        "R000" : 6
       },
       "lineNumbers" : [
         65
@@ -386,12 +386,12 @@
       ]
     },
     "org.finos.legend.depot.domain.entity.DepotEntity.hashCode:()I" : {
-      "completeTestCount" : 5,
+      "completeTestCount" : 6,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 5
+        "R000" : 6
       },
       "lineNumbers" : [
         71
@@ -511,12 +511,12 @@
       ]
     },
     "org.finos.legend.depot.domain.entity.ProjectVersionEntities.equals:(Ljava/lang/Object;)Z" : {
-      "completeTestCount" : 5,
+      "completeTestCount" : 6,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 5
+        "R000" : 6
       },
       "lineNumbers" : [
         62
@@ -535,12 +535,12 @@
       ]
     },
     "org.finos.legend.depot.domain.entity.ProjectVersionEntities.hashCode:()I" : {
-      "completeTestCount" : 5,
+      "completeTestCount" : 6,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 5
+        "R000" : 6
       },
       "lineNumbers" : [
         68
@@ -830,12 +830,12 @@
       ]
     },
     "org.finos.legend.depot.store.model.entities.EntityDefinition.equals:(Ljava/lang/Object;)Z" : {
-      "completeTestCount" : 5,
+      "completeTestCount" : 6,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 5
+        "R000" : 6
       },
       "lineNumbers" : [
         75
@@ -878,12 +878,12 @@
       ]
     },
     "org.finos.legend.depot.store.model.entities.EntityDefinition.hashCode:()I" : {
-      "completeTestCount" : 5,
+      "completeTestCount" : 6,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 5
+        "R000" : 6
       },
       "lineNumbers" : [
         81
@@ -924,24 +924,24 @@
       ]
     },
     "org.finos.legend.depot.store.model.entities.StoredEntity.getEntityAttributes:()Ljava/util/Map;" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       },
       "lineNumbers" : [
         51
       ]
     },
     "org.finos.legend.depot.store.model.entities.StoredEntity.getId:()Ljava/lang/String;" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       },
       "lineNumbers" : [
         57

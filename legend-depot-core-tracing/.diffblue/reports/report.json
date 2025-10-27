@@ -3,19 +3,19 @@
     "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2025.02.02-08b2a5a-licensed",
-    "creationTimestamp" : "2025-10-27T13:21:36.334842Z",
+    "version" : "2024.10.01-2ee2e3d-licensed",
+    "creationTimestamp" : "2025-10-27T17:54:04.113781Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 225.919,
-    "environmentDetectionTime" : 0.374,
-    "indexingTime" : 0.361,
-    "entryPointsTime" : 0.369,
-    "generationTime" : 2718.865,
-    "timeToFirstTest" : 4092.595,
-    "timeToLastTest" : 3558.022,
-    "indexQueryTime" : 8.25,
-    "verificationTime" : 190.218,
-    "validationTime" : 23.887
+    "totalTime" : 4305.143,
+    "environmentDetectionTime" : 0.246,
+    "indexingTime" : 0.452,
+    "entryPointsTime" : 0.241,
+    "generationTime" : 2830.61,
+    "timeToFirstTest" : 144.257,
+    "timeToLastTest" : 155.682,
+    "indexQueryTime" : 8.643,
+    "verificationTime" : 76.381,
+    "validationTime" : 15.401
   },
   "codes" : {
     "R000" : "Success",
@@ -41,9 +41,9 @@
   "summary" : {
     "classesCount" : 17,
     "methodsCount" : 133,
-    "cumulativeDiffblueTestCount" : 140,
+    "cumulativeDiffblueTestCount" : 100,
     "cumulativeManualTestCount" : 6,
-    "completeTestCount" : 142,
+    "completeTestCount" : 145,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 833,
@@ -62,10 +62,10 @@
     "perMethodOutcome" : {
       "R000" : 35,
       "R002" : 21,
-      "R004" : 3,
+      "R004" : 4,
       "R005" : 1,
       "R011" : 11,
-      "R013" : 5,
+      "R013" : 4,
       "T003" : 16,
       "T004" : 2,
       "T005" : 1,
@@ -74,11 +74,11 @@
       "T012" : 20
     },
     "perTestOutcome" : {
-      "R000" : 142
+      "R000" : 145
     },
     "perTestValidation" : {
-      "V000" : 140,
-      "V003" : 2
+      "V000" : 145,
+      "V003" : 1
     },
     "warnings" : {
       "W002" : 1
@@ -137,7 +137,7 @@
     },
     "org.finos.legend.depot.core.services.api.metrics.configuration.PrometheusMetricsProviderConfiguration" : {
       "methodsCount" : 2,
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 1,
@@ -148,7 +148,7 @@
         "T003" : 1
       },
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       }
     },
     "org.finos.legend.depot.core.services.api.metrics.configuration.PrometheusMetricsProviderConfiguration$1WrapperMixin" : {
@@ -191,7 +191,7 @@
     },
     "org.finos.legend.depot.core.services.api.tracing.configuration.TracerProviderConfiguration" : {
       "methodsCount" : 2,
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 1,
@@ -202,7 +202,7 @@
         "T003" : 1
       },
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       }
     },
     "org.finos.legend.depot.core.services.api.tracing.configuration.TracerProviderConfiguration$1WrapperMixin" : {
@@ -255,7 +255,7 @@
     },
     "org.finos.legend.depot.core.services.metrics.PrometheusMetricsFactory" : {
       "methodsCount" : 3,
-      "completeTestCount" : 5,
+      "completeTestCount" : 6,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 2,
@@ -266,7 +266,7 @@
         "T005" : 1
       },
       "perTestOutcome" : {
-        "R000" : 5
+        "R000" : 6
       }
     },
     "org.finos.legend.depot.core.services.tracing.DefaultTracerProvider" : {
@@ -308,8 +308,7 @@
       },
       "perMethodOutcome" : {
         "R000" : 4,
-        "R004" : 3,
-        "R013" : 1,
+        "R004" : 4,
         "T003" : 3,
         "T012" : 2
       },
@@ -701,12 +700,12 @@
       ]
     },
     "org.finos.legend.depot.core.services.api.metrics.configuration.PrometheusMetricsProviderConfiguration.configureObjectMapper:(Lcom/fasterxml/jackson/databind/ObjectMapper;)Lcom/fasterxml/jackson/databind/ObjectMapper;" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       },
       "lineNumbers" : [
         36,
@@ -853,12 +852,12 @@
       ]
     },
     "org.finos.legend.depot.core.services.api.tracing.configuration.TracerProviderConfiguration.configureObjectMapper:(Lcom/fasterxml/jackson/databind/ObjectMapper;)Lcom/fasterxml/jackson/databind/ObjectMapper;" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       },
       "lineNumbers" : [
         34,
@@ -1336,12 +1335,12 @@
       ]
     },
     "org.finos.legend.depot.core.services.metrics.PrometheusMetricsFactory.configure:(Lorg/finos/legend/depot/core/services/api/metrics/configuration/PrometheusConfiguration;)Lorg/finos/legend/depot/core/services/api/metrics/PrometheusMetricsHandler;" : {
-      "completeTestCount" : 4,
+      "completeTestCount" : 5,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 4
+        "R000" : 5
       },
       "lineNumbers" : [
         40,
@@ -1449,7 +1448,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R013",
+      "perMethodOutcome" : "R004",
       "lineNumbers" : [
         107,
         108

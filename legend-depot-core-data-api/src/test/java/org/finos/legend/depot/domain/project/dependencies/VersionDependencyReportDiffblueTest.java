@@ -4,91 +4,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import org.finos.legend.depot.domain.project.ProjectVersion;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class VersionDependencyReportDiffblueTest {
   /**
-   * Test getters and setters.
-   * <p>
-   * Methods under test:
-   * <ul>
-   *   <li>{@link VersionDependencyReport#VersionDependencyReport()}
-   *   <li>{@link VersionDependencyReport#setTransitiveDependencies(List)}
-   *   <li>{@link VersionDependencyReport#setValid(boolean)}
-   *   <li>{@link VersionDependencyReport#getTransitiveDependencies()}
-   *   <li>{@link VersionDependencyReport#isValid()}
-   * </ul>
-   */
-  @Test
-  @DisplayName("Test getters and setters")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void VersionDependencyReport.<init>()", "void VersionDependencyReport.<init>(List, boolean)",
-      "List VersionDependencyReport.getTransitiveDependencies()", "boolean VersionDependencyReport.isValid()",
-      "void VersionDependencyReport.setTransitiveDependencies(List)", "void VersionDependencyReport.setValid(boolean)"})
-  void testGettersAndSetters() {
-    // Arrange and Act
-    VersionDependencyReport actualVersionDependencyReport = new VersionDependencyReport();
-    ArrayList<ProjectVersion> transitiveDependencies = new ArrayList<>();
-    actualVersionDependencyReport.setTransitiveDependencies(transitiveDependencies);
-    actualVersionDependencyReport.setValid(true);
-    List<ProjectVersion> actualTransitiveDependencies = actualVersionDependencyReport.getTransitiveDependencies();
-    boolean actualIsValidResult = actualVersionDependencyReport.isValid();
-
-    // Assert
-    assertTrue(actualTransitiveDependencies.isEmpty());
-    assertTrue(actualIsValidResult);
-    assertSame(transitiveDependencies, actualTransitiveDependencies);
-  }
-
-  /**
-   * Test getters and setters.
-   * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   * </ul>
-   * <p>
-   * Methods under test:
-   * <ul>
-   *   <li>{@link VersionDependencyReport#VersionDependencyReport(List, boolean)}
-   *   <li>{@link VersionDependencyReport#setTransitiveDependencies(List)}
-   *   <li>{@link VersionDependencyReport#setValid(boolean)}
-   *   <li>{@link VersionDependencyReport#getTransitiveDependencies()}
-   *   <li>{@link VersionDependencyReport#isValid()}
-   * </ul>
-   */
-  @Test
-  @DisplayName("Test getters and setters; when ArrayList()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void VersionDependencyReport.<init>()", "void VersionDependencyReport.<init>(List, boolean)",
-      "List VersionDependencyReport.getTransitiveDependencies()", "boolean VersionDependencyReport.isValid()",
-      "void VersionDependencyReport.setTransitiveDependencies(List)", "void VersionDependencyReport.setValid(boolean)"})
-  void testGettersAndSetters_whenArrayList() {
-    // Arrange and Act
-    VersionDependencyReport actualVersionDependencyReport = new VersionDependencyReport(new ArrayList<>(), true);
-    ArrayList<ProjectVersion> transitiveDependencies = new ArrayList<>();
-    actualVersionDependencyReport.setTransitiveDependencies(transitiveDependencies);
-    actualVersionDependencyReport.setValid(true);
-    List<ProjectVersion> actualTransitiveDependencies = actualVersionDependencyReport.getTransitiveDependencies();
-    boolean actualIsValidResult = actualVersionDependencyReport.isValid();
-
-    // Assert
-    assertTrue(actualTransitiveDependencies.isEmpty());
-    assertTrue(actualIsValidResult);
-    assertSame(transitiveDependencies, actualTransitiveDependencies);
-  }
-
-  /**
-   * Test {@link VersionDependencyReport#equals(Object)}, and {@link VersionDependencyReport#hashCode()}.
-   * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
-   * </ul>
-   * <p>
    * Methods under test:
    * <ul>
    *   <li>{@link VersionDependencyReport#equals(Object)}
@@ -96,9 +18,6 @@ class VersionDependencyReportDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean VersionDependencyReport.equals(Object)", "int VersionDependencyReport.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     VersionDependencyReport versionDependencyReport = new VersionDependencyReport();
@@ -111,12 +30,6 @@ class VersionDependencyReportDiffblueTest {
   }
 
   /**
-   * Test {@link VersionDependencyReport#equals(Object)}, and {@link VersionDependencyReport#hashCode()}.
-   * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
-   * </ul>
-   * <p>
    * Methods under test:
    * <ul>
    *   <li>{@link VersionDependencyReport#equals(Object)}
@@ -124,9 +37,6 @@ class VersionDependencyReportDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean VersionDependencyReport.equals(Object)", "int VersionDependencyReport.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     VersionDependencyReport versionDependencyReport = new VersionDependencyReport();
@@ -138,56 +48,81 @@ class VersionDependencyReportDiffblueTest {
   }
 
   /**
-   * Test {@link VersionDependencyReport#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
    * Method under test: {@link VersionDependencyReport#equals(Object)}
    */
   @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean VersionDependencyReport.equals(Object)", "int VersionDependencyReport.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new VersionDependencyReport(), 4);
   }
 
   /**
-   * Test {@link VersionDependencyReport#equals(Object)}.
-   * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
    * Method under test: {@link VersionDependencyReport#equals(Object)}
    */
   @Test
-  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean VersionDependencyReport.equals(Object)", "int VersionDependencyReport.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new VersionDependencyReport(), null);
   }
 
   /**
-   * Test {@link VersionDependencyReport#equals(Object)}.
-   * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
    * Method under test: {@link VersionDependencyReport#equals(Object)}
    */
   @Test
-  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean VersionDependencyReport.equals(Object)", "int VersionDependencyReport.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new VersionDependencyReport(), "Different type to VersionDependencyReport");
+  }
+
+  /**
+   * Methods under test:
+   * <ul>
+   *   <li>{@link VersionDependencyReport#VersionDependencyReport()}
+   *   <li>{@link VersionDependencyReport#setTransitiveDependencies(List)}
+   *   <li>{@link VersionDependencyReport#setValid(boolean)}
+   *   <li>{@link VersionDependencyReport#getTransitiveDependencies()}
+   *   <li>{@link VersionDependencyReport#isValid()}
+   * </ul>
+   */
+  @Test
+  void testGettersAndSetters() {
+    // Arrange and Act
+    VersionDependencyReport actualVersionDependencyReport = new VersionDependencyReport();
+    ArrayList<ProjectVersion> transitiveDependencies = new ArrayList<>();
+    actualVersionDependencyReport.setTransitiveDependencies(transitiveDependencies);
+    actualVersionDependencyReport.setValid(true);
+    List<ProjectVersion> actualTransitiveDependencies = actualVersionDependencyReport.getTransitiveDependencies();
+    boolean actualIsValidResult = actualVersionDependencyReport.isValid();
+
+    // Assert that nothing has changed
+    assertTrue(actualTransitiveDependencies.isEmpty());
+    assertTrue(actualIsValidResult);
+    assertSame(transitiveDependencies, actualTransitiveDependencies);
+  }
+
+  /**
+   * Methods under test:
+   * <ul>
+   *   <li>{@link VersionDependencyReport#VersionDependencyReport(List, boolean)}
+   *   <li>{@link VersionDependencyReport#setTransitiveDependencies(List)}
+   *   <li>{@link VersionDependencyReport#setValid(boolean)}
+   *   <li>{@link VersionDependencyReport#getTransitiveDependencies()}
+   *   <li>{@link VersionDependencyReport#isValid()}
+   * </ul>
+   */
+  @Test
+  void testGettersAndSetters2() {
+    // Arrange and Act
+    VersionDependencyReport actualVersionDependencyReport = new VersionDependencyReport(new ArrayList<>(), true);
+    ArrayList<ProjectVersion> transitiveDependencies = new ArrayList<>();
+    actualVersionDependencyReport.setTransitiveDependencies(transitiveDependencies);
+    actualVersionDependencyReport.setValid(true);
+    List<ProjectVersion> actualTransitiveDependencies = actualVersionDependencyReport.getTransitiveDependencies();
+    boolean actualIsValidResult = actualVersionDependencyReport.isValid();
+
+    // Assert that nothing has changed
+    assertTrue(actualTransitiveDependencies.isEmpty());
+    assertTrue(actualIsValidResult);
+    assertSame(transitiveDependencies, actualTransitiveDependencies);
   }
 }

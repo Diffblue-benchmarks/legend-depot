@@ -3,27 +3,27 @@
     "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2025.02.02-08b2a5a-licensed",
-    "creationTimestamp" : "2025-10-27T13:21:36.334842Z",
+    "version" : "2024.10.01-2ee2e3d-licensed",
+    "creationTimestamp" : "2025-10-27T17:54:04.113781Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 146.623,
-    "environmentDetectionTime" : 0.268,
-    "indexingTime" : 0.383,
-    "entryPointsTime" : 0.264,
-    "generationTime" : 2931.859,
-    "timeToFirstTest" : 4719.822,
-    "timeToLastTest" : 4025.831,
-    "indexQueryTime" : 12.579,
-    "verificationTime" : 205.643,
-    "validationTime" : 12.251
+    "totalTime" : 4929.172,
+    "environmentDetectionTime" : 0.259,
+    "indexingTime" : 0.475,
+    "entryPointsTime" : 0.255,
+    "generationTime" : 3042.868,
+    "timeToFirstTest" : 144.257,
+    "timeToLastTest" : 155.682,
+    "indexQueryTime" : 12.568,
+    "verificationTime" : 91.545,
+    "validationTime" : 12.078
   },
   "codes" : {
+    "F009" : "Internal error",
     "R000" : "Success",
     "R002" : "Missing observers",
     "R005" : "Unable to load class",
     "R006" : "Static initializer failed",
     "R013" : "No inputs found that don't throw a trivial exception",
-    "R024" : "Analysis service shutdown unexpectedly",
     "R081" : "Exception in arrange section",
     "R083" : "Can't find a suitable constructor",
     "T000" : "Method eligible for test creation",
@@ -43,7 +43,7 @@
   "summary" : {
     "classesCount" : 23,
     "methodsCount" : 124,
-    "cumulativeDiffblueTestCount" : 37,
+    "cumulativeDiffblueTestCount" : 34,
     "cumulativeManualTestCount" : 0,
     "completeTestCount" : 37,
     "incompleteTestCount" : 0,
@@ -62,12 +62,12 @@
       "T012" : 12
     },
     "perMethodOutcome" : {
+      "F009" : 2,
       "R000" : 27,
       "R002" : 1,
       "R005" : 18,
       "R006" : 1,
       "R013" : 3,
-      "R024" : 1,
       "R081" : 1,
       "R083" : 6,
       "T003" : 19,
@@ -83,7 +83,7 @@
     },
     "perTestValidation" : {
       "V000" : 37,
-      "V003" : 2
+      "V003" : 1
     },
     "warnings" : {
       "W002" : 19
@@ -417,7 +417,7 @@
       }
     },
     "org.finos.legend.depot.core.server.resources.info.InfoResource" : {
-      "methodsCount" : 2,
+      "methodsCount" : 3,
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
@@ -425,7 +425,7 @@
         "T005" : 1
       },
       "perMethodOutcome" : {
-        "R024" : 1,
+        "F009" : 2,
         "R081" : 1
       }
     }
@@ -1785,7 +1785,7 @@
       "completeTestCount" : 0,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
-      "perMethodOutcome" : "R024",
+      "perMethodOutcome" : "F009",
       "lineNumbers" : [
         61
       ]

@@ -3,19 +3,19 @@
     "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2025.02.02-08b2a5a-licensed",
-    "creationTimestamp" : "2025-10-27T13:21:36.334842Z",
+    "version" : "2024.10.01-2ee2e3d-licensed",
+    "creationTimestamp" : "2025-10-27T17:54:04.113781Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 125.102,
-    "environmentDetectionTime" : 0.227,
-    "indexingTime" : 0.351,
-    "entryPointsTime" : 0.225,
-    "generationTime" : 2539.633,
-    "timeToFirstTest" : 3717.447,
-    "timeToLastTest" : 3263.374,
-    "indexQueryTime" : 2.602,
-    "verificationTime" : 174.831,
-    "validationTime" : 15.583
+    "totalTime" : 3944.9,
+    "environmentDetectionTime" : 0.159,
+    "indexingTime" : 0.442,
+    "entryPointsTime" : 0.156,
+    "generationTime" : 2657.738,
+    "timeToFirstTest" : 144.257,
+    "timeToLastTest" : 155.682,
+    "indexQueryTime" : 2.605,
+    "verificationTime" : 60.611,
+    "validationTime" : 16.916
   },
   "codes" : {
     "R000" : "Success",
@@ -34,7 +34,7 @@
   "summary" : {
     "classesCount" : 10,
     "methodsCount" : 51,
-    "cumulativeDiffblueTestCount" : 15,
+    "cumulativeDiffblueTestCount" : 16,
     "cumulativeManualTestCount" : 1,
     "completeTestCount" : 17,
     "incompleteTestCount" : 0,
@@ -63,8 +63,8 @@
       "R000" : 17
     },
     "perTestValidation" : {
-      "V000" : 15,
-      "V003" : 2
+      "V000" : 16,
+      "V003" : 1
     }
   },
   "classes" : {
@@ -112,7 +112,7 @@
     },
     "org.finos.legend.depot.services.generations.loader.FileGenerationLoader" : {
       "methodsCount" : 12,
-      "completeTestCount" : 5,
+      "completeTestCount" : 4,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 4,
@@ -126,7 +126,7 @@
         "T012" : 2
       },
       "perTestOutcome" : {
-        "R000" : 5
+        "R000" : 4
       }
     },
     "org.finos.legend.depot.services.generations.loader.FileGenerationLoader$DirectoryEntityFileSearch" : {
@@ -190,7 +190,7 @@
     },
     "org.finos.legend.depot.store.model.generations.StoredFileGeneration" : {
       "methodsCount" : 7,
-      "completeTestCount" : 6,
+      "completeTestCount" : 7,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 2,
@@ -201,7 +201,7 @@
         "R000" : 7
       },
       "perTestOutcome" : {
-        "R000" : 6
+        "R000" : 7
       }
     }
   },
@@ -522,12 +522,12 @@
       ]
     },
     "org.finos.legend.depot.services.generations.loader.FileGenerationLoader.newFileGenerationsLoader:(Ljava/io/File;)Lorg/finos/legend/depot/services/generations/loader/FileGenerationLoader;" : {
-      "completeTestCount" : 2,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 2
+        "R000" : 1
       },
       "lineNumbers" : [
         62
@@ -647,12 +647,12 @@
       ]
     },
     "org.finos.legend.depot.store.model.generations.StoredFileGeneration.equals:(Ljava/lang/Object;)Z" : {
-      "completeTestCount" : 5,
+      "completeTestCount" : 6,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 5
+        "R000" : 6
       },
       "lineNumbers" : [
         77
@@ -707,12 +707,12 @@
       ]
     },
     "org.finos.legend.depot.store.model.generations.StoredFileGeneration.hashCode:()I" : {
-      "completeTestCount" : 5,
+      "completeTestCount" : 6,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 5
+        "R000" : 6
       },
       "lineNumbers" : [
         83

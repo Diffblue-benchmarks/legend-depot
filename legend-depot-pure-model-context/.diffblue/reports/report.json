@@ -3,19 +3,19 @@
     "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2025.02.02-08b2a5a-licensed",
-    "creationTimestamp" : "2025-10-27T13:21:36.334842Z",
+    "version" : "2024.10.01-2ee2e3d-licensed",
+    "creationTimestamp" : "2025-10-27T17:54:04.113781Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 233.129,
-    "environmentDetectionTime" : 0.929,
-    "indexingTime" : 0.29,
-    "entryPointsTime" : 0.907,
-    "generationTime" : 148.836,
-    "timeToFirstTest" : 320.806,
-    "timeToLastTest" : 296.49,
-    "indexQueryTime" : 26.092000000000002,
-    "verificationTime" : 21.773,
-    "validationTime" : 17.511
+    "totalTime" : 400.085,
+    "environmentDetectionTime" : 1.013,
+    "indexingTime" : 0.384,
+    "entryPointsTime" : 0.993,
+    "generationTime" : 136.544,
+    "timeToFirstTest" : 144.257,
+    "timeToLastTest" : 155.682,
+    "indexQueryTime" : 25.793,
+    "verificationTime" : 20.92,
+    "validationTime" : 17.587
   },
   "codes" : {
     "R000" : "Success",
@@ -33,9 +33,9 @@
   "summary" : {
     "classesCount" : 7,
     "methodsCount" : 31,
-    "cumulativeDiffblueTestCount" : 50,
+    "cumulativeDiffblueTestCount" : 44,
     "cumulativeManualTestCount" : 13,
-    "completeTestCount" : 50,
+    "completeTestCount" : 47,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 256,
@@ -57,10 +57,10 @@
       "T012" : 7
     },
     "perTestOutcome" : {
-      "R000" : 50
+      "R000" : 47
     },
     "perTestValidation" : {
-      "V000" : 50
+      "V000" : 47
     }
   },
   "classes" : {
@@ -112,7 +112,7 @@
     },
     "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl" : {
       "methodsCount" : 12,
-      "completeTestCount" : 43,
+      "completeTestCount" : 40,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 8,
@@ -124,7 +124,7 @@
         "T012" : 4
       },
       "perTestOutcome" : {
-        "R000" : 43
+        "R000" : 40
       }
     },
     "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl$EntityToRawPureConverter" : {
@@ -368,24 +368,24 @@
       ]
     },
     "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl.buildPureModelContextData:(Ljava/util/stream/Stream;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;" : {
-      "completeTestCount" : 6,
+      "completeTestCount" : 7,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 6
+        "R000" : 7
       },
       "lineNumbers" : [
         103
       ]
     },
     "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl.buildPureModelContextData:(Ljava/util/stream/Stream;Lorg/finos/legend/engine/protocol/pure/v1/model/context/AlloySDLC;Ljava/lang/String;Z)Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;" : {
-      "completeTestCount" : 6,
+      "completeTestCount" : 7,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 6
+        "R000" : 7
       },
       "lineNumbers" : [
         108,
@@ -399,12 +399,12 @@
       ]
     },
     "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl.combinePureModelContextData:(Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;)Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;" : {
-      "completeTestCount" : 6,
+      "completeTestCount" : 1,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 6
+        "R000" : 1
       },
       "lineNumbers" : [
         120,

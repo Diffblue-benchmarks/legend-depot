@@ -11,7 +11,7 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MethodsUnderTest;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.client.ListIndexesIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -23,42 +23,32 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 import org.bson.BsonInt32;
+import org.bson.BsonType;
 import org.bson.Document;
 import org.bson.conversions.Bson;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 class BaseMongoDiffblueTest {
   /**
-   * Test {@link BaseMongo#createIndexesIfAbsent(MongoDatabase, String, List)}.
-   * <p>
-   * Method under test: {@link BaseMongo#createIndexesIfAbsent(MongoDatabase, String, List)}
+   * Method under test:
+   * {@link BaseMongo#createIndexesIfAbsent(MongoDatabase, String, List)}
    */
   @Test
-  @DisplayName("Test createIndexesIfAbsent(MongoDatabase, String, List)")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"List BaseMongo.createIndexesIfAbsent(MongoDatabase, String, List)"})
   void testCreateIndexesIfAbsent() {
     // Arrange
     ListIndexesIterable<Document> listIndexesIterable = mock(ListIndexesIterable.class);
     doNothing().when(listIndexesIterable).forEach(Mockito.<Consumer<Document>>any());
     MongoCollection<Document> mongoCollection = mock(MongoCollection.class);
-    when(mongoCollection.createIndexes(Mockito.<List<IndexModel>>any())).thenReturn(new ArrayList<>());
     when(mongoCollection.listIndexes()).thenReturn(listIndexesIterable);
     MongoDatabaseImpl mongoDatabase = mock(MongoDatabaseImpl.class);
     when(mongoDatabase.getCollection(Mockito.<String>any())).thenReturn(mongoCollection);
 
-    ArrayList<IndexModel> candidateIndexes = new ArrayList<>();
-    candidateIndexes.add(BaseMongo.buildIndex("Index Name", new IndexOptions(), "Field Names"));
-
     // Act
     List<String> actualCreateIndexesIfAbsentResult = BaseMongo.createIndexesIfAbsent(mongoDatabase, "Collection",
-        candidateIndexes);
+        new ArrayList<>());
 
     // Assert
-    verify(mongoCollection).createIndexes(isA(List.class));
     verify(mongoCollection).listIndexes();
     verify(mongoDatabase).getCollection(eq("Collection"));
     verify(listIndexesIterable).forEach(isA(Consumer.class));
@@ -66,14 +56,10 @@ class BaseMongoDiffblueTest {
   }
 
   /**
-   * Test {@link BaseMongo#createIndexesIfAbsent(MongoDatabase, String, List)}.
-   * <p>
-   * Method under test: {@link BaseMongo#createIndexesIfAbsent(MongoDatabase, String, List)}
+   * Method under test:
+   * {@link BaseMongo#createIndexesIfAbsent(MongoDatabase, String, List)}
    */
   @Test
-  @DisplayName("Test createIndexesIfAbsent(MongoDatabase, String, List)")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"List BaseMongo.createIndexesIfAbsent(MongoDatabase, String, List)"})
   void testCreateIndexesIfAbsent2() {
     // Arrange
     ListIndexesIterable<Document> listIndexesIterable = mock(ListIndexesIterable.class);
@@ -86,6 +72,36 @@ class BaseMongoDiffblueTest {
 
     ArrayList<IndexModel> candidateIndexes = new ArrayList<>();
     candidateIndexes.add(BaseMongo.buildIndex("Index Name", new IndexOptions(), "Field Names"));
+
+    // Act
+    List<String> actualCreateIndexesIfAbsentResult = BaseMongo.createIndexesIfAbsent(mongoDatabase, "Collection",
+        candidateIndexes);
+
+    // Assert
+    verify(mongoCollection).createIndexes(isA(List.class));
+    verify(mongoCollection).listIndexes();
+    verify(mongoDatabase).getCollection(eq("Collection"));
+    verify(listIndexesIterable).forEach(isA(Consumer.class));
+    assertTrue(actualCreateIndexesIfAbsentResult.isEmpty());
+  }
+
+  /**
+   * Method under test:
+   * {@link BaseMongo#createIndexesIfAbsent(MongoDatabase, String, List)}
+   */
+  @Test
+  void testCreateIndexesIfAbsent3() {
+    // Arrange
+    ListIndexesIterable<Document> listIndexesIterable = mock(ListIndexesIterable.class);
+    doNothing().when(listIndexesIterable).forEach(Mockito.<Consumer<Document>>any());
+    MongoCollection<Document> mongoCollection = mock(MongoCollection.class);
+    when(mongoCollection.createIndexes(Mockito.<List<IndexModel>>any())).thenReturn(new ArrayList<>());
+    when(mongoCollection.listIndexes()).thenReturn(listIndexesIterable);
+    MongoDatabaseImpl mongoDatabase = mock(MongoDatabaseImpl.class);
+    when(mongoDatabase.getCollection(Mockito.<String>any())).thenReturn(mongoCollection);
+
+    ArrayList<IndexModel> candidateIndexes = new ArrayList<>();
+    candidateIndexes.add(BaseMongo.buildIndex("Index Name", new IndexOptions(), "Field Names"));
     candidateIndexes.add(BaseMongo.buildIndex("Index Name", new IndexOptions(), "Field Names"));
 
     // Act
@@ -101,18 +117,11 @@ class BaseMongoDiffblueTest {
   }
 
   /**
-   * Test {@link BaseMongo#createIndexesIfAbsent(MongoDatabase, String, List)}.
-   * <ul>
-   *   <li>Then calls {@link IndexModel#getOptions()}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link BaseMongo#createIndexesIfAbsent(MongoDatabase, String, List)}
+   * Method under test:
+   * {@link BaseMongo#createIndexesIfAbsent(MongoDatabase, String, List)}
    */
   @Test
-  @DisplayName("Test createIndexesIfAbsent(MongoDatabase, String, List); then calls getOptions()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"List BaseMongo.createIndexesIfAbsent(MongoDatabase, String, List)"})
-  void testCreateIndexesIfAbsent_thenCallsGetOptions() {
+  void testCreateIndexesIfAbsent4() {
     // Arrange
     ListIndexesIterable<Document> listIndexesIterable = mock(ListIndexesIterable.class);
     doNothing().when(listIndexesIterable).forEach(Mockito.<Consumer<Document>>any());
@@ -141,90 +150,50 @@ class BaseMongoDiffblueTest {
   }
 
   /**
-   * Test {@link BaseMongo#createIndexesIfAbsent(MongoDatabase, String, List)}.
-   * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return Empty.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link BaseMongo#createIndexesIfAbsent(MongoDatabase, String, List)}
+   * Method under test: {@link BaseMongo#convert(ObjectMapper, Document, Class)}
    */
   @Test
-  @DisplayName("Test createIndexesIfAbsent(MongoDatabase, String, List); when ArrayList(); then return Empty")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"List BaseMongo.createIndexesIfAbsent(MongoDatabase, String, List)"})
-  void testCreateIndexesIfAbsent_whenArrayList_thenReturnEmpty() {
+  void testConvert() {
     // Arrange
-    ListIndexesIterable<Document> listIndexesIterable = mock(ListIndexesIterable.class);
-    doNothing().when(listIndexesIterable).forEach(Mockito.<Consumer<Document>>any());
-    MongoCollection<Document> mongoCollection = mock(MongoCollection.class);
-    when(mongoCollection.listIndexes()).thenReturn(listIndexesIterable);
-    MongoDatabaseImpl mongoDatabase = mock(MongoDatabaseImpl.class);
-    when(mongoDatabase.getCollection(Mockito.<String>any())).thenReturn(mongoCollection);
+    ObjectMapper mapper = new ObjectMapper();
+    Document document = new Document();
+    Class<Object> clazz = Object.class;
 
     // Act
-    List<String> actualCreateIndexesIfAbsentResult = BaseMongo.createIndexesIfAbsent(mongoDatabase, "Collection",
-        new ArrayList<>());
+    Object actualConvertResult = BaseMongo.convert(mapper, document, clazz);
 
     // Assert
-    verify(mongoCollection).listIndexes();
-    verify(mongoDatabase).getCollection(eq("Collection"));
-    verify(listIndexesIterable).forEach(isA(Consumer.class));
-    assertTrue(actualCreateIndexesIfAbsentResult.isEmpty());
+    assertTrue(actualConvertResult instanceof Map);
+    assertTrue(((Map<Object, Object>) actualConvertResult).isEmpty());
   }
 
   /**
-   * Test {@link BaseMongo#buildIndex(String, String[])} with {@code indexName}, {@code fieldNames}.
-   * <p>
-   * Method under test: {@link BaseMongo#buildIndex(String, String[])}
+   * Method under test: {@link BaseMongo#convert(ObjectMapper, Document, Class)}
    */
   @Test
-  @DisplayName("Test buildIndex(String, String[]) with 'indexName', 'fieldNames'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"IndexModel BaseMongo.buildIndex(String, String[])"})
-  void testBuildIndexWithIndexNameFieldNames() {
-    // Arrange and Act
-    IndexModel actualBuildIndexResult = BaseMongo.buildIndex("Index Name", "Field Names");
+  void testConvert2() {
+    // Arrange
+    ObjectMapper mapper = new ObjectMapper();
+    Class<Object> target = Object.class;
+    Class<Object> mixinSource = Object.class;
+    mapper.addMixIn(target, mixinSource);
+    Document document = new Document();
+    Class<Object> clazz = Object.class;
+
+    // Act
+    Object actualConvertResult = BaseMongo.convert(mapper, document, clazz);
 
     // Assert
-    Bson keys = actualBuildIndexResult.getKeys();
-    assertTrue(keys instanceof Map);
-    IndexOptions options = actualBuildIndexResult.getOptions();
-    assertEquals("Index Name", options.getName());
-    assertNull(options.getCollation());
-    assertNull(options.getBucketSize());
-    assertNull(options.getMax());
-    assertNull(options.getMin());
-    assertNull(options.getBits());
-    assertNull(options.getSphereVersion());
-    assertNull(options.getTextVersion());
-    assertNull(options.getVersion());
-    assertNull(options.getDefaultLanguage());
-    assertNull(options.getLanguageOverride());
-    assertNull(options.getPartialFilterExpression());
-    assertNull(options.getStorageEngine());
-    assertNull(options.getWeights());
-    assertNull(options.getWildcardProjection());
-    assertEquals(1, ((Map<String, BsonInt32>) keys).size());
-    assertFalse(options.isBackground());
-    assertFalse(options.isSparse());
-    assertFalse(options.isUnique());
-    assertTrue(((Map<String, BsonInt32>) keys).containsKey("Field Names"));
+    assertTrue(actualConvertResult instanceof Map);
+    assertTrue(((Map<Object, Object>) actualConvertResult).isEmpty());
   }
 
   /**
-   * Test {@link BaseMongo#buildIndex(String, IndexOptions, String[])} with {@code indexName}, {@code indexOptions}, {@code fieldNames}.
-   * <ul>
-   *   <li>Then Keys return {@link Map}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link BaseMongo#buildIndex(String, IndexOptions, String[])}
+   * Method under test:
+   * {@link BaseMongo#buildIndex(String, IndexOptions, String[])}
    */
   @Test
-  @DisplayName("Test buildIndex(String, IndexOptions, String[]) with 'indexName', 'indexOptions', 'fieldNames'; then Keys return Map")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"IndexModel BaseMongo.buildIndex(String, IndexOptions, String[])"})
-  void testBuildIndexWithIndexNameIndexOptionsFieldNames_thenKeysReturnMap() {
+  void testBuildIndex() {
     // Arrange
     IndexOptions indexOptions = new IndexOptions();
 
@@ -236,20 +205,79 @@ class BaseMongoDiffblueTest {
     assertTrue(keys instanceof Map);
     assertEquals("Index Name", indexOptions.getName());
     assertEquals(1, ((Map<String, BsonInt32>) keys).size());
-    assertTrue(((Map<String, BsonInt32>) keys).containsKey("Field Names"));
+    BsonInt32 getResult = ((Map<String, BsonInt32>) keys).get("Field Names");
+    assertEquals(1, getResult.getValue());
+    assertEquals(BsonType.INT32, getResult.getBsonType());
+    assertFalse(getResult.isArray());
+    assertFalse(getResult.isBinary());
+    assertFalse(getResult.isBoolean());
+    assertFalse(getResult.isDBPointer());
+    assertFalse(getResult.isDateTime());
+    assertFalse(getResult.isDecimal128());
+    assertFalse(getResult.isDocument());
+    assertFalse(getResult.isDouble());
+    assertFalse(getResult.isInt64());
+    assertFalse(getResult.isJavaScript());
+    assertFalse(getResult.isJavaScriptWithScope());
+    assertFalse(getResult.isNull());
+    assertFalse(getResult.isObjectId());
+    assertFalse(getResult.isRegularExpression());
+    assertFalse(getResult.isString());
+    assertFalse(getResult.isSymbol());
+    assertFalse(getResult.isTimestamp());
+    assertTrue(getResult.isInt32());
+    assertTrue(getResult.isNumber());
     assertSame(indexOptions, actualBuildIndexResult.getOptions());
   }
 
   /**
-   * Test {@link BaseMongo#buildIndex(String, boolean, String[])} with {@code indexName}, {@code isUnique}, {@code fieldNames}.
-   * <p>
+   * Method under test:
+   * {@link BaseMongo#buildIndex(String, IndexOptions, String[])}
+   */
+  @Test
+  void testBuildIndex2() {
+    // Arrange
+    IndexOptions indexOptions = new IndexOptions();
+    indexOptions.weights(mock(Bson.class));
+
+    // Act
+    IndexModel actualBuildIndexResult = BaseMongo.buildIndex("Index Name", indexOptions, "Field Names");
+
+    // Assert
+    Bson keys = actualBuildIndexResult.getKeys();
+    assertTrue(keys instanceof Map);
+    assertEquals("Index Name", indexOptions.getName());
+    assertEquals(1, ((Map<String, BsonInt32>) keys).size());
+    BsonInt32 getResult = ((Map<String, BsonInt32>) keys).get("Field Names");
+    assertEquals(1, getResult.getValue());
+    assertEquals(BsonType.INT32, getResult.getBsonType());
+    assertFalse(getResult.isArray());
+    assertFalse(getResult.isBinary());
+    assertFalse(getResult.isBoolean());
+    assertFalse(getResult.isDBPointer());
+    assertFalse(getResult.isDateTime());
+    assertFalse(getResult.isDecimal128());
+    assertFalse(getResult.isDocument());
+    assertFalse(getResult.isDouble());
+    assertFalse(getResult.isInt64());
+    assertFalse(getResult.isJavaScript());
+    assertFalse(getResult.isJavaScriptWithScope());
+    assertFalse(getResult.isNull());
+    assertFalse(getResult.isObjectId());
+    assertFalse(getResult.isRegularExpression());
+    assertFalse(getResult.isString());
+    assertFalse(getResult.isSymbol());
+    assertFalse(getResult.isTimestamp());
+    assertTrue(getResult.isInt32());
+    assertTrue(getResult.isNumber());
+    assertSame(indexOptions, actualBuildIndexResult.getOptions());
+  }
+
+  /**
    * Method under test: {@link BaseMongo#buildIndex(String, boolean, String[])}
    */
   @Test
-  @DisplayName("Test buildIndex(String, boolean, String[]) with 'indexName', 'isUnique', 'fieldNames'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"IndexModel BaseMongo.buildIndex(String, boolean, String[])"})
-  void testBuildIndexWithIndexNameIsUniqueFieldNames() {
+  void testBuildIndex3() {
     // Arrange and Act
     IndexModel actualBuildIndexResult = BaseMongo.buildIndex("Index Name", true, "Field Names");
 
@@ -273,9 +301,85 @@ class BaseMongoDiffblueTest {
     assertNull(options.getWeights());
     assertNull(options.getWildcardProjection());
     assertEquals(1, ((Map<String, BsonInt32>) keys).size());
+    BsonInt32 getResult = ((Map<String, BsonInt32>) keys).get("Field Names");
+    assertEquals(1, getResult.getValue());
+    assertEquals(BsonType.INT32, getResult.getBsonType());
     assertFalse(options.isBackground());
     assertFalse(options.isSparse());
+    assertFalse(getResult.isArray());
+    assertFalse(getResult.isBinary());
+    assertFalse(getResult.isBoolean());
+    assertFalse(getResult.isDBPointer());
+    assertFalse(getResult.isDateTime());
+    assertFalse(getResult.isDecimal128());
+    assertFalse(getResult.isDocument());
+    assertFalse(getResult.isDouble());
+    assertFalse(getResult.isInt64());
+    assertFalse(getResult.isJavaScript());
+    assertFalse(getResult.isJavaScriptWithScope());
+    assertFalse(getResult.isNull());
+    assertFalse(getResult.isObjectId());
+    assertFalse(getResult.isRegularExpression());
+    assertFalse(getResult.isString());
+    assertFalse(getResult.isSymbol());
+    assertFalse(getResult.isTimestamp());
     assertTrue(options.isUnique());
-    assertTrue(((Map<String, BsonInt32>) keys).containsKey("Field Names"));
+    assertTrue(getResult.isInt32());
+    assertTrue(getResult.isNumber());
+  }
+
+  /**
+   * Method under test: {@link BaseMongo#buildIndex(String, String[])}
+   */
+  @Test
+  void testBuildIndex4() {
+    // Arrange and Act
+    IndexModel actualBuildIndexResult = BaseMongo.buildIndex("Index Name", "Field Names");
+
+    // Assert
+    Bson keys = actualBuildIndexResult.getKeys();
+    assertTrue(keys instanceof Map);
+    IndexOptions options = actualBuildIndexResult.getOptions();
+    assertEquals("Index Name", options.getName());
+    assertNull(options.getCollation());
+    assertNull(options.getBucketSize());
+    assertNull(options.getMax());
+    assertNull(options.getMin());
+    assertNull(options.getBits());
+    assertNull(options.getSphereVersion());
+    assertNull(options.getTextVersion());
+    assertNull(options.getVersion());
+    assertNull(options.getDefaultLanguage());
+    assertNull(options.getLanguageOverride());
+    assertNull(options.getPartialFilterExpression());
+    assertNull(options.getStorageEngine());
+    assertNull(options.getWeights());
+    assertNull(options.getWildcardProjection());
+    assertEquals(1, ((Map<String, BsonInt32>) keys).size());
+    BsonInt32 getResult = ((Map<String, BsonInt32>) keys).get("Field Names");
+    assertEquals(1, getResult.getValue());
+    assertEquals(BsonType.INT32, getResult.getBsonType());
+    assertFalse(options.isBackground());
+    assertFalse(options.isSparse());
+    assertFalse(options.isUnique());
+    assertFalse(getResult.isArray());
+    assertFalse(getResult.isBinary());
+    assertFalse(getResult.isBoolean());
+    assertFalse(getResult.isDBPointer());
+    assertFalse(getResult.isDateTime());
+    assertFalse(getResult.isDecimal128());
+    assertFalse(getResult.isDocument());
+    assertFalse(getResult.isDouble());
+    assertFalse(getResult.isInt64());
+    assertFalse(getResult.isJavaScript());
+    assertFalse(getResult.isJavaScriptWithScope());
+    assertFalse(getResult.isNull());
+    assertFalse(getResult.isObjectId());
+    assertFalse(getResult.isRegularExpression());
+    assertFalse(getResult.isString());
+    assertFalse(getResult.isSymbol());
+    assertFalse(getResult.isTimestamp());
+    assertTrue(getResult.isInt32());
+    assertTrue(getResult.isNumber());
   }
 }

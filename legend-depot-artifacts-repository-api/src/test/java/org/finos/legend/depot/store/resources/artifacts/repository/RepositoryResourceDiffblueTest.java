@@ -7,15 +7,12 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepository;
 import org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepositoryException;
 import org.finos.legend.sdlc.domain.model.version.VersionId;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -32,18 +29,11 @@ class RepositoryResourceDiffblueTest {
   private RepositoryResource repositoryResource;
 
   /**
-   * Test {@link RepositoryResource#getRepositoryVersions(String, String)}.
-   * <ul>
-   *   <li>Then return Empty.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link RepositoryResource#getRepositoryVersions(String, String)}
+   * Method under test:
+   * {@link RepositoryResource#getRepositoryVersions(String, String)}
    */
   @Test
-  @DisplayName("Test getRepositoryVersions(String, String); then return Empty")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"List RepositoryResource.getRepositoryVersions(String, String)"})
-  void testGetRepositoryVersions_thenReturnEmpty() throws ArtifactRepositoryException {
+  void testGetRepositoryVersions() throws ArtifactRepositoryException {
     // Arrange
     when(artifactRepository.findVersions(Mockito.<String>any(), Mockito.<String>any())).thenReturn(new ArrayList<>());
 
@@ -56,18 +46,11 @@ class RepositoryResourceDiffblueTest {
   }
 
   /**
-   * Test {@link RepositoryResource#getRepositoryVersions(String, String)}.
-   * <ul>
-   *   <li>Then return size is one.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link RepositoryResource#getRepositoryVersions(String, String)}
+   * Method under test:
+   * {@link RepositoryResource#getRepositoryVersions(String, String)}
    */
   @Test
-  @DisplayName("Test getRepositoryVersions(String, String); then return size is one")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"List RepositoryResource.getRepositoryVersions(String, String)"})
-  void testGetRepositoryVersions_thenReturnSizeIsOne() throws ArtifactRepositoryException {
+  void testGetRepositoryVersions2() throws ArtifactRepositoryException {
     // Arrange
     VersionId versionId = mock(VersionId.class);
     when(versionId.toVersionIdString()).thenReturn("1.0.2");
@@ -87,18 +70,11 @@ class RepositoryResourceDiffblueTest {
   }
 
   /**
-   * Test {@link RepositoryResource#getRepositoryVersions(String, String)}.
-   * <ul>
-   *   <li>Then return size is two.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link RepositoryResource#getRepositoryVersions(String, String)}
+   * Method under test:
+   * {@link RepositoryResource#getRepositoryVersions(String, String)}
    */
   @Test
-  @DisplayName("Test getRepositoryVersions(String, String); then return size is two")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"List RepositoryResource.getRepositoryVersions(String, String)"})
-  void testGetRepositoryVersions_thenReturnSizeIsTwo() throws ArtifactRepositoryException {
+  void testGetRepositoryVersions3() throws ArtifactRepositoryException {
     // Arrange
     VersionId versionId = mock(VersionId.class);
     when(versionId.toVersionIdString()).thenReturn("1.0.2");
@@ -123,44 +99,11 @@ class RepositoryResourceDiffblueTest {
   }
 
   /**
-   * Test {@link RepositoryResource#getRepositoryVersion(String, String, String)}.
-   * <ul>
-   *   <li>Then return {@link Optional#get()} is {@code An error occurred}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link RepositoryResource#getRepositoryVersion(String, String, String)}
+   * Method under test:
+   * {@link RepositoryResource#getRepositoryVersion(String, String, String)}
    */
   @Test
-  @DisplayName("Test getRepositoryVersion(String, String, String); then return get() is 'An error occurred'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Optional RepositoryResource.getRepositoryVersion(String, String, String)"})
-  void testGetRepositoryVersion_thenReturnGetIsAnErrorOccurred() throws ArtifactRepositoryException {
-    // Arrange
-    when(artifactRepository.findVersion(Mockito.<String>any(), Mockito.<String>any(), Mockito.<String>any()))
-        .thenThrow(new ArtifactRepositoryException("An error occurred"));
-
-    // Act
-    Optional<String> actualRepositoryVersion = repositoryResource.getRepositoryVersion("42", "42", "42");
-
-    // Assert
-    verify(artifactRepository).findVersion(eq("42"), eq("42"), eq("42"));
-    assertEquals("An error occurred", actualRepositoryVersion.get());
-    assertTrue(actualRepositoryVersion.isPresent());
-  }
-
-  /**
-   * Test {@link RepositoryResource#getRepositoryVersion(String, String, String)}.
-   * <ul>
-   *   <li>Then return {@link Optional} with {@code foo}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link RepositoryResource#getRepositoryVersion(String, String, String)}
-   */
-  @Test
-  @DisplayName("Test getRepositoryVersion(String, String, String); then return Optional with 'foo'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Optional RepositoryResource.getRepositoryVersion(String, String, String)"})
-  void testGetRepositoryVersion_thenReturnOptionalWithFoo() throws ArtifactRepositoryException {
+  void testGetRepositoryVersion() throws ArtifactRepositoryException {
     // Arrange
     Optional<String> ofResult = Optional.of("foo");
     when(artifactRepository.findVersion(Mockito.<String>any(), Mockito.<String>any(), Mockito.<String>any()))
@@ -172,5 +115,24 @@ class RepositoryResourceDiffblueTest {
     // Assert
     verify(artifactRepository).findVersion(eq("42"), eq("42"), eq("42"));
     assertSame(ofResult, actualRepositoryVersion);
+  }
+
+  /**
+   * Method under test:
+   * {@link RepositoryResource#getRepositoryVersion(String, String, String)}
+   */
+  @Test
+  void testGetRepositoryVersion2() throws ArtifactRepositoryException {
+    // Arrange
+    when(artifactRepository.findVersion(Mockito.<String>any(), Mockito.<String>any(), Mockito.<String>any()))
+        .thenThrow(new ArtifactRepositoryException("An error occurred"));
+
+    // Act
+    Optional<String> actualRepositoryVersion = repositoryResource.getRepositoryVersion("42", "42", "42");
+
+    // Assert
+    verify(artifactRepository).findVersion(eq("42"), eq("42"), eq("42"));
+    assertEquals("An error occurred", actualRepositoryVersion.get());
+    assertTrue(actualRepositoryVersion.isPresent());
   }
 }

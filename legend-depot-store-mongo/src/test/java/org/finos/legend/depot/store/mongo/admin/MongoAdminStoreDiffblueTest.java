@@ -10,7 +10,8 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import com.diffblue.cover.annotations.MethodsUnderTest;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.ReadConcern;
 import com.mongodb.ReadConcernLevel;
 import com.mongodb.ReadPreference;
@@ -31,56 +32,15 @@ import org.bson.Document;
 import org.bson.UuidRepresentation;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.conversions.Bson;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 class MongoAdminStoreDiffblueTest {
   /**
-   * Test {@link MongoAdminStore#MongoAdminStore(MongoDatabase)}.
-   * <p>
-   * Method under test: {@link MongoAdminStore#MongoAdminStore(MongoDatabase)}
-   */
-  @Test
-  @DisplayName("Test new MongoAdminStore(MongoDatabase)")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void MongoAdminStore.<init>(MongoDatabase)"})
-  void testNewMongoAdminStore() {
-    // Arrange
-    CodecRegistry codecRegistry = mock(CodecRegistry.class);
-    ReadPreference readPreference = mock(ReadPreference.class);
-    WriteConcern writeConcern = new WriteConcern(1);
-    ReadConcern readConcern = new ReadConcern(ReadConcernLevel.LOCAL);
-
-    // Act
-    MongoAdminStore actualMongoAdminStore = new MongoAdminStore(
-        new MongoDatabaseImpl("Name", codecRegistry, readPreference, writeConcern, true, true, readConcern,
-            UuidRepresentation.UNSPECIFIED, mock(OperationExecutor.class)));
-
-    // Assert
-    MongoDatabase mongoDatabase = actualMongoAdminStore.mongoDatabase;
-    assertTrue(mongoDatabase instanceof MongoDatabaseImpl);
-    assertEquals("Name", mongoDatabase.getName());
-    assertEquals("Name", actualMongoAdminStore.getName());
-    assertSame(readConcern, mongoDatabase.getReadConcern());
-    assertSame(writeConcern, mongoDatabase.getWriteConcern());
-  }
-
-  /**
-   * Test {@link MongoAdminStore#deleteCollection(String)}.
-   * <ul>
-   *   <li>Given {@link OperationExecutor} {@link OperationExecutor#execute(WriteOperation, ReadConcern, ClientSession)} return {@code null}.</li>
-   *   <li>Then calls {@link OperationExecutor#execute(WriteOperation, ReadConcern, ClientSession)}.</li>
-   * </ul>
-   * <p>
    * Method under test: {@link MongoAdminStore#deleteCollection(String)}
    */
   @Test
-  @DisplayName("Test deleteCollection(String); given OperationExecutor execute(WriteOperation, ReadConcern, ClientSession) return 'null'; then calls execute(WriteOperation, ReadConcern, ClientSession)")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void MongoAdminStore.deleteCollection(String)"})
-  void testDeleteCollection_givenOperationExecutorExecuteReturnNull_thenCallsExecute() {
+  void testDeleteCollection() {
     // Arrange
     OperationExecutor executor = mock(OperationExecutor.class);
     when(
@@ -99,18 +59,10 @@ class MongoAdminStoreDiffblueTest {
   }
 
   /**
-   * Test {@link MongoAdminStore#getAllCollections()}.
-   * <ul>
-   *   <li>Then return Empty.</li>
-   * </ul>
-   * <p>
    * Method under test: {@link MongoAdminStore#getAllCollections()}
    */
   @Test
-  @DisplayName("Test getAllCollections(); then return Empty")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"List MongoAdminStore.getAllCollections()"})
-  void testGetAllCollections_thenReturnEmpty() {
+  void testGetAllCollections() {
     // Arrange
     ListCollectionsIterable<Document> listCollectionsIterable = mock(ListCollectionsIterable.class);
     doNothing().when(listCollectionsIterable).forEach(Mockito.<Consumer<Document>>any());
@@ -127,19 +79,10 @@ class MongoAdminStoreDiffblueTest {
   }
 
   /**
-   * Test {@link MongoAdminStore#getAllIndexes()}.
-   * <ul>
-   *   <li>Given {@link ListCollectionsIterable} {@link Iterable#forEach(Consumer)} does nothing.</li>
-   *   <li>Then return Empty.</li>
-   * </ul>
-   * <p>
    * Method under test: {@link MongoAdminStore#getAllIndexes()}
    */
   @Test
-  @DisplayName("Test getAllIndexes(); given ListCollectionsIterable forEach(Consumer) does nothing; then return Empty")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Map MongoAdminStore.getAllIndexes()"})
-  void testGetAllIndexes_givenListCollectionsIterableForEachDoesNothing_thenReturnEmpty() {
+  void testGetAllIndexes() {
     // Arrange
     ListCollectionsIterable<Document> listCollectionsIterable = mock(ListCollectionsIterable.class);
     doNothing().when(listCollectionsIterable).forEach(Mockito.<Consumer<Document>>any());
@@ -156,19 +99,10 @@ class MongoAdminStoreDiffblueTest {
   }
 
   /**
-   * Test {@link MongoAdminStore#deleteIndex(String, String)}.
-   * <ul>
-   *   <li>Given {@link OperationExecutor} {@link OperationExecutor#execute(WriteOperation, ReadConcern, ClientSession)} return {@code null}.</li>
-   *   <li>Then calls {@link OperationExecutor#execute(WriteOperation, ReadConcern, ClientSession)}.</li>
-   * </ul>
-   * <p>
    * Method under test: {@link MongoAdminStore#deleteIndex(String, String)}
    */
   @Test
-  @DisplayName("Test deleteIndex(String, String); given OperationExecutor execute(WriteOperation, ReadConcern, ClientSession) return 'null'; then calls execute(WriteOperation, ReadConcern, ClientSession)")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void MongoAdminStore.deleteIndex(String, String)"})
-  void testDeleteIndex_givenOperationExecutorExecuteReturnNull_thenCallsExecute() {
+  void testDeleteIndex() {
     // Arrange
     OperationExecutor executor = mock(OperationExecutor.class);
     when(
@@ -188,14 +122,9 @@ class MongoAdminStoreDiffblueTest {
   }
 
   /**
-   * Test {@link MongoAdminStore#createIndexes()}.
-   * <p>
    * Method under test: {@link MongoAdminStore#createIndexes()}
    */
   @Test
-  @DisplayName("Test createIndexes()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"List MongoAdminStore.createIndexes()"})
   void testCreateIndexes() {
     // Arrange
     CodecRegistry codecRegistry = mock(CodecRegistry.class);
@@ -210,19 +139,10 @@ class MongoAdminStoreDiffblueTest {
   }
 
   /**
-   * Test {@link MongoAdminStore#runCommand(Document)}.
-   * <ul>
-   *   <li>Given {@link MongoDatabaseImpl} {@link MongoDatabaseImpl#runCommand(Bson)} return {@link Document#Document()}.</li>
-   *   <li>Then return {@link Document#Document()}.</li>
-   * </ul>
-   * <p>
    * Method under test: {@link MongoAdminStore#runCommand(Document)}
    */
   @Test
-  @DisplayName("Test runCommand(Document); given MongoDatabaseImpl runCommand(Bson) return Document(); then return Document()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"Document MongoAdminStore.runCommand(Document)"})
-  void testRunCommand_givenMongoDatabaseImplRunCommandReturnDocument_thenReturnDocument() {
+  void testRunCommand() {
     // Arrange
     MongoDatabaseImpl mongoDatabase = mock(MongoDatabaseImpl.class);
     Document document = new Document();
@@ -234,23 +154,15 @@ class MongoAdminStoreDiffblueTest {
 
     // Assert
     verify(mongoDatabase).runCommand(isA(Bson.class));
+    assertTrue(actualRunCommandResult.isEmpty());
     assertSame(document, actualRunCommandResult);
   }
 
   /**
-   * Test {@link MongoAdminStore#runPipeline(String, List)} with {@code collectionName}, {@code pipeline}.
-   * <ul>
-   *   <li>Given {@link Document#Document()}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@link Document#Document()}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link MongoAdminStore#runPipeline(String, List)}
+   * Method under test: {@link MongoAdminStore#runPipeline(String, String)}
    */
   @Test
-  @DisplayName("Test runPipeline(String, List) with 'collectionName', 'pipeline'; given Document(); when ArrayList() add Document()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"List MongoAdminStore.runPipeline(String, List)"})
-  void testRunPipelineWithCollectionNamePipeline_givenDocument_whenArrayListAddDocument() {
+  void testRunPipeline() throws JsonProcessingException {
     // Arrange
     AggregateIterable<Document> aggregateIterable = mock(AggregateIterable.class);
     doNothing().when(aggregateIterable).forEach(Mockito.<Consumer<Document>>any());
@@ -260,70 +172,27 @@ class MongoAdminStoreDiffblueTest {
     when(mongoDatabase.getCollection(Mockito.<String>any())).thenReturn(mongoCollection);
     MongoAdminStore mongoAdminStore = new MongoAdminStore(mongoDatabase);
 
-    ArrayList<Document> pipeline = new ArrayList<>();
-    pipeline.add(new Document());
+    ObjectMapper objectMapper = new ObjectMapper();
+    String collectionName = objectMapper.writeValueAsString(new ArrayList<>());
+
+    ObjectMapper objectMapper2 = new ObjectMapper();
 
     // Act
-    List<Document> actualRunPipelineResult = mongoAdminStore.runPipeline("Collection Name", pipeline);
+    List<Document> actualRunPipelineResult = mongoAdminStore.runPipeline(collectionName,
+        objectMapper2.writeValueAsString(new ArrayList<>()));
 
     // Assert
     verify(mongoCollection).aggregate(isA(List.class));
-    verify(mongoDatabase).getCollection(eq("Collection Name"));
+    verify(mongoDatabase).getCollection(eq("[]"));
     verify(aggregateIterable).forEach(isA(Consumer.class));
     assertTrue(actualRunPipelineResult.isEmpty());
   }
 
   /**
-   * Test {@link MongoAdminStore#runPipeline(String, List)} with {@code collectionName}, {@code pipeline}.
-   * <ul>
-   *   <li>Given {@link Document#Document()}.</li>
-   *   <li>When {@link ArrayList#ArrayList()} add {@link Document#Document()}.</li>
-   * </ul>
-   * <p>
    * Method under test: {@link MongoAdminStore#runPipeline(String, List)}
    */
   @Test
-  @DisplayName("Test runPipeline(String, List) with 'collectionName', 'pipeline'; given Document(); when ArrayList() add Document()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"List MongoAdminStore.runPipeline(String, List)"})
-  void testRunPipelineWithCollectionNamePipeline_givenDocument_whenArrayListAddDocument2() {
-    // Arrange
-    AggregateIterable<Document> aggregateIterable = mock(AggregateIterable.class);
-    doNothing().when(aggregateIterable).forEach(Mockito.<Consumer<Document>>any());
-    MongoCollection<Document> mongoCollection = mock(MongoCollection.class);
-    when(mongoCollection.aggregate(Mockito.<List<Bson>>any())).thenReturn(aggregateIterable);
-    MongoDatabaseImpl mongoDatabase = mock(MongoDatabaseImpl.class);
-    when(mongoDatabase.getCollection(Mockito.<String>any())).thenReturn(mongoCollection);
-    MongoAdminStore mongoAdminStore = new MongoAdminStore(mongoDatabase);
-
-    ArrayList<Document> pipeline = new ArrayList<>();
-    pipeline.add(new Document());
-    pipeline.add(new Document());
-
-    // Act
-    List<Document> actualRunPipelineResult = mongoAdminStore.runPipeline("Collection Name", pipeline);
-
-    // Assert
-    verify(mongoCollection).aggregate(isA(List.class));
-    verify(mongoDatabase).getCollection(eq("Collection Name"));
-    verify(aggregateIterable).forEach(isA(Consumer.class));
-    assertTrue(actualRunPipelineResult.isEmpty());
-  }
-
-  /**
-   * Test {@link MongoAdminStore#runPipeline(String, List)} with {@code collectionName}, {@code pipeline}.
-   * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then return Empty.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link MongoAdminStore#runPipeline(String, List)}
-   */
-  @Test
-  @DisplayName("Test runPipeline(String, List) with 'collectionName', 'pipeline'; when ArrayList(); then return Empty")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"List MongoAdminStore.runPipeline(String, List)"})
-  void testRunPipelineWithCollectionNamePipeline_whenArrayList_thenReturnEmpty() {
+  void testRunPipeline2() {
     // Arrange
     AggregateIterable<Document> aggregateIterable = mock(AggregateIterable.class);
     doNothing().when(aggregateIterable).forEach(Mockito.<Consumer<Document>>any());
@@ -344,19 +213,65 @@ class MongoAdminStoreDiffblueTest {
   }
 
   /**
-   * Test {@link MongoAdminStore#getName()}.
-   * <ul>
-   *   <li>Given {@link WriteConcern#WriteConcern(int)} with w is one.</li>
-   *   <li>Then return {@code Name}.</li>
-   * </ul>
-   * <p>
+   * Method under test: {@link MongoAdminStore#runPipeline(String, List)}
+   */
+  @Test
+  void testRunPipeline3() {
+    // Arrange
+    AggregateIterable<Document> aggregateIterable = mock(AggregateIterable.class);
+    doNothing().when(aggregateIterable).forEach(Mockito.<Consumer<Document>>any());
+    MongoCollection<Document> mongoCollection = mock(MongoCollection.class);
+    when(mongoCollection.aggregate(Mockito.<List<Bson>>any())).thenReturn(aggregateIterable);
+    MongoDatabaseImpl mongoDatabase = mock(MongoDatabaseImpl.class);
+    when(mongoDatabase.getCollection(Mockito.<String>any())).thenReturn(mongoCollection);
+    MongoAdminStore mongoAdminStore = new MongoAdminStore(mongoDatabase);
+
+    ArrayList<Document> pipeline = new ArrayList<>();
+    pipeline.add(new Document());
+
+    // Act
+    List<Document> actualRunPipelineResult = mongoAdminStore.runPipeline("Collection Name", pipeline);
+
+    // Assert
+    verify(mongoCollection).aggregate(isA(List.class));
+    verify(mongoDatabase).getCollection(eq("Collection Name"));
+    verify(aggregateIterable).forEach(isA(Consumer.class));
+    assertTrue(actualRunPipelineResult.isEmpty());
+  }
+
+  /**
+   * Method under test: {@link MongoAdminStore#runPipeline(String, List)}
+   */
+  @Test
+  void testRunPipeline4() {
+    // Arrange
+    AggregateIterable<Document> aggregateIterable = mock(AggregateIterable.class);
+    doNothing().when(aggregateIterable).forEach(Mockito.<Consumer<Document>>any());
+    MongoCollection<Document> mongoCollection = mock(MongoCollection.class);
+    when(mongoCollection.aggregate(Mockito.<List<Bson>>any())).thenReturn(aggregateIterable);
+    MongoDatabaseImpl mongoDatabase = mock(MongoDatabaseImpl.class);
+    when(mongoDatabase.getCollection(Mockito.<String>any())).thenReturn(mongoCollection);
+    MongoAdminStore mongoAdminStore = new MongoAdminStore(mongoDatabase);
+
+    ArrayList<Document> pipeline = new ArrayList<>();
+    pipeline.add(new Document());
+    pipeline.add(new Document());
+
+    // Act
+    List<Document> actualRunPipelineResult = mongoAdminStore.runPipeline("Collection Name", pipeline);
+
+    // Assert
+    verify(mongoCollection).aggregate(isA(List.class));
+    verify(mongoDatabase).getCollection(eq("Collection Name"));
+    verify(aggregateIterable).forEach(isA(Consumer.class));
+    assertTrue(actualRunPipelineResult.isEmpty());
+  }
+
+  /**
    * Method under test: {@link MongoAdminStore#getName()}
    */
   @Test
-  @DisplayName("Test getName(); given WriteConcern(int) with w is one; then return 'Name'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String MongoAdminStore.getName()"})
-  void testGetName_givenWriteConcernWithWIsOne_thenReturnName() {
+  void testGetName() {
     // Arrange
     CodecRegistry codecRegistry = mock(CodecRegistry.class);
     ReadPreference readPreference = mock(ReadPreference.class);
@@ -367,5 +282,30 @@ class MongoAdminStoreDiffblueTest {
         (new MongoAdminStore(new MongoDatabaseImpl("Name", codecRegistry, readPreference, writeConcern, true, true,
             new ReadConcern(ReadConcernLevel.LOCAL), UuidRepresentation.UNSPECIFIED, mock(OperationExecutor.class))))
                 .getName());
+  }
+
+  /**
+   * Method under test: {@link MongoAdminStore#MongoAdminStore(MongoDatabase)}
+   */
+  @Test
+  void testNewMongoAdminStore() {
+    // Arrange
+    CodecRegistry codecRegistry = mock(CodecRegistry.class);
+    ReadPreference readPreference = mock(ReadPreference.class);
+    WriteConcern writeConcern = new WriteConcern(1);
+    ReadConcern readConcern = new ReadConcern(ReadConcernLevel.LOCAL);
+
+    // Act
+    MongoAdminStore actualMongoAdminStore = new MongoAdminStore(
+        new MongoDatabaseImpl("Name", codecRegistry, readPreference, writeConcern, true, true, readConcern,
+            UuidRepresentation.UNSPECIFIED, mock(OperationExecutor.class)));
+
+    // Assert
+    MongoDatabase mongoDatabase = actualMongoAdminStore.mongoDatabase;
+    assertTrue(mongoDatabase instanceof MongoDatabaseImpl);
+    assertEquals("Name", mongoDatabase.getName());
+    assertEquals("Name", actualMongoAdminStore.getName());
+    assertSame(readConcern, mongoDatabase.getReadConcern());
+    assertSame(writeConcern, mongoDatabase.getWriteConcern());
   }
 }

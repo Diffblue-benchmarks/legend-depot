@@ -3,19 +3,19 @@
     "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2025.02.02-08b2a5a-licensed",
-    "creationTimestamp" : "2025-10-27T13:21:36.334842Z",
+    "version" : "2024.10.01-2ee2e3d-licensed",
+    "creationTimestamp" : "2025-10-27T17:54:04.113781Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 83.548,
-    "environmentDetectionTime" : 0.172,
-    "indexingTime" : 0.364,
-    "entryPointsTime" : 0.168,
-    "generationTime" : 2744.583,
-    "timeToFirstTest" : 4177.375,
-    "timeToLastTest" : 3617.601,
-    "indexQueryTime" : 4.069,
-    "verificationTime" : 191.615,
-    "validationTime" : 12.346
+    "totalTime" : 4388.459,
+    "environmentDetectionTime" : 0.188,
+    "indexingTime" : 0.455,
+    "entryPointsTime" : 0.184,
+    "generationTime" : 2856.093,
+    "timeToFirstTest" : 144.257,
+    "timeToLastTest" : 155.682,
+    "indexQueryTime" : 4.696,
+    "verificationTime" : 77.684,
+    "validationTime" : 11.928
   },
   "codes" : {
     "F009" : "Internal error",
@@ -64,7 +64,7 @@
     },
     "perTestValidation" : {
       "V000" : 2,
-      "V003" : 2
+      "V003" : 1
     },
     "warnings" : {
       "F009" : 1

@@ -6,21 +6,95 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import com.diffblue.cover.annotations.MethodsUnderTest;
+import static org.mockito.Mockito.mock;
 import java.util.ArrayList;
 import java.util.List;
 import org.finos.legend.sdlc.domain.model.entity.Entity;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ProjectVersionEntitiesDiffblueTest {
   /**
-   * Test getters and setters.
+   * Methods under test:
    * <ul>
-   *   <li>Then return ArtifactId is {@code null}.</li>
+   *   <li>{@link ProjectVersionEntities#equals(Object)}
+   *   <li>{@link ProjectVersionEntities#hashCode()}
    * </ul>
-   * <p>
+   */
+  @Test
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    ProjectVersionEntities projectVersionEntities = new ProjectVersionEntities();
+    ProjectVersionEntities projectVersionEntities2 = new ProjectVersionEntities();
+
+    // Act and Assert
+    assertEquals(projectVersionEntities, projectVersionEntities2);
+    int expectedHashCodeResult = projectVersionEntities.hashCode();
+    assertEquals(expectedHashCodeResult, projectVersionEntities2.hashCode());
+  }
+
+  /**
+   * Methods under test:
+   * <ul>
+   *   <li>{@link ProjectVersionEntities#equals(Object)}
+   *   <li>{@link ProjectVersionEntities#hashCode()}
+   * </ul>
+   */
+  @Test
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    ProjectVersionEntities projectVersionEntities = new ProjectVersionEntities();
+
+    // Act and Assert
+    assertEquals(projectVersionEntities, projectVersionEntities);
+    int expectedHashCodeResult = projectVersionEntities.hashCode();
+    assertEquals(expectedHashCodeResult, projectVersionEntities.hashCode());
+  }
+
+  /**
+   * Method under test: {@link ProjectVersionEntities#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    ProjectVersionEntities projectVersionEntities = new ProjectVersionEntities("42", "42", "42", new ArrayList<>());
+
+    // Act and Assert
+    assertNotEquals(projectVersionEntities, new ProjectVersionEntities());
+  }
+
+  /**
+   * Method under test: {@link ProjectVersionEntities#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual2() {
+    // Arrange
+    ArrayList<Entity> entities = new ArrayList<>();
+    entities.add(mock(Entity.class));
+    ProjectVersionEntities projectVersionEntities = new ProjectVersionEntities("42", "42", "42", entities);
+
+    // Act and Assert
+    assertNotEquals(projectVersionEntities, new ProjectVersionEntities());
+  }
+
+  /**
+   * Method under test: {@link ProjectVersionEntities#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new ProjectVersionEntities(), null);
+  }
+
+  /**
+   * Method under test: {@link ProjectVersionEntities#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new ProjectVersionEntities(), "Different type to ProjectVersionEntities");
+  }
+
+  /**
    * Methods under test:
    * <ul>
    *   <li>{@link ProjectVersionEntities#ProjectVersionEntities()}
@@ -29,12 +103,7 @@ class ProjectVersionEntitiesDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters; then return ArtifactId is 'null'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ProjectVersionEntities.<init>()",
-      "void ProjectVersionEntities.<init>(String, String, String, List)", "List ProjectVersionEntities.getEntities()",
-      "boolean ProjectVersionEntities.isVersionedEntity()"})
-  void testGettersAndSetters_thenReturnArtifactIdIsNull() {
+  void testGettersAndSetters() {
     // Arrange and Act
     ProjectVersionEntities actualProjectVersionEntities = new ProjectVersionEntities();
     List<Entity> actualEntities = actualProjectVersionEntities.getEntities();
@@ -49,26 +118,16 @@ class ProjectVersionEntitiesDiffblueTest {
   }
 
   /**
-   * Test getters and setters.
-   * <ul>
-   *   <li>When {@code 42}.</li>
-   *   <li>Then return ArtifactId is {@code 42}.</li>
-   * </ul>
-   * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link ProjectVersionEntities#ProjectVersionEntities(String, String, String, List)}
+   *   <li>
+   * {@link ProjectVersionEntities#ProjectVersionEntities(String, String, String, List)}
    *   <li>{@link ProjectVersionEntities#getEntities()}
    *   <li>{@link ProjectVersionEntities#isVersionedEntity()}
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters; when '42'; then return ArtifactId is '42'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ProjectVersionEntities.<init>()",
-      "void ProjectVersionEntities.<init>(String, String, String, List)", "List ProjectVersionEntities.getEntities()",
-      "boolean ProjectVersionEntities.isVersionedEntity()"})
-  void testGettersAndSetters_when42_thenReturnArtifactIdIs42() {
+  void testGettersAndSetters2() {
     // Arrange
     ArrayList<Entity> entities = new ArrayList<>();
 
@@ -84,117 +143,5 @@ class ProjectVersionEntitiesDiffblueTest {
     assertFalse(actualIsVersionedEntityResult);
     assertTrue(actualEntities.isEmpty());
     assertSame(entities, actualEntities);
-  }
-
-  /**
-   * Test {@link ProjectVersionEntities#equals(Object)}, and {@link ProjectVersionEntities#hashCode()}.
-   * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
-   * </ul>
-   * <p>
-   * Methods under test:
-   * <ul>
-   *   <li>{@link ProjectVersionEntities#equals(Object)}
-   *   <li>{@link ProjectVersionEntities#hashCode()}
-   * </ul>
-   */
-  @Test
-  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProjectVersionEntities.equals(Object)", "int ProjectVersionEntities.hashCode()"})
-  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
-    // Arrange
-    ProjectVersionEntities projectVersionEntities = new ProjectVersionEntities();
-    ProjectVersionEntities projectVersionEntities2 = new ProjectVersionEntities();
-
-    // Act and Assert
-    assertEquals(projectVersionEntities, projectVersionEntities2);
-    int expectedHashCodeResult = projectVersionEntities.hashCode();
-    assertEquals(expectedHashCodeResult, projectVersionEntities2.hashCode());
-  }
-
-  /**
-   * Test {@link ProjectVersionEntities#equals(Object)}, and {@link ProjectVersionEntities#hashCode()}.
-   * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
-   * </ul>
-   * <p>
-   * Methods under test:
-   * <ul>
-   *   <li>{@link ProjectVersionEntities#equals(Object)}
-   *   <li>{@link ProjectVersionEntities#hashCode()}
-   * </ul>
-   */
-  @Test
-  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProjectVersionEntities.equals(Object)", "int ProjectVersionEntities.hashCode()"})
-  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
-    // Arrange
-    ProjectVersionEntities projectVersionEntities = new ProjectVersionEntities();
-
-    // Act and Assert
-    assertEquals(projectVersionEntities, projectVersionEntities);
-    int expectedHashCodeResult = projectVersionEntities.hashCode();
-    assertEquals(expectedHashCodeResult, projectVersionEntities.hashCode());
-  }
-
-  /**
-   * Test {@link ProjectVersionEntities#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ProjectVersionEntities#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProjectVersionEntities.equals(Object)", "int ProjectVersionEntities.hashCode()"})
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
-    // Arrange
-    ProjectVersionEntities projectVersionEntities = new ProjectVersionEntities("42", "42", "42", new ArrayList<>());
-
-    // Act and Assert
-    assertNotEquals(projectVersionEntities, new ProjectVersionEntities());
-  }
-
-  /**
-   * Test {@link ProjectVersionEntities#equals(Object)}.
-   * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ProjectVersionEntities#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProjectVersionEntities.equals(Object)", "int ProjectVersionEntities.hashCode()"})
-  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
-    // Arrange, Act and Assert
-    assertNotEquals(new ProjectVersionEntities(), null);
-  }
-
-  /**
-   * Test {@link ProjectVersionEntities#equals(Object)}.
-   * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ProjectVersionEntities#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProjectVersionEntities.equals(Object)", "int ProjectVersionEntities.hashCode()"})
-  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
-    // Arrange, Act and Assert
-    assertNotEquals(new ProjectVersionEntities(), "Different type to ProjectVersionEntities");
   }
 }

@@ -3,19 +3,160 @@ package org.finos.legend.depot.domain.project;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ProjectVersionDataDiffblueTest {
   /**
-   * Test getters and setters.
-   * <p>
+   * Method under test: {@link ProjectVersionData#addDependencies(List)}
+   */
+  @Test
+  void testAddDependencies() {
+    // Arrange
+    ProjectVersionData projectVersionData = new ProjectVersionData();
+
+    // Act
+    projectVersionData.addDependencies(new ArrayList<>());
+
+    // Assert
+    assertTrue(projectVersionData.getDependencies().isEmpty());
+  }
+
+  /**
+   * Method under test: {@link ProjectVersionData#addDependencies(List)}
+   */
+  @Test
+  void testAddDependencies2() {
+    // Arrange
+    ProjectVersionData projectVersionData = new ProjectVersionData();
+
+    ArrayList<ProjectVersion> dependencies = new ArrayList<>();
+    dependencies.add(new ProjectVersion("42", "42", "42"));
+
+    // Act
+    projectVersionData.addDependencies(dependencies);
+
+    // Assert
+    assertEquals(dependencies, projectVersionData.getDependencies());
+  }
+
+  /**
+   * Method under test: {@link ProjectVersionData#addDependencies(List)}
+   */
+  @Test
+  void testAddDependencies3() {
+    // Arrange
+    ProjectVersionData projectVersionData = new ProjectVersionData();
+
+    ArrayList<ProjectVersion> dependencies = new ArrayList<>();
+    dependencies.add(new ProjectVersion("42", "42", "42"));
+    dependencies.add(new ProjectVersion("42", "42", "42"));
+
+    // Act
+    projectVersionData.addDependencies(dependencies);
+
+    // Assert
+    assertEquals(dependencies, projectVersionData.getDependencies());
+  }
+
+  /**
+   * Method under test: {@link ProjectVersionData#addDependency(ProjectVersion)}
+   */
+  @Test
+  void testAddDependency() {
+    // Arrange
+    ProjectVersionData projectVersionData = new ProjectVersionData();
+    ProjectVersion dependency = new ProjectVersion("42", "42", "42");
+
+    // Act
+    projectVersionData.addDependency(dependency);
+
+    // Assert
+    List<ProjectVersion> dependencies = projectVersionData.getDependencies();
+    assertEquals(1, dependencies.size());
+    assertSame(dependency, dependencies.get(0));
+  }
+
+  /**
+   * Method under test: {@link ProjectVersionData#addDependency(ProjectVersion)}
+   */
+  @Test
+  void testAddDependency2() {
+    // Arrange
+    ProjectVersionData projectVersionData = new ProjectVersionData();
+    ProjectVersion dependency = new ProjectVersion("42", "42", "42");
+
+    projectVersionData.addDependency(dependency);
+
+    // Act
+    projectVersionData.addDependency(new ProjectVersion("42", "42", "42"));
+
+    // Assert
+    List<ProjectVersion> dependencies = projectVersionData.getDependencies();
+    assertEquals(1, dependencies.size());
+    assertSame(dependency, dependencies.get(0));
+  }
+
+  /**
+   * Method under test: {@link ProjectVersionData#addProperties(List)}
+   */
+  @Test
+  void testAddProperties() {
+    // Arrange
+    ProjectVersionData projectVersionData = new ProjectVersionData();
+
+    // Act
+    projectVersionData.addProperties(new ArrayList<>());
+
+    // Assert that nothing has changed
+    assertTrue(projectVersionData.getProperties().isEmpty());
+  }
+
+  /**
+   * Method under test: {@link ProjectVersionData#addProperties(List)}
+   */
+  @Test
+  void testAddProperties2() {
+    // Arrange
+    ProjectVersionData projectVersionData = new ProjectVersionData();
+
+    ArrayList<Property> propertyList = new ArrayList<>();
+    propertyList.add(new Property("Property Name", "42"));
+
+    // Act
+    projectVersionData.addProperties(propertyList);
+
+    // Assert
+    assertEquals(propertyList, projectVersionData.getProperties());
+  }
+
+  /**
+   * Method under test: {@link ProjectVersionData#addProperties(List)}
+   */
+  @Test
+  void testAddProperties3() {
+    // Arrange
+    ProjectVersionData projectVersionData = new ProjectVersionData();
+
+    ArrayList<Property> propertyList = new ArrayList<>();
+    Property property = new Property("Property Name", "42");
+
+    propertyList.add(property);
+    propertyList.add(new Property("Property Name", "42"));
+
+    // Act
+    projectVersionData.addProperties(propertyList);
+
+    // Assert
+    List<Property> properties = projectVersionData.getProperties();
+    assertEquals(1, properties.size());
+    assertSame(property, properties.get(0));
+  }
+
+  /**
    * Methods under test:
    * <ul>
    *   <li>{@link ProjectVersionData#ProjectVersionData()}
@@ -34,16 +175,6 @@ class ProjectVersionDataDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ProjectVersionData.<init>()", "void ProjectVersionData.<init>(List, List)",
-      "void ProjectVersionData.<init>(List, List, boolean, boolean)", "List ProjectVersionData.getDependencies()",
-      "String ProjectVersionData.getExclusionReason()", "Map ProjectVersionData.getManifestProperties()",
-      "List ProjectVersionData.getProperties()", "boolean ProjectVersionData.isDeprecated()",
-      "boolean ProjectVersionData.isExcluded()", "void ProjectVersionData.setDependencies(List)",
-      "void ProjectVersionData.setDeprecated(boolean)", "void ProjectVersionData.setExcluded(boolean)",
-      "void ProjectVersionData.setExclusionReason(String)", "void ProjectVersionData.setManifestProperties(Map)",
-      "void ProjectVersionData.setProperties(List)"})
   void testGettersAndSetters() {
     // Arrange and Act
     ProjectVersionData actualProjectVersionData = new ProjectVersionData();
@@ -63,7 +194,7 @@ class ProjectVersionDataDiffblueTest {
     boolean actualIsDeprecatedResult = actualProjectVersionData.isDeprecated();
     boolean actualIsExcludedResult = actualProjectVersionData.isExcluded();
 
-    // Assert
+    // Assert that nothing has changed
     assertEquals("Just cause", actualExclusionReason);
     assertTrue(actualDependencies.isEmpty());
     assertTrue(actualProperties.isEmpty());
@@ -76,11 +207,6 @@ class ProjectVersionDataDiffblueTest {
   }
 
   /**
-   * Test getters and setters.
-   * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   * </ul>
-   * <p>
    * Methods under test:
    * <ul>
    *   <li>{@link ProjectVersionData#ProjectVersionData(List, List)}
@@ -99,17 +225,7 @@ class ProjectVersionDataDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters; when ArrayList()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ProjectVersionData.<init>()", "void ProjectVersionData.<init>(List, List)",
-      "void ProjectVersionData.<init>(List, List, boolean, boolean)", "List ProjectVersionData.getDependencies()",
-      "String ProjectVersionData.getExclusionReason()", "Map ProjectVersionData.getManifestProperties()",
-      "List ProjectVersionData.getProperties()", "boolean ProjectVersionData.isDeprecated()",
-      "boolean ProjectVersionData.isExcluded()", "void ProjectVersionData.setDependencies(List)",
-      "void ProjectVersionData.setDeprecated(boolean)", "void ProjectVersionData.setExcluded(boolean)",
-      "void ProjectVersionData.setExclusionReason(String)", "void ProjectVersionData.setManifestProperties(Map)",
-      "void ProjectVersionData.setProperties(List)"})
-  void testGettersAndSetters_whenArrayList() {
+  void testGettersAndSetters2() {
     // Arrange
     ArrayList<ProjectVersion> dependencies = new ArrayList<>();
 
@@ -131,7 +247,7 @@ class ProjectVersionDataDiffblueTest {
     boolean actualIsDeprecatedResult = actualProjectVersionData.isDeprecated();
     boolean actualIsExcludedResult = actualProjectVersionData.isExcluded();
 
-    // Assert
+    // Assert that nothing has changed
     assertEquals("Just cause", actualExclusionReason);
     assertTrue(actualDependencies.isEmpty());
     assertTrue(actualProperties.isEmpty());
@@ -144,14 +260,10 @@ class ProjectVersionDataDiffblueTest {
   }
 
   /**
-   * Test getters and setters.
-   * <ul>
-   *   <li>When {@code true}.</li>
-   * </ul>
-   * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link ProjectVersionData#ProjectVersionData(List, List, boolean, boolean)}
+   *   <li>
+   * {@link ProjectVersionData#ProjectVersionData(List, List, boolean, boolean)}
    *   <li>{@link ProjectVersionData#setDependencies(List)}
    *   <li>{@link ProjectVersionData#setDeprecated(boolean)}
    *   <li>{@link ProjectVersionData#setExcluded(boolean)}
@@ -167,17 +279,7 @@ class ProjectVersionDataDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters; when 'true'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ProjectVersionData.<init>()", "void ProjectVersionData.<init>(List, List)",
-      "void ProjectVersionData.<init>(List, List, boolean, boolean)", "List ProjectVersionData.getDependencies()",
-      "String ProjectVersionData.getExclusionReason()", "Map ProjectVersionData.getManifestProperties()",
-      "List ProjectVersionData.getProperties()", "boolean ProjectVersionData.isDeprecated()",
-      "boolean ProjectVersionData.isExcluded()", "void ProjectVersionData.setDependencies(List)",
-      "void ProjectVersionData.setDeprecated(boolean)", "void ProjectVersionData.setExcluded(boolean)",
-      "void ProjectVersionData.setExclusionReason(String)", "void ProjectVersionData.setManifestProperties(Map)",
-      "void ProjectVersionData.setProperties(List)"})
-  void testGettersAndSetters_whenTrue() {
+  void testGettersAndSetters3() {
     // Arrange
     ArrayList<ProjectVersion> dependencies = new ArrayList<>();
 
@@ -199,7 +301,7 @@ class ProjectVersionDataDiffblueTest {
     boolean actualIsDeprecatedResult = actualProjectVersionData.isDeprecated();
     boolean actualIsExcludedResult = actualProjectVersionData.isExcluded();
 
-    // Assert
+    // Assert that nothing has changed
     assertEquals("Just cause", actualExclusionReason);
     assertTrue(actualDependencies.isEmpty());
     assertTrue(actualProperties.isEmpty());
@@ -209,222 +311,5 @@ class ProjectVersionDataDiffblueTest {
     assertSame(dependencies2, actualDependencies);
     assertSame(properties, actualProperties);
     assertSame(manifestProperties, actualManifestProperties);
-  }
-
-  /**
-   * Test {@link ProjectVersionData#addDependencies(List)}.
-   * <ul>
-   *   <li>Then {@link ProjectVersionData#ProjectVersionData()} Dependencies is {@link ArrayList#ArrayList()}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ProjectVersionData#addDependencies(List)}
-   */
-  @Test
-  @DisplayName("Test addDependencies(List); then ProjectVersionData() Dependencies is ArrayList()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ProjectVersionData.addDependencies(List)"})
-  void testAddDependencies_thenProjectVersionDataDependenciesIsArrayList() {
-    // Arrange
-    ProjectVersionData projectVersionData = new ProjectVersionData();
-
-    ArrayList<ProjectVersion> dependencies = new ArrayList<>();
-    dependencies.add(new ProjectVersion("42", "42", "42"));
-    dependencies.add(new ProjectVersion("42", "42", "42"));
-
-    // Act
-    projectVersionData.addDependencies(dependencies);
-
-    // Assert
-    assertEquals(dependencies, projectVersionData.getDependencies());
-  }
-
-  /**
-   * Test {@link ProjectVersionData#addDependencies(List)}.
-   * <ul>
-   *   <li>Then {@link ProjectVersionData#ProjectVersionData()} Dependencies size is one.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ProjectVersionData#addDependencies(List)}
-   */
-  @Test
-  @DisplayName("Test addDependencies(List); then ProjectVersionData() Dependencies size is one")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ProjectVersionData.addDependencies(List)"})
-  void testAddDependencies_thenProjectVersionDataDependenciesSizeIsOne() {
-    // Arrange
-    ProjectVersionData projectVersionData = new ProjectVersionData();
-
-    ArrayList<ProjectVersion> dependencies = new ArrayList<>();
-    ProjectVersion projectVersion = new ProjectVersion("42", "42", "42");
-
-    dependencies.add(projectVersion);
-
-    // Act
-    projectVersionData.addDependencies(dependencies);
-
-    // Assert
-    List<ProjectVersion> dependencies2 = projectVersionData.getDependencies();
-    assertEquals(1, dependencies2.size());
-    assertSame(projectVersion, dependencies2.get(0));
-  }
-
-  /**
-   * Test {@link ProjectVersionData#addDependencies(List)}.
-   * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then {@link ProjectVersionData#ProjectVersionData()} Dependencies Empty.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ProjectVersionData#addDependencies(List)}
-   */
-  @Test
-  @DisplayName("Test addDependencies(List); when ArrayList(); then ProjectVersionData() Dependencies Empty")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ProjectVersionData.addDependencies(List)"})
-  void testAddDependencies_whenArrayList_thenProjectVersionDataDependenciesEmpty() {
-    // Arrange
-    ProjectVersionData projectVersionData = new ProjectVersionData();
-
-    // Act
-    projectVersionData.addDependencies(new ArrayList<>());
-
-    // Assert that nothing has changed
-    assertTrue(projectVersionData.getDependencies().isEmpty());
-  }
-
-  /**
-   * Test {@link ProjectVersionData#addDependency(ProjectVersion)}.
-   * <p>
-   * Method under test: {@link ProjectVersionData#addDependency(ProjectVersion)}
-   */
-  @Test
-  @DisplayName("Test addDependency(ProjectVersion)")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ProjectVersionData.addDependency(ProjectVersion)"})
-  void testAddDependency() {
-    // Arrange
-    ProjectVersionData projectVersionData = new ProjectVersionData();
-    ProjectVersion dependency = new ProjectVersion("42", "42", "42");
-
-    projectVersionData.addDependency(dependency);
-
-    // Act
-    projectVersionData.addDependency(new ProjectVersion("42", "42", "42"));
-
-    // Assert that nothing has changed
-    List<ProjectVersion> dependencies = projectVersionData.getDependencies();
-    assertEquals(1, dependencies.size());
-    assertSame(dependency, dependencies.get(0));
-  }
-
-  /**
-   * Test {@link ProjectVersionData#addDependency(ProjectVersion)}.
-   * <ul>
-   *   <li>Given {@link ProjectVersionData#ProjectVersionData()}.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ProjectVersionData#addDependency(ProjectVersion)}
-   */
-  @Test
-  @DisplayName("Test addDependency(ProjectVersion); given ProjectVersionData()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ProjectVersionData.addDependency(ProjectVersion)"})
-  void testAddDependency_givenProjectVersionData() {
-    // Arrange
-    ProjectVersionData projectVersionData = new ProjectVersionData();
-    ProjectVersion dependency = new ProjectVersion("42", "42", "42");
-
-    // Act
-    projectVersionData.addDependency(dependency);
-
-    // Assert
-    List<ProjectVersion> dependencies = projectVersionData.getDependencies();
-    assertEquals(1, dependencies.size());
-    assertSame(dependency, dependencies.get(0));
-  }
-
-  /**
-   * Test {@link ProjectVersionData#addProperties(List)}.
-   * <ul>
-   *   <li>Then {@link ProjectVersionData#ProjectVersionData()} Properties size is one.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ProjectVersionData#addProperties(List)}
-   */
-  @Test
-  @DisplayName("Test addProperties(List); then ProjectVersionData() Properties size is one")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ProjectVersionData.addProperties(List)"})
-  void testAddProperties_thenProjectVersionDataPropertiesSizeIsOne() {
-    // Arrange
-    ProjectVersionData projectVersionData = new ProjectVersionData();
-
-    ArrayList<Property> propertyList = new ArrayList<>();
-    Property property = new Property("Property Name", "42");
-
-    propertyList.add(property);
-
-    // Act
-    projectVersionData.addProperties(propertyList);
-
-    // Assert
-    List<Property> properties = projectVersionData.getProperties();
-    assertEquals(1, properties.size());
-    assertSame(property, properties.get(0));
-  }
-
-  /**
-   * Test {@link ProjectVersionData#addProperties(List)}.
-   * <ul>
-   *   <li>Then {@link ProjectVersionData#ProjectVersionData()} Properties size is one.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ProjectVersionData#addProperties(List)}
-   */
-  @Test
-  @DisplayName("Test addProperties(List); then ProjectVersionData() Properties size is one")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ProjectVersionData.addProperties(List)"})
-  void testAddProperties_thenProjectVersionDataPropertiesSizeIsOne2() {
-    // Arrange
-    ProjectVersionData projectVersionData = new ProjectVersionData();
-
-    ArrayList<Property> propertyList = new ArrayList<>();
-    Property property = new Property("Property Name", "42");
-
-    propertyList.add(property);
-    propertyList.add(new Property("Property Name", "42"));
-
-    // Act
-    projectVersionData.addProperties(propertyList);
-
-    // Assert
-    List<Property> properties = projectVersionData.getProperties();
-    assertEquals(1, properties.size());
-    assertSame(property, properties.get(0));
-  }
-
-  /**
-   * Test {@link ProjectVersionData#addProperties(List)}.
-   * <ul>
-   *   <li>When {@link ArrayList#ArrayList()}.</li>
-   *   <li>Then {@link ProjectVersionData#ProjectVersionData()} Properties Empty.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link ProjectVersionData#addProperties(List)}
-   */
-  @Test
-  @DisplayName("Test addProperties(List); when ArrayList(); then ProjectVersionData() Properties Empty")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ProjectVersionData.addProperties(List)"})
-  void testAddProperties_whenArrayList_thenProjectVersionDataPropertiesEmpty() {
-    // Arrange
-    ProjectVersionData projectVersionData = new ProjectVersionData();
-
-    // Act
-    projectVersionData.addProperties(new ArrayList<>());
-
-    // Assert that nothing has changed
-    assertTrue(projectVersionData.getProperties().isEmpty());
   }
 }

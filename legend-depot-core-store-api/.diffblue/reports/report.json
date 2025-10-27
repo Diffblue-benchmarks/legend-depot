@@ -3,19 +3,19 @@
     "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2025.02.02-08b2a5a-licensed",
-    "creationTimestamp" : "2025-10-27T13:21:36.334842Z",
+    "version" : "2024.10.01-2ee2e3d-licensed",
+    "creationTimestamp" : "2025-10-27T17:54:04.113781Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 67.549,
-    "environmentDetectionTime" : 0.135,
-    "indexingTime" : 0.393,
-    "entryPointsTime" : 0.133,
-    "generationTime" : 3074.663,
-    "timeToFirstTest" : 5036.179,
-    "timeToLastTest" : 4268.588,
-    "indexQueryTime" : 2.716,
-    "verificationTime" : 210.284,
-    "validationTime" : 10.467
+    "totalTime" : 5252.404,
+    "environmentDetectionTime" : 0.129,
+    "indexingTime" : 0.484,
+    "entryPointsTime" : 0.127,
+    "generationTime" : 3189.328,
+    "timeToFirstTest" : 144.257,
+    "timeToLastTest" : 155.682,
+    "indexQueryTime" : 2.697,
+    "verificationTime" : 97.164,
+    "validationTime" : 11.079
   },
   "codes" : {
     "R000" : "Success",
@@ -29,9 +29,9 @@
   "summary" : {
     "classesCount" : 4,
     "methodsCount" : 5,
-    "cumulativeDiffblueTestCount" : 2,
+    "cumulativeDiffblueTestCount" : 3,
     "cumulativeManualTestCount" : 0,
-    "completeTestCount" : 2,
+    "completeTestCount" : 3,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 31,
@@ -47,17 +47,17 @@
       "T010" : 2
     },
     "perTestOutcome" : {
-      "R000" : 2
+      "R000" : 3
     },
     "perTestValidation" : {
-      "V000" : 2,
-      "V003" : 2
+      "V000" : 3,
+      "V003" : 1
     }
   },
   "classes" : {
     "org.finos.legend.depot.store.StorageConfiguration" : {
       "methodsCount" : 2,
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 1,
@@ -68,7 +68,7 @@
         "T010" : 1
       },
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       }
     },
     "org.finos.legend.depot.store.StorageConfiguration$1WrapperMixin" : {
@@ -129,12 +129,12 @@
       ]
     },
     "org.finos.legend.depot.store.StorageConfiguration.configureObjectMapper:(Lcom/fasterxml/jackson/databind/ObjectMapper;)Lcom/fasterxml/jackson/databind/ObjectMapper;" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       },
       "lineNumbers" : [
         35,

@@ -5,34 +5,88 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import com.diffblue.cover.annotations.MethodsUnderTest;
 import java.util.HashMap;
 import java.util.Map;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class StoredEntityReferenceDiffblueTest {
   /**
-   * Test getters and setters.
-   * <ul>
-   *   <li>When {@code 42}.</li>
-   *   <li>Then return Reference is {@code null}.</li>
-   * </ul>
-   * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link StoredEntityReference#StoredEntityReference(String, String, String)}
+   *   <li>{@link StoredEntityReference#equals(Object)}
+   *   <li>{@link StoredEntityReference#hashCode()}
+   * </ul>
+   */
+  @Test
+  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
+    // Arrange
+    StoredEntityReference storedEntityReference = new StoredEntityReference("42", "42", "42");
+    StoredEntityReference storedEntityReference2 = new StoredEntityReference("42", "42", "42");
+
+    // Act and Assert
+    assertEquals(storedEntityReference, storedEntityReference2);
+    int expectedHashCodeResult = storedEntityReference.hashCode();
+    assertEquals(expectedHashCodeResult, storedEntityReference2.hashCode());
+  }
+
+  /**
+   * Methods under test:
+   * <ul>
+   *   <li>{@link StoredEntityReference#equals(Object)}
+   *   <li>{@link StoredEntityReference#hashCode()}
+   * </ul>
+   */
+  @Test
+  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
+    // Arrange
+    StoredEntityReference storedEntityReference = new StoredEntityReference("42", "42", "42");
+
+    // Act and Assert
+    assertEquals(storedEntityReference, storedEntityReference);
+    int expectedHashCodeResult = storedEntityReference.hashCode();
+    assertEquals(expectedHashCodeResult, storedEntityReference.hashCode());
+  }
+
+  /**
+   * Method under test: {@link StoredEntityReference#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
+    // Arrange
+    StoredEntityReference storedEntityReference = new StoredEntityReference("Group Id", "42", "42");
+
+    // Act and Assert
+    assertNotEquals(storedEntityReference, new StoredEntityReference("42", "42", "42"));
+  }
+
+  /**
+   * Method under test: {@link StoredEntityReference#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new StoredEntityReference("42", "42", "42"), null);
+  }
+
+  /**
+   * Method under test: {@link StoredEntityReference#equals(Object)}
+   */
+  @Test
+  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
+    // Arrange, Act and Assert
+    assertNotEquals(new StoredEntityReference("42", "42", "42"), "Different type to StoredEntityReference");
+  }
+
+  /**
+   * Methods under test:
+   * <ul>
+   *   <li>
+   * {@link StoredEntityReference#StoredEntityReference(String, String, String)}
    *   <li>{@link StoredEntityReference#getReference()}
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters; when '42'; then return Reference is 'null'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void StoredEntityReference.<init>(String, String, String)",
-      "void StoredEntityReference.<init>(String, String, String, String, Map)",
-      "String StoredEntityReference.getReference()"})
-  void testGettersAndSetters_when42_thenReturnReferenceIsNull() {
+  void testGettersAndSetters() {
     // Arrange and Act
     StoredEntityReference actualStoredEntityReference = new StoredEntityReference("42", "42", "42");
     String actualReference = actualStoredEntityReference.getReference();
@@ -46,25 +100,15 @@ class StoredEntityReferenceDiffblueTest {
   }
 
   /**
-   * Test getters and setters.
-   * <ul>
-   *   <li>When {@code Reference}.</li>
-   *   <li>Then return {@code Reference}.</li>
-   * </ul>
-   * <p>
    * Methods under test:
    * <ul>
-   *   <li>{@link StoredEntityReference#StoredEntityReference(String, String, String, String, Map)}
+   *   <li>
+   * {@link StoredEntityReference#StoredEntityReference(String, String, String, String, Map)}
    *   <li>{@link StoredEntityReference#getReference()}
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters; when 'Reference'; then return 'Reference'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void StoredEntityReference.<init>(String, String, String)",
-      "void StoredEntityReference.<init>(String, String, String, String, Map)",
-      "String StoredEntityReference.getReference()"})
-  void testGettersAndSetters_whenReference_thenReturnReference() {
+  void testGettersAndSetters2() {
     // Arrange
     HashMap<String, Object> entityAttributes = new HashMap<>();
 
@@ -81,117 +125,5 @@ class StoredEntityReferenceDiffblueTest {
     Map<String, ?> entityAttributes2 = actualStoredEntityReference.getEntityAttributes();
     assertTrue(entityAttributes2.isEmpty());
     assertSame(entityAttributes, entityAttributes2);
-  }
-
-  /**
-   * Test {@link StoredEntityReference#equals(Object)}, and {@link StoredEntityReference#hashCode()}.
-   * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
-   * </ul>
-   * <p>
-   * Methods under test:
-   * <ul>
-   *   <li>{@link StoredEntityReference#equals(Object)}
-   *   <li>{@link StoredEntityReference#hashCode()}
-   * </ul>
-   */
-  @Test
-  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StoredEntityReference.equals(Object)", "int StoredEntityReference.hashCode()"})
-  void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
-    // Arrange
-    StoredEntityReference storedEntityReference = new StoredEntityReference("42", "42", "42");
-    StoredEntityReference storedEntityReference2 = new StoredEntityReference("42", "42", "42");
-
-    // Act and Assert
-    assertEquals(storedEntityReference, storedEntityReference2);
-    int expectedHashCodeResult = storedEntityReference.hashCode();
-    assertEquals(expectedHashCodeResult, storedEntityReference2.hashCode());
-  }
-
-  /**
-   * Test {@link StoredEntityReference#equals(Object)}, and {@link StoredEntityReference#hashCode()}.
-   * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
-   * </ul>
-   * <p>
-   * Methods under test:
-   * <ul>
-   *   <li>{@link StoredEntityReference#equals(Object)}
-   *   <li>{@link StoredEntityReference#hashCode()}
-   * </ul>
-   */
-  @Test
-  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StoredEntityReference.equals(Object)", "int StoredEntityReference.hashCode()"})
-  void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
-    // Arrange
-    StoredEntityReference storedEntityReference = new StoredEntityReference("42", "42", "42");
-
-    // Act and Assert
-    assertEquals(storedEntityReference, storedEntityReference);
-    int expectedHashCodeResult = storedEntityReference.hashCode();
-    assertEquals(expectedHashCodeResult, storedEntityReference.hashCode());
-  }
-
-  /**
-   * Test {@link StoredEntityReference#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link StoredEntityReference#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StoredEntityReference.equals(Object)", "int StoredEntityReference.hashCode()"})
-  void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
-    // Arrange
-    StoredEntityReference storedEntityReference = new StoredEntityReference("Group Id", "42", "42");
-
-    // Act and Assert
-    assertNotEquals(storedEntityReference, new StoredEntityReference("42", "42", "42"));
-  }
-
-  /**
-   * Test {@link StoredEntityReference#equals(Object)}.
-   * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link StoredEntityReference#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StoredEntityReference.equals(Object)", "int StoredEntityReference.hashCode()"})
-  void testEquals_whenOtherIsNull_thenReturnNotEqual() {
-    // Arrange, Act and Assert
-    assertNotEquals(new StoredEntityReference("42", "42", "42"), null);
-  }
-
-  /**
-   * Test {@link StoredEntityReference#equals(Object)}.
-   * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
-   * Method under test: {@link StoredEntityReference#equals(Object)}
-   */
-  @Test
-  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean StoredEntityReference.equals(Object)", "int StoredEntityReference.hashCode()"})
-  void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
-    // Arrange, Act and Assert
-    assertNotEquals(new StoredEntityReference("42", "42", "42"), "Different type to StoredEntityReference");
   }
 }

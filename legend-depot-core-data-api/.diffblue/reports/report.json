@@ -3,19 +3,19 @@
     "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2025.02.02-08b2a5a-licensed",
-    "creationTimestamp" : "2025-10-27T13:21:36.334842Z",
+    "version" : "2024.10.01-2ee2e3d-licensed",
+    "creationTimestamp" : "2025-10-27T17:54:04.113781Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 111.874,
-    "environmentDetectionTime" : 0.303,
-    "indexingTime" : 0.331,
-    "entryPointsTime" : 0.3,
-    "generationTime" : 2344.537,
-    "timeToFirstTest" : 3127.585,
-    "timeToLastTest" : 2876.534,
-    "indexQueryTime" : 4.876,
-    "verificationTime" : 168.362,
-    "validationTime" : 11.71
+    "totalTime" : 3301.092,
+    "environmentDetectionTime" : 0.306,
+    "indexingTime" : 0.422,
+    "entryPointsTime" : 0.304,
+    "generationTime" : 2415.994,
+    "timeToFirstTest" : 144.257,
+    "timeToLastTest" : 155.682,
+    "indexQueryTime" : 4.852,
+    "verificationTime" : 53.464,
+    "validationTime" : 11.662
   },
   "codes" : {
     "R000" : "Success",
@@ -35,9 +35,9 @@
   "summary" : {
     "classesCount" : 25,
     "methodsCount" : 164,
-    "cumulativeDiffblueTestCount" : 122,
+    "cumulativeDiffblueTestCount" : 118,
     "cumulativeManualTestCount" : 3,
-    "completeTestCount" : 122,
+    "completeTestCount" : 124,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 909,
@@ -63,10 +63,10 @@
       "W001" : 2
     },
     "perTestOutcome" : {
-      "R000" : 122
+      "R000" : 124
     },
     "perTestValidation" : {
-      "V000" : 122
+      "V000" : 124
     },
     "warnings" : {
       "W001" : 1
@@ -235,7 +235,7 @@
     },
     "org.finos.legend.depot.domain.project.dependencies.ProjectDependencyWithPlatformVersions" : {
       "methodsCount" : 5,
-      "completeTestCount" : 6,
+      "completeTestCount" : 7,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 2,
@@ -246,7 +246,7 @@
         "R000" : 5
       },
       "perTestOutcome" : {
-        "R000" : 6
+        "R000" : 7
       }
     },
     "org.finos.legend.depot.domain.project.dependencies.VersionDependencyReport" : {
@@ -424,7 +424,7 @@
     },
     "org.finos.legend.depot.store.model.projects.StoreProjectVersionData" : {
       "methodsCount" : 16,
-      "completeTestCount" : 8,
+      "completeTestCount" : 9,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 5,
@@ -435,7 +435,7 @@
         "R000" : 16
       },
       "perTestOutcome" : {
-        "R000" : 8
+        "R000" : 9
       }
     }
   },
@@ -1317,12 +1317,12 @@
       ]
     },
     "org.finos.legend.depot.domain.project.dependencies.ProjectDependencyWithPlatformVersions.equals:(Ljava/lang/Object;)Z" : {
-      "completeTestCount" : 5,
+      "completeTestCount" : 6,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 5
+        "R000" : 6
       },
       "lineNumbers" : [
         56
@@ -1353,12 +1353,12 @@
       ]
     },
     "org.finos.legend.depot.domain.project.dependencies.ProjectDependencyWithPlatformVersions.hashCode:()I" : {
-      "completeTestCount" : 5,
+      "completeTestCount" : 6,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 5
+        "R000" : 6
       },
       "lineNumbers" : [
         62
@@ -2132,12 +2132,12 @@
       ]
     },
     "org.finos.legend.depot.store.model.projects.StoreProjectVersionData.equals:(Ljava/lang/Object;)Z" : {
-      "completeTestCount" : 4,
+      "completeTestCount" : 5,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 4
+        "R000" : 5
       },
       "lineNumbers" : [
         123
@@ -2204,12 +2204,12 @@
       ]
     },
     "org.finos.legend.depot.store.model.projects.StoreProjectVersionData.hashCode:()I" : {
-      "completeTestCount" : 4,
+      "completeTestCount" : 5,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 4
+        "R000" : 5
       },
       "lineNumbers" : [
         129

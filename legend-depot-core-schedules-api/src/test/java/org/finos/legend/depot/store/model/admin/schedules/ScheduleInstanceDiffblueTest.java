@@ -1,19 +1,18 @@
 package org.finos.legend.depot.store.model.admin.schedules;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import com.diffblue.cover.annotations.MethodsUnderTest;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.util.Date;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ScheduleInstanceDiffblueTest {
   /**
-   * Test getters and setters.
-   * <p>
    * Methods under test:
    * <ul>
    *   <li>{@link ScheduleInstance#ScheduleInstance()}
@@ -26,12 +25,6 @@ class ScheduleInstanceDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ScheduleInstance.<init>()", "void ScheduleInstance.<init>(String, Date)",
-      "Date ScheduleInstance.getExpires()", "String ScheduleInstance.getId()", "String ScheduleInstance.getSchedule()",
-      "void ScheduleInstance.setExpires(Date)", "void ScheduleInstance.setId(String)",
-      "void ScheduleInstance.setSchedule(String)"})
   void testGettersAndSetters() {
     // Arrange and Act
     ScheduleInstance actualScheduleInstance = new ScheduleInstance();
@@ -42,18 +35,52 @@ class ScheduleInstanceDiffblueTest {
     Date actualExpires = actualScheduleInstance.getExpires();
     String actualId = actualScheduleInstance.getId();
 
-    // Assert
+    // Assert that nothing has changed
     assertEquals("42", actualId);
     assertEquals("Schedule", actualScheduleInstance.getSchedule());
     assertSame(expires, actualExpires);
   }
 
   /**
-   * Test getters and setters.
-   * <ul>
-   *   <li>When {@code Name}.</li>
-   * </ul>
-   * <p>
+   * Method under test: {@link ScheduleInstance#isExpired()}
+   */
+  @Test
+  void testIsExpired() {
+    // Arrange
+    java.sql.Date expires = mock(java.sql.Date.class);
+    when(expires.getTime()).thenReturn(10L);
+
+    ScheduleInstance scheduleInstance = new ScheduleInstance();
+    scheduleInstance.setExpires(expires);
+
+    // Act
+    scheduleInstance.isExpired();
+
+    // Assert
+    verify(expires).getTime();
+  }
+
+  /**
+   * Method under test: {@link ScheduleInstance#isExpired()}
+   */
+  @Test
+  void testIsExpired2() {
+    // Arrange
+    java.sql.Date expires = mock(java.sql.Date.class);
+    when(expires.getTime()).thenReturn(Long.MAX_VALUE);
+
+    ScheduleInstance scheduleInstance = new ScheduleInstance();
+    scheduleInstance.setExpires(expires);
+
+    // Act
+    boolean actualIsExpiredResult = scheduleInstance.isExpired();
+
+    // Assert
+    verify(expires).getTime();
+    assertFalse(actualIsExpiredResult);
+  }
+
+  /**
    * Methods under test:
    * <ul>
    *   <li>{@link ScheduleInstance#ScheduleInstance(String, Date)}
@@ -66,13 +93,7 @@ class ScheduleInstanceDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters; when 'Name'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ScheduleInstance.<init>()", "void ScheduleInstance.<init>(String, Date)",
-      "Date ScheduleInstance.getExpires()", "String ScheduleInstance.getId()", "String ScheduleInstance.getSchedule()",
-      "void ScheduleInstance.setExpires(Date)", "void ScheduleInstance.setId(String)",
-      "void ScheduleInstance.setSchedule(String)"})
-  void testGettersAndSetters_whenName() {
+  void testGettersAndSetters2() {
     // Arrange and Act
     ScheduleInstance actualScheduleInstance = new ScheduleInstance("Name",
         Date.from(LocalDate.of(1970, 1, 1).atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
@@ -83,7 +104,7 @@ class ScheduleInstanceDiffblueTest {
     Date actualExpires = actualScheduleInstance.getExpires();
     String actualId = actualScheduleInstance.getId();
 
-    // Assert
+    // Assert that nothing has changed
     assertEquals("42", actualId);
     assertEquals("Schedule", actualScheduleInstance.getSchedule());
     assertSame(expires, actualExpires);

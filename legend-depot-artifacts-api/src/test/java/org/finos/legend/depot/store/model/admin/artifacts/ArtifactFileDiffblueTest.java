@@ -3,15 +3,10 @@ package org.finos.legend.depot.store.model.admin.artifacts;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ArtifactFileDiffblueTest {
   /**
-   * Test getters and setters.
-   * <p>
    * Methods under test:
    * <ul>
    *   <li>{@link ArtifactFile#ArtifactFile()}
@@ -23,11 +18,6 @@ class ArtifactFileDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ArtifactFile.<init>()", "void ArtifactFile.<init>(String, String)",
-      "String ArtifactFile.getCheckSum()", "String ArtifactFile.getId()", "String ArtifactFile.getPath()",
-      "ArtifactFile ArtifactFile.setCheckSum(String)", "ArtifactFile ArtifactFile.setPath(String)"})
   void testGettersAndSetters() {
     // Arrange and Act
     ArtifactFile actualArtifactFile = new ArtifactFile();
@@ -45,11 +35,6 @@ class ArtifactFileDiffblueTest {
   }
 
   /**
-   * Test getters and setters.
-   * <ul>
-   *   <li>When {@code Path}.</li>
-   * </ul>
-   * <p>
    * Methods under test:
    * <ul>
    *   <li>{@link ArtifactFile#ArtifactFile(String, String)}
@@ -61,12 +46,7 @@ class ArtifactFileDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters; when 'Path'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ArtifactFile.<init>()", "void ArtifactFile.<init>(String, String)",
-      "String ArtifactFile.getCheckSum()", "String ArtifactFile.getId()", "String ArtifactFile.getPath()",
-      "ArtifactFile ArtifactFile.setCheckSum(String)", "ArtifactFile ArtifactFile.setPath(String)"})
-  void testGettersAndSetters_whenPath() {
+  void testGettersAndSetters2() {
     // Arrange and Act
     ArtifactFile actualArtifactFile = new ArtifactFile("Path", "Check Sum");
     ArtifactFile actualSetCheckSumResult = actualArtifactFile.setCheckSum("Check Sum");

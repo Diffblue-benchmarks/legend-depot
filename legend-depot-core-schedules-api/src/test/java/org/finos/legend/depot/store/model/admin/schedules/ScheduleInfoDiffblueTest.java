@@ -2,15 +2,10 @@ package org.finos.legend.depot.store.model.admin.schedules;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ScheduleInfoDiffblueTest {
   /**
-   * Test getters and setters.
-   * <p>
    * Methods under test:
    * <ul>
    *   <li>{@link ScheduleInfo#ScheduleInfo()}
@@ -29,14 +24,6 @@ class ScheduleInfoDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ScheduleInfo.<init>()", "void ScheduleInfo.<init>(String)",
-      "Boolean ScheduleInfo.getExternalTrigger()", "Long ScheduleInfo.getFrequency()", "String ScheduleInfo.getId()",
-      "String ScheduleInfo.getName()", "Boolean ScheduleInfo.getSingleInstance()", "boolean ScheduleInfo.isDisabled()",
-      "void ScheduleInfo.setDisabled(boolean)", "void ScheduleInfo.setExternalTrigger(Boolean)",
-      "void ScheduleInfo.setFrequency(Long)", "void ScheduleInfo.setId(String)", "void ScheduleInfo.setName(String)",
-      "void ScheduleInfo.setSingleInstance(Boolean)"})
   void testGettersAndSetters() {
     // Arrange and Act
     ScheduleInfo actualScheduleInfo = new ScheduleInfo();
@@ -53,7 +40,7 @@ class ScheduleInfoDiffblueTest {
     Boolean actualSingleInstance = actualScheduleInfo.getSingleInstance();
     boolean actualIsDisabledResult = actualScheduleInfo.isDisabled();
 
-    // Assert
+    // Assert that nothing has changed
     assertEquals("42", actualId);
     assertEquals("Name", actualName);
     assertEquals(1L, actualFrequency.longValue());
@@ -63,11 +50,6 @@ class ScheduleInfoDiffblueTest {
   }
 
   /**
-   * Test getters and setters.
-   * <ul>
-   *   <li>When {@code Name}.</li>
-   * </ul>
-   * <p>
    * Methods under test:
    * <ul>
    *   <li>{@link ScheduleInfo#ScheduleInfo(String)}
@@ -86,15 +68,7 @@ class ScheduleInfoDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test getters and setters; when 'Name'")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ScheduleInfo.<init>()", "void ScheduleInfo.<init>(String)",
-      "Boolean ScheduleInfo.getExternalTrigger()", "Long ScheduleInfo.getFrequency()", "String ScheduleInfo.getId()",
-      "String ScheduleInfo.getName()", "Boolean ScheduleInfo.getSingleInstance()", "boolean ScheduleInfo.isDisabled()",
-      "void ScheduleInfo.setDisabled(boolean)", "void ScheduleInfo.setExternalTrigger(Boolean)",
-      "void ScheduleInfo.setFrequency(Long)", "void ScheduleInfo.setId(String)", "void ScheduleInfo.setName(String)",
-      "void ScheduleInfo.setSingleInstance(Boolean)"})
-  void testGettersAndSetters_whenName() {
+  void testGettersAndSetters2() {
     // Arrange and Act
     ScheduleInfo actualScheduleInfo = new ScheduleInfo("Name");
     actualScheduleInfo.setDisabled(true);
@@ -110,7 +84,7 @@ class ScheduleInfoDiffblueTest {
     Boolean actualSingleInstance = actualScheduleInfo.getSingleInstance();
     boolean actualIsDisabledResult = actualScheduleInfo.isDisabled();
 
-    // Assert
+    // Assert that nothing has changed
     assertEquals("42", actualId);
     assertEquals("Name", actualName);
     assertEquals(1L, actualFrequency.longValue());

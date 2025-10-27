@@ -3,19 +3,19 @@
     "reportVersion" : "2.6"
   },
   "run" : {
-    "version" : "2025.02.02-08b2a5a-licensed",
-    "creationTimestamp" : "2025-10-27T13:21:36.334842Z",
+    "version" : "2024.10.01-2ee2e3d-licensed",
+    "creationTimestamp" : "2025-10-27T17:54:04.113781Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 121.079,
-    "environmentDetectionTime" : 0.624,
-    "indexingTime" : 0.287,
-    "entryPointsTime" : 0.606,
-    "generationTime" : 21.645,
-    "timeToFirstTest" : 87.655,
-    "timeToLastTest" : 100.608,
-    "indexQueryTime" : 3.681,
-    "verificationTime" : 3.624,
-    "validationTime" : 10.614
+    "totalTime" : 176.976,
+    "environmentDetectionTime" : 0.856,
+    "indexingTime" : 0.381,
+    "entryPointsTime" : 0.84,
+    "generationTime" : 20.2,
+    "timeToFirstTest" : 144.257,
+    "timeToLastTest" : 155.682,
+    "indexQueryTime" : 3.948,
+    "verificationTime" : 3.459,
+    "validationTime" : 11.127
   },
   "codes" : {
     "R000" : "Success",
@@ -34,9 +34,9 @@
   "summary" : {
     "classesCount" : 6,
     "methodsCount" : 37,
-    "cumulativeDiffblueTestCount" : 32,
+    "cumulativeDiffblueTestCount" : 13,
     "cumulativeManualTestCount" : 2,
-    "completeTestCount" : 32,
+    "completeTestCount" : 33,
     "incompleteTestCount" : 0,
     "skeletonTestCount" : 0,
     "totalPhysicalLineCount" : 202,
@@ -61,10 +61,10 @@
       "T012" : 6
     },
     "perTestOutcome" : {
-      "R000" : 32
+      "R000" : 33
     },
     "perTestValidation" : {
-      "V000" : 32
+      "V000" : 33
     },
     "warnings" : {
       "W002" : 1
@@ -104,7 +104,7 @@
     },
     "org.finos.legend.depot.domain.DatesHandler" : {
       "methodsCount" : 7,
-      "completeTestCount" : 4,
+      "completeTestCount" : 5,
       "incompleteTestCount" : 0,
       "perMethodTestability" : {
         "T000" : 5,
@@ -118,7 +118,7 @@
         "T012" : 1
       },
       "perTestOutcome" : {
-        "R000" : 4
+        "R000" : 5
       },
       "warnings" : {
         "W002" : 1
@@ -340,12 +340,12 @@
       ]
     },
     "org.finos.legend.depot.domain.DatesHandler.toDate:(Ljava/util/Date;)Ljava/time/LocalDateTime;" : {
-      "completeTestCount" : 1,
+      "completeTestCount" : 2,
       "incompleteTestCount" : 0,
       "perMethodTestability" : "T000",
       "perMethodOutcome" : "R000",
       "perTestOutcome" : {
-        "R000" : 1
+        "R000" : 2
       },
       "warnings" : {
         "W002" : 1

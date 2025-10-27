@@ -2,60 +2,23 @@ package org.finos.legend.depot.domain.project;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import com.diffblue.cover.annotations.MethodsUnderTest;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class ProjectSummaryDiffblueTest {
   /**
-   * Test {@link ProjectSummary#ProjectSummary(String, String, String, long)}.
-   * <p>
-   * Method under test: {@link ProjectSummary#ProjectSummary(String, String, String, long)}
-   */
-  @Test
-  @DisplayName("Test new ProjectSummary(String, String, String, long)")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"void ProjectSummary.<init>(String, String, String, long)"})
-  void testNewProjectSummary() {
-    // Arrange and Act
-    ProjectSummary actualProjectSummary = new ProjectSummary("myproject", "42", "42", 1L);
-
-    // Assert
-    assertEquals("42", actualProjectSummary.artifactId);
-    assertEquals("42", actualProjectSummary.groupId);
-    assertEquals("42-42", actualProjectSummary.getMavenCoordinates());
-    assertEquals("myproject", actualProjectSummary.projectId);
-    assertEquals(1L, actualProjectSummary.versions);
-  }
-
-  /**
-   * Test {@link ProjectSummary#getMavenCoordinates()}.
-   * <p>
    * Method under test: {@link ProjectSummary#getMavenCoordinates()}
    */
   @Test
-  @DisplayName("Test getMavenCoordinates()")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"String ProjectSummary.getMavenCoordinates()"})
   void testGetMavenCoordinates() {
     // Arrange, Act and Assert
     assertEquals("42-42", (new ProjectSummary("myproject", "42", "42", 1L)).getMavenCoordinates());
   }
 
   /**
-   * Test {@link ProjectSummary#compareTo(Object)}.
-   * <ul>
-   *   <li>Then return zero.</li>
-   * </ul>
-   * <p>
    * Method under test: {@link ProjectSummary#compareTo(Object)}
    */
   @Test
-  @DisplayName("Test compareTo(Object); then return zero")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"int ProjectSummary.compareTo(Object)"})
-  void testCompareTo_thenReturnZero() {
+  void testCompareTo() {
     // Arrange
     ProjectSummary projectSummary = new ProjectSummary("myproject", "42", "42", 1L);
 
@@ -64,12 +27,6 @@ class ProjectSummaryDiffblueTest {
   }
 
   /**
-   * Test {@link ProjectSummary#equals(Object)}, and {@link ProjectSummary#hashCode()}.
-   * <ul>
-   *   <li>When other is equal.</li>
-   *   <li>Then return equal.</li>
-   * </ul>
-   * <p>
    * Methods under test:
    * <ul>
    *   <li>{@link ProjectSummary#equals(Object)}
@@ -77,9 +34,6 @@ class ProjectSummaryDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test equals(Object), and hashCode(); when other is equal; then return equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProjectSummary.equals(Object)", "int ProjectSummary.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsEqual_thenReturnEqual() {
     // Arrange
     ProjectSummary projectSummary = new ProjectSummary("myproject", "42", "42", 1L);
@@ -92,12 +46,6 @@ class ProjectSummaryDiffblueTest {
   }
 
   /**
-   * Test {@link ProjectSummary#equals(Object)}, and {@link ProjectSummary#hashCode()}.
-   * <ul>
-   *   <li>When other is same.</li>
-   *   <li>Then return equal.</li>
-   * </ul>
-   * <p>
    * Methods under test:
    * <ul>
    *   <li>{@link ProjectSummary#equals(Object)}
@@ -105,9 +53,6 @@ class ProjectSummaryDiffblueTest {
    * </ul>
    */
   @Test
-  @DisplayName("Test equals(Object), and hashCode(); when other is same; then return equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProjectSummary.equals(Object)", "int ProjectSummary.hashCode()"})
   void testEqualsAndHashCode_whenOtherIsSame_thenReturnEqual() {
     // Arrange
     ProjectSummary projectSummary = new ProjectSummary("myproject", "42", "42", 1L);
@@ -119,18 +64,9 @@ class ProjectSummaryDiffblueTest {
   }
 
   /**
-   * Test {@link ProjectSummary#equals(Object)}.
-   * <ul>
-   *   <li>When other is different.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
    * Method under test: {@link ProjectSummary#equals(Object)}
    */
   @Test
-  @DisplayName("Test equals(Object); when other is different; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProjectSummary.equals(Object)", "int ProjectSummary.hashCode()"})
   void testEquals_whenOtherIsDifferent_thenReturnNotEqual() {
     // Arrange
     ProjectSummary projectSummary = new ProjectSummary("myproject", "42", "42", 0L);
@@ -140,38 +76,37 @@ class ProjectSummaryDiffblueTest {
   }
 
   /**
-   * Test {@link ProjectSummary#equals(Object)}.
-   * <ul>
-   *   <li>When other is {@code null}.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
    * Method under test: {@link ProjectSummary#equals(Object)}
    */
   @Test
-  @DisplayName("Test equals(Object); when other is 'null'; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProjectSummary.equals(Object)", "int ProjectSummary.hashCode()"})
   void testEquals_whenOtherIsNull_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new ProjectSummary("myproject", "42", "42", 1L), null);
   }
 
   /**
-   * Test {@link ProjectSummary#equals(Object)}.
-   * <ul>
-   *   <li>When other is wrong type.</li>
-   *   <li>Then return not equal.</li>
-   * </ul>
-   * <p>
    * Method under test: {@link ProjectSummary#equals(Object)}
    */
   @Test
-  @DisplayName("Test equals(Object); when other is wrong type; then return not equal")
-  @Tag("MaintainedByDiffblue")
-  @MethodsUnderTest({"boolean ProjectSummary.equals(Object)", "int ProjectSummary.hashCode()"})
   void testEquals_whenOtherIsWrongType_thenReturnNotEqual() {
     // Arrange, Act and Assert
     assertNotEquals(new ProjectSummary("myproject", "42", "42", 1L), "Different type to ProjectSummary");
+  }
+
+  /**
+   * Method under test:
+   * {@link ProjectSummary#ProjectSummary(String, String, String, long)}
+   */
+  @Test
+  void testNewProjectSummary() {
+    // Arrange and Act
+    ProjectSummary actualProjectSummary = new ProjectSummary("myproject", "42", "42", 1L);
+
+    // Assert
+    assertEquals("42", actualProjectSummary.artifactId);
+    assertEquals("42", actualProjectSummary.groupId);
+    assertEquals("42-42", actualProjectSummary.getMavenCoordinates());
+    assertEquals("myproject", actualProjectSummary.projectId);
+    assertEquals(1L, actualProjectSummary.versions);
   }
 }
