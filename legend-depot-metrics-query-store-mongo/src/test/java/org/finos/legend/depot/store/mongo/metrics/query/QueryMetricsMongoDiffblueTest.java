@@ -375,9 +375,9 @@ class QueryMetricsMongoDiffblueTest {
     when(metric.getGroupId()).thenReturn("42");
     when(metric.getVersionId()).thenReturn("42");
 
-    LocalDate ofYearDayResult = LocalDate.ofYearDay(4, 4);
+    LocalDate ofEpochDayResult = LocalDate.ofEpochDay(4L);
     when(metric.getLastQueryTime())
-        .thenReturn(Date.from(ofYearDayResult.atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
+        .thenReturn(Date.from(ofEpochDayResult.atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
 
     // Act and Assert
     assertThrows(StoreException.class, () -> queryMetricsMongo.insert(metric));
@@ -391,14 +391,19 @@ class QueryMetricsMongoDiffblueTest {
   /**
    * Test {@link QueryMetricsMongo#insert(VersionQueryMetric)} with {@code VersionQueryMetric}.
    *
+   * <ul>
+   *   <li>Given from now atStartOfDay atZone {@link ZoneOffset#UTC} toInstant.
+   * </ul>
+   *
    * <p>Method under test: {@link QueryMetricsMongo#insert(VersionQueryMetric)}
    */
   @Test
-  @DisplayName("Test insert(VersionQueryMetric) with 'VersionQueryMetric'")
+  @DisplayName(
+      "Test insert(VersionQueryMetric) with 'VersionQueryMetric'; given from now atStartOfDay atZone UTC toInstant")
   @Tag("ContributionFromDiffblue")
   @ManagedByDiffblue
   @MethodsUnderTest({"void QueryMetricsMongo.insert(VersionQueryMetric)"})
-  void testInsertWithVersionQueryMetric5() {
+  void testInsertWithVersionQueryMetric_givenFromNowAtStartOfDayAtZoneUtcToInstant() {
     // Arrange
     MongoDatabaseImpl databaseProvider = mock(MongoDatabaseImpl.class);
     when(databaseProvider.getCollection(Mockito.<String>any()))
@@ -410,12 +415,7 @@ class QueryMetricsMongoDiffblueTest {
     when(metric.getGroupId()).thenReturn("42");
     when(metric.getVersionId()).thenReturn("42");
     when(metric.getLastQueryTime())
-        .thenReturn(
-            Date.from(
-                LocalDate.of(1970, 1, 1)
-                    .atStartOfDay()
-                    .atZone(ZoneOffset.ofTotalSeconds(4))
-                    .toInstant()));
+        .thenReturn(Date.from(LocalDate.now().atStartOfDay().atZone(ZoneOffset.UTC).toInstant()));
 
     // Act and Assert
     assertThrows(StoreException.class, () -> queryMetricsMongo.insert(metric));

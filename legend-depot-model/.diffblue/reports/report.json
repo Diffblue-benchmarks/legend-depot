@@ -3,19 +3,19 @@
     "reportVersion" : "2.8"
   },
   "run" : {
-    "version" : "2025.11.01-3385b9f-licensed",
-    "creationTimestamp" : "2025-11-13T10:32:15.447763Z",
+    "version" : "2026.01.01-c73dc7d-licensed",
+    "creationTimestamp" : "2026-01-23T12:36:53.786432Z",
     "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
-    "totalTime" : 62.335,
-    "environmentDetectionTime" : 1.013,
-    "indexingTime" : 0.383,
-    "entryPointsTime" : 0.979,
-    "generationTime" : 17.712,
-    "timeToFirstTest" : 32.762,
-    "timeToLastTest" : 40.332,
-    "indexQueryTime" : 3.634,
-    "verificationTime" : 3.032,
-    "validationTime" : 8.284
+    "totalTime" : 67.561,
+    "environmentDetectionTime" : 1.006,
+    "indexingTime" : 0.416,
+    "entryPointsTime" : 0.975,
+    "generationTime" : 19.93,
+    "timeToFirstTest" : 35.919,
+    "timeToLastTest" : 44.2,
+    "indexQueryTime" : 4.146,
+    "verificationTime" : 2.965,
+    "validationTime" : 8.723
   },
   "codes" : {
     "R000" : "Success",

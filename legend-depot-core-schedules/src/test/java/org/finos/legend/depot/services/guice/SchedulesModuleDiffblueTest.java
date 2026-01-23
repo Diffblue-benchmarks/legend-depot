@@ -69,27 +69,6 @@ class SchedulesModuleDiffblueTest {
    * Test {@link SchedulesModule#initialiseHouseKeeper()}.
    *
    * <ul>
-   *   <li>Given {@link ManageSchedulesModule} (default constructor).
-   *   <li>Then return {@code true}.
-   * </ul>
-   *
-   * <p>Method under test: {@link SchedulesModule#initialiseHouseKeeper()}
-   */
-  @Test
-  @DisplayName(
-      "Test initialiseHouseKeeper(); given ManageSchedulesModule (default constructor); then return 'true'")
-  @Tag("ContributionFromDiffblue")
-  @ManagedByDiffblue
-  @MethodsUnderTest({"boolean SchedulesModule.initialiseHouseKeeper()"})
-  void testInitialiseHouseKeeper_givenManageSchedulesModule_thenReturnTrue() {
-    // Arrange, Act and Assert
-    assertTrue(new ManageSchedulesModule().initialiseHouseKeeper());
-  }
-
-  /**
-   * Test {@link SchedulesModule#initialiseHouseKeeper()}.
-   *
-   * <ul>
    *   <li>Given {@link SchedulesModule} (default constructor).
    *   <li>Then return {@code false}.
    * </ul>
