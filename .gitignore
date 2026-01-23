@@ -22,3 +22,9 @@ Thumbs.db
 legend-depot-server/src/test/resources/local-config.json
 legend-depot-store-server/src/test/resources/local-config.json
 legend-depot-store-server/src/test/resources/local-repository-settings.xml
+
+.diffblue/cache
+**.diffblue/cache
+**/.diffblue/cache
+**/**.diffblue/cache
+**/**/.diffblue/cache
