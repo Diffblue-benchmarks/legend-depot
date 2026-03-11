@@ -1,0 +1,65 @@
+[
+  {
+    "groupId": "examples.metadata",
+    "artifactId": "test",
+    "versionId": "2.2.0",
+    "updated": "2023-04-20"
+  },
+  {
+    "groupId": "examples.metadata",
+    "artifactId": "test",
+    "versionId": "master-SNAPSHOT",
+    "updated": "2023-05-20",
+    "versionData": {
+      "dependencies": [
+        {
+          "groupId": "examples.metadata",
+          "artifactId": "test-dependencies",
+          "versionId": "1.0.0"
+        }
+      ]
+    }
+  },
+  {
+    "groupId": "examples.metadata",
+    "artifactId": "test",
+    "versionId": "3.0.0",
+    "updated": "2023-06-20",
+    "versionData": {
+      "excluded": "true",
+      "exclusionReason": "version could not be loaded"
+    }
+  },
+  {
+    "groupId": "examples.metadata",
+    "artifactId": "test",
+    "versionId": "2.3.1",
+    "updated": "2023-09-20",
+    "versionData": {
+      "dependencies": [
+        {
+          "groupId": "examples.metadata",
+          "artifactId": "test-dependencies",
+          "versionId": "1.0.0"
+        }
+      ],
+      "manifestProperties": {
+        "commit-author": "test-author",
+        "commit-timestamp": "2023-04-11T14:48:27+00:00"
+      }
+    }
+  },
+  {
+    "groupId": "examples.metadata",
+    "artifactId": "test-dependencies",
+    "versionId": "1.0.0",
+    "updated": "2023-07-20"
+
+  },
+  {
+    "groupId": "example.services.test",
+    "artifactId": "test",
+    "versionId": "2.0.1",
+    "updated": "2023-08-20"
+  }
+]

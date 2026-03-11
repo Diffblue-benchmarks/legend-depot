@@ -1,0 +1,100 @@
+{
+  "applicationName": "Legend Depot API",
+  "deployment": "DEV",
+  "sessionCookie": "LEGEND_DEPOT_JSESSIONID",
+  "urlPattern": "/depot/api/*",
+  "server": {
+    "type": "simple",
+    "applicationContextPath": "/",
+    "adminContextPath": "/admin",
+    "connector": {
+      "type": "http",
+      "port": 6200,
+      "maxRequestHeaderSize": "32KiB"
+    },
+    "gzip": {
+      "includedMethods": [
+        "GET",
+        "POST"
+      ]
+    },
+    "requestLog": {
+      "appenders": [
+        {
+          "type": "console",
+          "filterFactories": [
+            {
+              "type": "healthcheck-filter-factory"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "projects": {
+    "defaultBranch": "master"
+  },
+  "storages": [
+    {
+      "org.finos.legend.depot.store.mongo.core.MongoConfiguration": {
+        "url": "mongodb://127.0.0.1:27017",
+        "database": "depot-dev"
+      }
+    }
+  ],
+  "openTracing": {
+    "openTracingUri": "URL here",
+    "serviceName": "legend-depot-server",
+    "enabled": false
+  },
+  "exceptionMapper": {
+    "includeStackTrace": true
+  },
+  "logging": {
+    "level": "INFO",
+    "loggers": {
+      "com.gs": "INFO",
+      "Legend Depot Server": {
+        "level": "INFO",
+        "appenders": [
+          {
+            "type": "console",
+            "logFormat": "%msg\r\n"
+          }
+        ]
+      }
+    }
+  },
+  "swagger": {
+    "resourcePackage": "org.finos.legend.depot.server",
+    "title": "Legend Depot server",
+    "uriPrefix": "/depot/api"
+  },
+  "pac4j": {
+    "callbackPrefix": "/depot",
+    "bypassPaths": [
+      "/depot/api/info"
+    ],
+    "clients": [
+      {
+        "org.pac4j.core.client.direct.AnonymousClient": {
+        }
+      }
+    ],
+    "mongoAuthorizer": {
+      "enabled": false,
+      "collection": "allowedUsers"
+    },
+    "mongoSession": {
+      "enabled": false,
+      "collection": "userSessions"
+    }
+  },
+  "filterPriorities": {
+    "Username": 1,
+    "OpenTracingFilter": 2,
+    "org.pac4j.j2e.filter.SecurityFilter": 3,
+    "org.pac4j.j2e.filter.CallbackFilter": 4,
+    "CORS": 5
+  }
+}
