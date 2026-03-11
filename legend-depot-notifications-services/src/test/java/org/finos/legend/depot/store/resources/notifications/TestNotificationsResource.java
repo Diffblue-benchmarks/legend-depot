@@ -15,6 +15,7 @@
 
 package org.finos.legend.depot.store.resources.notifications;
 
+import org.finos.legend.depot.core.services.api.authorisation.AuthorisationProvider;
 import org.finos.legend.depot.domain.notifications.MetadataNotification;
 import org.finos.legend.depot.services.api.notifications.NotificationsService;
 import org.finos.legend.depot.services.notifications.NotificationsServiceImpl;
@@ -23,11 +24,15 @@ import org.finos.legend.depot.store.mongo.notifications.NotificationsMongo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import javax.inject.Provider;
+import java.security.Principal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Optional;
 
 import static org.finos.legend.depot.domain.DatesHandler.toDate;
+import static org.mockito.Mockito.mock;
 
 
 public class TestNotificationsResource extends TestStoreMongo
@@ -100,5 +105,39 @@ public class TestNotificationsResource extends TestStoreMongo
         long deleted = notificationsService.deleteOldNotifications(10);
         Assertions.assertEquals(1,deleted);
         Assertions.assertEquals(1, notificationsMongo.getAll().size());
+    }
+
+    @Test
+    public void canCreateResourceWithAuthorisationProvider()
+    {
+        AuthorisationProvider authProvider = mock(AuthorisationProvider.class);
+        @SuppressWarnings("unchecked")
+        Provider<Principal> principalProvider = mock(Provider.class);
+        NotificationsResource authorisedResource = new NotificationsResource(notificationsService, authProvider, principalProvider);
+        Assertions.assertNotNull(authorisedResource);
+    }
+
+    @Test
+    public void canGetResourceName()
+    {
+        Assertions.assertEquals("Notifications", resource.getResourceName());
+    }
+
+    @Test
+    public void canGetNotificationById()
+    {
+        MetadataNotification event = new MetadataNotification("prod-1", "test.group", "test-artifact", VERSION);
+        notificationsMongo.createOrUpdate(event);
+
+        Optional<MetadataNotification> found = resource.getNotificationById(event.getEventId());
+        Assertions.assertTrue(found.isPresent());
+        Assertions.assertEquals("prod-1", found.get().getProjectId());
+    }
+
+    @Test
+    public void canGetNotificationByIdNotFound()
+    {
+        Optional<MetadataNotification> found = resource.getNotificationById("non-existent-id");
+        Assertions.assertFalse(found.isPresent());
     }
 }
