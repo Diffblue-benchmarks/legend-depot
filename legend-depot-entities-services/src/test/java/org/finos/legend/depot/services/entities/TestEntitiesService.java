@@ -289,4 +289,30 @@ public class TestEntitiesService extends TestBaseServices
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> entitiesService.getEntityFromDependencies("examples.metadata", "test", "3.0.1", Lists.fixedSize.of("covid::JHUCovid19"), false), "project version not found for examples.metadata-test-3.0.1");
     }
+
+    @Test
+    public void canDeleteEntitiesByGroupArtifactVersion()
+    {
+        List<Entity> entitiesBefore = entitiesService.getEntities("examples.metadata", "test", "2.3.1");
+        Assertions.assertFalse(entitiesBefore.isEmpty());
+
+        long deleted = entitiesService.delete("examples.metadata", "test", "2.3.1");
+        Assertions.assertTrue(deleted > 0);
+
+        List<Entity> entitiesAfter = entitiesService.getEntities("examples.metadata", "test", "2.3.1");
+        Assertions.assertTrue(entitiesAfter.isEmpty());
+    }
+
+    @Test
+    public void canDeleteEntitiesByGroupArtifact()
+    {
+        List<Entity> entitiesBefore = entitiesService.getEntities("examples.metadata", "test", "2.3.1");
+        Assertions.assertFalse(entitiesBefore.isEmpty());
+
+        long deleted = entitiesService.delete("examples.metadata", "test");
+        Assertions.assertTrue(deleted > 0);
+
+        List<Entity> entitiesAfter = entitiesService.getEntities("examples.metadata", "test", "2.3.1");
+        Assertions.assertTrue(entitiesAfter.isEmpty());
+    }
 }
