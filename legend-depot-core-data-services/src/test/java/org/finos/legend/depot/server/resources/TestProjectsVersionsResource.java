@@ -26,8 +26,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import javax.ws.rs.core.Response;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+
+import org.finos.legend.depot.store.model.projects.StoreProjectVersionData;
 
 import static org.finos.legend.depot.domain.version.VersionValidator.BRANCH_SNAPSHOT;
 import static org.mockito.Mockito.mock;
@@ -74,5 +77,23 @@ public class TestProjectsVersionsResource extends TestBaseServices
         Response responseTwo = projectsVersionsResource.getProjectVersion("somethig.random", "test","head");
         Optional<ProjectsVersionsResource.ProjectVersionDTO> versionData1 = (Optional<ProjectsVersionsResource.ProjectVersionDTO>) responseTwo.getEntity();
         Assertions.assertFalse(versionData1.isPresent());
+    }
+
+    @Test
+    public void canFindByUpdatedDate()
+    {
+        Response response = projectsVersionsResource.findByUpdatedDate(1687227600000L, 1687314000000L);
+        Assertions.assertNotNull(response);
+        List<StoreProjectVersionData> result = (List<StoreProjectVersionData>) response.getEntity();
+        Assertions.assertNotNull(result);
+    }
+
+    @Test
+    public void canFindByUpdatedDateWithNullUpdatedTo()
+    {
+        Response response = projectsVersionsResource.findByUpdatedDate(1687227600000L, null);
+        Assertions.assertNotNull(response);
+        List<StoreProjectVersionData> result = (List<StoreProjectVersionData>) response.getEntity();
+        Assertions.assertNotNull(result);
     }
 }
