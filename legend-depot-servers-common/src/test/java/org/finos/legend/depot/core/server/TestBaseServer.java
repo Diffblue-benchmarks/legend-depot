@@ -38,6 +38,10 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.eclipse.jetty.util.component.LifeCycle;
+import org.mockito.ArgumentCaptor;
+
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
@@ -222,5 +226,87 @@ class TestBaseServer
 
         verify(admin).addServlet(eq("prometheus"), any(Servlet.class));
         verify(dynamic).addMapping("/prometheus");
+    }
+
+    private LifeCycle.Listener captureLifeCycleListener()
+    {
+        ServerConfiguration configuration = mock(ServerConfiguration.class);
+        Environment environment = mock(Environment.class);
+        JerseyEnvironment jersey = mock(JerseyEnvironment.class);
+        LifecycleEnvironment lifecycle = mock(LifecycleEnvironment.class);
+        HealthCheckRegistry healthChecks = mock(HealthCheckRegistry.class);
+        AdminEnvironment admin = mock(AdminEnvironment.class);
+        ServletEnvironment servlets = mock(ServletEnvironment.class);
+        ServletRegistration.Dynamic dynamic = mock(ServletRegistration.Dynamic.class);
+        MetricRegistry metricRegistry = new MetricRegistry();
+
+        when(environment.jersey()).thenReturn(jersey);
+        when(environment.lifecycle()).thenReturn(lifecycle);
+        when(environment.healthChecks()).thenReturn(healthChecks);
+        when(environment.servlets()).thenReturn(servlets);
+        when(environment.admin()).thenReturn(admin);
+        when(environment.metrics()).thenReturn(metricRegistry);
+        when(environment.getApplicationContext()).thenReturn(mock(MutableServletContextHandler.class));
+
+        when(admin.addServlet(anyString(), any(Servlet.class))).thenReturn(dynamic);
+        when(dynamic.addMapping(anyString())).thenReturn(null);
+
+        when(configuration.getSessionCookie()).thenReturn(null);
+        when(configuration.getFilterPriorities()).thenReturn(null);
+        when(configuration.getUrlPattern()).thenReturn(null);
+        when(configuration.getApplicationName()).thenReturn("test-app");
+        when(configuration.getExceptionMapperConfiguration()).thenReturn(new ExceptionMapperConfiguration());
+
+        server.run(configuration, environment);
+
+        ArgumentCaptor<LifeCycle.Listener> captor = ArgumentCaptor.forClass(LifeCycle.Listener.class);
+        verify(lifecycle).addLifeCycleListener(captor.capture());
+        return captor.getValue();
+    }
+
+    @Test
+    void testLifeCycleListenerStarting()
+    {
+        LifeCycle.Listener listener = captureLifeCycleListener();
+        LifeCycle event = mock(LifeCycle.class);
+
+        assertDoesNotThrow(() -> listener.lifeCycleStarting(event));
+    }
+
+    @Test
+    void testLifeCycleListenerStarted()
+    {
+        LifeCycle.Listener listener = captureLifeCycleListener();
+        LifeCycle event = mock(LifeCycle.class);
+
+        assertDoesNotThrow(() -> listener.lifeCycleStarted(event));
+    }
+
+    @Test
+    void testLifeCycleListenerFailure()
+    {
+        LifeCycle.Listener listener = captureLifeCycleListener();
+        LifeCycle event = mock(LifeCycle.class);
+        Throwable cause = new RuntimeException("test failure");
+
+        assertDoesNotThrow(() -> listener.lifeCycleFailure(event, cause));
+    }
+
+    @Test
+    void testLifeCycleListenerStopping()
+    {
+        LifeCycle.Listener listener = captureLifeCycleListener();
+        LifeCycle event = mock(LifeCycle.class);
+
+        assertDoesNotThrow(() -> listener.lifeCycleStopping(event));
+    }
+
+    @Test
+    void testLifeCycleListenerStopped()
+    {
+        LifeCycle.Listener listener = captureLifeCycleListener();
+        LifeCycle event = mock(LifeCycle.class);
+
+        assertDoesNotThrow(() -> listener.lifeCycleStopped(event));
     }
 }
