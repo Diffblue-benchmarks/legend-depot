@@ -163,4 +163,15 @@ public class TestVersionsMismatchService
         Assertions.assertEquals("2.2.0", prodA.getLatestVersion());
         Assertions.assertEquals("2.0.3", prodC.getLatestVersion());
     }
+
+    @Test
+    public void syncLatestProjectVersionsHandlesExceptions()
+    {
+        when(projects.find("examples.metadata", "test1")).thenThrow(new RuntimeException("connection error"));
+
+        List<StoreProjectData> projectsWithUpdatedLatestVersions = repositoryServices.syncLatestProjectVersions();
+        Assertions.assertNotNull(projectsWithUpdatedLatestVersions);
+        Assertions.assertEquals(0, projectsWithUpdatedLatestVersions.stream().filter(p -> p.getProjectId().equals("PROD-A")).count());
+        Assertions.assertEquals(1, projectsWithUpdatedLatestVersions.stream().filter(p -> p.getProjectId().equals("PROD-D")).count());
+    }
 }
