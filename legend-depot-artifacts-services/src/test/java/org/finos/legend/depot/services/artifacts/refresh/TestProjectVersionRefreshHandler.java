@@ -247,4 +247,69 @@ public class TestProjectVersionRefreshHandler extends TestStoreMongo
 
         Assertions.assertEquals(0, errors.size());
     }
+
+    @Test
+    public void validateReturnsErrorForInvalidGroupId()
+    {
+        List<String> errors = versionHandler.validate(new MetadataNotification("PROD-1", "", TEST_ARTIFACT_ID, "1.0.0"));
+        Assertions.assertFalse(errors.isEmpty());
+        Assertions.assertTrue(errors.stream().anyMatch(e -> e.contains("invalid groupId")));
+    }
+
+    @Test
+    public void validateReturnsErrorForInvalidArtifactId()
+    {
+        List<String> errors = versionHandler.validate(new MetadataNotification("PROD-1", TEST_GROUP_ID, "INVALID_ARTIFACT", "1.0.0"));
+        Assertions.assertFalse(errors.isEmpty());
+        Assertions.assertTrue(errors.stream().anyMatch(e -> e.contains("invalid artifactId")));
+    }
+
+    @Test
+    public void validateReturnsErrorForInvalidVersionId()
+    {
+        List<String> errors = versionHandler.validate(new MetadataNotification("PROD-1", TEST_GROUP_ID, TEST_ARTIFACT_ID, "not_a_version"));
+        Assertions.assertFalse(errors.isEmpty());
+        Assertions.assertTrue(errors.stream().anyMatch(e -> e.contains("invalid versionId")));
+    }
+
+    @Test
+    public void validateGAVHandlesRepositoryException() throws ArtifactRepositoryException
+    {
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, "1.0.0")).thenThrow(new ArtifactRepositoryException("repository error"));
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, "1.0.0", false, false, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
+        Assertions.assertTrue(response.hasErrors());
+        Assertions.assertTrue(response.getErrors().stream().anyMatch(e -> e.contains("repository error")));
+    }
+
+    @Test
+    public void doRefreshHandlesExceptionDuringProcessing() throws ArtifactRepositoryException
+    {
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, "1.0.0")).thenReturn(Optional.of("1.0.0"));
+        when(repositoryServices.findDependencies(TEST_GROUP_ID, TEST_ARTIFACT_ID, "1.0.0")).thenThrow(new RuntimeException("unexpected error"));
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, "1.0.0", false, false, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
+        Assertions.assertTrue(response.hasErrors());
+        Assertions.assertTrue(response.getErrors().stream().anyMatch(e -> e.contains("unexpected error")));
+    }
+
+    @Test
+    public void handleDependenciesReportsErrorForUnknownDependentProject() throws ArtifactRepositoryException
+    {
+        Set<ArtifactDependency> deps = new HashSet<>();
+        deps.add(new ArtifactDependency("unknown.group", "unknown-artifact", "1.0.0"));
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, "1.0.0")).thenReturn(Optional.of("1.0.0"));
+        when(repositoryServices.findDependencies(TEST_GROUP_ID, TEST_ARTIFACT_ID, "1.0.0")).thenReturn(deps);
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, "1.0.0", true, true, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
+        Assertions.assertTrue(response.hasErrors());
+        Assertions.assertTrue(response.getErrors().stream().anyMatch(e -> e.contains("Could not find dependent project")));
+    }
+
+    @Test
+    public void constructorWithNullPropertyConfig()
+    {
+        ProjectVersionRefreshHandler handler = new ProjectVersionRefreshHandler(projectsService, repositoryServices, queue, artifactsStore, null, refreshDependenciesService, 3);
+        Assertions.assertNotNull(handler);
+    }
 }
