@@ -19,11 +19,13 @@ import org.finos.legend.depot.services.api.artifacts.repository.ArtifactReposito
 import org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepositoryProviderConfiguration;
 import org.finos.legend.depot.domain.artifacts.repository.ArtifactDependency;
 import org.finos.legend.depot.domain.artifacts.repository.ArtifactType;
+import org.jboss.shrinkwrap.resolver.api.ResolutionException;
 import org.jboss.shrinkwrap.resolver.api.maven.PackagingType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.net.URL;
 import java.util.List;
 import java.util.Set;
 
@@ -157,5 +159,53 @@ public class TestMavenArtifactRepositoryCoverage
     {
         Set<ArtifactDependency> dependencies = repository.findDependencies(GROUP_ID, "test", "1.0.0");
         Assertions.assertNotNull(dependencies);
+    }
+
+    @Test
+    public void getPOMReturnsEmptyModelWhenResolutionExceptionAndLocalFileNotFound()
+    {
+        TestMavenArtifactsRepository repoWithException = new TestMavenArtifactsRepository()
+        {
+            @Override
+            protected URL[] resolvePOMFromRepository(String group, String artifact, String version)
+            {
+                throw new ResolutionException("test resolution failure");
+            }
+        };
+        org.apache.maven.model.Model model = repoWithException.getPOM(GROUP_ID, "nonexistent", "9.9.9");
+        Assertions.assertNotNull(model);
+        Assertions.assertNull(model.getArtifactId());
+    }
+
+    @Test
+    public void getPOMReturnsEmptyModelWhenPomResolvesToNull()
+    {
+        TestMavenArtifactsRepository repoReturningNull = new TestMavenArtifactsRepository()
+        {
+            @Override
+            protected URL[] resolvePOMFromRepository(String group, String artifact, String version)
+            {
+                return null;
+            }
+        };
+        org.apache.maven.model.Model model = repoReturningNull.getPOM(GROUP_ID, "nonexistent", "9.9.9");
+        Assertions.assertNotNull(model);
+        Assertions.assertNull(model.getArtifactId());
+    }
+
+    @Test
+    public void getPOMReturnsEmptyModelWhenPomResolvesToEmptyArray()
+    {
+        TestMavenArtifactsRepository repoReturningEmpty = new TestMavenArtifactsRepository()
+        {
+            @Override
+            protected URL[] resolvePOMFromRepository(String group, String artifact, String version)
+            {
+                return new URL[0];
+            }
+        };
+        org.apache.maven.model.Model model = repoReturningEmpty.getPOM(GROUP_ID, "nonexistent", "9.9.9");
+        Assertions.assertNotNull(model);
+        Assertions.assertNull(model.getArtifactId());
     }
 }
