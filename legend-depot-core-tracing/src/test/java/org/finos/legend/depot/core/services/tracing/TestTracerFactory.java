@@ -181,4 +181,27 @@ public class TestTracerFactory
         Integer result = factory.executeWithTrace("compute", () -> 42, Collections.emptyMap());
         Assertions.assertEquals(42, result);
     }
+
+    @Test
+    public void canConfigureWithEnabledConfigAndCustomTracerProvider()
+    {
+        OpenTracingConfiguration config = new OpenTracingConfiguration();
+        config.setEnabled(true);
+        config.setTracerProvider(configuration -> NoopTracerFactory.create());
+
+        TracerFactory factory = TracerFactory.configure(config);
+        Assertions.assertNotNull(factory);
+        Assertions.assertNotNull(TracerFactory.getTracer());
+    }
+
+    @Test
+    public void canConfigureWithEnabledConfigAndNullTracerProvider()
+    {
+        OpenTracingConfiguration config = new OpenTracingConfiguration();
+        config.setEnabled(true);
+        config.setTracerProvider(null);
+        config.setOpenTracingUri(null);
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> TracerFactory.configure(config));
+    }
 }
