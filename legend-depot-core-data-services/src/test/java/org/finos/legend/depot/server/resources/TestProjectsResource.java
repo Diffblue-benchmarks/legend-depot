@@ -24,7 +24,10 @@ import org.finos.legend.depot.services.api.notifications.queue.Queue;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import org.finos.legend.depot.store.model.projects.StoreProjectData;
+
 import java.util.List;
+import java.util.Optional;
 
 import static org.mockito.Mockito.mock;
 
@@ -48,5 +51,21 @@ public class TestProjectsResource extends TestBaseServices
         List<String> versionSet = (List<String>) projectsVersionsResource.getVersions("examples.metadata", "test",false).getEntity();
         Assertions.assertNotNull(versionSet);
         Assertions.assertEquals(2, versionSet.size());
+    }
+
+    @Test
+    public void canGetProjectsWithCoordinates()
+    {
+        List<StoreProjectData> projects = (List<StoreProjectData>) projectsVersionsResource.getProjectsWithCoordinates().getEntity();
+        Assertions.assertNotNull(projects);
+        Assertions.assertFalse(projects.isEmpty());
+    }
+
+    @Test
+    public void canGetProjectCoordinates()
+    {
+        Optional<StoreProjectData> project = (Optional<StoreProjectData>) projectsVersionsResource.getProjectCoordinates("examples.metadata", "test").getEntity();
+        Assertions.assertNotNull(project);
+        Assertions.assertTrue(project.isPresent());
     }
 }
