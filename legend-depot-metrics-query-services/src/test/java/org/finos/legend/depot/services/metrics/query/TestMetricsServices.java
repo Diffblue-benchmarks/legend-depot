@@ -26,9 +26,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.Optional;
@@ -186,5 +188,59 @@ public class TestMetricsServices extends TestStoreMongo
         Assertions.assertEquals(returnedElement.get().getGroupId(), "examples.metadata");
         Assertions.assertEquals(returnedElement.get().getArtifactId(), "test");
         Assertions.assertEquals(returnedElement.get().getVersionId(), "2.0.0");
+    }
+
+    @Test
+    public void canGetSummaryReturnsEmptyForNonExistentVersion()
+    {
+        Optional<VersionQueryMetric> metrics = metricsHandler.getSummary("nonexistent", "art", "1.0.0");
+        Assertions.assertFalse(metrics.isPresent());
+    }
+
+    @Test
+    public void canFindReleasedVersionMetricsBefore()
+    {
+        Date pastDate = toDate(LocalDateTime.parse("2023-03-22T14:02:49", DateTimeFormatter.ISO_DATE_TIME));
+        metricsStore.insert(new VersionQueryMetric("group1", "art1", "3.0.0", pastDate));
+        metricsStore.insert(new VersionQueryMetric("group1", "art1", "master-SNAPSHOT", pastDate));
+
+        Date futureDate = new Date(System.currentTimeMillis() + Duration.ofDays(1).toMillis());
+        List<VersionQueryMetric> released = metricsHandler.findReleasedVersionMetricsBefore(futureDate);
+        Assertions.assertTrue(released.stream().noneMatch(m -> m.getVersionId().contains("SNAPSHOT")));
+        Assertions.assertTrue(released.size() > 0);
+    }
+
+    @Test
+    public void canFindSnapshotVersionMetricsBefore()
+    {
+        Date pastDate = toDate(LocalDateTime.parse("2023-03-22T14:02:49", DateTimeFormatter.ISO_DATE_TIME));
+        metricsStore.insert(new VersionQueryMetric("group1", "art1", "master-SNAPSHOT", pastDate));
+        metricsStore.insert(new VersionQueryMetric("group1", "art1", "4.0.0", pastDate));
+
+        Date futureDate = new Date(System.currentTimeMillis() + Duration.ofDays(1).toMillis());
+        List<VersionQueryMetric> snapshots = metricsHandler.findSnapshotVersionMetricsBefore(futureDate);
+        Assertions.assertTrue(snapshots.stream().allMatch(m -> m.getVersionId().contains("SNAPSHOT")));
+        Assertions.assertTrue(snapshots.size() > 0);
+    }
+
+    @Test
+    public void canDeleteMetrics()
+    {
+        Assertions.assertEquals(4, metricsStore.getAllStoredEntities().size());
+        metricsHandler.delete("group1", "art1", "1.0.0");
+        List<VersionQueryMetric> remaining = metricsStore.getAllStoredEntities();
+        Assertions.assertTrue(remaining.stream().noneMatch(m -> m.getVersionId().equals("1.0.0")));
+    }
+
+    @Test
+    public void canGetStaleMetrics()
+    {
+        Date oldDate = new Date(System.currentTimeMillis() - Duration.ofDays(100).toMillis());
+        metricsStore.insert(new VersionQueryMetric("group1", "art1", "5.0.0", oldDate));
+        metricsStore.insert(new VersionQueryMetric("group1", "art1", "master-SNAPSHOT", oldDate));
+
+        List<VersionQueryMetric> staleMetrics = metricsHandler.getStaleMetrics(30, 10);
+        Assertions.assertTrue(staleMetrics.stream().anyMatch(m -> m.getVersionId().equals("5.0.0")));
+        Assertions.assertTrue(staleMetrics.stream().anyMatch(m -> m.getVersionId().equals("master-SNAPSHOT")));
     }
 }
