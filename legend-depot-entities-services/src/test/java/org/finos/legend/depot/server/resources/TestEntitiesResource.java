@@ -187,4 +187,21 @@ public class TestEntitiesResource extends TestBaseServices
         Assertions.assertEquals(4, entityList.size());
 
     }
+
+    @Test
+    public void canGetEntitiesByClassifier()
+    {
+        Response response = entitiesResource.getEntitiesByClassifier("examples.metadata", "test", "2.3.0", "meta::pure::metamodel::extension::Profile", null);
+        Assertions.assertNotNull(response);
+        Assertions.assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
+        List<Entity> entityList = (List<Entity>) response.getEntity();
+        Assertions.assertNotNull(entityList);
+    }
+
+    @Test
+    public void canGetEntitiesByClassifierWithNullClassifier()
+    {
+        Response response = entitiesResource.getEntitiesByClassifier("examples.metadata", "test", "2.3.0", null, null);
+        Assertions.assertNotNull(response);
+    }
 }
