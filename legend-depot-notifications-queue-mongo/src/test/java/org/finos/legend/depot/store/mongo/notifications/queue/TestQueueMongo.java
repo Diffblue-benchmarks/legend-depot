@@ -21,6 +21,7 @@ import org.finos.legend.depot.domain.notifications.Priority;
 import org.finos.legend.depot.services.api.notifications.queue.Queue;
 import org.finos.legend.depot.store.mongo.TestStoreMongo;
 
+import com.mongodb.client.model.IndexModel;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -193,6 +194,42 @@ public class TestQueueMongo extends TestStoreMongo
         Assertions.assertEquals(2, deleted);
         Assertions.assertEquals(0, queue.size());
 
+    }
+
+    @Test
+    public void canBuildIndexes()
+    {
+        List<IndexModel> indexes = NotificationsQueueMongo.buildIndexes();
+        Assertions.assertNotNull(indexes);
+        Assertions.assertEquals(1, indexes.size());
+    }
+
+    @Test
+    public void canPullAllEvents()
+    {
+        MetadataNotification event = new MetadataNotification(TESTPROJECT, TEST, TEST, VERSION);
+        MetadataNotification event1 = new MetadataNotification(TESTPROJECT_1, TEST, "test1", VERSION);
+        MetadataNotification event2 = new MetadataNotification(TESTPROJECT_2, TEST, "test2", "1.0.1");
+        queue.push(event);
+        queue.push(event1);
+        queue.push(event2);
+
+        Assertions.assertEquals(3, queue.size());
+
+        NotificationsQueueMongo queueMongo = (NotificationsQueueMongo) queue;
+        List<MetadataNotification> pulled = queueMongo.pullAll();
+        Assertions.assertNotNull(pulled);
+        Assertions.assertEquals(3, pulled.size());
+        Assertions.assertEquals(0, queue.size());
+    }
+
+    @Test
+    public void canPullAllFromEmptyQueue()
+    {
+        NotificationsQueueMongo queueMongo = (NotificationsQueueMongo) queue;
+        List<MetadataNotification> pulled = queueMongo.pullAll();
+        Assertions.assertNotNull(pulled);
+        Assertions.assertTrue(pulled.isEmpty());
     }
 
 }
