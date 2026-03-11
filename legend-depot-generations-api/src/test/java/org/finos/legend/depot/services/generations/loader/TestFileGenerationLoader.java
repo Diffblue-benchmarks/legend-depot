@@ -40,4 +40,14 @@ public class TestFileGenerationLoader
         Assertions.assertFalse(generation.getContent().isEmpty());
     }
 
+    @Test
+    public void canCloseFileGenerationLoader() throws Exception
+    {
+        FileGenerationLoader loader = FileGenerationLoader.newFileGenerationsLoader(new File(filePath.toURI()));
+        List<DepotGeneration> generations = loader.getAllFileGenerations().collect(Collectors.toList());
+        Assertions.assertNotNull(generations);
+        Assertions.assertFalse(generations.isEmpty());
+        loader.close();
+    }
+
 }
