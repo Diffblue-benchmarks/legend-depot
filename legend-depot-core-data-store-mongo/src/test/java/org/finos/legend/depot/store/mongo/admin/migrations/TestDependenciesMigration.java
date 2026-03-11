@@ -20,7 +20,10 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
+import org.eclipse.collections.api.block.function.Function3;
 import org.finos.legend.depot.domain.project.ProjectVersion;
+import org.finos.legend.depot.domain.project.ProjectVersionData;
+import org.finos.legend.depot.domain.project.dependencies.VersionDependencyReport;
 import org.finos.legend.depot.store.model.projects.StoreProjectVersionData;
 import org.finos.legend.depot.store.mongo.CoreDataMongoStoreTests;
 import org.finos.legend.depot.store.mongo.admin.CoreDataMigrations;
@@ -30,8 +33,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import static org.finos.legend.depot.store.mongo.core.BaseMongo.convert;
 
@@ -140,5 +146,85 @@ public class TestDependenciesMigration extends CoreDataMongoStoreTests
         //check for dependency not present in store
         StoreProjectVersionData result3 = convert(new ObjectMapper(), mongoProvider.getCollection(ProjectsVersionsMongo.COLLECTION).find(Filters.and(Filters.eq("groupId", "examples.metadata"), Filters.eq("artifactId", "art108"))).first(), StoreProjectVersionData.class);
         Assertions.assertFalse(result3.getTransitiveDependenciesReport().isValid());
+    }
+
+    @Test
+    public void testCalculateTransitiveDependenciesWithExcludedDependency() throws Exception
+    {
+        DependenciesMigration migration = new DependenciesMigration(mongoProvider);
+
+        Method method = DependenciesMigration.class.getDeclaredMethod("calculateTransitiveDependencies", ProjectVersion.class, Function3.class);
+        method.setAccessible(true);
+
+        ProjectVersion pv = new ProjectVersion("examples.metadata", "excluded-art", "1.0.0");
+        ProjectVersionData pvd = new ProjectVersionData();
+        pvd.setExcluded(true);
+        StoreProjectVersionData spvd = new StoreProjectVersionData("examples.metadata", "excluded-art", "1.0.0");
+        spvd.setVersionData(pvd);
+
+        Function3<String, String, String, StoreProjectVersionData> provider = (group, artifact, version) -> spvd;
+
+        VersionDependencyReport report = (VersionDependencyReport) method.invoke(migration, pv, provider);
+        Assertions.assertFalse(report.isValid());
+        Assertions.assertTrue(report.getTransitiveDependencies().isEmpty());
+    }
+
+    @Test
+    public void testCalculateTransitiveDependenciesWithGenericException() throws Exception
+    {
+        DependenciesMigration migration = new DependenciesMigration(mongoProvider);
+
+        Method method = DependenciesMigration.class.getDeclaredMethod("calculateTransitiveDependencies", ProjectVersion.class, Function3.class);
+        method.setAccessible(true);
+
+        ProjectVersion pv = new ProjectVersion("examples.metadata", "error-art", "1.0.0");
+        Function3<String, String, String, StoreProjectVersionData> provider = (group, artifact, version) ->
+        {
+            throw new RuntimeException("unexpected error");
+        };
+
+        try
+        {
+            method.invoke(migration, pv, provider);
+            Assertions.fail("Expected InvocationTargetException wrapping IllegalStateException");
+        }
+        catch (InvocationTargetException e)
+        {
+            Assertions.assertTrue(e.getCause() instanceof IllegalStateException);
+            Assertions.assertTrue(e.getCause().getMessage().contains("unexpected error"));
+        }
+    }
+
+    @Test
+    public void testCalculateTransitiveDependenciesWithExcludedTransitiveDependency() throws Exception
+    {
+        DependenciesMigration migration = new DependenciesMigration(mongoProvider);
+
+        Method method = DependenciesMigration.class.getDeclaredMethod("calculateTransitiveDependencies", ProjectVersion.class, Function3.class);
+        method.setAccessible(true);
+
+        ProjectVersionData excludedData = new ProjectVersionData();
+        excludedData.setExcluded(true);
+        StoreProjectVersionData excludedVersion = new StoreProjectVersionData("examples.metadata", "dep-excluded", "1.0.0");
+        excludedVersion.setVersionData(excludedData);
+
+        ProjectVersionData parentData = new ProjectVersionData();
+        parentData.setDependencies(Collections.singletonList(new ProjectVersion("examples.metadata", "dep-excluded", "1.0.0")));
+        StoreProjectVersionData parentVersion = new StoreProjectVersionData("examples.metadata", "parent-art", "1.0.0");
+        parentVersion.setVersionData(parentData);
+
+        Function3<String, String, String, StoreProjectVersionData> provider = (group, artifact, version) ->
+        {
+            if ("dep-excluded".equals(artifact))
+            {
+                return excludedVersion;
+            }
+            return parentVersion;
+        };
+
+        ProjectVersion pv = new ProjectVersion("examples.metadata", "parent-art", "1.0.0");
+        VersionDependencyReport report = (VersionDependencyReport) method.invoke(migration, pv, provider);
+        Assertions.assertFalse(report.isValid());
+        Assertions.assertTrue(report.getTransitiveDependencies().isEmpty());
     }
 }
