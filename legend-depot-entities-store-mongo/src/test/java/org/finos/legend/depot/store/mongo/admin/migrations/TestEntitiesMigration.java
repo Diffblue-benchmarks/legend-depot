@@ -20,6 +20,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.IndexOptions;
 import com.mongodb.client.model.Updates;
 import com.mongodb.client.result.DeleteResult;
 import org.apache.commons.lang.builder.EqualsBuilder;
@@ -100,6 +101,24 @@ public class TestEntitiesMigration extends TestStoreMongo
         Assertions.assertTrue(storedEntities.get(0) instanceof StoredEntityData);
         Assertions.assertTrue(storedEntities.get(1) instanceof StoredEntityData);
         Assertions.assertTrue(storedEntities.get(2) instanceof StoredEntityData);
+    }
+
+    @Test
+    public void migrationHandlesUpdateExceptionGracefully()
+    {
+        mongoProvider.getCollection("entities").drop();
+        setUpLegacyEntitiesDataFromFile(this.getClass().getClassLoader().getResource("data/migration/legacy-entities.json"));
+
+        mongoProvider.getCollection("entities").createIndex(
+                new Document("_type", 1),
+                new IndexOptions().unique(true).sparse(true)
+        );
+
+        Assertions.assertDoesNotThrow(() -> mongoAdminStore.migrateEntitiesToStoredEntityData());
+
+        long updatedCount = mongoProvider.getCollection("entities").countDocuments(Filters.eq("_type", "entityData"));
+        Assertions.assertTrue(updatedCount >= 1, "At least one entity should have been updated");
+        Assertions.assertTrue(updatedCount < 3, "Not all entities should have been updated due to unique index constraint");
     }
 
     protected void setUpLegacyEntitiesDataFromFile(URL entitiesFile)
