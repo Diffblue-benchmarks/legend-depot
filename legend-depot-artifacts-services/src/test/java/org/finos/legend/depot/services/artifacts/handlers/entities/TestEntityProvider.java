@@ -26,9 +26,15 @@ import org.finos.legend.sdlc.domain.model.entity.Entity;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import org.finos.legend.depot.services.api.artifacts.handlers.ArtifactLoadingException;
+
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Stream;
 
 public class TestEntityProvider
 {
@@ -93,5 +99,15 @@ public class TestEntityProvider
     {
         File jarFile = repository.getJarFile(TEST_GROUP_ID, "test-non-existing-entities", "1.0.0");
         Assertions.assertNull(jarFile);
+    }
+
+    @Test
+    public void canHandleInvalidFileThrowsArtifactLoadingException() throws IOException
+    {
+        File tempFile = Files.createTempFile("invalid-entities", ".jar").toFile();
+        tempFile.deleteOnExit();
+        Files.write(tempFile.toPath(), new byte[]{0, 1, 2, 3});
+        Assertions.assertThrows(ArtifactLoadingException.class, () ->
+                artifactProvider.extractArtifactsForType(Stream.of(tempFile)));
     }
 }
