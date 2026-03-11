@@ -162,6 +162,18 @@ public class TestMavenArtifactRepositoryCoverage
     }
 
     @Test
+    public void findDependenciesFallsBackToPluginDepsWhenNoDependencyVersions()
+    {
+        Set<ArtifactDependency> dependencies = repository.findDependencies(GROUP_ID, "test-plugindeps", "1.0.0");
+        Assertions.assertNotNull(dependencies);
+        Assertions.assertFalse(dependencies.isEmpty());
+        ArtifactDependency dep = dependencies.iterator().next();
+        Assertions.assertEquals("examples.metadata", dep.getGroupId());
+        Assertions.assertEquals("test-dependencies", dep.getArtifactId());
+        Assertions.assertEquals("1.0.0", dep.getVersion());
+    }
+
+    @Test
     public void getPOMReturnsEmptyModelWhenResolutionExceptionAndLocalFileNotFound()
     {
         TestMavenArtifactsRepository repoWithException = new TestMavenArtifactsRepository()
