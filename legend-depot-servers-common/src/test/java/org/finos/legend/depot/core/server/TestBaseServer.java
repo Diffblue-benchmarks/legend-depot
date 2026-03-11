@@ -309,4 +309,15 @@ class TestBaseServer
 
         assertDoesNotThrow(() -> listener.lifeCycleStopped(event));
     }
+
+    @Test
+    void testInitializeAddsBundlesAndConfiguresBootstrap()
+    {
+        Bootstrap<ServerConfiguration> bootstrap = new Bootstrap<>(server);
+
+        assertDoesNotThrow(() -> server.initialize(bootstrap));
+
+        assertNotNull(bootstrap.getConfigurationSourceProvider());
+        assertNotNull(bootstrap.getObjectMapper());
+    }
 }
