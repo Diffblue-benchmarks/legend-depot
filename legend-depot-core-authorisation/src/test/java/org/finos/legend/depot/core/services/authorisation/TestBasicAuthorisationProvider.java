@@ -19,6 +19,12 @@ import org.finos.legend.depot.core.services.api.authorisation.AuthorisationProvi
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class TestBasicAuthorisationProvider
 {
     @Test
@@ -41,5 +47,41 @@ public class TestBasicAuthorisationProvider
     {
         AuthorisationProvider provider = new BasicAuthorisationProvider();
         Assertions.assertThrows(SecurityException.class, () -> provider.authorise(() -> () -> "notauthorised", "admin"));
+    }
+
+    @Test
+    public void canAuthoriseWithMapConstructor()
+    {
+        Map<String, List<String>> identities = new HashMap<>();
+        identities.put("admin", Arrays.asList("alice", "bob"));
+        BasicAuthorisationProvider provider = new BasicAuthorisationProvider(identities);
+        provider.authorise(() -> () -> "alice", "admin");
+        Assertions.assertTrue(true);
+    }
+
+    @Test
+    public void failAuthoriseWithMapConstructorUnknownRole()
+    {
+        Map<String, List<String>> identities = new HashMap<>();
+        identities.put("admin", Collections.singletonList("alice"));
+        BasicAuthorisationProvider provider = new BasicAuthorisationProvider(identities);
+        Assertions.assertThrows(SecurityException.class, () -> provider.authorise(() -> () -> "alice", "unknown"));
+    }
+
+    @Test
+    public void failAuthoriseWithMapConstructorUnknownUser()
+    {
+        Map<String, List<String>> identities = new HashMap<>();
+        identities.put("admin", Collections.singletonList("alice"));
+        BasicAuthorisationProvider provider = new BasicAuthorisationProvider(identities);
+        Assertions.assertThrows(SecurityException.class, () -> provider.authorise(() -> () -> "stranger", "admin"));
+    }
+
+    @Test
+    public void canAuthoriseWithEmptyMap()
+    {
+        Map<String, List<String>> identities = Collections.emptyMap();
+        BasicAuthorisationProvider provider = new BasicAuthorisationProvider(identities);
+        Assertions.assertThrows(SecurityException.class, () -> provider.authorise(() -> () -> "test", "admin"));
     }
 }
