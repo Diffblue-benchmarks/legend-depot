@@ -15,6 +15,7 @@
 
 package org.finos.legend.depot.store.mongo.notifications;
 
+import com.mongodb.client.model.IndexModel;
 import org.finos.legend.depot.domain.notifications.MetadataNotification;
 import org.finos.legend.depot.services.api.notifications.queue.Queue;
 import org.finos.legend.depot.store.mongo.TestStoreMongo;
@@ -132,5 +133,34 @@ public class TestNotificationsMongo extends TestStoreMongo
         List<MetadataNotification> afterLunch = eventsMongo.find(null,null,null,null,null,null,aPointInTime.withHour(12).withMinute(0).withSecond(1), null);
         Assertions.assertNotNull(afterLunch);
         Assertions.assertEquals(3, afterLunch.size());
+    }
+
+    @Test
+    public void canBuildIndexes()
+    {
+        List<IndexModel> indexes = NotificationsMongo.buildIndexes();
+        Assertions.assertNotNull(indexes);
+        Assertions.assertEquals(5, indexes.size());
+    }
+
+    @Test
+    public void canDeleteNotificationById()
+    {
+        MetadataNotification event = new MetadataNotification(TESTPROJECT, TEST, TEST, VERSION);
+        queue.push(event);
+        List<MetadataNotification> pulled = queue.pullAll();
+        Assertions.assertEquals(1, pulled.size());
+
+        eventsMongo.createOrUpdate(pulled.get(0));
+        List<MetadataNotification> stored = eventsMongo.getAll();
+        Assertions.assertEquals(1, stored.size());
+
+        String id = stored.get(0).getId();
+        Assertions.assertNotNull(id);
+
+        eventsMongo.delete(id);
+
+        List<MetadataNotification> afterDelete = eventsMongo.getAll();
+        Assertions.assertEquals(0, afterDelete.size());
     }
 }
