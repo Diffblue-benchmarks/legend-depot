@@ -29,6 +29,7 @@ import org.finos.legend.depot.store.api.projects.UpdateProjectsVersions;
 import org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepository;
 import org.finos.legend.depot.services.api.artifacts.repository.ArtifactRepositoryException;
 import org.finos.legend.depot.domain.artifacts.repository.ArtifactType;
+import org.finos.legend.depot.domain.notifications.MetadataNotificationResponse;
 import org.finos.legend.depot.services.artifacts.handlers.entities.EntitiesHandlerImpl;
 import org.finos.legend.depot.services.artifacts.handlers.entities.EntityProvider;
 import org.finos.legend.depot.services.artifacts.handlers.generations.FileGenerationHandlerImpl;
@@ -117,5 +118,30 @@ public class TestArtifactsRefreshServiceWithMocks extends TestStoreMongo
         List<String> versions = Arrays.asList("1.0.0");
         List<VersionId> candidates = artifactsRefreshService.calculateCandidateVersions(repoVersions,versions);
         Assertions.assertEquals("2.0.0",candidates.get(0).toVersionIdString());
+    }
+
+    @Test
+    public void testRefreshAllVersionsReturnsErrorForInvalidCoordinates()
+    {
+        when(repository.areValidCoordinates(TEST_GROUP_ID, TEST_ARTIFACT_ID)).thenReturn(false);
+
+        MetadataNotificationResponse response = artifactsRefreshService.refreshAllVersionsForProject(TEST_GROUP_ID, TEST_ARTIFACT_ID, false, false, false, "test-parent");
+        Assertions.assertNotNull(response);
+        Assertions.assertFalse(response.getErrors().isEmpty());
+        Assertions.assertTrue(response.getErrors().get(0).contains("invalid coordinates"));
+        queue.pullAll();
+    }
+
+    @Test
+    public void testRefreshAllVersionsHandlesRepositoryException() throws ArtifactRepositoryException
+    {
+        when(repository.areValidCoordinates(TEST_GROUP_ID, TEST_ARTIFACT_ID)).thenReturn(true);
+        when(repository.findVersions(TEST_GROUP_ID, TEST_ARTIFACT_ID)).thenThrow(new ArtifactRepositoryException("repository unavailable"));
+
+        MetadataNotificationResponse response = artifactsRefreshService.refreshAllVersionsForProject(TEST_GROUP_ID, TEST_ARTIFACT_ID, false, false, false, "test-parent");
+        Assertions.assertNotNull(response);
+        Assertions.assertFalse(response.getErrors().isEmpty());
+        Assertions.assertTrue(response.getErrors().get(0).contains("repository unavailable"));
+        queue.pullAll();
     }
 }
