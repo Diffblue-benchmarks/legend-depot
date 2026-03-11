@@ -36,11 +36,16 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 
+import org.finos.legend.depot.domain.artifacts.repository.ArtifactDependency;
+
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class TestRefreshDependenciesService extends CoreDataMongoStoreTests
 {
@@ -252,5 +257,88 @@ public class TestRefreshDependenciesService extends CoreDataMongoStoreTests
 
         Assertions.assertEquals(4, project.getTransitiveDependenciesReport().getTransitiveDependencies().size());
         Assertions.assertEquals(Arrays.asList(dependency2, pv2, dependency3, pv1), project.getTransitiveDependenciesReport().getTransitiveDependencies());
+    }
+
+    @Test
+    public void testCalculateTransitiveDependenciesWithExcludedDependency()
+    {
+        StoreProjectVersionData excludedProject = new StoreProjectVersionData(GROUPID, "excluded-art", "1.0.0");
+        excludedProject.getVersionData().setExcluded(true);
+        projectsVersionsStore.createOrUpdate(excludedProject);
+
+        StoreProjectVersionData project = new StoreProjectVersionData(GROUPID, "test-master", "4.0.0");
+        ProjectVersion dependency = new ProjectVersion(GROUPID, "excluded-art", "1.0.0");
+        project.getVersionData().setDependencies(Collections.singletonList(dependency));
+        projectsVersionsStore.createOrUpdate(project);
+
+        StoreProjectVersionData result = refreshDependenciesService.updateTransitiveDependencies(GROUPID, "test-master", "4.0.0");
+        Assertions.assertFalse(result.getTransitiveDependenciesReport().isValid());
+    }
+
+    @Test
+    public void testCalculateTransitiveDependenciesWithInvalidReport()
+    {
+        StoreProjectVersionData invalidProject = new StoreProjectVersionData(GROUPID, "invalid-art", "1.0.0");
+        invalidProject.setTransitiveDependenciesReport(new VersionDependencyReport(new ArrayList<>(), false));
+        projectsVersionsStore.createOrUpdate(invalidProject);
+
+        StoreProjectVersionData project = new StoreProjectVersionData(GROUPID, "test-master", "5.0.0");
+        ProjectVersion dependency = new ProjectVersion(GROUPID, "invalid-art", "1.0.0");
+        project.getVersionData().setDependencies(Collections.singletonList(dependency));
+        projectsVersionsStore.createOrUpdate(project);
+
+        StoreProjectVersionData result = refreshDependenciesService.updateTransitiveDependencies(GROUPID, "test-master", "5.0.0");
+        Assertions.assertFalse(result.getTransitiveDependenciesReport().isValid());
+    }
+
+    @Test
+    public void testCalculateTransitiveDependenciesNotInStoreWithInvalidRecursiveCalc()
+    {
+        StoreProjectVersionData excludedProject = new StoreProjectVersionData(GROUPID, "excluded-deep", "1.0.0");
+        excludedProject.getVersionData().setExcluded(true);
+        projectsVersionsStore.createOrUpdate(excludedProject);
+
+        ArtifactDependency artifactDep = new ArtifactDependency(GROUPID, "excluded-deep", "1.0.0");
+        when(repository.findDependencies(GROUPID, "not-in-store", "1.0.0")).thenReturn(new HashSet<>(Collections.singletonList(artifactDep)));
+
+        StoreProjectVersionData project = new StoreProjectVersionData(GROUPID, "test-master", "6.0.0");
+        ProjectVersion dependency = new ProjectVersion(GROUPID, "not-in-store", "1.0.0");
+        project.getVersionData().setDependencies(Collections.singletonList(dependency));
+        projectsVersionsStore.createOrUpdate(project);
+
+        StoreProjectVersionData result = refreshDependenciesService.updateTransitiveDependencies(GROUPID, "test-master", "6.0.0");
+        Assertions.assertFalse(result.getTransitiveDependenciesReport().isValid());
+    }
+
+    @Test
+    public void testValidateDependenciesWithSnapshotDependencyInReleaseVersion()
+    {
+        ProjectVersion snapshotDep = new ProjectVersion(GROUPID, "test", "master-SNAPSHOT");
+        List<String> errors = refreshDependenciesService.validateDependencies(Collections.singletonList(snapshotDep), "1.0.0");
+        Assertions.assertEquals(1, errors.size());
+        Assertions.assertTrue(errors.get(0).contains("Snapshot dependency"));
+        Assertions.assertTrue(errors.get(0).contains("not allowed in versions"));
+    }
+
+    @Test
+    public void testUpdateTransitiveDependenciesProjectNotFound()
+    {
+        Assertions.assertThrows(IllegalArgumentException.class, () ->
+        {
+            refreshDependenciesService.updateTransitiveDependencies(GROUPID, "nonexistent", "1.0.0");
+        });
+    }
+
+    @Test
+    public void testUpdateTransitiveDependenciesExcludedProject()
+    {
+        StoreProjectVersionData excludedProject = new StoreProjectVersionData(GROUPID, "excluded-proj", "1.0.0");
+        excludedProject.getVersionData().setExcluded(true);
+        projectsVersionsStore.createOrUpdate(excludedProject);
+
+        Assertions.assertThrows(IllegalArgumentException.class, () ->
+        {
+            refreshDependenciesService.updateTransitiveDependencies(GROUPID, "excluded-proj", "1.0.0");
+        });
     }
 }
