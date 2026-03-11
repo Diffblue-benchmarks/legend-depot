@@ -16,8 +16,12 @@
 package org.finos.legend.depot.services.pure.model.context;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonSerializable;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.StringWriter;
 import java.net.URL;
 import java.util.List;
 import static org.finos.legend.depot.domain.version.VersionValidator.BRANCH_SNAPSHOT;
@@ -43,6 +47,7 @@ import org.finos.legend.depot.store.mongo.metrics.query.QueryMetricsMongo;
 import org.finos.legend.engine.protocol.pure.v1.model.context.AlloySDLC;
 import org.finos.legend.engine.protocol.pure.v1.model.context.PureModelContextData;
 import org.finos.legend.engine.shared.core.ObjectMapperFactory;
+import org.finos.legend.engine.protocol.pure.m3.PackageableElement;
 import org.finos.legend.sdlc.domain.model.entity.Entity;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -217,5 +222,25 @@ public class TestPureModelContextService extends TestBaseServices
     public void testErrorThrownWhenIncorrectClientVersionProvided()
     {
         Assertions.assertThrows(IllegalArgumentException.class, () -> getPureModelContextDataAsString("examples.metadata", "test", "lastest", "dummy_version", false, true));
+    }
+
+    @Test
+    public void canSerializeEntityPackageableElementDirectly() throws Exception
+    {
+        PureModelContextData pmcd = service.getPureModelContextData(TEST_GROUP_ID, "test", "2.2.0", CLIENT_VERSION, false, false);
+        Assertions.assertFalse(pmcd.getElements().isEmpty());
+
+        PackageableElement element = pmcd.getElements().get(0);
+        Assertions.assertTrue(element instanceof JsonSerializable);
+
+        JsonSerializable serializable = (JsonSerializable) element;
+        StringWriter sw = new StringWriter();
+        ObjectMapper mapper = new ObjectMapper();
+        JsonGenerator gen = mapper.getFactory().createGenerator(sw);
+        serializable.serialize(gen, mapper.getSerializerProviderInstance());
+        gen.flush();
+
+        Assertions.assertNotNull(sw.toString());
+        Assertions.assertFalse(sw.toString().isEmpty());
     }
 }
