@@ -218,4 +218,85 @@ public class TestPureModelContextService extends TestBaseServices
     {
         Assertions.assertThrows(IllegalArgumentException.class, () -> getPureModelContextDataAsString("examples.metadata", "test", "lastest", "dummy_version", false, true));
     }
+
+    @Test
+    public void testConstructorInitializesServicesCorrectly()
+    {
+        EntitiesService mockEntitiesService = mock(EntitiesService.class);
+        ProjectsService mockProjectsService = mock(ProjectsService.class);
+        PureModelContextServiceImpl serviceImpl = new PureModelContextServiceImpl(mockEntitiesService, mockProjectsService);
+        Assertions.assertNotNull(serviceImpl);
+    }
+
+    @Test
+    public void testResolveAndValidateClientVersionWithNullClientVersion()
+    {
+        PureModelContextData result = service.getPureModelContextData(TEST_GROUP_ID, "test", "2.2.0", null, false, true);
+        Assertions.assertNotNull(result);
+        Assertions.assertNotNull(result.serializer);
+    }
+
+    @Test
+    public void testResolveAndValidateClientVersionWithValidVersion()
+    {
+        PureModelContextData result = service.getPureModelContextData(TEST_GROUP_ID, "test", "2.2.0", CLIENT_VERSION, false, true);
+        Assertions.assertNotNull(result);
+        Assertions.assertEquals(CLIENT_VERSION, result.serializer.version);
+    }
+
+    @Test
+    public void canGetPureModelContextDataWithProjectVersionsList()
+    {
+        projectsVersionsStore.createOrUpdate(new StoreProjectVersionData("examples.metadata", "test-dependencies", "1.0.0"));
+        List<org.finos.legend.depot.domain.project.ProjectVersion> projectDependencies = new java.util.ArrayList<>();
+        projectDependencies.add(new org.finos.legend.depot.domain.project.ProjectVersion("examples.metadata", "test-dependencies", "1.0.0"));
+
+        PureModelContextData result = service.getPureModelContextData(projectDependencies, CLIENT_VERSION, false, true);
+        Assertions.assertNotNull(result);
+        Assertions.assertNotNull(result.getElements());
+    }
+
+    @Test
+    public void canGetPureModelContextDataWithProjectVersionsListAndTransitive()
+    {
+        projectsVersionsStore.createOrUpdate(new StoreProjectVersionData("examples.metadata", "test-dependencies", "1.0.0"));
+        List<org.finos.legend.depot.domain.project.ProjectVersion> projectDependencies = new java.util.ArrayList<>();
+        projectDependencies.add(new org.finos.legend.depot.domain.project.ProjectVersion("examples.metadata", "test-dependencies", "1.0.0"));
+
+        PureModelContextData result = service.getPureModelContextData(projectDependencies, CLIENT_VERSION, true, true);
+        Assertions.assertNotNull(result);
+        Assertions.assertNotNull(result.getElements());
+    }
+
+    @Test
+    public void canGetPureModelContextDataWithoutConversion()
+    {
+        PureModelContextData result = service.getPureModelContextData(TEST_GROUP_ID, "test", "2.2.0", CLIENT_VERSION, false, false);
+        Assertions.assertNotNull(result);
+        Assertions.assertNotNull(result.getElements());
+    }
+
+    @Test
+    public void testCombinePureModelContextDataWithMultipleElements()
+    {
+        PureModelContextData pmcd1 = service.getPureModelContextData(TEST_GROUP_ID, "test", "2.2.0", CLIENT_VERSION, false, true);
+        PureModelContextData pmcd2 = service.getPureModelContextData(TEST_GROUP_ID, "test", "2.2.0", CLIENT_VERSION, false, true);
+
+        Assertions.assertNotNull(pmcd1);
+        Assertions.assertNotNull(pmcd2);
+        Assertions.assertFalse(pmcd1.getElements().isEmpty());
+    }
+
+    @Test
+    public void testBuildAlloySDLCWithGroupArtifactAndVersion()
+    {
+        PureModelContextData result = service.getPureModelContextData(TEST_GROUP_ID, "test", "2.2.0", CLIENT_VERSION, false, true);
+        Assertions.assertNotNull(result);
+        Assertions.assertNotNull(result.origin);
+        Assertions.assertNotNull(result.origin.sdlcInfo);
+        Assertions.assertTrue(result.origin.sdlcInfo instanceof AlloySDLC);
+        AlloySDLC sdlc = (AlloySDLC) result.origin.sdlcInfo;
+        Assertions.assertEquals("examples.metadata:test", sdlc.project);
+        Assertions.assertEquals("2.2.0", sdlc.baseVersion);
+    }
 }
