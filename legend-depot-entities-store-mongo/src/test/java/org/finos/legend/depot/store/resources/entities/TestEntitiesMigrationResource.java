@@ -15,6 +15,8 @@
 
 package org.finos.legend.depot.store.resources.entities;
 
+import com.mongodb.client.result.DeleteResult;
+import org.bson.Document;
 import org.finos.legend.depot.core.services.api.authorisation.AuthorisationProvider;
 import org.finos.legend.depot.store.mongo.TestStoreMongo;
 import org.finos.legend.depot.store.mongo.admin.migrations.MongoEntitiesMigrations;
@@ -76,5 +78,52 @@ public class TestEntitiesMigrationResource extends TestStoreMongo
         Assertions.assertNotNull(response);
         Assertions.assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
         Assertions.assertEquals(3, mongoProvider.getCollection("entities").countDocuments());
+    }
+
+    @Test
+    public void canDeleteVersionedEntities()
+    {
+        Document versionedEntity1 = new Document()
+                .append("groupId", "test.group")
+                .append("artifactId", "test-artifact")
+                .append("versionId", "1.0.0")
+                .append("versionedEntity", true)
+                .append("entityAttributes", new Document()
+                        .append("path", "test::path::Entity1")
+                        .append("classifierPath", "meta::pure::metamodel::type::Class"));
+
+        Document versionedEntity2 = new Document()
+                .append("groupId", "test.group")
+                .append("artifactId", "test-artifact")
+                .append("versionId", "1.0.0")
+                .append("versionedEntity", true)
+                .append("entityAttributes", new Document()
+                        .append("path", "test::path::Entity2")
+                        .append("classifierPath", "meta::pure::metamodel::type::Class"));
+
+        Document nonVersionedEntity = new Document()
+                .append("groupId", "test.group")
+                .append("artifactId", "test-artifact")
+                .append("versionId", "1.0.0")
+                .append("versionedEntity", false)
+                .append("entityAttributes", new Document()
+                        .append("path", "test::path::Entity3")
+                        .append("classifierPath", "meta::pure::metamodel::type::Class"));
+
+        mongoProvider.getCollection("entities").insertOne(versionedEntity1);
+        mongoProvider.getCollection("entities").insertOne(versionedEntity2);
+        mongoProvider.getCollection("entities").insertOne(nonVersionedEntity);
+
+        Assertions.assertEquals(6, mongoProvider.getCollection("entities").countDocuments());
+
+        Response response = resource.deleteVersionedEntities();
+
+        Assertions.assertNotNull(response);
+        Assertions.assertEquals(Response.Status.OK.getStatusCode(), response.getStatus());
+        Assertions.assertNotNull(response.getEntity());
+
+        DeleteResult deleteResult = (DeleteResult) response.getEntity();
+        Assertions.assertEquals(2, deleteResult.getDeletedCount());
+        Assertions.assertEquals(4, mongoProvider.getCollection("entities").countDocuments());
     }
 }
