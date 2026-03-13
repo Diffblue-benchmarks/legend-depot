@@ -79,6 +79,7 @@ public class TestEntitiesResource extends TestBaseServices
         when(projects.find("example.services.test", "test")).thenReturn(Optional.of(new StoreProjectData("mock","example.services.test", "test")));
         when(projectsVersions.find("examples.metadata","test", "2.3.0")).thenReturn(Optional.of(new StoreProjectVersionData("examples.metadata","test", "2.3.0")));
         when(projectsVersions.find("example.services.test", "test", "1.0.1")).thenReturn(Optional.of(new StoreProjectVersionData("example.services.test", "test", "1.0.1")));
+        when(projectsVersions.find("examples.metadata","test", BRANCH_SNAPSHOT("master"))).thenReturn(Optional.of(new StoreProjectVersionData("examples.metadata","test", BRANCH_SNAPSHOT("master"))));
     }
 
     @AfterEach
@@ -186,5 +187,56 @@ public class TestEntitiesResource extends TestBaseServices
         Assertions.assertNotNull(entityList);
         Assertions.assertEquals(4, entityList.size());
 
+    }
+
+    @Test
+    public void canConstructEntitiesResource()
+    {
+        EntitiesResource resource = new EntitiesResource(entitiesService, projectsService);
+        Assertions.assertNotNull(resource);
+    }
+
+    @Test
+    public void canGetEntitiesByClassifier()
+    {
+        Response response = entitiesResource.getEntitiesByClassifier("examples.metadata", "test", "2.3.0", "meta::pure::metamodel::extension::Profile", null);
+        List<Entity> entityList = (List<Entity>) response.getEntity();
+        Assertions.assertNotNull(entityList);
+        Assertions.assertEquals(2, entityList.size());
+    }
+
+    @Test
+    public void canGetEntitiesByClassifierWithDifferentClassifier()
+    {
+        Response response = entitiesResource.getEntitiesByClassifier("examples.metadata", "test", "2.3.0", "meta::pure::metamodel::type::Class", null);
+        List<Entity> entityList = (List<Entity>) response.getEntity();
+        Assertions.assertNotNull(entityList);
+        Assertions.assertTrue(entityList.size() > 0);
+    }
+
+    @Test
+    public void canGetEntitiesByClassifierWithNullClassifier()
+    {
+        Response response = entitiesResource.getEntitiesByClassifier("examples.metadata", "test", "2.3.0", null, null);
+        Assertions.assertNotNull(response);
+    }
+
+    @Test
+    public void canGetEntitiesWithVersionAlias()
+    {
+        when(projectsVersions.find("examples.metadata","test", "latest")).thenReturn(Optional.empty());
+        Response response = entitiesResource.getEntities("examples.metadata", "test", "2.3.0", null);
+        List<Entity> entityList = (List<Entity>) response.getEntity();
+        Assertions.assertNotNull(entityList);
+        Assertions.assertEquals(7, entityList.size());
+    }
+
+    @Test
+    public void canGetEntitiesWithBranchSnapshot()
+    {
+        Response response = entitiesResource.getEntities("examples.metadata", "test", BRANCH_SNAPSHOT("master"), null);
+        List<Entity> entityList = (List<Entity>) response.getEntity();
+        Assertions.assertNotNull(entityList);
+        Assertions.assertEquals(7, entityList.size());
     }
 }
