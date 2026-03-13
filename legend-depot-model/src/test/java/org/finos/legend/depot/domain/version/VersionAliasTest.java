@@ -1,0 +1,58 @@
+//  Copyright 2021 Goldman Sachs
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//       http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
+
+package org.finos.legend.depot.domain.version;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+public class VersionAliasTest
+{
+    @Test
+    public void canGetLatestName()
+    {
+
+        String name = VersionAlias.LATEST.getName();
+        Assertions.assertEquals("latest", name);
+
+    }
+
+    @Test
+    public void canGetLatestDescription()
+    {
+
+        String description = VersionAlias.LATEST.getDescription();
+        Assertions.assertEquals("last released version", description);
+
+    }
+
+    @Test
+    public void canGetHeadName()
+    {
+
+        String name = VersionAlias.HEAD.getName();
+        Assertions.assertEquals("head", name);
+
+    }
+
+    @Test
+    public void canGetHeadDescription()
+    {
+
+        String description = VersionAlias.HEAD.getDescription();
+        Assertions.assertEquals("latest unreleased revision", description);
+
+    }
+}
