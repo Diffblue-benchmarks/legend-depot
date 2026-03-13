@@ -23,8 +23,10 @@ import org.junit.jupiter.api.io.TempDir;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -320,5 +322,82 @@ public class FileGenerationLoaderTest
         loader.close();
 
         loader = null;
+    }
+
+    @Test
+    public void canHandleExceptionDuringClose() throws Exception
+    {
+        AutoCloseable failingCloseable = new AutoCloseable()
+        {
+            @Override
+            public void close() throws Exception
+            {
+                throw new IOException("Test exception during close");
+            }
+        };
+
+        loader = createLoaderWithCloseable(failingCloseable);
+
+        Exception thrown = Assertions.assertThrows(Exception.class, () -> loader.close());
+        Assertions.assertEquals("Test exception during close", thrown.getMessage());
+
+        loader = null;
+    }
+
+    @Test
+    public void canHandleMultipleExceptionsDuringClose() throws Exception
+    {
+        AutoCloseable failingCloseable1 = new AutoCloseable()
+        {
+            @Override
+            public void close() throws Exception
+            {
+                throw new IOException("First exception");
+            }
+        };
+
+        AutoCloseable failingCloseable2 = new AutoCloseable()
+        {
+            @Override
+            public void close() throws Exception
+            {
+                throw new IOException("Second exception");
+            }
+        };
+
+        loader = createLoaderWithMultipleCloseables(failingCloseable1, failingCloseable2);
+
+        Exception thrown = Assertions.assertThrows(Exception.class, () -> loader.close());
+        Assertions.assertEquals("First exception", thrown.getMessage());
+        Assertions.assertEquals(1, thrown.getSuppressed().length);
+        Assertions.assertEquals("Second exception", thrown.getSuppressed()[0].getMessage());
+
+        loader = null;
+    }
+
+    private FileGenerationLoader createLoaderWithCloseable(AutoCloseable closeable) throws Exception
+    {
+        Class<?> innerClass = Class.forName("org.finos.legend.depot.services.generations.loader.FileGenerationLoader$DirectoryEntityFileSearchWithCloseable");
+        Constructor<?> constructor = innerClass.getDeclaredConstructor(Path.class, AutoCloseable.class);
+        constructor.setAccessible(true);
+        Object searchWithCloseable = constructor.newInstance(tempDir, closeable);
+
+        Constructor<FileGenerationLoader> loaderConstructor = FileGenerationLoader.class.getDeclaredConstructor(List.class);
+        loaderConstructor.setAccessible(true);
+        return loaderConstructor.newInstance(Arrays.asList(searchWithCloseable));
+    }
+
+    private FileGenerationLoader createLoaderWithMultipleCloseables(AutoCloseable closeable1, AutoCloseable closeable2) throws Exception
+    {
+        Class<?> innerClass = Class.forName("org.finos.legend.depot.services.generations.loader.FileGenerationLoader$DirectoryEntityFileSearchWithCloseable");
+        Constructor<?> constructor = innerClass.getDeclaredConstructor(Path.class, AutoCloseable.class);
+        constructor.setAccessible(true);
+
+        Object searchWithCloseable1 = constructor.newInstance(tempDir, closeable1);
+        Object searchWithCloseable2 = constructor.newInstance(tempDir, closeable2);
+
+        Constructor<FileGenerationLoader> loaderConstructor = FileGenerationLoader.class.getDeclaredConstructor(List.class);
+        loaderConstructor.setAccessible(true);
+        return loaderConstructor.newInstance(Arrays.asList(searchWithCloseable1, searchWithCloseable2));
     }
 }
