@@ -75,4 +75,23 @@ public class TestProjectsVersionsResource extends TestBaseServices
         Optional<ProjectsVersionsResource.ProjectVersionDTO> versionData1 = (Optional<ProjectsVersionsResource.ProjectVersionDTO>) responseTwo.getEntity();
         Assertions.assertFalse(versionData1.isPresent());
     }
+
+    @Test
+    public void canQueryVersionsByUpdatedDate()
+    {
+        long updatedFrom = 0L;
+        Response response = projectsVersionsResource.findByUpdatedDate(updatedFrom, null);
+        Assertions.assertNotNull(response);
+        Assertions.assertEquals(200, response.getStatus());
+    }
+
+    @Test
+    public void canQueryVersionsByUpdatedDateWithUpdatedTo()
+    {
+        long updatedFrom = 0L;
+        long updatedTo = System.currentTimeMillis();
+        Response response = projectsVersionsResource.findByUpdatedDate(updatedFrom, updatedTo);
+        Assertions.assertNotNull(response);
+        Assertions.assertEquals(200, response.getStatus());
+    }
 }
