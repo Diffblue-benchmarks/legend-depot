@@ -48,15 +48,18 @@ import org.finos.legend.depot.services.api.notifications.queue.Queue;
 import org.finos.legend.depot.services.api.artifacts.handlers.ProjectArtifactHandlerFactory;
 import org.finos.legend.depot.services.api.artifacts.handlers.entties.EntityArtifactsProvider;
 import org.finos.legend.sdlc.domain.model.version.VersionId;
+import org.apache.maven.model.Model;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Properties;
 import java.util.Set;
 
 import static org.finos.legend.depot.domain.version.VersionValidator.BRANCH_SNAPSHOT;
@@ -246,5 +249,295 @@ public class TestProjectVersionRefreshHandler extends TestStoreMongo
         List<String> errors = versionHandler.validate(new MetadataNotification("PROD-1", "examples.metadata", "test", "branch3-SNAPSHOT"));
 
         Assertions.assertEquals(0, errors.size());
+    }
+
+    @Test
+    public void canConstructHandlerWithNullConfiguration()
+    {
+        ProjectVersionRefreshHandler handler = new ProjectVersionRefreshHandler(projectsService, repositoryServices, queue, artifactsStore, null, refreshDependenciesService, 5);
+        Assertions.assertNotNull(handler);
+    }
+
+    @Test
+    public void canConstructHandlerWithConfiguration()
+    {
+        IncludeProjectPropertiesConfiguration config = new IncludeProjectPropertiesConfiguration(properties, manifestProperties);
+        ProjectVersionRefreshHandler handler = new ProjectVersionRefreshHandler(projectsService, repositoryServices, queue, artifactsStore, config, refreshDependenciesService, 3);
+        Assertions.assertNotNull(handler);
+    }
+
+    @Test
+    public void canGetProject() throws ArtifactRepositoryException
+    {
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, "1.0.0")).thenReturn(Optional.of("1.0.0"));
+        when(repositoryServices.findDependencies(TEST_GROUP_ID, TEST_ARTIFACT_ID, "1.0.0")).thenReturn(new HashSet<>());
+
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, "1.0.0", false, false, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
+    }
+
+    @Test
+    public void cannotGetProjectWithInvalidCoordinates()
+    {
+        try
+        {
+            MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, "invalid.group", "invalid-artifact", "1.0.0", false, false, PARENT_EVENT_ID));
+            Assertions.assertTrue(response.hasErrors());
+        }
+        catch (Exception e)
+        {
+            Assertions.assertTrue(e.getMessage().contains("can't find project"));
+        }
+    }
+
+    @Test
+    public void canValidateInvalidGroupId()
+    {
+        List<String> errors = versionHandler.validate(new MetadataNotification(PROJECT_A, "invalid group id!", TEST_ARTIFACT_ID, "1.0.0"));
+        Assertions.assertTrue(errors.stream().anyMatch(e -> e.contains("invalid groupId")));
+    }
+
+    @Test
+    public void canValidateInvalidArtifactId()
+    {
+        List<String> errors = versionHandler.validate(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, "invalid artifact id!", "1.0.0"));
+        Assertions.assertTrue(errors.stream().anyMatch(e -> e.contains("invalid artifactId")));
+    }
+
+    @Test
+    public void canValidateInvalidVersionId()
+    {
+        List<String> errors = versionHandler.validate(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, "invalid version!"));
+        Assertions.assertTrue(errors.stream().anyMatch(e -> e.contains("invalid versionId")));
+    }
+
+    @Test
+    public void canCreateNewProjectOnNotification() throws ArtifactRepositoryException
+    {
+        String newGroupId = "new.group";
+        String newArtifactId = "new-artifact";
+        when(repositoryServices.findVersion(newGroupId, newArtifactId, "1.0.0")).thenReturn(Optional.of("1.0.0"));
+        when(repositoryServices.findDependencies(newGroupId, newArtifactId, "1.0.0")).thenReturn(new HashSet<>());
+
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification("NEW-PROJ", newGroupId, newArtifactId, "1.0.0", false, false, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
+        Assertions.assertTrue(response.getMessages().stream().anyMatch(m -> m.contains("New project")));
+    }
+
+    @Test
+    public void canHandleRefreshWithProperties() throws ArtifactRepositoryException
+    {
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, "2.0.0")).thenReturn(Optional.of("2.0.0"));
+        when(repositoryServices.findDependencies(TEST_GROUP_ID, TEST_ARTIFACT_ID, "2.0.0")).thenReturn(new HashSet<>());
+        when(repositoryServices.getPOM(TEST_GROUP_ID, TEST_ARTIFACT_ID, "2.0.0")).thenReturn(null);
+
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, "2.0.0", false, false, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
+    }
+
+    @Test
+    public void canHandleRefreshWithTransitiveDependencies() throws ArtifactRepositoryException
+    {
+        Set<ArtifactDependency> deps = new HashSet<>();
+        deps.add(new ArtifactDependency(TEST_GROUP_ID, TEST_DEPENDENCIES_ARTIFACT_ID, "1.0.0"));
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, "3.0.0")).thenReturn(Optional.of("3.0.0"));
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_DEPENDENCIES_ARTIFACT_ID, "1.0.0")).thenReturn(Optional.of("1.0.0"));
+        when(repositoryServices.findDependencies(TEST_GROUP_ID, TEST_ARTIFACT_ID, "3.0.0")).thenReturn(deps);
+        projectsService.createOrUpdate(new StoreProjectVersionData(TEST_GROUP_ID, TEST_DEPENDENCIES_ARTIFACT_ID, "1.0.0"));
+
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, "3.0.0", true, true, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
+    }
+
+    @Test
+    public void canHandleRefreshWithSnapshotDependencies() throws ArtifactRepositoryException
+    {
+        Set<ArtifactDependency> deps = new HashSet<>();
+        deps.add(new ArtifactDependency(TEST_GROUP_ID, TEST_DEPENDENCIES_ARTIFACT_ID, BRANCH_SNAPSHOT("feature")));
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, "4.0.0")).thenReturn(Optional.of("4.0.0"));
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_DEPENDENCIES_ARTIFACT_ID, BRANCH_SNAPSHOT("feature"))).thenReturn(Optional.of(BRANCH_SNAPSHOT("feature")));
+        when(repositoryServices.findDependencies(TEST_GROUP_ID, TEST_ARTIFACT_ID, "4.0.0")).thenReturn(deps);
+        projectsService.createOrUpdate(new StoreProjectVersionData(TEST_GROUP_ID, TEST_DEPENDENCIES_ARTIFACT_ID, BRANCH_SNAPSHOT("feature")));
+
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, "4.0.0", false, true, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
+    }
+
+    @Test
+    public void canHandleRefreshException() throws ArtifactRepositoryException
+    {
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, "5.0.0")).thenReturn(Optional.of("5.0.0"));
+        when(repositoryServices.findDependencies(TEST_GROUP_ID, TEST_ARTIFACT_ID, "5.0.0")).thenThrow(new RuntimeException("Test exception"));
+
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, "5.0.0", false, false, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
+        Assertions.assertTrue(response.hasErrors());
+    }
+
+    @Test
+    public void canValidateVersionNotInRepository() throws ArtifactRepositoryException
+    {
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, "9.9.9")).thenReturn(Optional.empty());
+
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, "9.9.9", false, false, PARENT_EVENT_ID));
+        Assertions.assertTrue(response.hasErrors());
+        Assertions.assertTrue(response.getErrors().stream().anyMatch(e -> e.contains("does not exist")));
+    }
+
+    @Test
+    public void canHandleArtifactRepositoryException() throws ArtifactRepositoryException
+    {
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, "8.0.0")).thenThrow(new ArtifactRepositoryException("Repository error"));
+
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, "8.0.0", false, false, PARENT_EVENT_ID));
+        Assertions.assertTrue(response.hasErrors());
+    }
+
+    @Test
+    public void canUpdateProjectData() throws ArtifactRepositoryException
+    {
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, "1.0.0")).thenReturn(Optional.of("1.0.0"));
+        when(repositoryServices.findDependencies(TEST_GROUP_ID, TEST_ARTIFACT_ID, "1.0.0")).thenReturn(new HashSet<>());
+
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, "1.0.0", false, false, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
+
+        Optional<StoreProjectVersionData> versionData = projectsService.find(TEST_GROUP_ID, TEST_ARTIFACT_ID, "1.0.0");
+        Assertions.assertTrue(versionData.isPresent());
+        Assertions.assertFalse(versionData.get().isEvicted());
+    }
+
+    @Test
+    public void canValidateWithEvictedSnapshotVersions()
+    {
+        StoreProjectVersionData evictedVersion = new StoreProjectVersionData("examples.metadata", "test", "branch1-SNAPSHOT");
+        evictedVersion.setEvicted(true);
+        projectsService.createOrUpdate(evictedVersion);
+        projectsService.createOrUpdate(new StoreProjectVersionData("examples.metadata", "test", "branch2-SNAPSHOT"));
+        projectsService.createOrUpdate(new StoreProjectVersionData("examples.metadata", "test", "branch3-SNAPSHOT"));
+
+        List<String> errors = versionHandler.validate(new MetadataNotification("PROD-1", "examples.metadata", "test", "branch4-SNAPSHOT"));
+
+        Assertions.assertEquals(0, errors.size());
+    }
+
+    @Test
+    public void canCalculateProjectPropertiesWithValidPOM() throws ArtifactRepositoryException
+    {
+        Model model = new Model();
+        Properties props = new Properties();
+        props.setProperty("test.version", "1.0.0");
+        props.setProperty("other.property", "value");
+        model.setProperties(props);
+
+        when(repositoryServices.getPOM(TEST_GROUP_ID, TEST_ARTIFACT_ID, "6.0.0")).thenReturn(model);
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, "6.0.0")).thenReturn(Optional.of("6.0.0"));
+        when(repositoryServices.findDependencies(TEST_GROUP_ID, TEST_ARTIFACT_ID, "6.0.0")).thenReturn(new HashSet<>());
+
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, "6.0.0", false, false, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
+
+        Optional<StoreProjectVersionData> versionData = projectsService.find(TEST_GROUP_ID, TEST_ARTIFACT_ID, "6.0.0");
+        Assertions.assertTrue(versionData.isPresent());
+    }
+
+    @Test
+    public void canCalculateProjectPropertiesWithNullPOM() throws ArtifactRepositoryException
+    {
+        when(repositoryServices.getPOM(TEST_GROUP_ID, TEST_ARTIFACT_ID, "7.0.0")).thenReturn(null);
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, "7.0.0")).thenReturn(Optional.of("7.0.0"));
+        when(repositoryServices.findDependencies(TEST_GROUP_ID, TEST_ARTIFACT_ID, "7.0.0")).thenReturn(new HashSet<>());
+
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, "7.0.0", false, false, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
+    }
+
+    @Test
+    public void canHandleArtifactsWithFiles() throws ArtifactRepositoryException
+    {
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, "8.0.0")).thenReturn(Optional.of("8.0.0"));
+        when(repositoryServices.findDependencies(TEST_GROUP_ID, TEST_ARTIFACT_ID, "8.0.0")).thenReturn(new HashSet<>());
+        when(repositoryServices.findFiles(ArtifactType.ENTITIES, TEST_GROUP_ID, TEST_ARTIFACT_ID, "8.0.0")).thenReturn(Collections.emptyList());
+
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, "8.0.0", false, false, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
+    }
+
+    @Test
+    public void canHandleFullUpdateForSnapshotVersion() throws ArtifactRepositoryException
+    {
+        String snapshotVersion = BRANCH_SNAPSHOT("test-branch");
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion)).thenReturn(Optional.of(snapshotVersion));
+        when(repositoryServices.findDependencies(TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion)).thenReturn(new HashSet<>());
+        when(repositoryServices.findFiles(ArtifactType.ENTITIES, TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion)).thenReturn(Collections.emptyList());
+
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion, true, false, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
+    }
+
+    @Test
+    public void canHandleNonFullUpdateForSnapshotVersion() throws ArtifactRepositoryException
+    {
+        String snapshotVersion = BRANCH_SNAPSHOT("another-branch");
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion)).thenReturn(Optional.of(snapshotVersion));
+        when(repositoryServices.findDependencies(TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion)).thenReturn(new HashSet<>());
+        when(repositoryServices.findFiles(ArtifactType.ENTITIES, TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion)).thenReturn(Collections.emptyList());
+
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion, false, false, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
+    }
+
+    @Test
+    public void canHandleRefreshWithExcludedDependencyVersion() throws ArtifactRepositoryException
+    {
+        Set<ArtifactDependency> deps = new HashSet<>();
+        deps.add(new ArtifactDependency(TEST_GROUP_ID, TEST_DEPENDENCIES_ARTIFACT_ID, "2.0.0"));
+
+        StoreProjectVersionData excludedVersion = new StoreProjectVersionData(TEST_GROUP_ID, TEST_DEPENDENCIES_ARTIFACT_ID, "2.0.0");
+        excludedVersion.getVersionData().setExcluded(true);
+        projectsService.createOrUpdate(excludedVersion);
+
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, "10.0.0")).thenReturn(Optional.of("10.0.0"));
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_DEPENDENCIES_ARTIFACT_ID, "2.0.0")).thenReturn(Optional.of("2.0.0"));
+        when(repositoryServices.findDependencies(TEST_GROUP_ID, TEST_ARTIFACT_ID, "10.0.0")).thenReturn(deps);
+
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, "10.0.0", false, true, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
+    }
+
+    @Test
+    public void canHandleMissingDependentProject() throws ArtifactRepositoryException
+    {
+        Set<ArtifactDependency> deps = new HashSet<>();
+        deps.add(new ArtifactDependency("unknown.group", "unknown-artifact", "1.0.0"));
+
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, "11.0.0")).thenReturn(Optional.of("11.0.0"));
+        when(repositoryServices.findDependencies(TEST_GROUP_ID, TEST_ARTIFACT_ID, "11.0.0")).thenReturn(deps);
+
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, "11.0.0", false, true, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
+        Assertions.assertTrue(response.hasErrors());
+    }
+
+    @Test
+    public void canCreateProjectForMissingCoordinates() throws ArtifactRepositoryException
+    {
+        when(repositoryServices.findVersion("missing.group", "missing-artifact", "1.0.0")).thenReturn(Optional.of("1.0.0"));
+        when(repositoryServices.findDependencies("missing.group", "missing-artifact", "1.0.0")).thenReturn(new HashSet<>());
+
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, "missing.group", "missing-artifact", "1.0.0", false, false, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
+        Assertions.assertTrue(response.getMessages().stream().anyMatch(m -> m.contains("New project")));
+    }
+
+    @Test
+    public void canHandleManifestPropertiesWithNullFile() throws ArtifactRepositoryException
+    {
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, "12.0.0")).thenReturn(Optional.of("12.0.0"));
+        when(repositoryServices.findDependencies(TEST_GROUP_ID, TEST_ARTIFACT_ID, "12.0.0")).thenReturn(new HashSet<>());
+        when(repositoryServices.getJarFile(TEST_GROUP_ID, TEST_ARTIFACT_ID + "-entities", "12.0.0")).thenReturn(null);
+
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, "12.0.0", false, false, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
     }
 }
