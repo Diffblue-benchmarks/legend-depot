@@ -20,12 +20,17 @@ import com.mongodb.ServerAddress;
 import com.mongodb.client.MongoDatabase;
 import de.bwaldvogel.mongo.MongoServer;
 import de.bwaldvogel.mongo.backend.memory.MemoryBackend;
+import io.opentracing.Tracer;
+import io.opentracing.noop.NoopTracerFactory;
+import org.finos.legend.depot.core.services.api.tracing.configuration.OpenTracingConfiguration;
+import org.finos.legend.depot.core.services.tracing.TracerFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MongoClientModuleTest
 {
@@ -73,6 +78,70 @@ public class MongoClientModuleTest
         MongoDatabase database = module.getMongoDatabase(connectionFactory);
 
         assertNotNull(database);
+    }
+
+    @Test
+    public void canGetConnectionFactoryWithTracingEnabled()
+    {
+        String applicationName = "test-app";
+        MongoConfiguration mongoConfiguration = new MongoConfiguration("test-db", "mongodb://localhost:27017", true);
+        OpenTracingConfiguration openTracingConfiguration = new OpenTracingConfiguration();
+        openTracingConfiguration.setEnabled(true);
+        TracerFactory tracerFactory = TracerFactory.configure(null);
+
+        MongoClientModule module = new MongoClientModule();
+        ConnectionFactory connectionFactory = module.getConnectionFactory(applicationName, mongoConfiguration, openTracingConfiguration, tracerFactory);
+
+        assertNotNull(connectionFactory);
+        assertTrue(connectionFactory instanceof MongoTracingConnectionFactory);
+    }
+
+    @Test
+    public void canGetConnectionFactoryWithTracingDisabledInOpenTracing()
+    {
+        String applicationName = "test-app";
+        MongoConfiguration mongoConfiguration = new MongoConfiguration("test-db", "mongodb://localhost:27017", true);
+        OpenTracingConfiguration openTracingConfiguration = new OpenTracingConfiguration();
+        openTracingConfiguration.setEnabled(false);
+        TracerFactory tracerFactory = TracerFactory.configure(null);
+
+        MongoClientModule module = new MongoClientModule();
+        ConnectionFactory connectionFactory = module.getConnectionFactory(applicationName, mongoConfiguration, openTracingConfiguration, tracerFactory);
+
+        assertNotNull(connectionFactory);
+        assertTrue(connectionFactory instanceof MongoNonTracingConnectionFactory);
+    }
+
+    @Test
+    public void canGetConnectionFactoryWithTracingDisabledInMongoConfig()
+    {
+        String applicationName = "test-app";
+        MongoConfiguration mongoConfiguration = new MongoConfiguration("test-db", "mongodb://localhost:27017", false);
+        OpenTracingConfiguration openTracingConfiguration = new OpenTracingConfiguration();
+        openTracingConfiguration.setEnabled(true);
+        TracerFactory tracerFactory = TracerFactory.configure(null);
+
+        MongoClientModule module = new MongoClientModule();
+        ConnectionFactory connectionFactory = module.getConnectionFactory(applicationName, mongoConfiguration, openTracingConfiguration, tracerFactory);
+
+        assertNotNull(connectionFactory);
+        assertTrue(connectionFactory instanceof MongoNonTracingConnectionFactory);
+    }
+
+    @Test
+    public void canGetConnectionFactoryWithBothTracingDisabled()
+    {
+        String applicationName = "test-app";
+        MongoConfiguration mongoConfiguration = new MongoConfiguration("test-db", "mongodb://localhost:27017", false);
+        OpenTracingConfiguration openTracingConfiguration = new OpenTracingConfiguration();
+        openTracingConfiguration.setEnabled(false);
+        TracerFactory tracerFactory = TracerFactory.configure(null);
+
+        MongoClientModule module = new MongoClientModule();
+        ConnectionFactory connectionFactory = module.getConnectionFactory(applicationName, mongoConfiguration, openTracingConfiguration, tracerFactory);
+
+        assertNotNull(connectionFactory);
+        assertTrue(connectionFactory instanceof MongoNonTracingConnectionFactory);
     }
 
     private static class TestConnectionFactory implements ConnectionFactory
