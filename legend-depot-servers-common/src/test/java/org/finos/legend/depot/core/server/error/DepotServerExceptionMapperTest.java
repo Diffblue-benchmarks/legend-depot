@@ -19,11 +19,26 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import javax.ws.rs.core.Response;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.net.URI;
 
 public class DepotServerExceptionMapperTest
 {
+    @Test
+    public void canConstructWithNoArguments() throws Exception
+    {
+        DepotServerExceptionMapper mapper = new DepotServerExceptionMapper();
+
+        Assertions.assertNotNull(mapper);
+
+        Field includeStackTraceField = mapper.getClass().getSuperclass().getDeclaredField("includeStackTrace");
+        includeStackTraceField.setAccessible(true);
+        boolean includeStackTrace = (boolean) includeStackTraceField.get(mapper);
+
+        Assertions.assertFalse(includeStackTrace);
+    }
+
     @Test
     public void canGetRedirectLocationWithValidUri() throws Exception
     {
