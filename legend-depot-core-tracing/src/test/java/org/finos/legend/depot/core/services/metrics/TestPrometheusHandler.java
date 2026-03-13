@@ -99,4 +99,113 @@ public class TestPrometheusHandler
         prometheusMetrics.registerSummary("test","test");
         Assertions.assertEquals(1,prometheusMetrics.allSummaries.keySet().size());
     }
+
+    @Test
+    public void testObserveSummary()
+    {
+        prometheusMetrics.observe("testSummary", 1000L, 2000L);
+        Assertions.assertEquals(1, prometheusMetrics.allSummaries.keySet().size());
+        Assertions.assertNotNull(prometheusMetrics.allSummaries.get("test_testsummary"));
+    }
+
+    @Test
+    public void testRegisterGaugeWithoutLabels()
+    {
+        prometheusMetrics.registerGauge("testGauge", "help message");
+        Assertions.assertEquals(1, prometheusMetrics.allGauges.keySet().size());
+        Assertions.assertNotNull(prometheusMetrics.allGauges.get("test_testgauge"));
+    }
+
+    @Test
+    public void testRegisterGaugeWithLabels()
+    {
+        prometheusMetrics.registerGauge("testGaugeLabels", "help message", java.util.Arrays.asList("label1", "label2"));
+        Assertions.assertEquals(1, prometheusMetrics.allGauges.keySet().size());
+        Assertions.assertNotNull(prometheusMetrics.allGauges.get("test_testgaugelabels"));
+    }
+
+    @Test
+    public void testSetGaugeWithoutLabels()
+    {
+        prometheusMetrics.setGauge("testGaugeSet", 42.5);
+        Assertions.assertEquals(1, prometheusMetrics.allGauges.keySet().size());
+        Assertions.assertEquals(42.5, prometheusMetrics.allGauges.get("test_testgaugeset").get(), 0.01);
+    }
+
+    @Test
+    public void testSetGaugeWithLabels()
+    {
+        prometheusMetrics.registerGauge("testGaugeSetLabels", "help", java.util.Arrays.asList("label1"));
+        prometheusMetrics.setGauge("testGaugeSetLabels", 10.0, java.util.Arrays.asList("value1"));
+        Assertions.assertEquals(1, prometheusMetrics.allGauges.keySet().size());
+    }
+
+    @Test
+    public void testSetGaugeWithLabelsThrowsExceptionWhenNotRegistered()
+    {
+        Exception exception = Assertions.assertThrows(UnsupportedOperationException.class, () -> {
+            prometheusMetrics.setGauge("unregisteredGauge", 10.0, java.util.Arrays.asList("value1"));
+        });
+        Assertions.assertEquals("Please register the gauge first if you need labels", exception.getMessage());
+    }
+
+    @Test
+    public void testIncreaseGauge()
+    {
+        prometheusMetrics.increaseGauge("testGaugeInc", 5);
+        Assertions.assertEquals(1, prometheusMetrics.allGauges.keySet().size());
+        Assertions.assertEquals(5.0, prometheusMetrics.allGauges.get("test_testgaugeinc").get(), 0.01);
+
+        prometheusMetrics.increaseGauge("testGaugeInc", 3);
+        Assertions.assertEquals(8.0, prometheusMetrics.allGauges.get("test_testgaugeinc").get(), 0.01);
+    }
+
+    @Test
+    public void testRegisterHistogramWithoutLabels()
+    {
+        prometheusMetrics.registerHistogram("testHistogram", "help message");
+        Assertions.assertEquals(1, prometheusMetrics.allHistograms.keySet().size());
+        Assertions.assertNotNull(prometheusMetrics.allHistograms.get("test_testhistogram"));
+    }
+
+    @Test
+    public void testRegisterHistogramWithLabels()
+    {
+        prometheusMetrics.registerHistogram("testHistogramLabels", "help message", java.util.Arrays.asList("label1", "label2"));
+        Assertions.assertEquals(1, prometheusMetrics.allHistograms.keySet().size());
+        Assertions.assertNotNull(prometheusMetrics.allHistograms.get("test_testhistogramlabels"));
+    }
+
+    @Test
+    public void testObserveHistogramWithLongValues()
+    {
+        prometheusMetrics.observeHistogram("testHistogramObserve", 1000L, 2000L);
+        Assertions.assertEquals(1, prometheusMetrics.allHistograms.keySet().size());
+        Assertions.assertNotNull(prometheusMetrics.allHistograms.get("test_testhistogramobserve"));
+    }
+
+    @Test
+    public void testObserveHistogramWithDoubleValue()
+    {
+        prometheusMetrics.observeHistogram("testHistogramObserveDouble", 42.5);
+        Assertions.assertEquals(1, prometheusMetrics.allHistograms.keySet().size());
+        Assertions.assertNotNull(prometheusMetrics.allHistograms.get("test_testhistogramobservedouble"));
+    }
+
+    @Test
+    public void testObserveHistogramWithLabels()
+    {
+        prometheusMetrics.registerHistogram("testHistogramWithLabels", "help", java.util.Arrays.asList("label1"));
+        prometheusMetrics.observeHistogram("testHistogramWithLabels", 1000L, 2000L, "value1");
+        Assertions.assertEquals(1, prometheusMetrics.allHistograms.keySet().size());
+    }
+
+    @Test
+    public void testObserveHistogramWithLabelsThrowsExceptionWhenNotRegistered()
+    {
+        Exception exception = Assertions.assertThrows(UnsupportedOperationException.class, () -> {
+            prometheusMetrics.observeHistogram("unregisteredHistogram", 1000L, 2000L, "value1");
+        });
+        Assertions.assertEquals("Please register the histogram first if you need labels", exception.getMessage());
+    }
 }
