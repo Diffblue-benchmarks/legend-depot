@@ -21,9 +21,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
 import org.finos.legend.depot.domain.project.ProjectVersion;
+import org.finos.legend.depot.domain.project.ProjectVersionData;
 import org.finos.legend.depot.store.model.projects.StoreProjectVersionData;
 import org.finos.legend.depot.store.mongo.CoreDataMongoStoreTests;
 import org.finos.legend.depot.store.mongo.admin.CoreDataMigrations;
+import org.finos.legend.depot.store.mongo.core.BaseMongo;
 import org.finos.legend.depot.store.mongo.projects.ProjectsVersionsMongo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,6 +34,7 @@ import org.junit.jupiter.api.Test;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import static org.finos.legend.depot.store.mongo.core.BaseMongo.convert;
 
@@ -140,5 +143,117 @@ public class TestDependenciesMigration extends CoreDataMongoStoreTests
         //check for dependency not present in store
         StoreProjectVersionData result3 = convert(new ObjectMapper(), mongoProvider.getCollection(ProjectsVersionsMongo.COLLECTION).find(Filters.and(Filters.eq("groupId", "examples.metadata"), Filters.eq("artifactId", "art108"))).first(), StoreProjectVersionData.class);
         Assertions.assertFalse(result3.getTransitiveDependenciesReport().isValid());
+    }
+
+    @Test
+    public void testConstructor()
+    {
+        DependenciesMigration migration = new DependenciesMigration(mongoProvider);
+        Assertions.assertNotNull(migration);
+    }
+
+    @Test
+    public void testCalculateTransitiveDependenciesDirectly()
+    {
+        DependenciesMigration migration = new DependenciesMigration(mongoProvider);
+        migration.calculateTransitiveDependenciesForAllProjectVersions();
+        Assertions.assertEquals(9, mongoProvider.getCollection(VERSIONS_COLLECTION).countDocuments());
+    }
+
+    @Test
+    public void testAddTransitiveDependenciesDirectly()
+    {
+        DependenciesMigration migration = new DependenciesMigration(mongoProvider);
+        migration.calculateTransitiveDependenciesForAllProjectVersions();
+        migration.addTransitiveDependenciesToVersionData();
+        StoreProjectVersionData result = convert(new ObjectMapper(), mongoProvider.getCollection(ProjectsVersionsMongo.COLLECTION).find().first(), StoreProjectVersionData.class);
+        Assertions.assertNotNull(result.getTransitiveDependenciesReport());
+    }
+
+    @Test
+    public void testWithExcludedDependency()
+    {
+        mongoProvider.getCollection(ProjectsVersionsMongo.COLLECTION).drop();
+
+        StoreProjectVersionData excludedProject = new StoreProjectVersionData("test.group", "excluded-artifact", "1.0.0");
+        ProjectVersionData versionData = new ProjectVersionData();
+        versionData.setExcluded(true);
+        excludedProject.setVersionData(versionData);
+
+        getMongoProjectVersions().insertOne(BaseMongo.buildDocument(excludedProject));
+
+        DependenciesMigration migration = new DependenciesMigration(mongoProvider);
+        migration.calculateTransitiveDependenciesForAllProjectVersions();
+
+        StoreProjectVersionData result = convert(new ObjectMapper(), mongoProvider.getCollection(VERSIONS_COLLECTION).find().first(), StoreProjectVersionData.class);
+        Assertions.assertFalse(result.getTransitiveDependenciesReport().isValid());
+    }
+
+    @Test
+    public void testWithEmptyDependenciesList()
+    {
+        mongoProvider.getCollection(ProjectsVersionsMongo.COLLECTION).drop();
+
+        StoreProjectVersionData projectWithNoDeps = new StoreProjectVersionData("test.group", "no-deps-artifact", "1.0.0");
+        ProjectVersionData versionData = new ProjectVersionData();
+        versionData.setDependencies(Collections.emptyList());
+        projectWithNoDeps.setVersionData(versionData);
+
+        getMongoProjectVersions().insertOne(BaseMongo.buildDocument(projectWithNoDeps));
+
+        DependenciesMigration migration = new DependenciesMigration(mongoProvider);
+        migration.calculateTransitiveDependenciesForAllProjectVersions();
+
+        Assertions.assertEquals(1, mongoProvider.getCollection(VERSIONS_COLLECTION).countDocuments());
+    }
+
+    @Test
+    public void testMissingDependencyInStore()
+    {
+        mongoProvider.getCollection(ProjectsVersionsMongo.COLLECTION).drop();
+
+        StoreProjectVersionData projectWithMissingDep = new StoreProjectVersionData("test.group", "main-artifact", "1.0.0");
+        ProjectVersionData versionData = new ProjectVersionData();
+        ProjectVersion missingDep = new ProjectVersion("test.group", "missing-artifact", "1.0.0");
+        versionData.setDependencies(Arrays.asList(missingDep));
+        projectWithMissingDep.setVersionData(versionData);
+
+        getMongoProjectVersions().insertOne(BaseMongo.buildDocument(projectWithMissingDep));
+
+        DependenciesMigration migration = new DependenciesMigration(mongoProvider);
+        migration.calculateTransitiveDependenciesForAllProjectVersions();
+
+        StoreProjectVersionData result = convert(new ObjectMapper(), mongoProvider.getCollection(VERSIONS_COLLECTION).find(Filters.eq("artifactId", "main-artifact")).first(), StoreProjectVersionData.class);
+        Assertions.assertFalse(result.getTransitiveDependenciesReport().isValid());
+    }
+
+    @Test
+    public void testComplexDependencyChain()
+    {
+        mongoProvider.getCollection(ProjectsVersionsMongo.COLLECTION).drop();
+
+        StoreProjectVersionData leaf = new StoreProjectVersionData("test.group", "leaf", "1.0.0");
+        leaf.setVersionData(new ProjectVersionData());
+
+        StoreProjectVersionData middle = new StoreProjectVersionData("test.group", "middle", "1.0.0");
+        ProjectVersionData middleData = new ProjectVersionData();
+        middleData.setDependencies(Arrays.asList(new ProjectVersion("test.group", "leaf", "1.0.0")));
+        middle.setVersionData(middleData);
+
+        StoreProjectVersionData root = new StoreProjectVersionData("test.group", "root", "1.0.0");
+        ProjectVersionData rootData = new ProjectVersionData();
+        rootData.setDependencies(Arrays.asList(new ProjectVersion("test.group", "middle", "1.0.0")));
+        root.setVersionData(rootData);
+
+        getMongoProjectVersions().insertOne(BaseMongo.buildDocument(leaf));
+        getMongoProjectVersions().insertOne(BaseMongo.buildDocument(middle));
+        getMongoProjectVersions().insertOne(BaseMongo.buildDocument(root));
+
+        DependenciesMigration migration = new DependenciesMigration(mongoProvider);
+        migration.calculateTransitiveDependenciesForAllProjectVersions();
+
+        StoreProjectVersionData rootResult = convert(new ObjectMapper(), mongoProvider.getCollection(VERSIONS_COLLECTION).find(Filters.eq("artifactId", "root")).first(), StoreProjectVersionData.class);
+        Assertions.assertTrue(rootResult.getTransitiveDependenciesReport().isValid());
+        Assertions.assertEquals(2, rootResult.getTransitiveDependenciesReport().getTransitiveDependencies().size());
     }
 }
