@@ -221,4 +221,34 @@ public class TestGenerationsProvider extends TestStoreMongo
         when(projectsVersions.find(TEST_GROUP_ID, TEST_ARTIFACT_ID, versionId)).thenReturn(Optional.of(storeProjectVersion));
         Assertions.assertThrows(IllegalArgumentException.class, () -> generations.getFileGenerations(TEST_GROUP_ID,TEST_ARTIFACT_ID, versionId));
     }
+
+    @Test
+    public void canGetType()
+    {
+        ArtifactType type = fileGenerationsProvider.getType();
+        Assertions.assertNotNull(type);
+        Assertions.assertEquals(ArtifactType.FILE_GENERATIONS, type);
+    }
+
+    @Test
+    public void canMatchArtifactType()
+    {
+        File matchingFile = new File("test-file-generation-1.0.0.jar");
+        Assertions.assertTrue(fileGenerationsProvider.matchesArtifactType(matchingFile));
+
+        File nonMatchingFile = new File("test-entities-1.0.0.jar");
+        Assertions.assertFalse(fileGenerationsProvider.matchesArtifactType(nonMatchingFile));
+    }
+
+    @Test
+    public void canExtractArtifactsForType()
+    {
+        List<File> files = getFiles("2.0.0");
+        Assertions.assertNotNull(files);
+        Assertions.assertFalse(files.isEmpty());
+
+        List<DepotGeneration> gens = fileGenerationsProvider.extractArtifactsForType(files.stream());
+        Assertions.assertNotNull(gens);
+        Assertions.assertFalse(gens.isEmpty());
+    }
 }
