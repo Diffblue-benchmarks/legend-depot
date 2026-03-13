@@ -192,4 +192,21 @@ public class TestProjectToProjectVersionMigration extends CoreDataMongoStoreTest
 
         Assertions.assertFalse(results.isEmpty());
     }
+
+    @Test
+    public void canHandleExceptionDuringMigration()
+    {
+        Document invalidDocument = new Document();
+        invalidDocument.append(BaseMongo.GROUP_ID, "examples.metadata");
+        invalidDocument.append(BaseMongo.ARTIFACT_ID, "invalid-project");
+        invalidDocument.append("versions", "not-a-list");
+
+        mongoProvider.getCollection("project-configurations").insertOne(invalidDocument);
+
+        long beforeCount = mongoProvider.getCollection("versions").countDocuments();
+        migration.migrationToProjectVersions();
+        long afterCount = mongoProvider.getCollection("versions").countDocuments();
+
+        Assertions.assertTrue(afterCount >= beforeCount);
+    }
 }
