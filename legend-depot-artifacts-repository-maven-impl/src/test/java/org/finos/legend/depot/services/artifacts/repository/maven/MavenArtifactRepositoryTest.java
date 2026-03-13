@@ -28,6 +28,7 @@ import org.junit.jupiter.api.io.TempDir;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Optional;
@@ -39,6 +40,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.spy;
 
 public class MavenArtifactRepositoryTest
 {
@@ -281,5 +286,59 @@ public class MavenArtifactRepositoryTest
         catch (ArtifactRepositoryException e)
         {
         }
+    }
+
+    @Test
+    public void testGetJarFileWithSuccessfulResolution() throws Exception
+    {
+        MavenArtifactRepository spyRepository = spy(repository);
+        File tempJar = tempDir.resolve("test-artifact-1.0.0.jar").toFile();
+        tempJar.createNewFile();
+        URL jarUrl = tempJar.toURI().toURL();
+        URL[] jarUrls = new URL[]{jarUrl};
+
+        doReturn(jarUrls).when(spyRepository).resolveJarFromRepository("org.example", "test-artifact", "1.0.0");
+
+        File result = spyRepository.getJarFile("org.example", "test-artifact", "1.0.0");
+
+        assertNotNull(result);
+        assertEquals(tempJar.getPath(), result.getPath());
+    }
+
+    @Test
+    public void testGetJarFileReturnsNullWhenResolutionReturnsNull() throws Exception
+    {
+        MavenArtifactRepository spyRepository = spy(repository);
+
+        doReturn(null).when(spyRepository).resolveJarFromRepository("org.example", "test-artifact", "1.0.0");
+
+        File result = spyRepository.getJarFile("org.example", "test-artifact", "1.0.0");
+
+        assertNull(result);
+    }
+
+    @Test
+    public void testGetJarFileReturnsNullWhenResolutionReturnsEmptyArray() throws Exception
+    {
+        MavenArtifactRepository spyRepository = spy(repository);
+        URL[] emptyUrls = new URL[0];
+
+        doReturn(emptyUrls).when(spyRepository).resolveJarFromRepository("org.example", "test-artifact", "1.0.0");
+
+        File result = spyRepository.getJarFile("org.example", "test-artifact", "1.0.0");
+
+        assertNull(result);
+    }
+
+    @Test
+    public void testGetJarFileHandlesExceptionDuringResolution() throws Exception
+    {
+        MavenArtifactRepository spyRepository = spy(repository);
+
+        doThrow(new RuntimeException("Resolution failed")).when(spyRepository).resolveJarFromRepository("org.example", "test-artifact", "1.0.0");
+
+        File result = spyRepository.getJarFile("org.example", "test-artifact", "1.0.0");
+
+        assertNull(result);
     }
 }
