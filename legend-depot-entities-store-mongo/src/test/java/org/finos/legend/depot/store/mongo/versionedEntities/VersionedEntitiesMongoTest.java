@@ -17,6 +17,7 @@ package org.finos.legend.depot.store.mongo.versionedEntities;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mongodb.client.model.IndexModel;
 import org.finos.legend.depot.store.model.entities.EntityDefinition;
 import org.finos.legend.depot.store.model.versionedEntities.StoredVersionedEntity;
 import org.finos.legend.depot.store.model.versionedEntities.StoredVersionedEntityData;
@@ -178,5 +179,26 @@ public class VersionedEntitiesMongoTest extends TestStoreMongo
         Assertions.assertEquals("org.collection", results.get(0).getGroupId());
         Assertions.assertEquals("test-collection-artifact", results.get(0).getArtifactId());
         Assertions.assertEquals("5.0.0", results.get(0).getVersionId());
+    }
+
+    @Test
+    public void canBuildIndexes()
+    {
+        List<IndexModel> indexes = VersionedEntitiesMongo.buildIndexes();
+
+        Assertions.assertNotNull(indexes);
+        Assertions.assertEquals(4, indexes.size());
+
+        Assertions.assertEquals("groupId-artifactId-versionId", indexes.get(0).getOptions().getName());
+        Assertions.assertFalse(indexes.get(0).getOptions().isUnique());
+
+        Assertions.assertEquals("groupId-artifactId-versionId-entityPath", indexes.get(1).getOptions().getName());
+        Assertions.assertTrue(indexes.get(1).getOptions().isUnique());
+
+        Assertions.assertEquals("groupId-artifactId-versionId-package", indexes.get(2).getOptions().getName());
+        Assertions.assertFalse(indexes.get(2).getOptions().isUnique());
+
+        Assertions.assertEquals("entity-classifier", indexes.get(3).getOptions().getName());
+        Assertions.assertFalse(indexes.get(3).getOptions().isUnique());
     }
 }
