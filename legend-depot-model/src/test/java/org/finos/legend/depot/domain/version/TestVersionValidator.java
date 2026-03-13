@@ -31,4 +31,25 @@ public class TestVersionValidator
         Assertions.assertTrue(VersionValidator.isValid("my-SNAPSHOT"));
     }
 
+    @Test
+    public void testVersionAliasRecognizesValidAliases()
+    {
+        Assertions.assertTrue(VersionValidator.isVersionAlias("latest"));
+        Assertions.assertTrue(VersionValidator.isVersionAlias("head"));
+        Assertions.assertTrue(VersionValidator.isVersionAlias("LATEST"));
+        Assertions.assertTrue(VersionValidator.isVersionAlias("HEAD"));
+        Assertions.assertTrue(VersionValidator.isVersionAlias("Latest"));
+        Assertions.assertTrue(VersionValidator.isVersionAlias("Head"));
+    }
+
+    @Test
+    public void testVersionAliasRejectsInvalidAliases()
+    {
+        Assertions.assertFalse(VersionValidator.isVersionAlias("invalid"));
+        Assertions.assertFalse(VersionValidator.isVersionAlias("master"));
+        Assertions.assertFalse(VersionValidator.isVersionAlias("1.0.0"));
+        Assertions.assertFalse(VersionValidator.isVersionAlias(""));
+        Assertions.assertFalse(VersionValidator.isVersionAlias("master-SNAPSHOT"));
+    }
+
 }
