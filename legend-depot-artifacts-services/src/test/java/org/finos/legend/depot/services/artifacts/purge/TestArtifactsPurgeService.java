@@ -361,4 +361,139 @@ public class TestArtifactsPurgeService extends TestBaseServices
         Assertions.assertTrue(allVersions.contains(versionId2));
     }
 
+    @Test
+    public void canInitializeArtifactsPurgeServiceImpl()
+    {
+        ArtifactsPurgeServiceImpl service = new ArtifactsPurgeServiceImpl(projectsService, versionsMismatchService, metricHandler, projectsConfiguration);
+        Assertions.assertNotNull(service);
+        Assertions.assertNotNull(service.getQueryMetricsService());
+        Assertions.assertEquals(metricHandler, service.getQueryMetricsService());
+    }
+
+    @Test
+    public void canGetQueryMetricsService()
+    {
+        ArtifactsPurgeServiceImpl service = new ArtifactsPurgeServiceImpl(projectsService, versionsMismatchService, metricHandler, projectsConfiguration);
+        QueryMetricsService result = service.getQueryMetricsService();
+        Assertions.assertNotNull(result);
+        Assertions.assertEquals(metricHandler, result);
+    }
+
+    @Test
+    public void deleteVersionThrowsExceptionWhenProjectNotFound()
+    {
+        String nonExistentGroup = "nonexistent.group";
+        String nonExistentArtifact = "nonexistent-artifact";
+        String versionId = "1.0.0";
+
+        Exception exception = Assertions.assertThrows(RuntimeException.class, () -> {
+            purgeService.delete(nonExistentGroup, nonExistentArtifact, versionId);
+        });
+    }
+
+    @Test
+    public void evictVersionThrowsExceptionWhenProjectNotFound()
+    {
+        String nonExistentGroup = "nonexistent.group";
+        String nonExistentArtifact = "nonexistent-artifact";
+        String versionId = "1.0.0";
+
+        Exception exception = Assertions.assertThrows(RuntimeException.class, () -> {
+            purgeService.evict(nonExistentGroup, nonExistentArtifact, versionId);
+        });
+    }
+
+    @Test
+    public void deprecateVersionThrowsExceptionWhenProjectNotFound()
+    {
+        String nonExistentGroup = "nonexistent.group";
+        String nonExistentArtifact = "nonexistent-artifact";
+        String versionId = "1.0.0";
+
+        Exception exception = Assertions.assertThrows(RuntimeException.class, () -> {
+            purgeService.deprecate(nonExistentGroup, nonExistentArtifact, versionId);
+        });
+    }
+
+    @Test
+    public void deleteSnapshotVersionsThrowsExceptionWhenProjectNotFound()
+    {
+        String nonExistentGroup = "nonexistent.group";
+        String nonExistentArtifact = "nonexistent-artifact";
+
+        Exception exception = Assertions.assertThrows(RuntimeException.class, () -> {
+            purgeService.deleteSnapshotVersions(nonExistentGroup, nonExistentArtifact, Arrays.asList("test-SNAPSHOT"));
+        });
+    }
+
+    @Test
+    public void evictOldestProjectVersionsThrowsExceptionWhenProjectNotFound()
+    {
+        String nonExistentGroup = "nonexistent.group";
+        String nonExistentArtifact = "nonexistent-artifact";
+
+        Exception exception = Assertions.assertThrows(RuntimeException.class, () -> {
+            purgeService.evictOldestProjectVersions(nonExistentGroup, nonExistentArtifact, 1);
+        });
+    }
+
+    @Test
+    public void canHandleEmptyVersionsMismatchList()
+    {
+        when(versionsMismatchService.findVersionsMismatches()).thenReturn(Collections.emptyList());
+        MetadataNotificationResponse response = purgeService.deprecateVersionsNotInRepository();
+        Assertions.assertNotNull(response);
+    }
+
+    @Test
+    public void canHandleVersionsMismatchWithEmptyVersionsNotInRepository()
+    {
+        VersionMismatch versionMismatch = new VersionMismatch("PROD-A", TEST_GROUP_ID, TEST_ARTIFACT_ID, Collections.EMPTY_LIST, Collections.EMPTY_LIST, Collections.EMPTY_LIST);
+        when(versionsMismatchService.findVersionsMismatches()).thenReturn(Collections.singletonList(versionMismatch));
+        MetadataNotificationResponse response = purgeService.deprecateVersionsNotInRepository();
+        Assertions.assertNotNull(response);
+    }
+
+    @Test
+    public void canEvictMultipleOldestVersions()
+    {
+        List<String> allVersions = projectsService.getVersions(TEST_GROUP_ID, TEST_ARTIFACT_ID);
+        Assertions.assertEquals(3, allVersions.size());
+
+        MetadataNotificationResponse response = purgeService.evictOldestProjectVersions(TEST_GROUP_ID, TEST_ARTIFACT_ID, 0);
+        Assertions.assertNotNull(response);
+
+        List<String> afterVersions = projectsService.getVersions(TEST_GROUP_ID, TEST_ARTIFACT_ID);
+        Assertions.assertEquals(3, afterVersions.size());
+        Assertions.assertTrue(projectsService.find(TEST_GROUP_ID, TEST_ARTIFACT_ID, "2.0.0").get().isEvicted());
+        Assertions.assertTrue(projectsService.find(TEST_GROUP_ID, TEST_ARTIFACT_ID, "2.2.0").get().isEvicted());
+        Assertions.assertTrue(projectsService.find(TEST_GROUP_ID, TEST_ARTIFACT_ID, "2.3.0").get().isEvicted());
+    }
+
+    @Test
+    public void canEvictLeastRecentlyUsedWithNoMetrics()
+    {
+        MetadataNotificationResponse response = purgeService.evictLeastRecentlyUsed(365, 30);
+        Assertions.assertNotNull(response);
+    }
+
+    @Test
+    public void canEvictVersionsNotUsedWithNoMetrics()
+    {
+        MetadataNotificationResponse response = purgeService.evictVersionsNotUsed();
+        Assertions.assertNotNull(response);
+    }
+
+    @Test
+    public void canEvictVersionsNotUsedWithExcludedVersions()
+    {
+        StoreProjectVersionData version = projectsService.find(TEST_GROUP_ID, TEST_ARTIFACT_ID, "2.0.0").get();
+        version.getVersionData().setExcluded(true);
+        projectsService.createOrUpdate(version);
+
+        MetadataNotificationResponse response = purgeService.evictVersionsNotUsed();
+        Assertions.assertNotNull(response);
+        Assertions.assertFalse(projectsService.find(TEST_GROUP_ID, TEST_ARTIFACT_ID, "2.0.0").get().isEvicted());
+    }
+
 }
