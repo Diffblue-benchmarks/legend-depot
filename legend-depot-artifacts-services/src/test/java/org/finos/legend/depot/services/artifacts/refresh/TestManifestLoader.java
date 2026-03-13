@@ -48,4 +48,28 @@ public class TestManifestLoader
         Manifest manifest = ManifestLoader.readManifest(null);
         Assertions.assertNull(manifest);
     }
+
+    @Test
+    public void canCloseManifestLoader() throws Exception
+    {
+        ManifestLoader loader = new ManifestLoader();
+        loader.close();
+    }
+
+    @Test
+    public void canUseManifestLoaderWithTryWithResources() throws Exception
+    {
+        try (ManifestLoader loader = new ManifestLoader())
+        {
+            Assertions.assertNotNull(loader);
+        }
+    }
+
+    @Test
+    public void canHandleNonExistentFile()
+    {
+        File nonExistentFile = new File("/tmp/nonexistent-file-12345.jar");
+        Manifest manifest = ManifestLoader.readManifest(nonExistentFile);
+        Assertions.assertNull(manifest);
+    }
 }
