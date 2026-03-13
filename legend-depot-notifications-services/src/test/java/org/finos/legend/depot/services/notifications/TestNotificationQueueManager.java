@@ -18,6 +18,7 @@ package org.finos.legend.depot.services.notifications;
 import org.finos.legend.depot.domain.notifications.MetadataNotificationResponse;
 import org.finos.legend.depot.domain.notifications.MetadataNotification;
 import org.finos.legend.depot.domain.notifications.MetadataNotificationStatus;
+import org.finos.legend.depot.domain.notifications.Priority;
 import org.finos.legend.depot.services.api.notifications.NotificationHandler;
 import org.finos.legend.depot.services.api.notifications.NotificationsService;
 import org.finos.legend.depot.store.model.projects.StoreProjectData;
@@ -34,9 +35,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.finos.legend.depot.domain.DatesHandler.toDate;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -193,6 +196,82 @@ public class TestNotificationQueueManager extends TestStoreMongo
         MetadataNotification notification = notifications.getAll().get(0);
         Assertions.assertEquals(2,notification.getAttempt());
         Assertions.assertEquals(2,notification.getResponses().size());
+    }
+
+    @Test
+    public void testHandleWithEmptyQueue()
+    {
+        int result = eventsManager.handle();
+        Assertions.assertEquals(0, result);
+    }
+
+    @Test
+    public void testHandleEventWithException()
+    {
+        MetadataNotification event = new MetadataNotification(TEST_PROJECT_ID, TEST_GROUP_ID, "test", VERSION_ID);
+        when(notificationEventHandler.validate(any(MetadataNotification.class))).thenReturn(Collections.emptyList());
+        when(notificationEventHandler.handleNotification(any(MetadataNotification.class))).thenThrow(new RuntimeException("Test exception"));
+
+        eventsManager.handleEvent(event);
+
+        List<MetadataNotification> queuedEvents = queue.getAll();
+        Assertions.assertEquals(1, queuedEvents.size());
+        Assertions.assertEquals(MetadataNotificationStatus.FAILED, queuedEvents.get(0).getStatus());
+    }
+
+    @Test
+    public void testNotifyWithValidEvent()
+    {
+        MetadataNotification event = new MetadataNotification(TEST_PROJECT_ID, TEST_GROUP_ID, "test", VERSION_ID, false, false, null, Priority.HIGH);
+        when(notificationEventHandler.validate(event)).thenReturn(Collections.emptyList());
+
+        String eventId = eventsManager.notify(TEST_PROJECT_ID, TEST_GROUP_ID, "test", VERSION_ID);
+
+        Assertions.assertNotNull(eventId);
+        List<MetadataNotification> queuedEvents = queue.getAll();
+        Assertions.assertEquals(1, queuedEvents.size());
+    }
+
+    @Test
+    public void testNotifyWithInvalidEvent()
+    {
+        MetadataNotification event = new MetadataNotification(TEST_PROJECT_ID, TEST_GROUP_ID, "test", "invalid-version", false, false, null, Priority.HIGH);
+        when(notificationEventHandler.validate(event)).thenReturn(Arrays.asList("Invalid version"));
+
+        IllegalArgumentException exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            eventsManager.notify(TEST_PROJECT_ID, TEST_GROUP_ID, "test", "invalid-version");
+        });
+
+        Assertions.assertTrue(exception.getMessage().contains("failed validation"));
+    }
+
+    @Test
+    public void testHandleAll()
+    {
+        MetadataNotification event1 = new MetadataNotification(TEST_PROJECT_ID, TEST_GROUP_ID, "test", VERSION_ID);
+        MetadataNotification event2 = new MetadataNotification(TEST_PROJECT_ID, TEST_GROUP_ID, "test", "2.3.2");
+        queue.push(event1);
+        queue.push(event2);
+
+        when(notificationEventHandler.handleNotification(any(MetadataNotification.class))).thenReturn(new MetadataNotificationResponse());
+
+        eventsManager.handleAll();
+
+        List<MetadataNotification> queuedEvents = queue.getAll();
+        Assertions.assertEquals(0, queuedEvents.size());
+        List<MetadataNotification> processedEvents = notifications.getAll();
+        Assertions.assertEquals(2, processedEvents.size());
+    }
+
+    @Test
+    public void testHandleAllWithEmptyQueue()
+    {
+        eventsManager.handleAll();
+
+        List<MetadataNotification> queuedEvents = queue.getAll();
+        Assertions.assertEquals(0, queuedEvents.size());
+        List<MetadataNotification> processedEvents = notifications.getAll();
+        Assertions.assertEquals(0, processedEvents.size());
     }
 
 }
