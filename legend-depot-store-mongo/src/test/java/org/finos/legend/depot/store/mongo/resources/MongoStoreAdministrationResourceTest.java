@@ -208,4 +208,14 @@ public class MongoStoreAdministrationResourceTest extends TestStoreMongo
 
         assertNotNull(stats);
     }
+
+    @Test
+    public void canCreateIndexes()
+    {
+        getMongoDatabase().getCollection("testCollection").insertOne(new Document("test", "value"));
+
+        List<String> createdIndexes = resource.createIndexesIfAbsent();
+
+        assertNotNull(createdIndexes);
+    }
 }
