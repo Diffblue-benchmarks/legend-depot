@@ -31,6 +31,7 @@ import org.finos.legend.depot.services.api.projects.configuration.ProjectsConfig
 import org.finos.legend.depot.services.projects.ManageProjectsServiceImpl;
 import org.finos.legend.depot.store.api.entities.UpdateEntities;
 import org.finos.legend.depot.store.model.entities.EntityDefinition;
+import org.finos.legend.depot.store.model.entities.StoredEntity;
 import org.finos.legend.depot.store.model.entities.StoredEntityData;
 import org.finos.legend.depot.store.model.entities.StoredEntityStringData;
 import org.finos.legend.depot.store.model.projects.StoreProjectData;
@@ -288,5 +289,113 @@ public class TestEntitiesService extends TestBaseServices
         Assertions.assertEquals(entity.size(), 0);
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> entitiesService.getEntityFromDependencies("examples.metadata", "test", "3.0.1", Lists.fixedSize.of("covid::JHUCovid19"), false), "project version not found for examples.metadata-test-3.0.1");
+    }
+
+    @Test
+    public void canGetSingleEntity()
+    {
+        java.util.Optional<Entity> entity = entitiesService.getEntity("examples.metadata", "test", "2.3.1", "examples::metadata::test::TestProfile");
+        Assertions.assertTrue(entity.isPresent());
+        Assertions.assertEquals("examples::metadata::test::TestProfile", entity.get().getPath());
+    }
+
+    @Test
+    public void canGetEntitiesUsingEntitiesServiceImpl()
+    {
+        EntitiesServiceImpl<StoredEntity> basicEntitiesService = new EntitiesServiceImpl<>(entitiesStore, projectsService);
+
+        List<Entity> entities = basicEntitiesService.getEntities("examples.metadata", "test", "2.3.1");
+        Assertions.assertNotNull(entities);
+        Assertions.assertEquals(7, entities.size());
+    }
+
+    @Test
+    public void canGetEntitiesByClassifierUsingEntitiesServiceImpl()
+    {
+        EntitiesServiceImpl<StoredEntity> basicEntitiesService = new EntitiesServiceImpl<>(entitiesStore, projectsService);
+
+        projectsVersionsStore.createOrUpdate(new StoreProjectVersionData("example.services.test","test","2.0.2"));
+        entityUtils.loadEntities("PROD-C", "2.0.2");
+
+        List<Entity> entities = basicEntitiesService.getEntitiesByClassifier("example.services.test", "test", "2.0.2", "meta::pure::metamodel::function::ConcreteFunctionDefinition");
+        Assertions.assertNotNull(entities);
+        Assertions.assertEquals(1, entities.size());
+    }
+
+    @Test
+    public void canGetEntityUsingEntitiesServiceImpl()
+    {
+        EntitiesServiceImpl<StoredEntity> basicEntitiesService = new EntitiesServiceImpl<>(entitiesStore, projectsService);
+
+        java.util.Optional<Entity> entity = basicEntitiesService.getEntity("examples.metadata", "test", "2.3.1", "examples::metadata::test::TestProfile");
+        Assertions.assertTrue(entity.isPresent());
+    }
+
+    @Test
+    public void canGetEntityFromDependenciesUsingEntitiesServiceImpl()
+    {
+        EntitiesServiceImpl<StoredEntity> basicEntitiesService = new EntitiesServiceImpl<>(entitiesStore, projectsService);
+
+        List<Entity> entities = basicEntitiesService.getEntityFromDependencies("examples.metadata", "test", "2.3.1", Lists.fixedSize.of("examples::metadata::test::dependency::Dependency"), true);
+        Assertions.assertNotNull(entities);
+        Assertions.assertEquals(1, entities.size());
+    }
+
+    @Test
+    public void canGetEntitiesByPackageUsingEntitiesServiceImpl()
+    {
+        EntitiesServiceImpl<StoredEntity> basicEntitiesService = new EntitiesServiceImpl<>(entitiesStore, projectsService);
+
+        projectsVersionsStore.createOrUpdate(new StoreProjectVersionData("examples.metadata","test1","1.0.0"));
+        entityUtils.loadEntities("PROD-D", "1.0.0");
+
+        String pkgName = "examples::metadata::test::dependency::v1_2_3";
+        List<Entity> entities = basicEntitiesService.getEntitiesByPackage("examples.metadata","test1","1.0.0",pkgName, Collections.EMPTY_SET,true);
+        Assertions.assertNotNull(entities);
+        Assertions.assertEquals(2, entities.size());
+    }
+
+    @Test
+    public void canGetDependenciesEntitiesUsingEntitiesServiceImpl()
+    {
+        EntitiesServiceImpl<StoredEntity> basicEntitiesService = new EntitiesServiceImpl<>(entitiesStore, projectsService);
+
+        List<ProjectVersion> projectVersions = Arrays.asList(new ProjectVersion("examples.metadata", "test", "2.3.1"));
+        List<ProjectVersionEntities> dependencyList = basicEntitiesService.getDependenciesEntities(projectVersions, true, true);
+        Assertions.assertNotNull(dependencyList);
+        Assertions.assertFalse(dependencyList.isEmpty());
+    }
+
+    @Test
+    public void canGetDependenciesEntitiesWithClassifierUsingEntitiesServiceImpl()
+    {
+        EntitiesServiceImpl<StoredEntity> basicEntitiesService = new EntitiesServiceImpl<>(entitiesStore, projectsService);
+
+        projectsVersionsStore.createOrUpdate(new StoreProjectVersionData("example.services.test","test","2.0.2"));
+        entityUtils.loadEntities("PROD-C", "2.0.2");
+
+        List<ProjectVersion> projectVersions = Arrays.asList(new ProjectVersion("example.services.test", "test", "2.0.2"));
+        List<ProjectVersionEntities> dependencyList = basicEntitiesService.getDependenciesEntities(projectVersions, "meta::pure::metamodel::function::ConcreteFunctionDefinition", false, true);
+        Assertions.assertNotNull(dependencyList);
+        Assertions.assertFalse(dependencyList.isEmpty());
+    }
+
+    @Test
+    public void canGetDependenciesEntitiesByClassifierUsingEntitiesServiceImpl()
+    {
+        EntitiesServiceImpl<StoredEntity> basicEntitiesService = new EntitiesServiceImpl<>(entitiesStore, projectsService);
+
+        StoreProjectVersionData project = new StoreProjectVersionData("examples.metadata", "test-dependencies", "1.0.1");
+        ProjectVersion pv = new ProjectVersion("example.services.test", "test", "2.0.2");
+        project.getVersionData().addDependency(pv);
+        projectsVersionsStore.createOrUpdate(project);
+        projectsVersionsStore.createOrUpdate(new StoreProjectVersionData("example.services.test","test","2.0.2"));
+        entityUtils.loadEntities("PROD-B", "1.0.1");
+        entityUtils.loadEntities("PROD-C", "2.0.2");
+
+        List<ProjectVersion> projectVersions = Arrays.asList(new ProjectVersion("examples.metadata", "test-dependencies", "1.0.1"));
+        List<ProjectVersionEntities> dependencyList = basicEntitiesService.getDependenciesEntitiesByClassifier(projectVersions, "meta::pure::metamodel::function::ConcreteFunctionDefinition", true, false);
+        Assertions.assertNotNull(dependencyList);
+        Assertions.assertFalse(dependencyList.isEmpty());
     }
 }
