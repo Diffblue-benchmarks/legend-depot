@@ -189,4 +189,23 @@ public class MongoStoreAdministrationResourceTest extends TestStoreMongo
         List<String> collectionsAfter = resource.getCollections();
         assertFalse(collectionsAfter.contains("testCollection"));
     }
+
+    @Test
+    public void canGetCollectionStats()
+    {
+        getMongoDatabase().getCollection("testCollection1").insertOne(new Document("test", "value1"));
+        getMongoDatabase().getCollection("testCollection2").insertOne(new Document("test", "value2"));
+
+        Object stats = resource.getCollectionStats();
+
+        assertNotNull(stats);
+    }
+
+    @Test
+    public void canGetCollectionStatsForEmptyDatabase()
+    {
+        Object stats = resource.getCollectionStats();
+
+        assertNotNull(stats);
+    }
 }
