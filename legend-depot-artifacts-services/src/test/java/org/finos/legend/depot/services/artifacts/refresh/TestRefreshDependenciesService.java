@@ -14,6 +14,7 @@
 
 package org.finos.legend.depot.services.artifacts.refresh;
 
+import org.finos.legend.depot.domain.artifacts.repository.ArtifactDependency;
 import org.finos.legend.depot.domain.project.ProjectVersion;
 import org.finos.legend.depot.domain.project.dependencies.VersionDependencyReport;
 import org.finos.legend.depot.services.api.artifacts.refresh.RefreshDependenciesService;
@@ -38,9 +39,12 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class TestRefreshDependenciesService extends CoreDataMongoStoreTests
 {
@@ -252,5 +256,102 @@ public class TestRefreshDependenciesService extends CoreDataMongoStoreTests
 
         Assertions.assertEquals(4, project.getTransitiveDependenciesReport().getTransitiveDependencies().size());
         Assertions.assertEquals(Arrays.asList(dependency2, pv2, dependency3, pv1), project.getTransitiveDependenciesReport().getTransitiveDependencies());
+    }
+
+    @Test
+    public void canRetrieveDependenciesFromRepository()
+    {
+        Set<ArtifactDependency> dependencies = new HashSet<>();
+        dependencies.add(new ArtifactDependency(GROUPID, "test", "1.0.0"));
+        dependencies.add(new ArtifactDependency(GROUPID, "test-dependencies", "2.0.0"));
+
+        when(repository.findDependencies(GROUPID, "test-master", "3.0.0")).thenReturn(dependencies);
+
+        List<ProjectVersion> result = refreshDependenciesService.retrieveDependenciesFromRepository(GROUPID, "test-master", "3.0.0");
+
+        Assertions.assertNotNull(result);
+        Assertions.assertEquals(2, result.size());
+        Assertions.assertTrue(result.stream().anyMatch(pv -> pv.getGroupId().equals(GROUPID) && pv.getArtifactId().equals("test") && pv.getVersionId().equals("1.0.0")));
+        Assertions.assertTrue(result.stream().anyMatch(pv -> pv.getGroupId().equals(GROUPID) && pv.getArtifactId().equals("test-dependencies") && pv.getVersionId().equals("2.0.0")));
+    }
+
+    @Test
+    public void canValidateDependenciesWithNoErrors()
+    {
+        List<ProjectVersion> dependencies = Arrays.asList(
+                new ProjectVersion(GROUPID, "test", "1.0.0"),
+                new ProjectVersion(GROUPID, "test-dependencies", "2.0.0")
+        );
+
+        List<String> errors = refreshDependenciesService.validateDependencies(dependencies, "3.0.0");
+
+        Assertions.assertNotNull(errors);
+        Assertions.assertTrue(errors.isEmpty());
+    }
+
+    @Test
+    public void canValidateDependenciesWithSnapshotErrors()
+    {
+        List<ProjectVersion> dependencies = Arrays.asList(
+                new ProjectVersion(GROUPID, "test", "1.0.0-SNAPSHOT"),
+                new ProjectVersion(GROUPID, "test-dependencies", "2.0.0")
+        );
+
+        List<String> errors = refreshDependenciesService.validateDependencies(dependencies, "3.0.0");
+
+        Assertions.assertNotNull(errors);
+        Assertions.assertEquals(1, errors.size());
+        Assertions.assertTrue(errors.get(0).contains("Snapshot dependency"));
+        Assertions.assertTrue(errors.get(0).contains("1.0.0-SNAPSHOT"));
+    }
+
+    @Test
+    public void canValidateDependenciesWithSnapshotVersionId()
+    {
+        List<ProjectVersion> dependencies = Arrays.asList(
+                new ProjectVersion(GROUPID, "test", "1.0.0-SNAPSHOT"),
+                new ProjectVersion(GROUPID, "test-dependencies", "2.0.0")
+        );
+
+        List<String> errors = refreshDependenciesService.validateDependencies(dependencies, "3.0.0-SNAPSHOT");
+
+        Assertions.assertNotNull(errors);
+        Assertions.assertTrue(errors.isEmpty());
+    }
+
+    @Test
+    public void canSetProjectDataTransitiveDependencies()
+    {
+        StoreProjectVersionData projectData = new StoreProjectVersionData(GROUPID, "test-master", "3.0.0");
+        ProjectVersion dependency = new ProjectVersion(GROUPID, "test", "3.0.0");
+        projectData.getVersionData().setDependencies(Collections.singletonList(dependency));
+
+        refreshDependenciesService.setProjectDataTransitiveDependencies(projectData);
+
+        Assertions.assertNotNull(projectData.getTransitiveDependenciesReport());
+        Assertions.assertTrue(projectData.getTransitiveDependenciesReport().isValid());
+        Assertions.assertFalse(projectData.getTransitiveDependenciesReport().getTransitiveDependencies().isEmpty());
+    }
+
+    @Test
+    public void canUpdateTransitiveDependenciesThrowsExceptionForExcludedVersion()
+    {
+        StoreProjectVersionData projectData = new StoreProjectVersionData(GROUPID, "art102", "1.0.0");
+        projectData.getVersionData().setExcluded(true);
+        projectsVersionsStore.createOrUpdate(projectData);
+
+        IllegalArgumentException exception = Assertions.assertThrows(IllegalArgumentException.class, () ->
+                refreshDependenciesService.updateTransitiveDependencies(GROUPID, "art102", "1.0.0"));
+
+        Assertions.assertTrue(exception.getMessage().contains("project version not found"));
+    }
+
+    @Test
+    public void canUpdateTransitiveDependenciesThrowsExceptionForNonExistentVersion()
+    {
+        IllegalArgumentException exception = Assertions.assertThrows(IllegalArgumentException.class, () ->
+                refreshDependenciesService.updateTransitiveDependencies(GROUPID, "non-existent", "1.0.0"));
+
+        Assertions.assertTrue(exception.getMessage().contains("project version not found"));
     }
 }
