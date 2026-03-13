@@ -65,7 +65,9 @@ import java.util.Date;
 import java.util.Collections;
 
 import static org.finos.legend.depot.domain.version.VersionValidator.BRANCH_SNAPSHOT;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.when;
 
 
@@ -494,6 +496,22 @@ public class TestArtifactsPurgeService extends TestBaseServices
         MetadataNotificationResponse response = purgeService.evictVersionsNotUsed();
         Assertions.assertNotNull(response);
         Assertions.assertFalse(projectsService.find(TEST_GROUP_ID, TEST_ARTIFACT_ID, "2.0.0").get().isEvicted());
+    }
+
+    @Test
+    public void canHandleExceptionDuringEvictOldestProjectVersions()
+    {
+        List<String> projectVersions = projectsService.getVersions(TEST_GROUP_ID, TEST_ARTIFACT_ID);
+        Assertions.assertEquals(3, projectVersions.size());
+
+        ArtifactsPurgeServiceImpl spyPurgeService = spy(new ArtifactsPurgeServiceImpl(projectsService, versionsMismatchService, metricHandler, projectsConfiguration));
+        doThrow(new RuntimeException("Simulated eviction failure")).when(spyPurgeService).evict(TEST_GROUP_ID, TEST_ARTIFACT_ID, "2.0.0");
+
+        MetadataNotificationResponse response = spyPurgeService.evictOldestProjectVersions(TEST_GROUP_ID, TEST_ARTIFACT_ID, 1);
+        Assertions.assertNotNull(response);
+        Assertions.assertTrue(response.hasErrors());
+        Assertions.assertTrue(response.getErrors().stream().anyMatch(error -> error.contains("Error evicting old versions")));
+        Assertions.assertTrue(response.getErrors().stream().anyMatch(error -> error.contains("Simulated eviction failure")));
     }
 
 }
