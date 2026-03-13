@@ -26,11 +26,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Provider;
+import javax.ws.rs.core.Response;
 import java.security.Principal;
 import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -170,5 +172,21 @@ public class MongoStoreAdministrationResourceTest extends TestStoreMongo
         assertTrue(collections.contains("collection1"));
         assertTrue(collections.contains("collection2"));
         assertTrue(collections.contains("collection3"));
+    }
+
+    @Test
+    public void canDeleteCollection()
+    {
+        getMongoDatabase().getCollection("testCollection").insertOne(new Document("test", "value"));
+
+        List<String> collectionsBefore = resource.getCollections();
+        assertTrue(collectionsBefore.contains("testCollection"));
+
+        Response response = resource.deleteCollections("testCollection");
+
+        assertEquals(Response.Status.NO_CONTENT.getStatusCode(), response.getStatus());
+
+        List<String> collectionsAfter = resource.getCollections();
+        assertFalse(collectionsAfter.contains("testCollection"));
     }
 }
