@@ -188,6 +188,100 @@ public class MavenArtifactRepositoryTest
     }
 
     @Test
+    public void testFindDependenciesByArtifactTypeWithMatchingModule() throws Exception
+    {
+        MavenArtifactRepository spyRepository = spy(repository);
+
+        java.util.List<String> modules = java.util.Arrays.asList("test-artifact-entities");
+        doReturn(modules).when(spyRepository).getModulesFromPOM(ArtifactType.ENTITIES, "org.example", "test-artifact", "1.0.0");
+
+        org.apache.maven.model.Model modulePom = new org.apache.maven.model.Model();
+        org.apache.maven.model.Dependency dep1 = new org.apache.maven.model.Dependency();
+        dep1.setGroupId("org.dependency");
+        dep1.setArtifactId("dependency-entities");
+        dep1.setVersion("2.0.0");
+        modulePom.addDependency(dep1);
+
+        org.apache.maven.model.Dependency dep2 = new org.apache.maven.model.Dependency();
+        dep2.setGroupId("org.other");
+        dep2.setArtifactId("other-artifact");
+        dep2.setVersion("3.0.0");
+        modulePom.addDependency(dep2);
+
+        doReturn(modulePom).when(spyRepository).getPOM("org.example", "test-artifact-entities", "1.0.0");
+
+        Set<ArtifactDependency> result = spyRepository.findDependenciesByArtifactType(ArtifactType.ENTITIES, "org.example", "test-artifact", "1.0.0");
+
+        assertNotNull(result);
+        assertEquals(1, result.size());
+        ArtifactDependency artifactDep = result.iterator().next();
+        assertEquals("org.dependency", artifactDep.getGroupId());
+        assertEquals("dependency-entities", artifactDep.getArtifactId());
+        assertEquals("2.0.0", artifactDep.getVersion());
+    }
+
+    @Test
+    public void testFindDependenciesByArtifactTypeWithNoMatchingModule() throws Exception
+    {
+        MavenArtifactRepository spyRepository = spy(repository);
+
+        java.util.List<String> modules = java.util.Arrays.asList("test-artifact-other");
+        doReturn(modules).when(spyRepository).getModulesFromPOM(ArtifactType.ENTITIES, "org.example", "test-artifact", "1.0.0");
+
+        Set<ArtifactDependency> result = spyRepository.findDependenciesByArtifactType(ArtifactType.ENTITIES, "org.example", "test-artifact", "1.0.0");
+
+        assertNotNull(result);
+        assertEquals(0, result.size());
+    }
+
+    @Test
+    public void testFindDependenciesByArtifactTypeWithNoDependencies() throws Exception
+    {
+        MavenArtifactRepository spyRepository = spy(repository);
+
+        java.util.List<String> modules = java.util.Arrays.asList("test-artifact-entities");
+        doReturn(modules).when(spyRepository).getModulesFromPOM(ArtifactType.ENTITIES, "org.example", "test-artifact", "1.0.0");
+
+        org.apache.maven.model.Model modulePom = new org.apache.maven.model.Model();
+
+        doReturn(modulePom).when(spyRepository).getPOM("org.example", "test-artifact-entities", "1.0.0");
+
+        Set<ArtifactDependency> result = spyRepository.findDependenciesByArtifactType(ArtifactType.ENTITIES, "org.example", "test-artifact", "1.0.0");
+
+        assertNotNull(result);
+        assertEquals(0, result.size());
+    }
+
+    @Test
+    public void testFindDependenciesByArtifactTypeWithMultipleMatchingDependencies() throws Exception
+    {
+        MavenArtifactRepository spyRepository = spy(repository);
+
+        java.util.List<String> modules = java.util.Arrays.asList("test-artifact-entities");
+        doReturn(modules).when(spyRepository).getModulesFromPOM(ArtifactType.ENTITIES, "org.example", "test-artifact", "1.0.0");
+
+        org.apache.maven.model.Model modulePom = new org.apache.maven.model.Model();
+        org.apache.maven.model.Dependency dep1 = new org.apache.maven.model.Dependency();
+        dep1.setGroupId("org.dependency1");
+        dep1.setArtifactId("dependency1-entities");
+        dep1.setVersion("2.0.0");
+        modulePom.addDependency(dep1);
+
+        org.apache.maven.model.Dependency dep2 = new org.apache.maven.model.Dependency();
+        dep2.setGroupId("org.dependency2");
+        dep2.setArtifactId("dependency2-entities");
+        dep2.setVersion("3.0.0");
+        modulePom.addDependency(dep2);
+
+        doReturn(modulePom).when(spyRepository).getPOM("org.example", "test-artifact-entities", "1.0.0");
+
+        Set<ArtifactDependency> result = spyRepository.findDependenciesByArtifactType(ArtifactType.ENTITIES, "org.example", "test-artifact", "1.0.0");
+
+        assertNotNull(result);
+        assertEquals(2, result.size());
+    }
+
+    @Test
     public void testFindDependenciesWithNonExistentArtifact()
     {
         assertThrows(RuntimeException.class, () ->
