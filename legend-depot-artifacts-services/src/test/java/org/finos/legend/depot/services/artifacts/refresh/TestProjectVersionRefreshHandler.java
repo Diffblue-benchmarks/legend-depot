@@ -621,4 +621,66 @@ public class TestProjectVersionRefreshHandler extends TestStoreMongo
         MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion, false, false, PARENT_EVENT_ID));
         Assertions.assertNotNull(response);
     }
+
+    @Test
+    public void canExtractManifestPropertiesFromJarWithMatchingRegexPatterns() throws Exception
+    {
+        File tempJar = Files.createTempFile("test-manifest-", ".jar").toFile();
+        tempJar.deleteOnExit();
+
+        java.util.jar.Manifest manifest = new java.util.jar.Manifest();
+        manifest.getMainAttributes().put(java.util.jar.Attributes.Name.MANIFEST_VERSION, "1.0");
+        manifest.getMainAttributes().putValue("commit-abc123", "commit-value-123");
+        manifest.getMainAttributes().putValue("release-v1", "release-value-1");
+        manifest.getMainAttributes().putValue("non-matching-key", "should-not-be-included");
+
+        try (java.util.jar.JarOutputStream jarOut = new java.util.jar.JarOutputStream(new java.io.FileOutputStream(tempJar), manifest))
+        {
+            jarOut.putNextEntry(new java.util.zip.ZipEntry("dummy.txt"));
+            jarOut.write("dummy content".getBytes());
+            jarOut.closeEntry();
+        }
+
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, "13.0.0")).thenReturn(Optional.of("13.0.0"));
+        when(repositoryServices.findDependencies(TEST_GROUP_ID, TEST_ARTIFACT_ID, "13.0.0")).thenReturn(new HashSet<>());
+        when(repositoryServices.getJarFile(TEST_GROUP_ID, TEST_ARTIFACT_ID + "-entities", "13.0.0")).thenReturn(tempJar);
+
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, "13.0.0", false, false, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
+
+        Optional<StoreProjectVersionData> versionData = projectsService.find(TEST_GROUP_ID, TEST_ARTIFACT_ID, "13.0.0");
+        Assertions.assertTrue(versionData.isPresent());
+    }
+
+    @Test
+    public void canExtractManifestPropertiesWithMultipleMatchingKeys() throws Exception
+    {
+        File tempJar = Files.createTempFile("test-manifest-multi-", ".jar").toFile();
+        tempJar.deleteOnExit();
+
+        java.util.jar.Manifest manifest = new java.util.jar.Manifest();
+        manifest.getMainAttributes().put(java.util.jar.Attributes.Name.MANIFEST_VERSION, "1.0");
+        manifest.getMainAttributes().putValue("commit-hash", "abc123def456");
+        manifest.getMainAttributes().putValue("commit-author", "test-author");
+        manifest.getMainAttributes().putValue("release-version", "1.0.0");
+        manifest.getMainAttributes().putValue("release-date", "2026-03-13");
+        manifest.getMainAttributes().putValue("build-id", "should-not-match");
+
+        try (java.util.jar.JarOutputStream jarOut = new java.util.jar.JarOutputStream(new java.io.FileOutputStream(tempJar), manifest))
+        {
+            jarOut.putNextEntry(new java.util.zip.ZipEntry("dummy.txt"));
+            jarOut.write("dummy content".getBytes());
+            jarOut.closeEntry();
+        }
+
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, "14.0.0")).thenReturn(Optional.of("14.0.0"));
+        when(repositoryServices.findDependencies(TEST_GROUP_ID, TEST_ARTIFACT_ID, "14.0.0")).thenReturn(new HashSet<>());
+        when(repositoryServices.getJarFile(TEST_GROUP_ID, TEST_ARTIFACT_ID + "-entities", "14.0.0")).thenReturn(tempJar);
+
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, "14.0.0", false, false, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
+
+        Optional<StoreProjectVersionData> versionData = projectsService.find(TEST_GROUP_ID, TEST_ARTIFACT_ID, "14.0.0");
+        Assertions.assertTrue(versionData.isPresent());
+    }
 }
