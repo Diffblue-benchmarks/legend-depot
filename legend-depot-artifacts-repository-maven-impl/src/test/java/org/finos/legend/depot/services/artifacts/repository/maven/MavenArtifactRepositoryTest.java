@@ -473,4 +473,42 @@ public class MavenArtifactRepositoryTest
         assertNotNull(result);
         assertNull(result.getArtifactId());
     }
+
+    @Test
+    public void testGetModulesFromPOMWithNoModules() throws Exception
+    {
+        MavenArtifactRepository spyRepository = spy(repository);
+        org.apache.maven.model.Model model = new org.apache.maven.model.Model();
+        model.setGroupId("org.example");
+        model.setArtifactId("test-artifact");
+        model.setVersion("1.0.0");
+
+        doReturn(model).when(spyRepository).getPOM("org.example", "test-artifact", "1.0.0");
+
+        List<String> result = spyRepository.getModulesFromPOM(ArtifactType.ENTITIES, "org.example", "test-artifact", "1.0.0");
+
+        assertNotNull(result);
+        assertEquals(1, result.size());
+        assertEquals("test-artifact", result.get(0));
+    }
+
+    @Test
+    public void testGetModulesFromPOMWithMatchingModule() throws Exception
+    {
+        MavenArtifactRepository spyRepository = spy(repository);
+        org.apache.maven.model.Model model = new org.apache.maven.model.Model();
+        model.setGroupId("org.example");
+        model.setArtifactId("test-artifact");
+        model.setVersion("1.0.0");
+        model.addModule("test-artifact-entities");
+        model.addModule("test-artifact-other");
+
+        doReturn(model).when(spyRepository).getPOM("org.example", "test-artifact", "1.0.0");
+
+        List<String> result = spyRepository.getModulesFromPOM(ArtifactType.ENTITIES, "org.example", "test-artifact", "1.0.0");
+
+        assertNotNull(result);
+        assertEquals(1, result.size());
+        assertEquals("test-artifact-entities", result.get(0));
+    }
 }
