@@ -109,7 +109,7 @@ public class TestArtifactsRefreshServiceWithMocks extends TestStoreMongo
         Assertions.assertTrue(queue.getAll().isEmpty(), "should not have events in queue");
     }
 
-    
+
     @Test
     public void canCalculateCandidateVersionsToUpdate()
     {
@@ -117,5 +117,170 @@ public class TestArtifactsRefreshServiceWithMocks extends TestStoreMongo
         List<String> versions = Arrays.asList("1.0.0");
         List<VersionId> candidates = artifactsRefreshService.calculateCandidateVersions(repoVersions,versions);
         Assertions.assertEquals("2.0.0",candidates.get(0).toVersionIdString());
+    }
+
+    @Test
+    public void canInstantiateServiceWithDependencies()
+    {
+        Assertions.assertNotNull(artifactsRefreshService);
+    }
+
+    @Test
+    public void canRefreshAllVersionsForAllProjects() throws ArtifactRepositoryException
+    {
+        when(mongoProjects.find(TEST_GROUP_ID, "C")).thenReturn(Optional.of(new StoreProjectData("C", TEST_GROUP_ID, "C")));
+        when(repository.areValidCoordinates(TEST_GROUP_ID, TEST_ARTIFACT_ID)).thenReturn(true);
+        when(repository.areValidCoordinates(TEST_GROUP_ID, TEST_DEPENDENCIES_ARTIFACT_ID)).thenReturn(true);
+        when(repository.areValidCoordinates(TEST_GROUP_ID, "C")).thenReturn(true);
+
+        org.finos.legend.depot.domain.notifications.MetadataNotificationResponse response = artifactsRefreshService.refreshAllVersionsForAllProjects(true, true, true, "parent-1");
+
+        Assertions.assertNotNull(response);
+        Assertions.assertFalse(response.hasErrors());
+
+        queue.deleteAll();
+    }
+
+    @Test
+    public void canRefreshDefaultSnapshotsForAllProjects()
+    {
+        org.finos.legend.depot.domain.notifications.MetadataNotificationResponse response = artifactsRefreshService.refreshDefaultSnapshotsForAllProjects(true, true, "parent-2");
+
+        Assertions.assertNotNull(response);
+        Assertions.assertFalse(response.hasErrors());
+
+        queue.deleteAll();
+    }
+
+    @Test
+    public void canRefreshAllVersionsForProjectById()
+    {
+        when(repository.areValidCoordinates(TEST_GROUP_ID, TEST_ARTIFACT_ID)).thenReturn(true);
+        when(mongoProjectsVersions.find(TEST_GROUP_ID, TEST_ARTIFACT_ID)).thenReturn(Arrays.asList());
+
+        org.finos.legend.depot.domain.notifications.MetadataNotificationResponse response = artifactsRefreshService.refreshAllVersionsForProject(TEST_GROUP_ID, TEST_ARTIFACT_ID, true, true, true, "parent-3");
+
+        Assertions.assertNotNull(response);
+        Assertions.assertFalse(response.hasErrors());
+
+        queue.deleteAll();
+    }
+
+    @Test
+    public void canRefreshVersionForProject()
+    {
+        org.finos.legend.depot.domain.notifications.MetadataNotificationResponse response = artifactsRefreshService.refreshVersionForProject(TEST_GROUP_ID, TEST_ARTIFACT_ID, "1.0.0", true, true, "parent-4");
+
+        Assertions.assertNotNull(response);
+        Assertions.assertFalse(response.hasErrors());
+
+        queue.deleteAll();
+    }
+
+    @Test
+    public void canHandleInvalidCoordinatesWhenRefreshingAllVersions()
+    {
+        when(repository.areValidCoordinates(TEST_GROUP_ID, TEST_ARTIFACT_ID)).thenReturn(false);
+
+        StoreProjectData projectData = new StoreProjectData(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID);
+        org.finos.legend.depot.domain.notifications.MetadataNotificationResponse response = artifactsRefreshService.refreshAllVersionsForProject(TEST_GROUP_ID, TEST_ARTIFACT_ID, true, false, false, "parent-5");
+
+        Assertions.assertNotNull(response);
+
+        queue.deleteAll();
+    }
+
+    @Test
+    public void canHandleRepositoryExceptionWhenFindingVersions() throws ArtifactRepositoryException
+    {
+        when(repository.areValidCoordinates(TEST_GROUP_ID, TEST_ARTIFACT_ID)).thenReturn(true);
+        when(repository.findVersions(TEST_GROUP_ID, TEST_ARTIFACT_ID)).thenThrow(new ArtifactRepositoryException("Repository error"));
+
+        org.finos.legend.depot.domain.notifications.MetadataNotificationResponse response = artifactsRefreshService.refreshAllVersionsForProject(TEST_GROUP_ID, TEST_ARTIFACT_ID, true, true, false, "parent-6");
+
+        Assertions.assertNotNull(response);
+        Assertions.assertTrue(response.hasErrors());
+
+        queue.deleteAll();
+    }
+
+    @Test
+    public void canRefreshAllVersionsWhenStoreVersionsExist() throws ArtifactRepositoryException
+    {
+        when(repository.areValidCoordinates(TEST_GROUP_ID, TEST_ARTIFACT_ID)).thenReturn(true);
+        when(mongoProjectsVersions.find(TEST_GROUP_ID, TEST_ARTIFACT_ID)).thenReturn(Arrays.asList(
+            new StoreProjectVersionData(TEST_GROUP_ID, TEST_ARTIFACT_ID, "1.0.0")
+        ));
+
+        org.finos.legend.depot.domain.notifications.MetadataNotificationResponse response = artifactsRefreshService.refreshAllVersionsForProject(TEST_GROUP_ID, TEST_ARTIFACT_ID, true, false, false, "parent-7");
+
+        Assertions.assertNotNull(response);
+        Assertions.assertFalse(response.hasErrors());
+
+        queue.deleteAll();
+    }
+
+    @Test
+    public void canHandleMissingProjectCoordinates()
+    {
+        when(mongoProjects.find("unknown.group", "unknown-artifact")).thenReturn(Optional.empty());
+
+        Assertions.assertThrows(IllegalArgumentException.class, () ->
+            artifactsRefreshService.refreshVersionForProject("unknown.group", "unknown-artifact", "1.0.0", true, true, "parent-8")
+        );
+    }
+
+    @Test
+    public void canRefreshWithEmptyRepoVersions() throws ArtifactRepositoryException
+    {
+        when(repository.areValidCoordinates(TEST_GROUP_ID, TEST_ARTIFACT_ID)).thenReturn(true);
+        when(repository.findVersions(TEST_GROUP_ID, TEST_ARTIFACT_ID)).thenReturn(Arrays.asList());
+
+        org.finos.legend.depot.domain.notifications.MetadataNotificationResponse response = artifactsRefreshService.refreshAllVersionsForProject(TEST_GROUP_ID, TEST_ARTIFACT_ID, true, true, false, "parent-9");
+
+        Assertions.assertNotNull(response);
+        Assertions.assertFalse(response.hasErrors());
+
+        queue.deleteAll();
+    }
+
+    @Test
+    public void canRefreshWithNullRepoVersions() throws ArtifactRepositoryException
+    {
+        when(repository.areValidCoordinates(TEST_GROUP_ID, TEST_ARTIFACT_ID)).thenReturn(true);
+        when(repository.findVersions(TEST_GROUP_ID, TEST_ARTIFACT_ID)).thenReturn(null);
+
+        org.finos.legend.depot.domain.notifications.MetadataNotificationResponse response = artifactsRefreshService.refreshAllVersionsForProject(TEST_GROUP_ID, TEST_ARTIFACT_ID, true, true, false, "parent-10");
+
+        Assertions.assertNotNull(response);
+        Assertions.assertFalse(response.hasErrors());
+
+        queue.deleteAll();
+    }
+
+    @Test
+    public void canHandleEvictedSnapshotVersion()
+    {
+        StoreProjectVersionData evictedVersion = new StoreProjectVersionData(TEST_GROUP_ID, TEST_ARTIFACT_ID, BRANCH_SNAPSHOT("master"));
+        evictedVersion.setEvicted(true);
+        when(mongoProjectsVersions.find(TEST_GROUP_ID, TEST_ARTIFACT_ID, BRANCH_SNAPSHOT("master"))).thenReturn(Optional.of(evictedVersion));
+
+        org.finos.legend.depot.domain.notifications.MetadataNotificationResponse response = artifactsRefreshService.refreshAllVersionsForProject(TEST_GROUP_ID, TEST_ARTIFACT_ID, true, true, true, "parent-11");
+
+        Assertions.assertNotNull(response);
+
+        queue.deleteAll();
+    }
+
+    @Test
+    public void canRefreshWhenSnapshotVersionNotPresent()
+    {
+        when(mongoProjectsVersions.find(TEST_GROUP_ID, TEST_ARTIFACT_ID, BRANCH_SNAPSHOT("master"))).thenReturn(Optional.empty());
+
+        org.finos.legend.depot.domain.notifications.MetadataNotificationResponse response = artifactsRefreshService.refreshAllVersionsForProject(TEST_GROUP_ID, TEST_ARTIFACT_ID, true, true, true, "parent-12");
+
+        Assertions.assertNotNull(response);
+
+        queue.deleteAll();
     }
 }
