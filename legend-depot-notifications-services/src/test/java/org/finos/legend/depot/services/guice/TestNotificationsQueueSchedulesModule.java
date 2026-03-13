@@ -23,6 +23,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 
+import java.lang.reflect.Method;
 import java.util.function.Supplier;
 
 import static org.mockito.Mockito.mock;
@@ -44,6 +45,15 @@ public class TestNotificationsQueueSchedulesModule
         schedulesFactory = mock(SchedulesFactory.class);
         config = new QueueManagerConfiguration();
         notificationsManager = mock(NotificationsQueueManager.class);
+    }
+
+    @Test
+    public void canConfigureModule() throws Exception
+    {
+        Method configureMethod = NotificationsQueueSchedulesModule.class.getDeclaredMethod("configure");
+        configureMethod.setAccessible(true);
+        configureMethod.invoke(module);
+        Assertions.assertNotNull(module);
     }
 
     @Test
