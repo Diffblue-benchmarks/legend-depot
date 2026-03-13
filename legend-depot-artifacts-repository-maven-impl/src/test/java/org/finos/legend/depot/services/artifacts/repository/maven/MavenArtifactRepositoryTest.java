@@ -174,6 +174,84 @@ public class MavenArtifactRepositoryTest
     }
 
     @Test
+    public void testFindFilesWithSuccessfulResolution() throws Exception
+    {
+        MavenArtifactRepository spyRepository = spy(repository);
+
+        java.util.List<String> modules = java.util.Arrays.asList("test-artifact-entities");
+        doReturn(modules).when(spyRepository).getModulesFromPOM(ArtifactType.ENTITIES, "org.example", "test-artifact", "1.0.0");
+
+        File tempFile1 = tempDir.resolve("test-artifact-entities-1.0.0.jar").toFile();
+        tempFile1.createNewFile();
+        File[] artifactFiles = new File[]{tempFile1};
+
+        doReturn(artifactFiles).when(spyRepository).resolveArtifactFilesFromRepository("org.example", "test-artifact-entities", "1.0.0");
+
+        List<File> result = spyRepository.findFiles(ArtifactType.ENTITIES, "org.example", "test-artifact", "1.0.0");
+
+        assertNotNull(result);
+        assertEquals(1, result.size());
+        assertEquals(tempFile1, result.get(0));
+    }
+
+    @Test
+    public void testFindFilesWithMultipleModules() throws Exception
+    {
+        MavenArtifactRepository spyRepository = spy(repository);
+
+        java.util.List<String> modules = java.util.Arrays.asList("test-artifact-entities", "test-artifact-entities-v2");
+        doReturn(modules).when(spyRepository).getModulesFromPOM(ArtifactType.ENTITIES, "org.example", "test-artifact", "1.0.0");
+
+        File tempFile1 = tempDir.resolve("test-artifact-entities-1.0.0.jar").toFile();
+        tempFile1.createNewFile();
+        File[] artifactFiles1 = new File[]{tempFile1};
+
+        File tempFile2 = tempDir.resolve("test-artifact-entities-v2-1.0.0.jar").toFile();
+        tempFile2.createNewFile();
+        File[] artifactFiles2 = new File[]{tempFile2};
+
+        doReturn(artifactFiles1).when(spyRepository).resolveArtifactFilesFromRepository("org.example", "test-artifact-entities", "1.0.0");
+        doReturn(artifactFiles2).when(spyRepository).resolveArtifactFilesFromRepository("org.example", "test-artifact-entities-v2", "1.0.0");
+
+        List<File> result = spyRepository.findFiles(ArtifactType.ENTITIES, "org.example", "test-artifact", "1.0.0");
+
+        assertNotNull(result);
+        assertEquals(2, result.size());
+        assertTrue(result.contains(tempFile1));
+        assertTrue(result.contains(tempFile2));
+    }
+
+    @Test
+    public void testFindFilesHandlesNoResolvedResultException() throws Exception
+    {
+        MavenArtifactRepository spyRepository = spy(repository);
+
+        java.util.List<String> modules = java.util.Arrays.asList("test-artifact-entities");
+        doReturn(modules).when(spyRepository).getModulesFromPOM(ArtifactType.ENTITIES, "org.example", "test-artifact", "1.0.0");
+
+        doThrow(new org.jboss.shrinkwrap.resolver.api.NoResolvedResultException("Resolution failed")).when(spyRepository).resolveArtifactFilesFromRepository("org.example", "test-artifact-entities", "1.0.0");
+
+        List<File> result = spyRepository.findFiles(ArtifactType.ENTITIES, "org.example", "test-artifact", "1.0.0");
+
+        assertNotNull(result);
+        assertEquals(0, result.size());
+    }
+
+    @Test
+    public void testFindFilesWithEmptyModules() throws Exception
+    {
+        MavenArtifactRepository spyRepository = spy(repository);
+
+        java.util.List<String> emptyModules = java.util.Collections.emptyList();
+        doReturn(emptyModules).when(spyRepository).getModulesFromPOM(ArtifactType.ENTITIES, "org.example", "test-artifact", "1.0.0");
+
+        List<File> result = spyRepository.findFiles(ArtifactType.ENTITIES, "org.example", "test-artifact", "1.0.0");
+
+        assertNotNull(result);
+        assertEquals(0, result.size());
+    }
+
+    @Test
     public void testFindDependenciesFilesWithNonExistentArtifact()
     {
         assertThrows(RuntimeException.class, () ->
