@@ -132,4 +132,43 @@ public class MongoStoreAdministrationResourceTest extends TestStoreMongo
         assertTrue(indexes.containsKey("collection2"));
         assertTrue(indexes.containsKey("collection3"));
     }
+
+    @Test
+    public void canGetAllCollections()
+    {
+        getMongoDatabase().getCollection("testCollection1").insertOne(new Document("test", "value1"));
+        getMongoDatabase().getCollection("testCollection2").insertOne(new Document("test", "value2"));
+
+        List<String> collections = resource.getCollections();
+
+        assertNotNull(collections);
+        assertEquals(2, collections.size());
+        assertTrue(collections.contains("testCollection1"));
+        assertTrue(collections.contains("testCollection2"));
+    }
+
+    @Test
+    public void canGetCollectionsForEmptyDatabase()
+    {
+        List<String> collections = resource.getCollections();
+
+        assertNotNull(collections);
+        assertEquals(0, collections.size());
+    }
+
+    @Test
+    public void canGetCollectionsWithMultipleCollections()
+    {
+        getMongoDatabase().getCollection("collection1").insertOne(new Document("field1", "value1"));
+        getMongoDatabase().getCollection("collection2").insertOne(new Document("field2", "value2"));
+        getMongoDatabase().getCollection("collection3").insertOne(new Document("field3", "value3"));
+
+        List<String> collections = resource.getCollections();
+
+        assertNotNull(collections);
+        assertEquals(3, collections.size());
+        assertTrue(collections.contains("collection1"));
+        assertTrue(collections.contains("collection2"));
+        assertTrue(collections.contains("collection3"));
+    }
 }
