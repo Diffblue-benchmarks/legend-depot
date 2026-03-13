@@ -23,6 +23,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Method;
+
 import static org.finos.legend.depot.services.guice.VersionReconciliationSchedulesModule.REPOSITORY_METRICS_SCHEDULE;
 import static org.finos.legend.depot.services.guice.VersionReconciliationSchedulesModule.SYNC_PROJECT_LATEST_VERSIONS_SCHEDULE;
 import org.mockito.ArgumentCaptor;
@@ -129,5 +131,17 @@ public class VersionReconciliationSchedulesModuleTest
 
         Assertions.assertTrue(resultEnabled);
         Assertions.assertTrue(resultDisabled);
+    }
+
+    @Test
+    public void canConfigureModule() throws Exception
+    {
+        VersionReconciliationSchedulesModule newModule = new VersionReconciliationSchedulesModule();
+
+        Method configureMethod = VersionReconciliationSchedulesModule.class.getDeclaredMethod("configure");
+        configureMethod.setAccessible(true);
+        configureMethod.invoke(newModule);
+
+        Assertions.assertNotNull(newModule);
     }
 }
