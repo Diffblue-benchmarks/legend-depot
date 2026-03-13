@@ -15,28 +15,43 @@
 
 package org.finos.legend.depot.store.resources.notifications;
 
+import org.finos.legend.depot.core.services.api.authorisation.AuthorisationProvider;
 import org.finos.legend.depot.domain.notifications.MetadataNotification;
 import org.finos.legend.depot.services.api.notifications.NotificationsService;
 import org.finos.legend.depot.services.notifications.NotificationsServiceImpl;
 import org.finos.legend.depot.store.mongo.TestStoreMongo;
 import org.finos.legend.depot.store.mongo.notifications.NotificationsMongo;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import javax.inject.Provider;
+import java.security.Principal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import static org.finos.legend.depot.domain.DatesHandler.toDate;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 
 public class TestNotificationsResource extends TestStoreMongo
 {
     public static final String VERSION = "1.0.0";
-    private final NotificationsMongo notificationsMongo = new NotificationsMongo(mongoProvider);
+    private NotificationsMongo notificationsMongo;
+    private NotificationsService notificationsService;
+    private NotificationsResource resource;
 
-    private final NotificationsService notificationsService = new NotificationsServiceImpl(notificationsMongo);
-    private final NotificationsResource resource = new NotificationsResource(notificationsService);
+    @BeforeEach
+    public void setupNotificationsResource()
+    {
+        notificationsMongo = new NotificationsMongo(mongoProvider);
+        notificationsService = new NotificationsServiceImpl(notificationsMongo);
+        resource = new NotificationsResource(notificationsService);
+    }
 
     @Test
     public void canRetrieveEventsByDate()
@@ -100,5 +115,119 @@ public class TestNotificationsResource extends TestStoreMongo
         long deleted = notificationsService.deleteOldNotifications(10);
         Assertions.assertEquals(1,deleted);
         Assertions.assertEquals(1, notificationsMongo.getAll().size());
+    }
+
+    @Test
+    public void canConstructResourceWithAuthorisation()
+    {
+        AuthorisationProvider authorisationProvider = mock(AuthorisationProvider.class);
+        Provider<Principal> principalProvider = mock(Provider.class);
+        NotificationsService mockService = mock(NotificationsService.class);
+
+        NotificationsResource resourceWithAuth = new NotificationsResource(mockService, authorisationProvider, principalProvider);
+
+        Assertions.assertNotNull(resourceWithAuth);
+    }
+
+    @Test
+    public void canConstructResourceWithServiceOnly()
+    {
+        NotificationsService mockService = mock(NotificationsService.class);
+
+        NotificationsResource resourceSimple = new NotificationsResource(mockService);
+
+        Assertions.assertNotNull(resourceSimple);
+    }
+
+    @Test
+    public void canGetResourceName()
+    {
+        String resourceName = resource.getResourceName();
+
+        Assertions.assertNotNull(resourceName);
+        Assertions.assertEquals("Notifications", resourceName);
+    }
+
+    @Test
+    public void canGetPastEventNotificationsWithAllParameters()
+    {
+        MetadataNotification event1 = new MetadataNotification("project1", "group1", "artifact1", "1.0.0");
+        event1.setEventId("event-123");
+        notificationsMongo.insert(event1);
+
+        List<MetadataNotification> results = resource.getPastEventNotifications(
+                "group1",
+                "artifact1",
+                "1.0.0",
+                "event-123",
+                null,
+                true,
+                LocalDateTime.now().minusDays(1).format(DateTimeFormatter.ISO_DATE_TIME),
+                LocalDateTime.now().plusDays(1).format(DateTimeFormatter.ISO_DATE_TIME)
+        );
+
+        Assertions.assertNotNull(results);
+    }
+
+    @Test
+    public void canGetPastEventNotificationsWithDefaultDates()
+    {
+        MetadataNotification event = new MetadataNotification("project2", "group2", "artifact2", "2.0.0");
+        notificationsMongo.insert(event);
+
+        List<MetadataNotification> results = resource.getPastEventNotifications(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+        );
+
+        Assertions.assertNotNull(results);
+    }
+
+    @Test
+    public void canGetPastEventNotificationsBySuccessFilter()
+    {
+        MetadataNotification event1 = new MetadataNotification("project3", "group3", "artifact3", "1.0.0");
+        notificationsMongo.insert(event1);
+
+        List<MetadataNotification> results = resource.getPastEventNotifications(
+                null,
+                null,
+                null,
+                null,
+                null,
+                true,
+                null,
+                null
+        );
+
+        Assertions.assertNotNull(results);
+    }
+
+    @Test
+    public void canGetNotificationById()
+    {
+        MetadataNotification event = new MetadataNotification("project5", "group5", "artifact5", "1.0.0");
+        event.setEventId("unique-event-id");
+        notificationsMongo.insert(event);
+
+        Optional<MetadataNotification> result = resource.getNotificationById("unique-event-id");
+
+        Assertions.assertTrue(result.isPresent());
+        Assertions.assertEquals("unique-event-id", result.get().getEventId());
+        Assertions.assertEquals("project5", result.get().getProjectId());
+    }
+
+    @Test
+    public void canGetNotificationByIdNotFound()
+    {
+        Optional<MetadataNotification> result = resource.getNotificationById("non-existent-id");
+
+        Assertions.assertFalse(result.isPresent());
     }
 }
