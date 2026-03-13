@@ -1,0 +1,806 @@
+{
+  "meta" : {
+    "reportVersion" : "2.8"
+  },
+  "run" : {
+    "version" : "2026.01.01-c73dc7d-licensed",
+    "creationTimestamp" : "2026-01-23T12:36:53.786432Z",
+    "command" : "dcover create --exclude-modules=org.finos.legend.depot:legend-depot-test-reports --coverage-reports --upload http://localhost:8080 --project-name legend-depot --name with-diffblue-tests",
+    "totalTime" : 253.475,
+    "environmentDetectionTime" : 8.178,
+    "indexingTime" : 0.419,
+    "entryPointsTime" : 8.163,
+    "generationTime" : 174.393,
+    "timeToFirstTest" : 289.417,
+    "timeToLastTest" : 254.206,
+    "indexQueryTime" : 21.240000000000002,
+    "verificationTime" : 6.327,
+    "validationTime" : 18.238
+  },
+  "codes" : {
+    "R000" : "Success",
+    "R002" : "Missing observers",
+    "R003" : "Test did not increase coverage",
+    "R013" : "No inputs found that don't throw a trivial exception",
+    "R034" : "Diffblue Cover can't complete test",
+    "R081" : "Exception in arrange section",
+    "T000" : "Method eligible for test creation",
+    "T003" : "Private method",
+    "T005" : "Trivial constructor",
+    "T010" : "Abstract or interface method",
+    "T012" : "Synthetic method",
+    "V000" : "Validated successfully"
+  },
+  "summary" : {
+    "classesCount" : 7,
+    "methodsCount" : 30,
+    "cumulativeDiffblueTestCount" : 4,
+    "cumulativeManualTestCount" : 13,
+    "completeTestCount" : 4,
+    "incompleteTestCount" : 0,
+    "skeletonTestCount" : 0,
+    "totalPhysicalLineCount" : 256,
+    "perMethodTestability" : {
+      "T000" : 13,
+      "T003" : 6,
+      "T005" : 3,
+      "T010" : 2,
+      "T012" : 6
+    },
+    "perMethodOutcome" : {
+      "R000" : 2,
+      "R002" : 2,
+      "R003" : 1,
+      "R013" : 9,
+      "R034" : 1,
+      "R081" : 1,
+      "T003" : 6,
+      "T010" : 2,
+      "T012" : 6
+    },
+    "perTestOutcome" : {
+      "R000" : 4
+    },
+    "perTestValidation" : {
+      "V000" : 4
+    }
+  },
+  "classes" : {
+    "org.finos.legend.depot.server.resources.guice.PureModelContextResourcesModule" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "R002" : 1,
+        "R013" : 1
+      },
+      "perTestOutcome" : {
+        "R000" : 1
+      }
+    },
+    "org.finos.legend.depot.server.resources.pure.model.context.PureModelContextResource" : {
+      "methodsCount" : 6,
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 2,
+        "T005" : 1,
+        "T012" : 3
+      },
+      "perMethodOutcome" : {
+        "R000" : 1,
+        "R003" : 1,
+        "R081" : 1,
+        "T012" : 3
+      },
+      "perTestOutcome" : {
+        "R000" : 3
+      }
+    },
+    "org.finos.legend.depot.services.api.pure.model.context.PureModelContextService" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T010" : 2
+      },
+      "perMethodOutcome" : {
+        "T010" : 2
+      }
+    },
+    "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl" : {
+      "methodsCount" : 11,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 8,
+        "T012" : 3
+      },
+      "perMethodOutcome" : {
+        "R013" : 7,
+        "R034" : 1,
+        "T012" : 3
+      }
+    },
+    "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl$EntityToRawPureConverter" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 3
+      },
+      "perMethodOutcome" : {
+        "T003" : 3
+      }
+    },
+    "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl$EntityToRawPureConverter$EntityPackageableElement" : {
+      "methodsCount" : 3,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T003" : 3
+      },
+      "perMethodOutcome" : {
+        "T003" : 3
+      }
+    },
+    "org.finos.legend.depot.services.pure.model.context.guice.PureModelContextModule" : {
+      "methodsCount" : 2,
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : {
+        "T000" : 1,
+        "T005" : 1
+      },
+      "perMethodOutcome" : {
+        "R002" : 1,
+        "R013" : 1
+      }
+    }
+  },
+  "methods" : {
+    "org.finos.legend.depot.server.resources.guice.PureModelContextResourcesModule.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        24
+      ]
+    },
+    "org.finos.legend.depot.server.resources.guice.PureModelContextResourcesModule.configure:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        29,
+        30,
+        31
+      ]
+    },
+    "org.finos.legend.depot.server.resources.guice.PureModelContextResourcesModule.registerResourceMetrics:(Lorg/finos/legend/depot/core/services/api/metrics/PrometheusMetricsHandler;)Z" : {
+      "completeTestCount" : 1,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 1
+      },
+      "lineNumbers" : [
+        37,
+        38
+      ]
+    },
+    "org.finos.legend.depot.server.resources.pure.model.context.PureModelContextResource.<init>:(Lorg/finos/legend/depot/services/api/pure/model/context/PureModelContextService;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R081",
+      "lineNumbers" : [
+        51,
+        52,
+        53
+      ]
+    },
+    "org.finos.legend.depot.server.resources.pure.model.context.PureModelContextResource.getPureModelContextData:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZLjavax/ws/rs/core/Request;)Ljavax/ws/rs/core/Response;" : {
+      "completeTestCount" : 3,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R000",
+      "perTestOutcome" : {
+        "R000" : 3
+      },
+      "lineNumbers" : [
+        77
+      ]
+    },
+    "org.finos.legend.depot.server.resources.pure.model.context.PureModelContextResource.getPureModelContextData:(Ljava/util/List;Ljava/lang/String;ZZLjavax/ws/rs/core/Request;)Ljavax/ws/rs/core/Response;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R003",
+      "lineNumbers" : [
+        97
+      ]
+    },
+    "org.finos.legend.depot.server.resources.pure.model.context.PureModelContextResource.lambda$getPureModelContextData$0:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        77
+      ]
+    },
+    "org.finos.legend.depot.server.resources.pure.model.context.PureModelContextResource.lambda$getPureModelContextData$1:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        77
+      ]
+    },
+    "org.finos.legend.depot.server.resources.pure.model.context.PureModelContextResource.lambda$getPureModelContextData$2:(Ljava/util/List;Ljava/lang/String;ZZ)Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        97
+      ]
+    },
+    "org.finos.legend.depot.services.api.pure.model.context.PureModelContextService.getPureModelContextData:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.api.pure.model.context.PureModelContextService.getPureModelContextData:(Ljava/util/List;Ljava/lang/String;ZZ)Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T010",
+      "perMethodOutcome" : "T010"
+    },
+    "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl$EntityToRawPureConverter$EntityPackageableElement.<init>:(Lorg/finos/legend/sdlc/domain/model/entity/Entity;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        153,
+        154,
+        155
+      ]
+    },
+    "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl$EntityToRawPureConverter$EntityPackageableElement.serialize:(Lcom/fasterxml/jackson/core/JsonGenerator;Lcom/fasterxml/jackson/databind/SerializerProvider;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        160,
+        161
+      ]
+    },
+    "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl$EntityToRawPureConverter$EntityPackageableElement.serializeWithType:(Lcom/fasterxml/jackson/core/JsonGenerator;Lcom/fasterxml/jackson/databind/SerializerProvider;Lcom/fasterxml/jackson/databind/jsontype/TypeSerializer;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        166,
+        167
+      ]
+    },
+    "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl$EntityToRawPureConverter.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        134
+      ]
+    },
+    "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl$EntityToRawPureConverter.fromEntity:(Lorg/finos/legend/sdlc/domain/model/entity/Entity;)Lorg/finos/legend/engine/protocol/pure/m3/PackageableElement;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        139
+      ]
+    },
+    "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl$EntityToRawPureConverter.fromEntityIfPossible:(Lorg/finos/legend/sdlc/domain/model/entity/Entity;)Ljava/util/Optional;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T003",
+      "perMethodOutcome" : "T003",
+      "lineNumbers" : [
+        145
+      ]
+    },
+    "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl.<init>:(Lorg/finos/legend/depot/services/api/entities/EntitiesService;Lorg/finos/legend/depot/services/api/projects/ProjectsService;)V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        56,
+        51,
+        52,
+        57,
+        58,
+        59
+      ]
+    },
+    "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl.buildAlloySDLC:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/finos/legend/engine/protocol/pure/v1/model/context/AlloySDLC;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        128,
+        129,
+        130,
+        131
+      ]
+    },
+    "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl.buildPureModelContextData:(Ljava/util/stream/Stream;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        103
+      ]
+    },
+    "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl.buildPureModelContextData:(Ljava/util/stream/Stream;Lorg/finos/legend/engine/protocol/pure/v1/model/context/AlloySDLC;Ljava/lang/String;Z)Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        108,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        110
+      ]
+    },
+    "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl.combinePureModelContextData:(Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;)Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        120,
+        121,
+        122,
+        123
+      ]
+    },
+    "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl.getPureModelContextData:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        64,
+        65,
+        67,
+        69,
+        70,
+        72,
+        75,
+        76
+      ]
+    },
+    "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl.getPureModelContextData:(Ljava/util/List;Ljava/lang/String;ZZ)Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R034",
+      "lineNumbers" : [
+        87,
+        88,
+        89
+      ]
+    },
+    "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl.lambda$getPureModelContextData$0:(Lorg/finos/legend/depot/domain/entity/ProjectVersionEntities;)Ljava/util/stream/Stream;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        78
+      ]
+    },
+    "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl.lambda$getPureModelContextData$1:(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;)Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        78,
+        80
+      ]
+    },
+    "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl.lambda$getPureModelContextData$2:(Lorg/finos/legend/depot/domain/entity/ProjectVersionEntities;)Ljava/util/stream/Stream;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T012",
+      "perMethodOutcome" : "T012",
+      "lineNumbers" : [
+        89
+      ]
+    },
+    "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl.resolveAndValidateClientVersion:(Ljava/lang/String;)Ljava/lang/String;" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        94,
+        96,
+        98
+      ]
+    },
+    "org.finos.legend.depot.services.pure.model.context.guice.PureModelContextModule.<init>:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T005",
+      "perMethodOutcome" : "R002",
+      "lineNumbers" : [
+        22
+      ]
+    },
+    "org.finos.legend.depot.services.pure.model.context.guice.PureModelContextModule.configure:()V" : {
+      "completeTestCount" : 0,
+      "incompleteTestCount" : 0,
+      "perMethodTestability" : "T000",
+      "perMethodOutcome" : "R013",
+      "lineNumbers" : [
+        27,
+        28,
+        29
+      ]
+    }
+  },
+  "validationMetrics" : { },
+  "outputCodes" : [
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.NonAbstractMethodInAbstractClassMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.CoordinateData",
+            "descriptor" : "(Ljava/lang/Object;)Z",
+            "methodName" : "equals"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.NonAbstractMethodInAbstractClassMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.CoordinateData",
+            "descriptor" : "()Ljava/lang/String;",
+            "methodName" : "getArtifactId"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.NonAbstractMethodInAbstractClassMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.CoordinateData",
+            "descriptor" : "()Ljava/lang/String;",
+            "methodName" : "getGroupId"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.NonAbstractMethodInAbstractClassMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.CoordinateData",
+            "descriptor" : "()I",
+            "methodName" : "hashCode"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.NonAbstractMethodInAbstractClassMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.CoordinateData",
+            "descriptor" : "(Ljava/lang/String;)V",
+            "methodName" : "setArtifactId"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.TrivialConstructorMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.DatesHandler",
+            "descriptor" : "()V",
+            "methodName" : "<init>"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.TimeSensitiveAssertionMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.DatesHandler",
+            "descriptor" : "(Ljava/time/LocalDateTime;)Ljava/util/Date;",
+            "methodName" : "toDate"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.NonAbstractMethodInAbstractClassMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.VersionedData",
+            "descriptor" : "(Ljava/lang/Object;)Z",
+            "methodName" : "equals"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.NonAbstractMethodInAbstractClassMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.VersionedData",
+            "descriptor" : "()Ljava/lang/String;",
+            "methodName" : "getVersionId"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.NonAbstractMethodInAbstractClassMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.VersionedData",
+            "descriptor" : "()I",
+            "methodName" : "hashCode"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.NonAbstractMethodInAbstractClassMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.VersionedData",
+            "descriptor" : "(Ljava/lang/String;)V",
+            "methodName" : "setVersionId"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.SyntheticMethodMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.version.VersionAlias",
+            "descriptor" : "(Ljava/lang/String;)Lorg/finos/legend/depot/domain/version/VersionAlias;",
+            "methodName" : "valueOf"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.testability.SyntheticMethodMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.domain.version.VersionAlias",
+            "descriptor" : "()[Lorg/finos/legend/depot/domain/version/VersionAlias;",
+            "methodName" : "values"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.MissingObserverMessage\",\"fields\":[{\"className\":{\"descriptor\":\"Lcom/google/inject/PrivateModule;\",\"simpleNames\":[\"PrivateModule\"]},\"fieldName\":\"binder\"}],\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.server.resources.guice.PureModelContextResourcesModule",
+            "descriptor" : "()V",
+            "methodName" : "<init>"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.NoNonThrowingInputsMessage\",\"serializableCause\":{\"cause\":null,\"message\":\"The binder can only be used inside configure()\",\"originalClassName\":\"java.lang.IllegalStateException\",\"stackTrace\":[{\"classLoaderName\":null,\"className\":\"com.google.common.base.Preconditions\",\"fileName\":\"Preconditions.java\",\"lineNumber\":508,\"methodName\":\"checkState\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.google.inject.PrivateModule\",\"fileName\":\"PrivateModule.java\",\"lineNumber\":140,\"methodName\":\"binder\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.google.inject.PrivateModule\",\"fileName\":\"PrivateModule.java\",\"lineNumber\":161,\"methodName\":\"bind\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"org.finos.legend.depot.server.resources.guice.PureModelContextResourcesModule\",\"fileName\":\"PureModelContextResourcesModule.java\",\"lineNumber\":29,\"methodName\":\"configure\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"jdk.internal.reflect.NativeMethodAccessorImpl\",\"fileName\":\"NativeMethodAccessorImpl.java\",\"lineNumber\":-2,\"methodName\":\"invoke0\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":true},{\"classLoaderName\":null,\"className\":\"jdk.internal.reflect.NativeMethodAccessorImpl\",\"fileName\":\"NativeMethodAccessorImpl.java\",\"lineNumber\":62,\"methodName\":\"invoke\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"jdk.internal.reflect.DelegatingMethodAccessorImpl\",\"fileName\":\"DelegatingMethodAccessorImpl.java\",\"lineNumber\":43,\"methodName\":\"invoke\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"java.lang.reflect.Method\",\"fileName\":\"Method.java\",\"lineNumber\":566,\"methodName\":\"invoke\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":140,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":77,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":852,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":463,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":99,\"methodName\":\"b\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.g.d\",\"fileName\":\"SourceFile\",\"lineNumber\":51,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":368,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":261,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.fuzztest.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":1105,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.SafeTimedExecutor\",\"fileName\":\"SourceFile\",\"lineNumber\":171,\"methodName\":\"lambda$runWithLoopIterationLimit$5\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.TimedCallableExecutor$CallableFuture\",\"fileName\":\"SourceFile\",\"lineNumber\":29,\"methodName\":\"executeTask\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.TaskQueueRunner\",\"fileName\":\"SourceFile\",\"lineNumber\":39,\"methodName\":\"run\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.WorkerThread\",\"fileName\":\"SourceFile\",\"lineNumber\":265,\"methodName\":\"run\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false}]}}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.server.resources.guice.PureModelContextResourcesModule",
+            "descriptor" : "()V",
+            "methodName" : "configure"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.ArrangeThrowsMessage\",\"constructingMethod\":{\"binaryClassName\":\"org.finos.legend.depot.server.resources.pure.model.context.PureModelContextResource\",\"descriptor\":\"(Lorg/finos/legend/depot/services/api/pure/model/context/PureModelContextService;)V\",\"methodName\":\"<init>\"},\"serializableCause\":{\"cause\":null,\"message\":\"readPreference can not be null\",\"originalClassName\":\"java.lang.IllegalArgumentException\",\"stackTrace\":[{\"classLoaderName\":null,\"className\":\"com.mongodb.assertions.Assertions\",\"fileName\":\"Assertions.java\",\"lineNumber\":39,\"methodName\":\"notNull\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.mongodb.client.internal.MongoDatabaseImpl\",\"fileName\":\"MongoDatabaseImpl.java\",\"lineNumber\":77,\"methodName\":\"<init>\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"jdk.internal.reflect.NativeConstructorAccessorImpl\",\"fileName\":\"NativeConstructorAccessorImpl.java\",\"lineNumber\":-2,\"methodName\":\"newInstance0\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":true},{\"classLoaderName\":null,\"className\":\"jdk.internal.reflect.NativeConstructorAccessorImpl\",\"fileName\":\"NativeConstructorAccessorImpl.java\",\"lineNumber\":62,\"methodName\":\"newInstance\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"jdk.internal.reflect.DelegatingConstructorAccessorImpl\",\"fileName\":\"DelegatingConstructorAccessorImpl.java\",\"lineNumber\":45,\"methodName\":\"newInstance\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"java.lang.reflect.Constructor\",\"fileName\":\"Constructor.java\",\"lineNumber\":490,\"methodName\":\"newInstance\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":142,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":842,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":750,\"methodName\":\"b\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":449,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":99,\"methodName\":\"b\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.g.c\",\"fileName\":\"SourceFile\",\"lineNumber\":32,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":394,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":261,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":213,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.fuzztest.b.j\",\"fileName\":\"SourceFile\",\"lineNumber\":1279,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.TimedCallableExecutor$CallableFuture\",\"fileName\":\"SourceFile\",\"lineNumber\":29,\"methodName\":\"executeTask\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.TaskQueueRunner\",\"fileName\":\"SourceFile\",\"lineNumber\":39,\"methodName\":\"run\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.WorkerThread\",\"fileName\":\"SourceFile\",\"lineNumber\":265,\"methodName\":\"run\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false}]}}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.server.resources.pure.model.context.PureModelContextResource",
+            "descriptor" : "(Lorg/finos/legend/depot/services/api/pure/model/context/PureModelContextService;)V",
+            "methodName" : "<init>"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.TestNotAddingCoverageMessage\",\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.server.resources.pure.model.context.PureModelContextResource",
+            "descriptor" : "(Ljava/util/List;Ljava/lang/String;ZZLjavax/ws/rs/core/Request;)Ljavax/ws/rs/core/Response;",
+            "methodName" : "getPureModelContextData"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.NoNonThrowingInputsMessage\",\"serializableCause\":{\"cause\":null,\"message\":\"readPreference can not be null\",\"originalClassName\":\"java.lang.IllegalArgumentException\",\"stackTrace\":[{\"classLoaderName\":null,\"className\":\"com.mongodb.assertions.Assertions\",\"fileName\":\"Assertions.java\",\"lineNumber\":39,\"methodName\":\"notNull\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.mongodb.client.internal.MongoDatabaseImpl\",\"fileName\":\"MongoDatabaseImpl.java\",\"lineNumber\":77,\"methodName\":\"<init>\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"jdk.internal.reflect.NativeConstructorAccessorImpl\",\"fileName\":\"NativeConstructorAccessorImpl.java\",\"lineNumber\":-2,\"methodName\":\"newInstance0\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":true},{\"classLoaderName\":null,\"className\":\"jdk.internal.reflect.NativeConstructorAccessorImpl\",\"fileName\":\"NativeConstructorAccessorImpl.java\",\"lineNumber\":62,\"methodName\":\"newInstance\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"jdk.internal.reflect.DelegatingConstructorAccessorImpl\",\"fileName\":\"DelegatingConstructorAccessorImpl.java\",\"lineNumber\":45,\"methodName\":\"newInstance\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"java.lang.reflect.Constructor\",\"fileName\":\"Constructor.java\",\"lineNumber\":490,\"methodName\":\"newInstance\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":142,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":842,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":750,\"methodName\":\"b\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":449,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":99,\"methodName\":\"b\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.g.c\",\"fileName\":\"SourceFile\",\"lineNumber\":32,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":394,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":261,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.fuzztest.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":1105,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.SafeTimedExecutor\",\"fileName\":\"SourceFile\",\"lineNumber\":171,\"methodName\":\"lambda$runWithLoopIterationLimit$5\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.TimedCallableExecutor$CallableFuture\",\"fileName\":\"SourceFile\",\"lineNumber\":29,\"methodName\":\"executeTask\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.TaskQueueRunner\",\"fileName\":\"SourceFile\",\"lineNumber\":39,\"methodName\":\"run\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.WorkerThread\",\"fileName\":\"SourceFile\",\"lineNumber\":265,\"methodName\":\"run\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false}]}}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl",
+            "descriptor" : "(Lorg/finos/legend/depot/services/api/entities/EntitiesService;Lorg/finos/legend/depot/services/api/projects/ProjectsService;)V",
+            "methodName" : "<init>"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.NoNonThrowingInputsMessage\",\"serializableCause\":{\"cause\":null,\"message\":\"readPreference can not be null\",\"originalClassName\":\"java.lang.IllegalArgumentException\",\"stackTrace\":[{\"classLoaderName\":null,\"className\":\"com.mongodb.assertions.Assertions\",\"fileName\":\"Assertions.java\",\"lineNumber\":39,\"methodName\":\"notNull\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.mongodb.client.internal.MongoDatabaseImpl\",\"fileName\":\"MongoDatabaseImpl.java\",\"lineNumber\":77,\"methodName\":\"<init>\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"jdk.internal.reflect.GeneratedConstructorAccessor169\",\"fileName\":null,\"lineNumber\":-1,\"methodName\":\"newInstance\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"jdk.internal.reflect.DelegatingConstructorAccessorImpl\",\"fileName\":\"DelegatingConstructorAccessorImpl.java\",\"lineNumber\":45,\"methodName\":\"newInstance\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"java.lang.reflect.Constructor\",\"fileName\":\"Constructor.java\",\"lineNumber\":490,\"methodName\":\"newInstance\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":142,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":842,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":750,\"methodName\":\"b\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":449,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":99,\"methodName\":\"b\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.g.c\",\"fileName\":\"SourceFile\",\"lineNumber\":32,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":394,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":261,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.fuzztest.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":1105,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.SafeTimedExecutor\",\"fileName\":\"SourceFile\",\"lineNumber\":171,\"methodName\":\"lambda$runWithLoopIterationLimit$5\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.TimedCallableExecutor$CallableFuture\",\"fileName\":\"SourceFile\",\"lineNumber\":29,\"methodName\":\"executeTask\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.TaskQueueRunner\",\"fileName\":\"SourceFile\",\"lineNumber\":39,\"methodName\":\"run\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.WorkerThread\",\"fileName\":\"SourceFile\",\"lineNumber\":265,\"methodName\":\"run\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false}]}}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl",
+            "descriptor" : "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/finos/legend/engine/protocol/pure/v1/model/context/AlloySDLC;",
+            "methodName" : "buildAlloySDLC"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.NoNonThrowingInputsMessage\",\"serializableCause\":{\"cause\":null,\"message\":\"readPreference can not be null\",\"originalClassName\":\"java.lang.IllegalArgumentException\",\"stackTrace\":[{\"classLoaderName\":null,\"className\":\"com.mongodb.assertions.Assertions\",\"fileName\":\"Assertions.java\",\"lineNumber\":39,\"methodName\":\"notNull\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.mongodb.client.internal.MongoDatabaseImpl\",\"fileName\":\"MongoDatabaseImpl.java\",\"lineNumber\":77,\"methodName\":\"<init>\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"jdk.internal.reflect.GeneratedConstructorAccessor169\",\"fileName\":null,\"lineNumber\":-1,\"methodName\":\"newInstance\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"jdk.internal.reflect.DelegatingConstructorAccessorImpl\",\"fileName\":\"DelegatingConstructorAccessorImpl.java\",\"lineNumber\":45,\"methodName\":\"newInstance\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"java.lang.reflect.Constructor\",\"fileName\":\"Constructor.java\",\"lineNumber\":490,\"methodName\":\"newInstance\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":142,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":842,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":750,\"methodName\":\"b\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":449,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":99,\"methodName\":\"b\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.g.c\",\"fileName\":\"SourceFile\",\"lineNumber\":32,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":394,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":261,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.fuzztest.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":1105,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.SafeTimedExecutor\",\"fileName\":\"SourceFile\",\"lineNumber\":171,\"methodName\":\"lambda$runWithLoopIterationLimit$5\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.TimedCallableExecutor$CallableFuture\",\"fileName\":\"SourceFile\",\"lineNumber\":29,\"methodName\":\"executeTask\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.TaskQueueRunner\",\"fileName\":\"SourceFile\",\"lineNumber\":39,\"methodName\":\"run\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.WorkerThread\",\"fileName\":\"SourceFile\",\"lineNumber\":265,\"methodName\":\"run\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false}]}}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl",
+            "descriptor" : "(Ljava/util/stream/Stream;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;",
+            "methodName" : "buildPureModelContextData"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.NoNonThrowingInputsMessage\",\"serializableCause\":{\"cause\":null,\"message\":\"readPreference can not be null\",\"originalClassName\":\"java.lang.IllegalArgumentException\",\"stackTrace\":[{\"classLoaderName\":null,\"className\":\"com.mongodb.assertions.Assertions\",\"fileName\":\"Assertions.java\",\"lineNumber\":39,\"methodName\":\"notNull\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.mongodb.client.internal.MongoDatabaseImpl\",\"fileName\":\"MongoDatabaseImpl.java\",\"lineNumber\":77,\"methodName\":\"<init>\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"jdk.internal.reflect.GeneratedConstructorAccessor169\",\"fileName\":null,\"lineNumber\":-1,\"methodName\":\"newInstance\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"jdk.internal.reflect.DelegatingConstructorAccessorImpl\",\"fileName\":\"DelegatingConstructorAccessorImpl.java\",\"lineNumber\":45,\"methodName\":\"newInstance\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"java.lang.reflect.Constructor\",\"fileName\":\"Constructor.java\",\"lineNumber\":490,\"methodName\":\"newInstance\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":142,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":842,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":750,\"methodName\":\"b\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":449,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":99,\"methodName\":\"b\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.g.c\",\"fileName\":\"SourceFile\",\"lineNumber\":32,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":394,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":261,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.fuzztest.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":1105,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.SafeTimedExecutor\",\"fileName\":\"SourceFile\",\"lineNumber\":171,\"methodName\":\"lambda$runWithLoopIterationLimit$5\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.TimedCallableExecutor$CallableFuture\",\"fileName\":\"SourceFile\",\"lineNumber\":29,\"methodName\":\"executeTask\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.TaskQueueRunner\",\"fileName\":\"SourceFile\",\"lineNumber\":39,\"methodName\":\"run\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.WorkerThread\",\"fileName\":\"SourceFile\",\"lineNumber\":265,\"methodName\":\"run\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false}]}}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl",
+            "descriptor" : "(Ljava/util/stream/Stream;Lorg/finos/legend/engine/protocol/pure/v1/model/context/AlloySDLC;Ljava/lang/String;Z)Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;",
+            "methodName" : "buildPureModelContextData"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.NoNonThrowingInputsMessage\",\"serializableCause\":{\"cause\":null,\"message\":\"readPreference can not be null\",\"originalClassName\":\"java.lang.IllegalArgumentException\",\"stackTrace\":[{\"classLoaderName\":null,\"className\":\"com.mongodb.assertions.Assertions\",\"fileName\":\"Assertions.java\",\"lineNumber\":39,\"methodName\":\"notNull\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.mongodb.client.internal.MongoDatabaseImpl\",\"fileName\":\"MongoDatabaseImpl.java\",\"lineNumber\":77,\"methodName\":\"<init>\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"jdk.internal.reflect.GeneratedConstructorAccessor169\",\"fileName\":null,\"lineNumber\":-1,\"methodName\":\"newInstance\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"jdk.internal.reflect.DelegatingConstructorAccessorImpl\",\"fileName\":\"DelegatingConstructorAccessorImpl.java\",\"lineNumber\":45,\"methodName\":\"newInstance\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"java.lang.reflect.Constructor\",\"fileName\":\"Constructor.java\",\"lineNumber\":490,\"methodName\":\"newInstance\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":142,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":842,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":750,\"methodName\":\"b\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":449,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":99,\"methodName\":\"b\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.g.c\",\"fileName\":\"SourceFile\",\"lineNumber\":32,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":394,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":261,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.fuzztest.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":1105,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.SafeTimedExecutor\",\"fileName\":\"SourceFile\",\"lineNumber\":171,\"methodName\":\"lambda$runWithLoopIterationLimit$5\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.TimedCallableExecutor$CallableFuture\",\"fileName\":\"SourceFile\",\"lineNumber\":29,\"methodName\":\"executeTask\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.TaskQueueRunner\",\"fileName\":\"SourceFile\",\"lineNumber\":39,\"methodName\":\"run\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.WorkerThread\",\"fileName\":\"SourceFile\",\"lineNumber\":265,\"methodName\":\"run\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false}]}}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl",
+            "descriptor" : "(Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;)Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;",
+            "methodName" : "combinePureModelContextData"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.NoNonThrowingInputsMessage\",\"serializableCause\":{\"cause\":null,\"message\":\"readPreference can not be null\",\"originalClassName\":\"java.lang.IllegalArgumentException\",\"stackTrace\":[{\"classLoaderName\":null,\"className\":\"com.mongodb.assertions.Assertions\",\"fileName\":\"Assertions.java\",\"lineNumber\":39,\"methodName\":\"notNull\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.mongodb.client.internal.MongoDatabaseImpl\",\"fileName\":\"MongoDatabaseImpl.java\",\"lineNumber\":77,\"methodName\":\"<init>\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"jdk.internal.reflect.GeneratedConstructorAccessor169\",\"fileName\":null,\"lineNumber\":-1,\"methodName\":\"newInstance\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"jdk.internal.reflect.DelegatingConstructorAccessorImpl\",\"fileName\":\"DelegatingConstructorAccessorImpl.java\",\"lineNumber\":45,\"methodName\":\"newInstance\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"java.lang.reflect.Constructor\",\"fileName\":\"Constructor.java\",\"lineNumber\":490,\"methodName\":\"newInstance\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":142,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":842,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":750,\"methodName\":\"b\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":449,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":99,\"methodName\":\"b\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.g.c\",\"fileName\":\"SourceFile\",\"lineNumber\":32,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":394,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":261,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.fuzztest.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":1105,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.SafeTimedExecutor\",\"fileName\":\"SourceFile\",\"lineNumber\":171,\"methodName\":\"lambda$runWithLoopIterationLimit$5\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.TimedCallableExecutor$CallableFuture\",\"fileName\":\"SourceFile\",\"lineNumber\":29,\"methodName\":\"executeTask\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.TaskQueueRunner\",\"fileName\":\"SourceFile\",\"lineNumber\":39,\"methodName\":\"run\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.WorkerThread\",\"fileName\":\"SourceFile\",\"lineNumber\":265,\"methodName\":\"run\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false}]}}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl",
+            "descriptor" : "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;",
+            "methodName" : "getPureModelContextData"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.TestIncompleteMessage\",\"reason\":null,\"serializableCause\":{\"cause\":null,\"message\":\"Diffblue Cover can't complete test\",\"originalClassName\":\"com.diffblue.cover.exception.BaseException\",\"stackTrace\":[{\"classLoaderName\":null,\"className\":\"com.diffblue.fuzztest.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":3461,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.fuzztest.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":377,\"methodName\":\"b\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.fuzztest.g.ae\",\"fileName\":\"SourceFile\",\"lineNumber\":100,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.fuzztest.g.ag\",\"fileName\":\"SourceFile\",\"lineNumber\":141,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.fuzztest.g.ae\",\"fileName\":\"SourceFile\",\"lineNumber\":193,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.fuzztest.g.e\",\"fileName\":\"SourceFile\",\"lineNumber\":499,\"methodName\":\"r\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.WorkerThread\",\"fileName\":\"SourceFile\",\"lineNumber\":164,\"methodName\":\"lambda$callWorkerThread$3\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.WorkerThread\",\"fileName\":\"SourceFile\",\"lineNumber\":265,\"methodName\":\"run\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false}]}}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl",
+            "descriptor" : "(Ljava/util/List;Ljava/lang/String;ZZ)Lorg/finos/legend/engine/protocol/pure/v1/model/context/PureModelContextData;",
+            "methodName" : "getPureModelContextData"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.NoNonThrowingInputsMessage\",\"serializableCause\":{\"cause\":null,\"message\":\"readPreference can not be null\",\"originalClassName\":\"java.lang.IllegalArgumentException\",\"stackTrace\":[{\"classLoaderName\":null,\"className\":\"com.mongodb.assertions.Assertions\",\"fileName\":\"Assertions.java\",\"lineNumber\":39,\"methodName\":\"notNull\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.mongodb.client.internal.MongoDatabaseImpl\",\"fileName\":\"MongoDatabaseImpl.java\",\"lineNumber\":77,\"methodName\":\"<init>\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"jdk.internal.reflect.GeneratedConstructorAccessor169\",\"fileName\":null,\"lineNumber\":-1,\"methodName\":\"newInstance\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"jdk.internal.reflect.DelegatingConstructorAccessorImpl\",\"fileName\":\"DelegatingConstructorAccessorImpl.java\",\"lineNumber\":45,\"methodName\":\"newInstance\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"java.lang.reflect.Constructor\",\"fileName\":\"Constructor.java\",\"lineNumber\":490,\"methodName\":\"newInstance\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":142,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":842,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":750,\"methodName\":\"b\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":449,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":99,\"methodName\":\"b\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.g.c\",\"fileName\":\"SourceFile\",\"lineNumber\":32,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":394,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":261,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.fuzztest.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":1105,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.SafeTimedExecutor\",\"fileName\":\"SourceFile\",\"lineNumber\":171,\"methodName\":\"lambda$runWithLoopIterationLimit$5\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.TimedCallableExecutor$CallableFuture\",\"fileName\":\"SourceFile\",\"lineNumber\":29,\"methodName\":\"executeTask\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.TaskQueueRunner\",\"fileName\":\"SourceFile\",\"lineNumber\":39,\"methodName\":\"run\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.WorkerThread\",\"fileName\":\"SourceFile\",\"lineNumber\":265,\"methodName\":\"run\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false}]}}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.services.pure.model.context.PureModelContextServiceImpl",
+            "descriptor" : "(Ljava/lang/String;)Ljava/lang/String;",
+            "methodName" : "resolveAndValidateClientVersion"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.MissingObserverMessage\",\"fields\":[{\"className\":{\"descriptor\":\"Lcom/google/inject/PrivateModule;\",\"simpleNames\":[\"PrivateModule\"]},\"fieldName\":\"binder\"}],\"serializableCause\":null}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.services.pure.model.context.guice.PureModelContextModule",
+            "descriptor" : "()V",
+            "methodName" : "<init>"
+          }
+        ]
+      }
+    },
+    {
+      "baseMessage" : "{\"__type\":\"com.diffblue.cover.message.limitation.NoNonThrowingInputsMessage\",\"serializableCause\":{\"cause\":null,\"message\":\"The binder can only be used inside configure()\",\"originalClassName\":\"java.lang.IllegalStateException\",\"stackTrace\":[{\"classLoaderName\":null,\"className\":\"com.google.common.base.Preconditions\",\"fileName\":\"Preconditions.java\",\"lineNumber\":508,\"methodName\":\"checkState\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.google.inject.PrivateModule\",\"fileName\":\"PrivateModule.java\",\"lineNumber\":140,\"methodName\":\"binder\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.google.inject.PrivateModule\",\"fileName\":\"PrivateModule.java\",\"lineNumber\":161,\"methodName\":\"bind\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"org.finos.legend.depot.services.pure.model.context.guice.PureModelContextModule\",\"fileName\":\"PureModelContextModule.java\",\"lineNumber\":27,\"methodName\":\"configure\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"jdk.internal.reflect.NativeMethodAccessorImpl\",\"fileName\":\"NativeMethodAccessorImpl.java\",\"lineNumber\":-2,\"methodName\":\"invoke0\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":true},{\"classLoaderName\":null,\"className\":\"jdk.internal.reflect.NativeMethodAccessorImpl\",\"fileName\":\"NativeMethodAccessorImpl.java\",\"lineNumber\":62,\"methodName\":\"invoke\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"jdk.internal.reflect.DelegatingMethodAccessorImpl\",\"fileName\":\"DelegatingMethodAccessorImpl.java\",\"lineNumber\":43,\"methodName\":\"invoke\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"java.lang.reflect.Method\",\"fileName\":\"Method.java\",\"lineNumber\":566,\"methodName\":\"invoke\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":140,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.h\",\"fileName\":\"SourceFile\",\"lineNumber\":77,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.a.f\",\"fileName\":\"SourceFile\",\"lineNumber\":852,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":463,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":99,\"methodName\":\"b\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.g.d\",\"fileName\":\"SourceFile\",\"lineNumber\":51,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":368,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.tir.b.g\",\"fileName\":\"SourceFile\",\"lineNumber\":261,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.fuzztest.b.f\",\"fileName\":\"SourceFile\",\"lineNumber\":1105,\"methodName\":\"a\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.SafeTimedExecutor\",\"fileName\":\"SourceFile\",\"lineNumber\":171,\"methodName\":\"lambda$runWithLoopIterationLimit$5\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.TimedCallableExecutor$CallableFuture\",\"fileName\":\"SourceFile\",\"lineNumber\":29,\"methodName\":\"executeTask\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.TaskQueueRunner\",\"fileName\":\"SourceFile\",\"lineNumber\":39,\"methodName\":\"run\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false},{\"classLoaderName\":null,\"className\":\"com.diffblue.cover.sandbox.execution.WorkerThread\",\"fileName\":\"SourceFile\",\"lineNumber\":265,\"methodName\":\"run\",\"moduleName\":null,\"moduleVersion\":null,\"nativeMethod\":false}]}}",
+      "methodGroup" : {
+        "methods" : [
+          {
+            "binaryClassName" : "org.finos.legend.depot.services.pure.model.context.guice.PureModelContextModule",
+            "descriptor" : "()V",
+            "methodName" : "configure"
+          }
+        ]
+      }
+    }
+  ]
+}
