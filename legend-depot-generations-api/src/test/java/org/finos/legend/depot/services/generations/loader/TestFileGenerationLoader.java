@@ -18,12 +18,17 @@ package org.finos.legend.depot.services.generations.loader;
 import org.finos.legend.depot.domain.generation.DepotGeneration;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class TestFileGenerationLoader
 {
@@ -38,6 +43,44 @@ public class TestFileGenerationLoader
         Assertions.assertEquals(14, generations.size());
         DepotGeneration generation = generations.get(0);
         Assertions.assertFalse(generation.getContent().isEmpty());
+    }
+
+    @Test
+    public void canLoadFileGenerationsFromDirectory(@TempDir Path tempDir) throws IOException
+    {
+        Path testFile = tempDir.resolve("test.txt");
+        Files.write(testFile, "test content".getBytes());
+
+        FileGenerationLoader loader = FileGenerationLoader.newFileGenerationsLoader(tempDir.toFile());
+        List<DepotGeneration> generations = loader.getAllFileGenerations().collect(Collectors.toList());
+
+        Assertions.assertNotNull(generations);
+        Assertions.assertEquals(1, generations.size());
+    }
+
+    @Test
+    public void canLoadFileGenerationsFromEmptyDirectory(@TempDir Path tempDir) throws IOException
+    {
+        FileGenerationLoader loader = FileGenerationLoader.newFileGenerationsLoader(tempDir.toFile());
+        List<DepotGeneration> generations = loader.getAllFileGenerations().collect(Collectors.toList());
+
+        Assertions.assertNotNull(generations);
+        Assertions.assertEquals(0, generations.size());
+    }
+
+    @Test
+    public void canLoadFileGenerationsFromNestedDirectory(@TempDir Path tempDir) throws IOException
+    {
+        Path subDir = tempDir.resolve("subdir");
+        Files.createDirectories(subDir);
+        Path testFile = subDir.resolve("nested.txt");
+        Files.write(testFile, "nested content".getBytes());
+
+        FileGenerationLoader loader = FileGenerationLoader.newFileGenerationsLoader(tempDir.toFile());
+        List<DepotGeneration> generations = loader.getAllFileGenerations().collect(Collectors.toList());
+
+        Assertions.assertNotNull(generations);
+        Assertions.assertEquals(1, generations.size());
     }
 
 }
