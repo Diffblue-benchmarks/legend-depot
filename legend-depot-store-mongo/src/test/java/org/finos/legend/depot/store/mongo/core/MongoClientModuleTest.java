@@ -64,6 +64,17 @@ public class MongoClientModuleTest
         assertSame(mongoClient, actualClient);
     }
 
+    @Test
+    public void canGetMongoDatabase()
+    {
+        ConnectionFactory connectionFactory = new TestConnectionFactory(mongoClient);
+
+        MongoClientModule module = new MongoClientModule();
+        MongoDatabase database = module.getMongoDatabase(connectionFactory);
+
+        assertNotNull(database);
+    }
+
     private static class TestConnectionFactory implements ConnectionFactory
     {
         private final MongoClient client;
