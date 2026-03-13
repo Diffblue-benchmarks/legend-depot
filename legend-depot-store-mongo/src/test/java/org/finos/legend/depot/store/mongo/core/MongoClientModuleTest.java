@@ -24,12 +24,20 @@ import io.opentracing.Tracer;
 import io.opentracing.noop.NoopTracerFactory;
 import org.finos.legend.depot.core.services.api.tracing.configuration.OpenTracingConfiguration;
 import org.finos.legend.depot.core.services.tracing.TracerFactory;
+import org.finos.legend.depot.store.StorageConfiguration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MongoClientModuleTest
@@ -142,6 +150,81 @@ public class MongoClientModuleTest
 
         assertNotNull(connectionFactory);
         assertTrue(connectionFactory instanceof MongoNonTracingConnectionFactory);
+    }
+
+    @Test
+    public void canGetMongoConfiguration()
+    {
+        MongoConfiguration expectedConfig = new MongoConfiguration("test-db", "mongodb://localhost:27017", true);
+        List<StorageConfiguration> configurations = Arrays.asList(expectedConfig);
+
+        MongoClientModule module = new MongoClientModule();
+        MongoConfiguration actualConfig = module.getMongoConfiguration(configurations);
+
+        assertNotNull(actualConfig);
+        assertSame(expectedConfig, actualConfig);
+    }
+
+    @Test
+    public void canGetMongoConfigurationWithMultipleConfigurations()
+    {
+        MongoConfiguration mongoConfig = new MongoConfiguration("test-db", "mongodb://localhost:27017", true);
+        TestStorageConfiguration otherConfig = new TestStorageConfiguration();
+        List<StorageConfiguration> configurations = Arrays.asList(otherConfig, mongoConfig);
+
+        MongoClientModule module = new MongoClientModule();
+        MongoConfiguration actualConfig = module.getMongoConfiguration(configurations);
+
+        assertNotNull(actualConfig);
+        assertSame(mongoConfig, actualConfig);
+    }
+
+    @Test
+    public void canGetMongoConfigurationWithNullValues()
+    {
+        MongoConfiguration mongoConfig = new MongoConfiguration("test-db", "mongodb://localhost:27017", false);
+        List<StorageConfiguration> configurations = new ArrayList<>();
+        configurations.add(null);
+        configurations.add(mongoConfig);
+
+        MongoClientModule module = new MongoClientModule();
+        MongoConfiguration actualConfig = module.getMongoConfiguration(configurations);
+
+        assertNotNull(actualConfig);
+        assertSame(mongoConfig, actualConfig);
+    }
+
+    @Test
+    public void throwsExceptionWhenMongoConfigurationNotProvided()
+    {
+        List<StorageConfiguration> configurations = Collections.emptyList();
+
+        MongoClientModule module = new MongoClientModule();
+        IllegalArgumentException exception = assertThrows(
+            IllegalArgumentException.class,
+            () -> module.getMongoConfiguration(configurations)
+        );
+
+        assertEquals("mongo configuration not provided", exception.getMessage());
+    }
+
+    @Test
+    public void throwsExceptionWhenOnlyNonMongoConfigurationProvided()
+    {
+        TestStorageConfiguration otherConfig = new TestStorageConfiguration();
+        List<StorageConfiguration> configurations = Arrays.asList(otherConfig);
+
+        MongoClientModule module = new MongoClientModule();
+        IllegalArgumentException exception = assertThrows(
+            IllegalArgumentException.class,
+            () -> module.getMongoConfiguration(configurations)
+        );
+
+        assertEquals("mongo configuration not provided", exception.getMessage());
+    }
+
+    private static class TestStorageConfiguration extends StorageConfiguration
+    {
     }
 
     private static class TestConnectionFactory implements ConnectionFactory
