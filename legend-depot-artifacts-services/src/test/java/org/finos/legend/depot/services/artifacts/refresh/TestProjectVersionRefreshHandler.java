@@ -54,6 +54,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
@@ -538,6 +540,85 @@ public class TestProjectVersionRefreshHandler extends TestStoreMongo
         when(repositoryServices.getJarFile(TEST_GROUP_ID, TEST_ARTIFACT_ID + "-entities", "12.0.0")).thenReturn(null);
 
         MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, "12.0.0", false, false, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
+    }
+
+    @Test
+    public void canDetectNewArtifactFileNotInStore() throws ArtifactRepositoryException, IOException
+    {
+        File tempFile = Files.createTempFile("test-artifact-new", ".jar").toFile();
+        tempFile.deleteOnExit();
+        Files.write(tempFile.toPath(), "test content for new file".getBytes());
+
+        String snapshotVersion = BRANCH_SNAPSHOT("test-new");
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion)).thenReturn(Optional.of(snapshotVersion));
+        when(repositoryServices.findDependencies(TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion)).thenReturn(new HashSet<>());
+        when(repositoryServices.findFiles(ArtifactType.ENTITIES, TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion)).thenReturn(Arrays.asList(tempFile));
+
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion, false, false, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
+
+        Assertions.assertTrue(artifactsStore.find(tempFile.getPath()).isPresent());
+    }
+
+    @Test
+    public void canDetectChangedArtifactFileWithDifferentChecksum() throws ArtifactRepositoryException, IOException
+    {
+        File tempFile = Files.createTempFile("test-artifact-changed", ".jar").toFile();
+        tempFile.deleteOnExit();
+        Files.write(tempFile.toPath(), "initial content".getBytes());
+
+        artifactsStore.createOrUpdate(new org.finos.legend.depot.store.model.admin.artifacts.ArtifactFile(tempFile.getPath(), "old-checksum-value"));
+
+        Files.write(tempFile.toPath(), "modified content".getBytes());
+
+        String snapshotVersion = BRANCH_SNAPSHOT("test-changed");
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion)).thenReturn(Optional.of(snapshotVersion));
+        when(repositoryServices.findDependencies(TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion)).thenReturn(new HashSet<>());
+        when(repositoryServices.findFiles(ArtifactType.ENTITIES, TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion)).thenReturn(Arrays.asList(tempFile));
+
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion, false, false, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
+
+        Optional<org.finos.legend.depot.store.model.admin.artifacts.ArtifactFile> updated = artifactsStore.find(tempFile.getPath());
+        Assertions.assertTrue(updated.isPresent());
+        Assertions.assertFalse("old-checksum-value".equals(updated.get().getCheckSum()));
+    }
+
+    @Test
+    public void canSkipUnchangedArtifactFile() throws ArtifactRepositoryException, IOException
+    {
+        File tempFile = Files.createTempFile("test-artifact-unchanged", ".jar").toFile();
+        tempFile.deleteOnExit();
+        Files.write(tempFile.toPath(), "unchanged content".getBytes());
+
+        String correctChecksum = org.apache.commons.codec.digest.DigestUtils.sha256Hex(Files.newInputStream(tempFile.toPath()));
+        artifactsStore.createOrUpdate(new org.finos.legend.depot.store.model.admin.artifacts.ArtifactFile(tempFile.getPath(), correctChecksum));
+
+        String snapshotVersion = BRANCH_SNAPSHOT("test-unchanged");
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion)).thenReturn(Optional.of(snapshotVersion));
+        when(repositoryServices.findDependencies(TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion)).thenReturn(new HashSet<>());
+        when(repositoryServices.findFiles(ArtifactType.ENTITIES, TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion)).thenReturn(Arrays.asList(tempFile));
+
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion, false, false, PARENT_EVENT_ID));
+        Assertions.assertNotNull(response);
+
+        Optional<org.finos.legend.depot.store.model.admin.artifacts.ArtifactFile> unchanged = artifactsStore.find(tempFile.getPath());
+        Assertions.assertTrue(unchanged.isPresent());
+        Assertions.assertEquals(correctChecksum, unchanged.get().getCheckSum());
+    }
+
+    @Test
+    public void canHandleIOExceptionWhenReadingArtifactFile() throws ArtifactRepositoryException
+    {
+        File nonExistentFile = new File("/nonexistent/path/to/file.jar");
+
+        String snapshotVersion = BRANCH_SNAPSHOT("test-ioexception");
+        when(repositoryServices.findVersion(TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion)).thenReturn(Optional.of(snapshotVersion));
+        when(repositoryServices.findDependencies(TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion)).thenReturn(new HashSet<>());
+        when(repositoryServices.findFiles(ArtifactType.ENTITIES, TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion)).thenReturn(Arrays.asList(nonExistentFile));
+
+        MetadataNotificationResponse response = versionHandler.handleNotification(new MetadataNotification(PROJECT_A, TEST_GROUP_ID, TEST_ARTIFACT_ID, snapshotVersion, false, false, PARENT_EVENT_ID));
         Assertions.assertNotNull(response);
     }
 }
