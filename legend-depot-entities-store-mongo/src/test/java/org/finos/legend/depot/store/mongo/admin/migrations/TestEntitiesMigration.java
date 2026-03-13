@@ -102,6 +102,44 @@ public class TestEntitiesMigration extends TestStoreMongo
         Assertions.assertTrue(storedEntities.get(2) instanceof StoredEntityData);
     }
 
+    @Test
+    public void canConstructEntitiesMigration()
+    {
+        EntitiesMigration migration = new EntitiesMigration(mongoProvider);
+        Assertions.assertNotNull(migration);
+    }
+
+    @Test
+    public void canDeleteVersionedEntitiesDirectly()
+    {
+        mongoProvider.getCollection("entities").updateOne(and(Filters.eq("entity.path", "examples::metadata::test::TestProfile"), getArtifactAndVersionFilter("examples.metadata", "test", "2.2.0")),
+                Updates.combine(Updates.set("versionedEntity", true)));
+        EntitiesMigration migration = new EntitiesMigration(mongoProvider);
+        DeleteResult result = migration.versionedEntitiesDeletion();
+        Assertions.assertNotNull(result);
+        Assertions.assertEquals(1, result.getDeletedCount());
+        Assertions.assertEquals(2, mongoProvider.getCollection("entities").countDocuments());
+    }
+
+    @Test
+    public void canMigrateEntitiesToStoredEntityDataDirectly()
+    {
+        mongoProvider.getCollection("entities").drop();
+        setUpLegacyEntitiesDataFromFile(this.getClass().getClassLoader().getResource("data/migration/legacy-entities.json"));
+        EntitiesMigration migration = new EntitiesMigration(mongoProvider);
+        migration.entitiesToStoredEntityDataMigration();
+
+        Assertions.assertEquals(3, mongoProvider.getCollection("entities").countDocuments());
+        Assertions.assertNotNull(mongoProvider.getCollection("entities").find().first().getString("_type"));
+        Assertions.assertEquals("entityData", mongoProvider.getCollection("entities").find().first().getString("_type"));
+
+        EntitiesMongo entitiesMongo = new EntitiesMongo(mongoProvider);
+        List<StoredEntity> storedEntities = entitiesMongo.getAllStoredEntities();
+        Assertions.assertTrue(storedEntities.get(0) instanceof StoredEntityData);
+        Assertions.assertTrue(storedEntities.get(1) instanceof StoredEntityData);
+        Assertions.assertTrue(storedEntities.get(2) instanceof StoredEntityData);
+    }
+
     protected void setUpLegacyEntitiesDataFromFile(URL entitiesFile)
     {
         try
