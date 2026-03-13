@@ -21,6 +21,7 @@ import org.finos.legend.depot.domain.artifacts.repository.ArtifactDependency;
 import org.finos.legend.depot.domain.artifacts.repository.ArtifactType;
 import org.finos.legend.sdlc.domain.model.version.VersionId;
 import org.jboss.shrinkwrap.resolver.api.maven.PackagingType;
+import org.jboss.shrinkwrap.resolver.api.ResolutionException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
@@ -340,5 +341,136 @@ public class MavenArtifactRepositoryTest
         File result = spyRepository.getJarFile("org.example", "test-artifact", "1.0.0");
 
         assertNull(result);
+    }
+
+    @Test
+    public void testGetPOMHandlesResolutionException() throws Exception
+    {
+        MavenArtifactRepository spyRepository = spy(repository);
+        File localRepoDir = tempDir.resolve("repo").resolve("org").resolve("example").resolve("test-artifact").resolve("1.0.0").toFile();
+        localRepoDir.mkdirs();
+        File pomFile = new File(localRepoDir, "test-artifact-1.0.0.pom");
+
+        String pomContent = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+                "<project>\n" +
+                "  <modelVersion>4.0.0</modelVersion>\n" +
+                "  <groupId>org.example</groupId>\n" +
+                "  <artifactId>test-artifact</artifactId>\n" +
+                "  <version>1.0.0</version>\n" +
+                "</project>";
+
+        try (FileWriter writer = new FileWriter(pomFile))
+        {
+            writer.write(pomContent);
+        }
+
+        doThrow(new ResolutionException("Resolution failed")).when(spyRepository).resolvePOMFromRepository("org.example", "test-artifact", "1.0.0");
+
+        org.apache.maven.model.Model result = spyRepository.getPOM("org.example", "test-artifact", "1.0.0");
+
+        assertNotNull(result);
+        assertEquals("test-artifact", result.getArtifactId());
+    }
+
+    @Test
+    public void testGetPOMWithNullResolutionResult() throws Exception
+    {
+        MavenArtifactRepository spyRepository = spy(repository);
+        File localRepoDir = tempDir.resolve("repo").resolve("org").resolve("example").resolve("test-artifact").resolve("2.0.0").toFile();
+        localRepoDir.mkdirs();
+        File pomFile = new File(localRepoDir, "test-artifact-2.0.0.pom");
+
+        String pomContent = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+                "<project>\n" +
+                "  <modelVersion>4.0.0</modelVersion>\n" +
+                "  <groupId>org.example</groupId>\n" +
+                "  <artifactId>test-artifact</artifactId>\n" +
+                "  <version>2.0.0</version>\n" +
+                "</project>";
+
+        try (FileWriter writer = new FileWriter(pomFile))
+        {
+            writer.write(pomContent);
+        }
+
+        doReturn(null).when(spyRepository).resolvePOMFromRepository("org.example", "test-artifact", "2.0.0");
+
+        org.apache.maven.model.Model result = spyRepository.getPOM("org.example", "test-artifact", "2.0.0");
+
+        assertNotNull(result);
+        assertEquals("test-artifact", result.getArtifactId());
+    }
+
+    @Test
+    public void testGetPOMWithEmptyResolutionResult() throws Exception
+    {
+        MavenArtifactRepository spyRepository = spy(repository);
+        File localRepoDir = tempDir.resolve("repo").resolve("org").resolve("example").resolve("test-artifact").resolve("3.0.0").toFile();
+        localRepoDir.mkdirs();
+        File pomFile = new File(localRepoDir, "test-artifact-3.0.0.pom");
+
+        String pomContent = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+                "<project>\n" +
+                "  <modelVersion>4.0.0</modelVersion>\n" +
+                "  <groupId>org.example</groupId>\n" +
+                "  <artifactId>test-artifact</artifactId>\n" +
+                "  <version>3.0.0</version>\n" +
+                "</project>";
+
+        try (FileWriter writer = new FileWriter(pomFile))
+        {
+            writer.write(pomContent);
+        }
+
+        URL[] emptyUrls = new URL[0];
+        doReturn(emptyUrls).when(spyRepository).resolvePOMFromRepository("org.example", "test-artifact", "3.0.0");
+
+        org.apache.maven.model.Model result = spyRepository.getPOM("org.example", "test-artifact", "3.0.0");
+
+        assertNotNull(result);
+        assertEquals("test-artifact", result.getArtifactId());
+    }
+
+    @Test
+    public void testGetPOMWithSuccessfulResolution() throws Exception
+    {
+        MavenArtifactRepository spyRepository = spy(repository);
+        File tempPom = tempDir.resolve("resolved-pom.pom").toFile();
+
+        String pomContent = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+                "<project>\n" +
+                "  <modelVersion>4.0.0</modelVersion>\n" +
+                "  <groupId>org.example</groupId>\n" +
+                "  <artifactId>resolved-artifact</artifactId>\n" +
+                "  <version>1.0.0</version>\n" +
+                "</project>";
+
+        try (FileWriter writer = new FileWriter(tempPom))
+        {
+            writer.write(pomContent);
+        }
+
+        URL pomUrl = tempPom.toURI().toURL();
+        URL[] pomUrls = new URL[]{pomUrl};
+
+        doReturn(pomUrls).when(spyRepository).resolvePOMFromRepository("org.example", "resolved-artifact", "1.0.0");
+
+        org.apache.maven.model.Model result = spyRepository.getPOM("org.example", "resolved-artifact", "1.0.0");
+
+        assertNotNull(result);
+        assertEquals("resolved-artifact", result.getArtifactId());
+    }
+
+    @Test
+    public void testGetPOMHandlesFileReadException() throws Exception
+    {
+        MavenArtifactRepository spyRepository = spy(repository);
+
+        doReturn(null).when(spyRepository).resolvePOMFromRepository("org.example", "nonexistent-pom", "1.0.0");
+
+        org.apache.maven.model.Model result = spyRepository.getPOM("org.example", "nonexistent-pom", "1.0.0");
+
+        assertNotNull(result);
+        assertNull(result.getArtifactId());
     }
 }
