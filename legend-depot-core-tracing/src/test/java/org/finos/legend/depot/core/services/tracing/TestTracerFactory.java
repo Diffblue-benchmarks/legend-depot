@@ -15,6 +15,10 @@
 
 package org.finos.legend.depot.core.services.tracing;
 
+import io.opentracing.Tracer;
+import io.opentracing.noop.NoopTracerFactory;
+import org.finos.legend.depot.core.services.api.tracing.configuration.OpenTracingConfiguration;
+import org.finos.legend.depot.core.services.api.tracing.configuration.TracerProvider;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -114,5 +118,56 @@ public class TestTracerFactory
         Assertions.assertTrue(thrown.getMessage().contains("Null value encountered"));
         Assertions.assertNotNull(thrown.getCause());
         Assertions.assertTrue(thrown.getCause() instanceof NullPointerException);
+    }
+
+    @Test
+    public void testConfigureWithNullConfiguration()
+    {
+        TracerFactory factory = TracerFactory.configure(null);
+
+        Assertions.assertNotNull(factory);
+        Assertions.assertNotNull(TracerFactory.getTracer());
+    }
+
+    @Test
+    public void testConfigureWithDisabledConfiguration()
+    {
+        OpenTracingConfiguration config = new OpenTracingConfiguration();
+        config.setEnabled(false);
+
+        TracerFactory factory = TracerFactory.configure(config);
+
+        Assertions.assertNotNull(factory);
+        Assertions.assertNotNull(TracerFactory.getTracer());
+    }
+
+    @Test
+    public void testConfigureWithEnabledConfigurationAndCustomProvider()
+    {
+        OpenTracingConfiguration config = new OpenTracingConfiguration();
+        config.setEnabled(true);
+        config.setServiceName("test-service");
+        TracerProvider customProvider = (configuration) -> NoopTracerFactory.create();
+        config.setTracerProvider(customProvider);
+
+        TracerFactory factory = TracerFactory.configure(config);
+
+        Assertions.assertNotNull(factory);
+        Assertions.assertNotNull(TracerFactory.getTracer());
+    }
+
+    @Test
+    public void testConfigureWithEnabledConfigurationAndNullProvider()
+    {
+        OpenTracingConfiguration config = new OpenTracingConfiguration();
+        config.setEnabled(true);
+        config.setOpenTracingUri("http://localhost:9411/api/v2/spans");
+        config.setServiceName("test-service");
+        config.setTracerProvider(null);
+
+        TracerFactory factory = TracerFactory.configure(config);
+
+        Assertions.assertNotNull(factory);
+        Assertions.assertNotNull(TracerFactory.getTracer());
     }
 }
