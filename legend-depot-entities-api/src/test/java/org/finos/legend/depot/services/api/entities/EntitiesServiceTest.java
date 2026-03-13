@@ -30,6 +30,35 @@ import java.util.Set;
 public class EntitiesServiceTest
 {
     @Test
+    public void canGetDependenciesEntitiesWithDefaultMethod()
+    {
+        TestEntitiesService service = new TestEntitiesService();
+
+        String groupId = "test.group";
+        String artifactId = "test-artifact";
+        String versionId = "1.0.0";
+        boolean transitive = true;
+        boolean includeOrigin = false;
+
+        List<ProjectVersionEntities> result = service.getDependenciesEntities(
+            groupId, artifactId, versionId, transitive, includeOrigin
+        );
+
+        Assertions.assertNotNull(result);
+        Assertions.assertTrue(service.wasCalledDependenciesEntities);
+        Assertions.assertNotNull(service.capturedProjectVersionsForDependencies);
+        Assertions.assertEquals(1, service.capturedProjectVersionsForDependencies.size());
+
+        ProjectVersion capturedVersion = service.capturedProjectVersionsForDependencies.get(0);
+        Assertions.assertEquals(groupId, capturedVersion.getGroupId());
+        Assertions.assertEquals(artifactId, capturedVersion.getArtifactId());
+        Assertions.assertEquals(versionId, capturedVersion.getVersionId());
+
+        Assertions.assertEquals(transitive, service.capturedTransitiveForDependencies);
+        Assertions.assertEquals(includeOrigin, service.capturedIncludeOriginForDependencies);
+    }
+
+    @Test
     public void canGetDependenciesEntitiesByClassifierWithDefaultMethod()
     {
         TestEntitiesService service = new TestEntitiesService();
@@ -68,6 +97,11 @@ public class EntitiesServiceTest
         boolean capturedTransitive;
         boolean capturedIncludeOrigin;
 
+        boolean wasCalledDependenciesEntities = false;
+        List<ProjectVersion> capturedProjectVersionsForDependencies;
+        boolean capturedTransitiveForDependencies;
+        boolean capturedIncludeOriginForDependencies;
+
         @Override
         public List<Entity> getEntities(String groupId, String artifactId, String versionId)
         {
@@ -101,6 +135,10 @@ public class EntitiesServiceTest
         @Override
         public List<ProjectVersionEntities> getDependenciesEntities(List<ProjectVersion> projectDependencies, boolean transitive, boolean includeOrigin)
         {
+            wasCalledDependenciesEntities = true;
+            capturedProjectVersionsForDependencies = projectDependencies;
+            capturedTransitiveForDependencies = transitive;
+            capturedIncludeOriginForDependencies = includeOrigin;
             return Collections.emptyList();
         }
 
