@@ -30,6 +30,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -150,5 +151,32 @@ public class VersionedEntitiesMongoTest extends TestStoreMongo
         });
 
         Assertions.assertEquals("Unknown stored entity type", exception.getMessage());
+    }
+
+    @Test
+    public void canAccessVersionedEntitiesCollection()
+    {
+        EntityDefinition entityDef = new EntityDefinition("test::collection::path", "test::collection::classifier", Collections.emptyMap());
+        Map<String, Object> entityAttributes = new HashMap<>();
+        entityAttributes.put("path", "test::collection::path");
+
+        StoredVersionedEntityData storedEntity = new StoredVersionedEntityData(
+                "org.collection",
+                "test-collection-artifact",
+                "5.0.0",
+                entityDef,
+                entityAttributes
+        );
+
+        insertRaw(VersionedEntitiesMongo.COLLECTION, storedEntity);
+
+        List<StoredVersionedEntity> results = versionedEntitiesMongo.getStoredEntities("org.collection", "test-collection-artifact", "5.0.0");
+
+        Assertions.assertNotNull(results);
+        Assertions.assertFalse(results.isEmpty());
+        Assertions.assertEquals(1, results.size());
+        Assertions.assertEquals("org.collection", results.get(0).getGroupId());
+        Assertions.assertEquals("test-collection-artifact", results.get(0).getArtifactId());
+        Assertions.assertEquals("5.0.0", results.get(0).getVersionId());
     }
 }
