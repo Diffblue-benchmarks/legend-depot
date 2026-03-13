@@ -29,6 +29,7 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Stream;
 
 public class TestEntityProvider
 {
@@ -93,5 +94,51 @@ public class TestEntityProvider
     {
         File jarFile = repository.getJarFile(TEST_GROUP_ID, "test-non-existing-entities", "1.0.0");
         Assertions.assertNull(jarFile);
+    }
+
+    @Test
+    public void canConstructEntityProvider()
+    {
+        EntityProvider provider = new EntityProvider();
+        Assertions.assertNotNull(provider);
+    }
+
+    @Test
+    public void canGetType()
+    {
+        Assertions.assertEquals(ArtifactType.ENTITIES, artifactProvider.getType());
+    }
+
+    @Test
+    public void canExtractArtifactsForTypeWithStream()
+    {
+        List<File> files = getFiles(TEST_GROUP_ID, "test", "2.0.0");
+        Assertions.assertNotNull(files);
+        Assertions.assertFalse(files.isEmpty());
+
+        List<Entity> entities = artifactProvider.extractArtifactsForType(files.stream());
+        Assertions.assertNotNull(entities);
+        Assertions.assertEquals(9, entities.size());
+    }
+
+    @Test
+    public void canMatchEntitiesArtifactType()
+    {
+        File entitiesFile = new File("test-entities-1.0.0.jar");
+        Assertions.assertTrue(artifactProvider.matchesArtifactType(entitiesFile));
+    }
+
+    @Test
+    public void cannotMatchVersionedEntitiesArtifactType()
+    {
+        File versionedEntitiesFile = new File("test-versioned-entities-1.0.0.jar");
+        Assertions.assertFalse(artifactProvider.matchesArtifactType(versionedEntitiesFile));
+    }
+
+    @Test
+    public void cannotMatchNonEntitiesArtifactType()
+    {
+        File nonEntitiesFile = new File("test-file-generation-1.0.0.jar");
+        Assertions.assertFalse(artifactProvider.matchesArtifactType(nonEntitiesFile));
     }
 }
