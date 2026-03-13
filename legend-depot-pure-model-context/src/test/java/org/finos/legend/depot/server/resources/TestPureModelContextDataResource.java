@@ -89,4 +89,50 @@ public class TestPureModelContextDataResource extends TestBaseServices
         Assertions.assertTrue(optionalPersonClass.isPresent());
         Assertions.assertTrue(optionalPersonClass.get().properties.stream().anyMatch(property -> property.name.equals("lastName")));
     }
+
+    @Test
+    public void canGetDependenciesPMCDWithNonTransitive()
+    {
+        Response data = resource.getPureModelContextData(List.of(new ProjectVersion("org.finos.legend","second-project","1.0.1")), null, false, true, null);
+        Assertions.assertNotNull(data);
+        Assertions.assertNotNull(data.getEntity());
+        Assertions.assertFalse(((PureModelContextData)data.getEntity()).getElements().isEmpty());
+    }
+
+    @Test
+    public void canGetDependenciesPMCDWithoutProtocolConversion()
+    {
+        Response data = resource.getPureModelContextData(List.of(new ProjectVersion("org.finos.legend","first-project","1.0.2")), null, true, false, null);
+        Assertions.assertNotNull(data);
+        Assertions.assertNotNull(data.getEntity());
+        Assertions.assertFalse(((PureModelContextData)data.getEntity()).getElements().isEmpty());
+    }
+
+    @Test
+    public void canGetDependenciesPMCDWithClientVersion()
+    {
+        Response data = resource.getPureModelContextData(List.of(new ProjectVersion("org.finos.legend","second-project","1.0.1")), "vX_X_X", true, true, null);
+        Assertions.assertNotNull(data);
+        Assertions.assertNotNull(data.getEntity());
+        Assertions.assertFalse(((PureModelContextData)data.getEntity()).getElements().isEmpty());
+    }
+
+    @Test
+    public void canGetDependenciesPMCDWithSingleDependency()
+    {
+        Response data = resource.getPureModelContextData(List.of(new ProjectVersion("org.finos.legend","first-project","1.0.2")), null, true, true, null);
+        Assertions.assertNotNull(data);
+        PureModelContextData pmcd = (PureModelContextData)data.getEntity();
+        Assertions.assertFalse(pmcd.getElements().isEmpty());
+    }
+
+    @Test
+    public void canGetDependenciesPMCDWithMultipleFlags()
+    {
+        Response data = resource.getPureModelContextData(List.of(new ProjectVersion("org.finos.legend","second-project","1.0.1"), new ProjectVersion("org.finos.legend","first-project","1.0.2")), "vX_X_X", false, false, null);
+        Assertions.assertNotNull(data);
+        Assertions.assertNotNull(data.getEntity());
+        PureModelContextData pmcd = (PureModelContextData)data.getEntity();
+        Assertions.assertFalse(pmcd.getElements().isEmpty());
+    }
 }
