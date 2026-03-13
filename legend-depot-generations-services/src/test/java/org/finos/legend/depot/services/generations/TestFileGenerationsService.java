@@ -215,4 +215,24 @@ public class TestFileGenerationsService extends TestStoreMongo
         Assertions.assertTrue(service.getFileGenerationContentByFilePath("group.test", "test", "head", "/examples/metadata/test/ClientBasic/my-ext/Output1.txt").isPresent());
         Assertions.assertTrue(service.getFileGenerationContentByFilePath("group.test", "test", "head", "/examples/metadata/test/ClientBasic/my-ext/Output2.txt").isPresent());
     }
+
+    @Test
+    public void canGetAll()
+    {
+        List<StoredFileGeneration> allGenerations = service.getAll();
+        Assertions.assertNotNull(allGenerations);
+        Assertions.assertEquals(54, allGenerations.size());
+    }
+
+    @Test
+    public void canCreateOrUpdate()
+    {
+        DepotGeneration generation = new DepotGeneration("/test/path.txt", "test content");
+        StoredFileGeneration storedGeneration = new StoredFileGeneration("group.new", "artifact", "1.0.0", "element::path", "type", generation);
+
+        service.createOrUpdate(Arrays.asList(storedGeneration));
+
+        List<StoredFileGeneration> allGenerations = service.getAll();
+        Assertions.assertEquals(55, allGenerations.size());
+    }
 }
