@@ -16,7 +16,11 @@ package org.finos.legend.depot.core.server.info;
 
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Constructor;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class InfoServiceTest
 {
@@ -27,5 +31,31 @@ public class InfoServiceTest
         InfoService.ServerInfo serverInfo = infoService.getServerInfo();
         assertNotNull(serverInfo);
         assertNotNull(serverInfo.getServerTimeZone());
+    }
+
+    @Test
+    public void testServerPlatformInfoWithArgs() throws Exception
+    {
+        Constructor<InfoService.ServerPlatformInfo> ctor = InfoService.ServerPlatformInfo.class
+                .getDeclaredConstructor(String.class, String.class, String.class);
+        ctor.setAccessible(true);
+        InfoService.ServerPlatformInfo info = ctor.newInstance("1.0.0", "2023-01-01T00:00:00Z", "abc123");
+
+        assertEquals("1.0.0", info.getVersion());
+        assertEquals("2023-01-01T00:00:00Z", info.getBuildTime());
+        assertEquals("abc123", info.getBuildRevision());
+    }
+
+    @Test
+    public void testServerPlatformInfoNoArgs() throws Exception
+    {
+        Constructor<InfoService.ServerPlatformInfo> ctor = InfoService.ServerPlatformInfo.class
+                .getDeclaredConstructor();
+        ctor.setAccessible(true);
+        InfoService.ServerPlatformInfo info = ctor.newInstance();
+
+        assertNull(info.getVersion());
+        assertNull(info.getBuildTime());
+        assertNull(info.getBuildRevision());
     }
 }
