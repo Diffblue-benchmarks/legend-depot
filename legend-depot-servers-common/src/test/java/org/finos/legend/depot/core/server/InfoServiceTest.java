@@ -58,4 +58,15 @@ public class InfoServiceTest
         InfoService.ServerInfo serverInfo = infoService.getServerInfo();
         Assertions.assertNotNull(serverInfo.getServerTimeZone());
     }
+
+    @Test
+    public void testGetServerInfoPlatformVersionLoadedFromFile()
+    {
+        InfoService infoService = new InfoService();
+        InfoService.ServerInfo serverInfo = infoService.getServerInfo();
+        InfoService.ServerPlatformInfo platform = serverInfo.getPlatform();
+        Assertions.assertNotNull(platform.getVersion());
+        Assertions.assertNotNull(platform.getBuildTime());
+        Assertions.assertNotNull(platform.getBuildRevision());
+    }
 }
