@@ -20,6 +20,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class DatesHandlerTest
 {
@@ -31,5 +32,48 @@ public class DatesHandlerTest
         LocalDateTime lunchTime = LocalDateTime.parse("2023-03-21T14:02:49", DateTimeFormatter.ISO_DATE_TIME);
         Assertions.assertNotNull(date);
 
+    }
+
+    @Test
+    public void testToTimeReturnsEpochMillis()
+    {
+        LocalDateTime dateTime = LocalDateTime.parse("2023-03-21T14:02:49", DateTimeFormatter.ISO_DATE_TIME);
+        long time = DatesHandler.toTime(dateTime);
+        Assertions.assertTrue(time > 0);
+        Assertions.assertEquals(dateTime, DatesHandler.toDate(time));
+    }
+
+    @Test
+    public void testToDateFromDate()
+    {
+        Date now = new Date();
+        LocalDateTime result = DatesHandler.toDate(now);
+        Assertions.assertNotNull(result);
+        Assertions.assertEquals(DatesHandler.toDate(now.getTime()), result);
+    }
+
+    @Test
+    public void testToDateFromLong()
+    {
+        long millis = 1679411706436L;
+        LocalDateTime result = DatesHandler.toDate(millis);
+        Assertions.assertNotNull(result);
+    }
+
+    @Test
+    public void testToDateFromLocalDateTime()
+    {
+        LocalDateTime dateTime = LocalDateTime.parse("2023-03-21T14:02:49", DateTimeFormatter.ISO_DATE_TIME);
+        Date result = DatesHandler.toDate(dateTime);
+        Assertions.assertNotNull(result);
+        Assertions.assertEquals(dateTime, DatesHandler.toDate(result));
+    }
+
+    @Test
+    public void testParseDateWithIsoDateTimeString()
+    {
+        LocalDateTime result = DatesHandler.parseDate("2023-03-21T14:02:49");
+        Assertions.assertNotNull(result);
+        Assertions.assertEquals(LocalDateTime.parse("2023-03-21T14:02:49", DateTimeFormatter.ISO_DATE_TIME), result);
     }
 }
